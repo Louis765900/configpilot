@@ -1,0 +1,2563 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-16",
+  "policy": {
+    "pageBudget": 20,
+    "fieldLimit": 80,
+    "categories": [
+      "motherboard",
+      "ram",
+      "psu",
+      "case",
+      "cooling"
+    ],
+    "publishAutomatically": false
+  },
+  "summary": {
+    "eligibleCandidates": 20,
+    "collected": 20,
+    "remaining": 0,
+    "failures": 0,
+    "rawValues": 272,
+    "normalizedValues": 49,
+    "byCategory": {
+      "motherboard": {
+        "records": 5,
+        "normalizedValues": 9
+      },
+      "ram": {
+        "records": 4,
+        "normalizedValues": 0
+      },
+      "psu": {
+        "records": 4,
+        "normalizedValues": 12
+      },
+      "case": {
+        "records": 3,
+        "normalizedValues": 16
+      },
+      "cooling": {
+        "records": 4,
+        "normalizedValues": 12
+      }
+    },
+    "byConfidence": {
+      "high": 16,
+      "medium": 21,
+      "low": 12
+    }
+  },
+  "lastRun": {
+    "attempted": 20,
+    "collected": 20,
+    "limit": 20,
+    "mode": "network",
+    "rawValues": 272,
+    "normalizedValues": 49,
+    "errors": []
+  },
+  "records": [
+    {
+      "candidateId": "candidate-0286dc054bebf7b2",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-ddr5",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 1,
+        "normalized": 0
+      },
+      "rawFields": [
+        {
+          "field": "og:description",
+          "value": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+          "method": "meta"
+        }
+      ],
+      "specs": [],
+      "missingFields": [
+        "memoryType",
+        "capacity",
+        "moduleCount",
+        "speed",
+        "latency",
+        "xmp",
+        "expo",
+        "ecc"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-03649c7fda9cd6b5",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS720-SE-DIGITAL-360mm-Liquid-Cooler-With-Status-Display-1851-1700-AM5/2024/17234.shtml",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 33,
+        "normalized": 2
+      },
+      "rawFields": [
+        {
+          "field": "Net Weight",
+          "value": "1694g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Dimensions",
+          "value": "402×120×27 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Material",
+          "value": "Aluminum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Tube length",
+          "value": "410 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Dimensions",
+          "value": "85×73×55 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Speed",
+          "value": "3100 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Noise",
+          "value": "19 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Connector",
+          "value": "3-pin",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Current",
+          "value": "0.35A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Power Consumption",
+          "value": "4.2W",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~2250 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "85.85 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "3.27 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤32.9 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed (with LSP)",
+          "value": "500~1600 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow (with LSP)",
+          "value": "60.85 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure (with LSP)",
+          "value": "1.65 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise (with LSP)",
+          "value": "≤28.2 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "7-pin",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Hydro Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.25 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "3.0 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "Addressable RGB LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Connector",
+          "value": "3-pin(+5V-D-G)",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Rated Voltage",
+          "value": "5 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Power Consumption",
+          "value": "2.7 W （PUMP）/ 3.15 W（FAN×3）",
+          "method": "spec-table"
+        },
+        {
+          "field": "Display Type",
+          "value": "LED Digital Display",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412728344",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-LS720-BKAMMD-G-1",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The LS720 SE DIGITAL cooler is an upgraded version of DeepCool's LS SE liquid coolers. Everything you love from DeepCool AIOs, but with the inclusion of a CPU status screen! Clear up precious room on your desktop by moving the CPU monitoring software off your monitor and onto the pump in your computer tower. - DeepCool was founded with the mission of providing professional, innovative, high-perfor",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "The LS720 SE DIGITAL cooler is an upgraded version of DeepCool's LS SE liquid coolers. Everything you love from DeepCool AIOs, but with the inclusion of a CPU status screen! Clear up precious room on your desktop by moving the CPU monitorin",
+          "value": "AIO",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS720-SE-DIGITAL-360mm-Liquid-Cooler-With-Status-Display-1851-1700-AM5/2024/17234.shtml",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS720-SE-DIGITAL-360mm-Liquid-Cooler-With-Status-Display-1851-1700-AM5/2024/17234.shtml",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "coolerHeight",
+        "fanCount",
+        "dimensions"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-053576aab497eb30",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AN400-Top-Flow-Low-Profile-Cooler-1851-1700-AM5/2023/16838.shtml",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 18,
+        "normalized": 4
+      },
+      "rawFields": [
+        {
+          "field": "Product Dimensions",
+          "value": "92×92×52.5 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatsink Dimensions",
+          "value": "94×57×38 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Net Weight",
+          "value": "431.4 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatpipe",
+          "value": "Ø6 mm×4 pcs",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "92×92×15 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~2950 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "31.18 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "4.8 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤23.2 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Fluid Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.45 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "5.4 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "White LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412728788",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-AN400-SRWNMN-G",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The AN400 is a 4-heatpipe low-profile air cooler that provides 150W of TDP in a compact heatsink. With unobstructed clearance for RAM modules, and a top-down air flow, the AN400 is a great option for everything down to small ITX builds. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts acro",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "The AN400 is a 4-heatpipe low-profile air cooler that provides 150W of TDP in a compact heatsink. With unobstructed clearance for RAM modules, and a top-down air flow, the AN400 is a great option for everything down to small ITX builds. - D",
+          "value": "Air",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AN400-Top-Flow-Low-Profile-Cooler-1851-1700-AM5/2023/16838.shtml",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "coolerHeight",
+          "label": "Hauteur",
+          "rawField": "Product Dimensions",
+          "rawValue": "92×92×52.5 mm(L×W×H)",
+          "value": 52.5,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AN400-Top-Flow-Low-Profile-Cooler-1851-1700-AM5/2023/16838.shtml",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "92×92×15 mm(L×W×H)",
+          "value": 92,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AN400-Top-Flow-Low-Profile-Cooler-1851-1700-AM5/2023/16838.shtml",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "dimensions",
+          "label": "Dimensions",
+          "rawField": "Product Dimensions",
+          "rawValue": "92×92×52.5 mm(L×W×H)",
+          "value": "92 × 92 × 52.5 mm",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AN400-Top-Flow-Low-Profile-Cooler-1851-1700-AM5/2023/16838.shtml",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "fanCount"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-05852f9bcc7c9310",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-BK-ARGB-120mm-CPU-Cooler-1851-1700-AM5/2022/16085.shtml",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 21,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "Product Dimensions",
+          "value": "125×92×150 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatsink Dimensions",
+          "value": "120×92×150 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Net Weight",
+          "value": "614 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatpipe",
+          "value": "Ø6 mm×4 pcs",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~2000 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "75.89 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "2.53 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤31.6 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Hydro Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.28 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "3.36 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "Addressable RGB LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Connector",
+          "value": "3-pin(+5V-D-G)",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Rated Voltage",
+          "value": "5 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Power Consumption",
+          "value": "1.05 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412727774",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-AG400-BKANMC-G-2",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The DeepCool AG400BKARGB is a single tower 120mm CPU cooler that builds upon our legacy for high-quality cooling performance but stripped down for a streamlined and efficient package. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerHeight",
+          "label": "Hauteur",
+          "rawField": "Product Dimensions",
+          "rawValue": "125×92×150 mm(L×W×H)",
+          "value": 150,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-BK-ARGB-120mm-CPU-Cooler-1851-1700-AM5/2022/16085.shtml",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-BK-ARGB-120mm-CPU-Cooler-1851-1700-AM5/2022/16085.shtml",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "dimensions",
+          "label": "Dimensions",
+          "rawField": "Product Dimensions",
+          "rawValue": "125×92×150 mm(L×W×H)",
+          "value": "125 × 92 × 150 mm",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-BK-ARGB-120mm-CPU-Cooler-1851-1700-AM5/2022/16085.shtml",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "coolerType",
+        "sockets",
+        "radiatorSize",
+        "fanCount"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-0757ae6f81f8fb17",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/GAMMAXX-AG620-Dual-Tower-CPU-Cooler-1851-1700-AM5/2024/15900.shtml",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 17,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "Product Dimensions",
+          "value": "129×136×157 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatsink Dimensions",
+          "value": "127×110×157 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Net Weight",
+          "value": "1300 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatpipe",
+          "value": "Ø6 mm×6 pcs",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "300~1850 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "67.88 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "2.04 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤29.4 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Hydro Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.14 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "1.68 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412727613",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-AG620-BKNNMN-G-1",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The DeepCool AG620 is a dual-tower 120mm CPU cooler that boasts impressive 260W cooling power performance that's been stripped down and optimized for terrific efficiency throughout. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerHeight",
+          "label": "Hauteur",
+          "rawField": "Product Dimensions",
+          "rawValue": "129×136×157 mm(L×W×H)",
+          "value": 157,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/GAMMAXX-AG620-Dual-Tower-CPU-Cooler-1851-1700-AM5/2024/15900.shtml",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/GAMMAXX-AG620-Dual-Tower-CPU-Cooler-1851-1700-AM5/2024/15900.shtml",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "dimensions",
+          "label": "Dimensions",
+          "rawField": "Product Dimensions",
+          "rawValue": "129×136×157 mm(L×W×H)",
+          "value": "129 × 136 × 157 mm",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/GAMMAXX-AG620-Dual-Tower-CPU-Cooler-1851-1700-AM5/2024/15900.shtml",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "coolerType",
+        "sockets",
+        "radiatorSize",
+        "fanCount"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-0ebee05fda6e2d15",
+      "sourceId": "fractal-official-index",
+      "category": "case",
+      "brand": "Fractal Design",
+      "officialUrl": "https://www.fractal-design.com/products/cases/terra/terra/",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 30,
+        "normalized": 6
+      },
+      "rawFields": [
+        {
+          "field": "Dedicated 2.5\" drive mounts",
+          "value": "2 (included)",
+          "method": "spec-list"
+        },
+        {
+          "field": "Expansion slots",
+          "value": "3 (Max GPU Mode), 2 (Max CPU-Cooler height mode)",
+          "method": "spec-list"
+        },
+        {
+          "field": "Front interface",
+          "value": "1x USB 3.2 Gen 2x2 Type-C (20Gbps), 1x USB 3.0 Type-A (5Gbps), Power Button",
+          "method": "spec-list"
+        },
+        {
+          "field": "Total fan mounts",
+          "value": "1x 120 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Bottom fan",
+          "value": "1x 120 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Tool-less push-to-lock",
+          "value": "Both side panels and top panel (can also be locked with screws)",
+          "method": "spec-list"
+        },
+        {
+          "field": "Motherboard compatibility",
+          "value": "mITX",
+          "method": "spec-list"
+        },
+        {
+          "field": "Power supply type",
+          "value": "SFX-L/ SFX",
+          "method": "spec-list"
+        },
+        {
+          "field": "PSU max length",
+          "value": "130 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Side radiator",
+          "value": "1x 120mm (121 mm wide if max 200 mm GPU and no SSDs)",
+          "method": "spec-list"
+        },
+        {
+          "field": "GPU max length",
+          "value": "322 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "GPU max width (if GPU height is lower than 131 mm)",
+          "value": "72 mm (Configured for Max GPU) / 43 mm (Configured for Max CPU-Cooler)",
+          "method": "spec-list"
+        },
+        {
+          "field": "GPU max width (if GPU height 131-145mm)",
+          "value": "62 mm (Configured for Max GPU) / 33 mm (Configured for Max CPU-Cooler)",
+          "method": "spec-list"
+        },
+        {
+          "field": "GPU max height",
+          "value": "145 mm (Configured for Max GPU) / 131 mm (Configured for Max CPU-Cooler)",
+          "method": "spec-list"
+        },
+        {
+          "field": "*CPU cooler max height",
+          "value": "48 mm (Configured for Max GPU) / 77 mm (Configured for Max CPU-Cooler)",
+          "method": "spec-list"
+        },
+        {
+          "field": "*Additional comment",
+          "value": "Motherboard Spine is adjustable, which affects the min/ max GPU width and CPU cooler height. If GPU width is increased, CPU cooler height will decrease and vice versa. The max width of the GPU is also dependent on the height. There are two different scenarios (H<131mm, H>131-145mm). See manual for detailed info.",
+          "method": "spec-list"
+        },
+        {
+          "field": "*Note",
+          "value": "If you wish to use the Terra PCIe 4.0 riser cable together with a PCIe 5.0 compatible motherboard and graphics card, make sure you first set the PCIe Slot Configuration in your motherboard BIOS or UEFI to PCIe Gen4 for best system stability.",
+          "method": "spec-list"
+        },
+        {
+          "field": "Case dimensions (LxWxH)",
+          "value": "343 x 153 x 218 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Case dimensions w/o feet/protrusions/screws",
+          "value": "343 x 153 x 198 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Package dimensions (LxWxH)",
+          "value": "394 x 215 x 292 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Net weight",
+          "value": "3.1 kg",
+          "method": "spec-list"
+        },
+        {
+          "field": "Gross weight",
+          "value": "4.0 kg",
+          "method": "spec-list"
+        },
+        {
+          "field": "Volume",
+          "value": "10.4 liter (excluding feet), 11.4 liter (external dimensions)",
+          "method": "spec-list"
+        },
+        {
+          "field": "Package Contents",
+          "value": "Case, Accessory box, Manual",
+          "method": "spec-list"
+        },
+        {
+          "field": "SKU",
+          "value": "Graphite: FD-C-TER1N-01, Silver: FD-C-TER1N-02, Jade: FD-C-TER1N-03",
+          "method": "spec-list"
+        },
+        {
+          "field": "EAN",
+          "value": "Graphite: 7340172703983, Silver: 7340172703990, Jade: 7340172704003",
+          "method": "spec-list"
+        },
+        {
+          "field": "UPC",
+          "value": "Graphite: 843276103989, Silver: 843276103996, Jade: 843276104009",
+          "method": "spec-list"
+        },
+        {
+          "field": "JAN",
+          "value": "Graphite: 4537694302722, Silver: 4537694302739, Jade: 4537694302746",
+          "method": "spec-list"
+        },
+        {
+          "field": "Warranty",
+          "value": "2 Years",
+          "method": "spec-list"
+        },
+        {
+          "field": "og:description",
+          "value": "Terra is a PC case designed and engineered to reshape the small form factor gaming experience. Inspired by the homes of modern gamers, Terra incorporates boutique design features such as thick panels cut from anodized aluminum, CNC-milled details and FSC-certified solid walnut. Inside, it includes a PCIe 4.0 riser cable and features a stepless slidable central wall for build flexibility, providing",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "caseFormFactor",
+          "label": "Format",
+          "rawField": "og:description",
+          "rawValue": "Terra is a PC case designed and engineered to reshape the small form factor gaming experience. Inspired by the homes of modern gamers, Terra incorporates boutique design features such as thick panels cut from anodized aluminum, CNC-milled d",
+          "value": "Small Form Factor",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/terra/terra/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "motherboardSupport",
+          "label": "Cartes mères acceptées",
+          "rawField": "Motherboard compatibility",
+          "rawValue": "mITX",
+          "value": [
+            "Mini-ITX"
+          ],
+          "unit": null,
+          "method": "spec-list",
+          "confidence": "high",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/terra/terra/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "maxGpuLength",
+          "label": "Longueur GPU maximale",
+          "rawField": "GPU max length",
+          "rawValue": "322 mm",
+          "value": 322,
+          "unit": "mm",
+          "method": "spec-list",
+          "confidence": "high",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/terra/terra/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "maxCoolerHeight",
+          "label": "Hauteur ventirad maximale",
+          "rawField": "*CPU cooler max height",
+          "rawValue": "48 mm (Configured for Max GPU) / 77 mm (Configured for Max CPU-Cooler)",
+          "value": 48,
+          "unit": "mm",
+          "method": "spec-list",
+          "confidence": "medium",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/terra/terra/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "radiators",
+          "label": "Radiateurs",
+          "rawField": "Side radiator",
+          "rawValue": "1x 120mm (121 mm wide if max 200 mm GPU and no SSDs)",
+          "value": [
+            "120 mm"
+          ],
+          "unit": null,
+          "method": "spec-list",
+          "confidence": "medium",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/terra/terra/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "dimensions",
+          "label": "Dimensions",
+          "rawField": "Case dimensions (LxWxH)",
+          "rawValue": "343 x 153 x 218 mm",
+          "value": "343 × 153 × 218 mm",
+          "unit": null,
+          "method": "spec-list",
+          "confidence": "high",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/terra/terra/",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-11d497a721c25340",
+      "sourceId": "asus-official-index",
+      "category": "motherboard",
+      "brand": "ASUS",
+      "officialUrl": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-pro-wifi/",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 1,
+        "normalized": 2
+      },
+      "rawFields": [
+        {
+          "field": "og:description",
+          "value": "ASUS TUF GAMING Z890-PRO WIFI is an Advanced AI PC ready ATX motherboard with 16+1+2+1 80A DrMOS power stages, DDR5 slots, PCIe® 5.0, DisplayPort, HDMI™",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "formFactor",
+          "label": "Format",
+          "rawField": "og:description",
+          "rawValue": "ASUS TUF GAMING Z890-PRO WIFI is an Advanced AI PC ready ATX motherboard with 16+1+2+1 80A DrMOS power stages, DDR5 slots, PCIe® 5.0, DisplayPort, HDMI™",
+          "value": "ATX",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-pro-wifi/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "memoryType",
+          "label": "Type de mémoire",
+          "rawField": "og:description",
+          "rawValue": "ASUS TUF GAMING Z890-PRO WIFI is an Advanced AI PC ready ATX motherboard with 16+1+2+1 80A DrMOS power stages, DDR5 slots, PCIe® 5.0, DisplayPort, HDMI™",
+          "value": "DDR5",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-pro-wifi/",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "socket",
+        "chipset",
+        "memorySlots",
+        "pcie",
+        "wifi",
+        "ethernet"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-12e6205e62d1f2ba",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/prime-px/",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 17,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "80PLUS®",
+          "value": "Platinum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "Form Factor",
+          "value": "ATX/EPS",
+          "method": "spec-table"
+        },
+        {
+          "field": "Dimensions",
+          "value": "210 × 150 × 86 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Control",
+          "value": "Premium Hybrid Fan Control",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Bearing",
+          "value": "Fluid Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Life Expectancy",
+          "value": "50, 000 hours at 40 °C, 15 % - 65 % RH",
+          "method": "spec-table"
+        },
+        {
+          "field": "MTBF @ 25 °C, excl. fan",
+          "value": "100, 000 hours",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "Full Range",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OPP, OVP, UVP, OCP, OTP, SCP",
+          "method": "spec-table"
+        },
+        {
+          "field": "Environmental Compliance",
+          "value": "Energy Star, RoHS, WEEE, ErP Lot 6, REACH",
+          "method": "spec-table"
+        },
+        {
+          "field": "Warranty",
+          "value": "12 Years",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "100 V - 240 V",
+          "method": "spec-table"
+        },
+        {
+          "field": "Dimensions",
+          "value": "170 × 150 × 86 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Dimensions",
+          "value": "140 × 150 × 86 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "Seasonic PRIME PX PSU features a platinum efficiency rating for outstanding energy conservation and performance stability. For gamers and professionals.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "efficiency",
+          "label": "Certification",
+          "rawField": "80PLUS®",
+          "rawValue": "Platinum",
+          "value": "80 PLUS Platinum",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/prime-px/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "atxStandard",
+          "label": "Norme ATX",
+          "rawField": "Form Factor",
+          "rawValue": "ATX/EPS",
+          "value": "ATX",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://seasonic.com/prime-px/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "warrantyYears",
+          "label": "Garantie",
+          "rawField": "Warranty",
+          "rawValue": "12 Years",
+          "value": 12,
+          "unit": "ans",
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/prime-px/",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "wattage",
+        "modularity",
+        "pcieConnectors",
+        "highPowerConnector"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-140e3e2478ece84d",
+      "sourceId": "asus-official-index",
+      "category": "motherboard",
+      "brand": "ASUS",
+      "officialUrl": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-wrx90e-sage-se/",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 1,
+        "normalized": 2
+      },
+      "rawFields": [
+        {
+          "field": "og:description",
+          "value": "A supreme workstation performer with seven PCIe 5.0 x16 slots, 32+3+3+3 power stages, CPU and memory overclocking, 4 PCIe 5.0 M.2 slots, dual 10 Gb LAN, PCIe Q-release Slim.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "pcie",
+          "label": "PCIe",
+          "rawField": "og:description",
+          "rawValue": "A supreme workstation performer with seven PCIe 5.0 x16 slots, 32+3+3+3 power stages, CPU and memory overclocking, 4 PCIe 5.0 M.2 slots, dual 10 Gb LAN, PCIe Q-release Slim.",
+          "value": [
+            "PCIe 5.0 x16",
+            "PCIe 5.0"
+          ],
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-wrx90e-sage-se/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "ethernet",
+          "label": "Ethernet",
+          "rawField": "og:description",
+          "rawValue": "A supreme workstation performer with seven PCIe 5.0 x16 slots, 32+3+3+3 power stages, CPU and memory overclocking, 4 PCIe 5.0 M.2 slots, dual 10 Gb LAN, PCIe Q-release Slim.",
+          "value": "10GbE",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-wrx90e-sage-se/",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "socket",
+        "chipset",
+        "formFactor",
+        "memoryType",
+        "memorySlots",
+        "wifi"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-16ea45ee29addc3c",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-premium-ddr5-ckd",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 1,
+        "normalized": 0
+      },
+      "rawFields": [
+        {
+          "field": "og:description",
+          "value": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+          "method": "meta"
+        }
+      ],
+      "specs": [],
+      "missingFields": [
+        "memoryType",
+        "capacity",
+        "moduleCount",
+        "speed",
+        "latency",
+        "xmp",
+        "expo",
+        "ecc"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-1e096bec8f60c35e",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/prime-tx/",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 19,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "80PLUS®",
+          "value": "Titanium",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "Titanium",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "Lambda A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Form Factor",
+          "value": "ATX/EPS",
+          "method": "spec-table"
+        },
+        {
+          "field": "Dimensions",
+          "value": "210 × 150 × 86 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Control",
+          "value": "Premium Hybrid Fan Control",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Bearing",
+          "value": "Fluid Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Life Expectancy",
+          "value": "50, 000 hours at 40 °C, 15 % - 65 % RH",
+          "method": "spec-table"
+        },
+        {
+          "field": "MTBF @ 25 °C, excl. fan",
+          "value": "100, 000 hours",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "Full Range",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OPP, OVP, UVP, OCP, OTP, SCP",
+          "method": "spec-table"
+        },
+        {
+          "field": "Environmental Compliance",
+          "value": "Energy Star, RoHS, WEEE, ErP Lot 6, REACH",
+          "method": "spec-table"
+        },
+        {
+          "field": "Warranty",
+          "value": "12 Years",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "100 V - 240 V",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "A-",
+          "method": "spec-table"
+        },
+        {
+          "field": "Dimensions",
+          "value": "170 × 150 × 86 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "Seasonic PRIME TX PSU deliver unparalleled stability and top-tier efficiency with a titanium rating. Designed for demanding systems and professional builds.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "efficiency",
+          "label": "Certification",
+          "rawField": "80PLUS®",
+          "rawValue": "Titanium",
+          "value": "80 PLUS Titanium",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/prime-tx/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "atxStandard",
+          "label": "Norme ATX",
+          "rawField": "Form Factor",
+          "rawValue": "ATX/EPS",
+          "value": "ATX",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://seasonic.com/prime-tx/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "warrantyYears",
+          "label": "Garantie",
+          "rawField": "Warranty",
+          "rawValue": "12 Years",
+          "value": 12,
+          "unit": "ans",
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/prime-tx/",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "wattage",
+        "modularity",
+        "pcieConnectors",
+        "highPowerConnector"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-21178e6dcff4d9bd",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-ddr3",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 1,
+        "normalized": 0
+      },
+      "rawFields": [
+        {
+          "field": "og:description",
+          "value": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+          "method": "meta"
+        }
+      ],
+      "specs": [],
+      "missingFields": [
+        "memoryType",
+        "capacity",
+        "moduleCount",
+        "speed",
+        "latency",
+        "xmp",
+        "expo",
+        "ecc"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-25571c14981d9622",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/tuf-gaming-elite5-ddr5-performance-ram",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 1,
+        "normalized": 0
+      },
+      "rawFields": [
+        {
+          "field": "og:description",
+          "value": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+          "method": "meta"
+        }
+      ],
+      "specs": [],
+      "missingFields": [
+        "memoryType",
+        "capacity",
+        "moduleCount",
+        "speed",
+        "latency",
+        "xmp",
+        "expo",
+        "ecc"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-3fd76bfdbe51d90d",
+      "sourceId": "asus-official-index",
+      "category": "motherboard",
+      "brand": "ASUS",
+      "officialUrl": "https://www.asus.com/motherboards-components/motherboards/proart/proart-z890-creator-wifi/",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 1,
+        "normalized": 2
+      },
+      "rawFields": [
+        {
+          "field": "og:description",
+          "value": "The ProArt Z890-CREATOR WIFI features ASUS AI, PCIe® 5.0, DDR5 slots, Thunderbolt™ 5, USB4/Thunderbolt™ port, 10G and 2.5G LAN ports, WiFi 7 and five M.2 slots",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "memoryType",
+          "label": "Type de mémoire",
+          "rawField": "og:description",
+          "rawValue": "The ProArt Z890-CREATOR WIFI features ASUS AI, PCIe® 5.0, DDR5 slots, Thunderbolt™ 5, USB4/Thunderbolt™ port, 10G and 2.5G LAN ports, WiFi 7 and five M.2 slots",
+          "value": "DDR5",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://www.asus.com/motherboards-components/motherboards/proart/proart-z890-creator-wifi/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "ethernet",
+          "label": "Ethernet",
+          "rawField": "og:description",
+          "rawValue": "The ProArt Z890-CREATOR WIFI features ASUS AI, PCIe® 5.0, DDR5 slots, Thunderbolt™ 5, USB4/Thunderbolt™ port, 10G and 2.5G LAN ports, WiFi 7 and five M.2 slots",
+          "value": "10GbE",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://www.asus.com/motherboards-components/motherboards/proart/proart-z890-creator-wifi/",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "socket",
+        "chipset",
+        "formFactor",
+        "memorySlots",
+        "pcie",
+        "wifi"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-43c7b25e3274757e",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/g12-gm-2024/",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 15,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "80PLUS®",
+          "value": "Gold",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "Form Factor",
+          "value": "ATX/EPS",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Control",
+          "value": "Smart and Silent Fan Control",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Bearing",
+          "value": "Sleeve Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Life Expectancy",
+          "value": "25, 000 hours at 40 °C, 15 % — 65 % RH",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cable type",
+          "value": "Flat Black Cables",
+          "method": "spec-table"
+        },
+        {
+          "field": "MTBF @ 25 °C, excl. fan",
+          "value": "100, 000 hours",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "Full Range",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OPP, OVP, UVP, SCP, OCP, OTP",
+          "method": "spec-table"
+        },
+        {
+          "field": "Environmental Compliance",
+          "value": "Energy Star, ErP Lot 6, REACH, RoHS, WEEE",
+          "method": "spec-table"
+        },
+        {
+          "field": "Warranty",
+          "value": "5 Years",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "100 V - 240 V",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "Seasonic G12 GC 2024 – a reliable and efficient power supply unit designed for optimal performance, quiet operation, and 80 PLUS Gold efficiency. Ideal for gamers, system builders and PC",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "efficiency",
+          "label": "Certification",
+          "rawField": "80PLUS®",
+          "rawValue": "Gold",
+          "value": "80 PLUS Gold",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/g12-gm-2024/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "atxStandard",
+          "label": "Norme ATX",
+          "rawField": "Form Factor",
+          "rawValue": "ATX/EPS",
+          "value": "ATX",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://seasonic.com/g12-gm-2024/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "warrantyYears",
+          "label": "Garantie",
+          "rawField": "Warranty",
+          "rawValue": "5 Years",
+          "value": 5,
+          "unit": "ans",
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/g12-gm-2024/",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "wattage",
+        "modularity",
+        "pcieConnectors",
+        "highPowerConnector"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-582a98ea5fd403a3",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/s12iii/",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 17,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "80PLUS®",
+          "value": "Bronze",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "Bronze",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "Standard+",
+          "method": "spec-table"
+        },
+        {
+          "field": "Form Factor",
+          "value": "ATX/EPS",
+          "method": "spec-table"
+        },
+        {
+          "field": "Dimensions",
+          "value": "140 × 150 × 86 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Control",
+          "value": "S²FC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Bearing",
+          "value": "Sleeve Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Life Expectancy",
+          "value": "30, 000 hours at 40 °C, 15 % - 65 % RH",
+          "method": "spec-table"
+        },
+        {
+          "field": "MTBF @ 25 °C, excl. fan",
+          "value": "100, 000 hours",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "Full Range",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OPP, OVP, UVP, SCP",
+          "method": "spec-table"
+        },
+        {
+          "field": "Environmental Compliance",
+          "value": "Energy Star, RoHS, WEEE, REACH",
+          "method": "spec-table"
+        },
+        {
+          "field": "Warranty",
+          "value": "5 Years",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "110 V - 240 V",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "Seasonic S12III PSU offers excellent bronze-rated energy efficiency and stability for your system. Ideal for budget-conscious builders.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "efficiency",
+          "label": "Certification",
+          "rawField": "80PLUS®",
+          "rawValue": "Bronze",
+          "value": "80 PLUS Bronze",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/s12iii/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "atxStandard",
+          "label": "Norme ATX",
+          "rawField": "Form Factor",
+          "rawValue": "ATX/EPS",
+          "value": "ATX",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://seasonic.com/s12iii/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "warrantyYears",
+          "label": "Garantie",
+          "rawField": "Warranty",
+          "rawValue": "5 Years",
+          "value": 5,
+          "unit": "ans",
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/s12iii/",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "wattage",
+        "modularity",
+        "pcieConnectors",
+        "highPowerConnector"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-5a286bc157533332",
+      "sourceId": "fractal-official-index",
+      "category": "case",
+      "brand": "Fractal Design",
+      "officialUrl": "https://www.fractal-design.com/products/cases/epoch/epoch/",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 39,
+        "normalized": 5
+      },
+      "rawFields": [
+        {
+          "field": "3.5\"/2.5\" drive mounts",
+          "value": "2",
+          "method": "spec-list"
+        },
+        {
+          "field": "Dedicated 2.5\" drive mounts",
+          "value": "2",
+          "method": "spec-list"
+        },
+        {
+          "field": "5.25” drive mounts",
+          "value": "-",
+          "method": "spec-list"
+        },
+        {
+          "field": "Expansion slots",
+          "value": "7",
+          "method": "spec-list"
+        },
+        {
+          "field": "Front interface",
+          "value": "1x USB Type-C 20 Gbps 2x USB Type-A 5 Gbps 1x Audio/Mic Combo Jack",
+          "method": "spec-list"
+        },
+        {
+          "field": "Total fan mounts",
+          "value": "6 x 120 mm or 4 x 140 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Front fan",
+          "value": "3 x 120/2x 140 mm (3 x 120 mm Momentum fans included)",
+          "method": "spec-list"
+        },
+        {
+          "field": "Top fan",
+          "value": "2 x 120/140 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Rear fan",
+          "value": "1 x 120 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Bottom fan",
+          "value": "-",
+          "method": "spec-list"
+        },
+        {
+          "field": "Dust filters",
+          "value": "PSU",
+          "method": "spec-list"
+        },
+        {
+          "field": "Cable routing space",
+          "value": "30 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Cable routing grommets",
+          "value": "Yes",
+          "method": "spec-list"
+        },
+        {
+          "field": "Fixed straps",
+          "value": "Yes, hook and loop",
+          "method": "spec-list"
+        },
+        {
+          "field": "Tool-less access",
+          "value": "Side panels, front panel, top panel",
+          "method": "spec-list"
+        },
+        {
+          "field": "Captive thumbscrews",
+          "value": "HDD brackets, SSD brackets, Side panels, PSU bracket",
+          "method": "spec-list"
+        },
+        {
+          "field": "Left side panel",
+          "value": "Steel (Solid version), Tempered Glass (TG & RGB)",
+          "method": "spec-list"
+        },
+        {
+          "field": "Right side panel",
+          "value": "Steel",
+          "method": "spec-list"
+        },
+        {
+          "field": "Power supply type",
+          "value": "ATX",
+          "method": "spec-list"
+        },
+        {
+          "field": "Motherboard compatibility",
+          "value": "ATX / mATX / Mini-ITX",
+          "method": "spec-list"
+        },
+        {
+          "field": "PSU max length",
+          "value": "1 HDD tray: 255 mm max 2 HDD tray: 155 mm max",
+          "method": "spec-list"
+        },
+        {
+          "field": "GPU max length",
+          "value": "Up to 372 mm with front fan mounted or up to 345 mm with front-mounted radiator",
+          "method": "spec-list"
+        },
+        {
+          "field": "CPU cooler max height",
+          "value": "170 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Front radiator",
+          "value": "Up to 280/360 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Top radiator",
+          "value": "Up to 240 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Rear radiator",
+          "value": "1x 120 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Bottom radiator",
+          "value": "-",
+          "method": "spec-list"
+        },
+        {
+          "field": "Case dimensions (LxWxH)",
+          "value": "447 x 215 x 469 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Case dimensions w/o feet/protrusions/screws",
+          "value": "443.3 x 215 x 455.3 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Package dimensions",
+          "value": "565 x 326 x 553 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Net weight",
+          "value": "7.69 kg (Solid), 7.81 kg (TG), 7.86 kg (RGB)",
+          "method": "spec-list"
+        },
+        {
+          "field": "Gross weight",
+          "value": "9.24 kg (Solid), 9.36 kg (TG), 9.41 kg (RGB)",
+          "method": "spec-list"
+        },
+        {
+          "field": "Package contents",
+          "value": "Computer case, Accessory box, Product manual",
+          "method": "spec-list"
+        },
+        {
+          "field": "Accessory Box content (Solid/TG/RGB)",
+          "value": "PSU screws — 4 pcs., Motherboard screws — 8 pcs., Motherboard standoff — 1 pc., SSD screws —16 pcs., HDD screws — 8 pcs., HDD rubber — 8 pcs., Ball catcher — 1 pc., Zip ties — 4 pcs.",
+          "method": "spec-list"
+        },
+        {
+          "field": "EAN",
+          "value": "Black Solid: 7340172709633, Black TG Light: 7340172709640, White TG Clear: 7340172709657, Black TG RGB Light: 7340172709664, White TG RGB Clear: 7340172709688",
+          "method": "spec-list"
+        },
+        {
+          "field": "UPC",
+          "value": "Black Solid: 843276109639, Black TG Light: 843276109646, White TG Clear: 843276109653, Black TG RGB Light: 843276109660, White TG RGB Clear: 843276109684",
+          "method": "spec-list"
+        },
+        {
+          "field": "Product Code",
+          "value": "Black Solid: FD-C-EPO1A-01, Black TG Light: FD-C-EPO1A-02, White TG Clear: FD-C-EPO1A-03, Black TG RGB Light: FD-C-EPO1A-04, White TG RGB Clear: FD-C-EPO1A-05",
+          "method": "spec-list"
+        },
+        {
+          "field": "Warranty",
+          "value": "2 Years",
+          "method": "spec-list"
+        },
+        {
+          "field": "og:description",
+          "value": "Epoch combines clean, contemporary design with modern airflow engineering. It features a mesh front and three powerful Momentum fans to deliver gaming performance that integrates stylishly into your gaming station.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "motherboardSupport",
+          "label": "Cartes mères acceptées",
+          "rawField": "Motherboard compatibility",
+          "rawValue": "ATX / mATX / Mini-ITX",
+          "value": [
+            "ATX",
+            "Micro-ATX",
+            "Mini-ITX"
+          ],
+          "unit": null,
+          "method": "spec-list",
+          "confidence": "medium",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/epoch/epoch/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "maxGpuLength",
+          "label": "Longueur GPU maximale",
+          "rawField": "GPU max length",
+          "rawValue": "Up to 372 mm with front fan mounted or up to 345 mm with front-mounted radiator",
+          "value": 372,
+          "unit": "mm",
+          "method": "spec-list",
+          "confidence": "medium",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/epoch/epoch/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "maxCoolerHeight",
+          "label": "Hauteur ventirad maximale",
+          "rawField": "CPU cooler max height",
+          "rawValue": "170 mm",
+          "value": 170,
+          "unit": "mm",
+          "method": "spec-list",
+          "confidence": "high",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/epoch/epoch/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "radiators",
+          "label": "Radiateurs",
+          "rawField": "Front radiator",
+          "rawValue": "Up to 280/360 mm",
+          "value": [
+            "280 mm",
+            "360 mm"
+          ],
+          "unit": null,
+          "method": "spec-list",
+          "confidence": "medium",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/epoch/epoch/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "dimensions",
+          "label": "Dimensions",
+          "rawField": "Case dimensions (LxWxH)",
+          "rawValue": "447 x 215 x 469 mm",
+          "value": "447 × 215 × 469 mm",
+          "unit": null,
+          "method": "spec-list",
+          "confidence": "high",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/epoch/epoch/",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "caseFormFactor"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-65dd4b0959acbe99",
+      "sourceId": "asus-official-index",
+      "category": "motherboard",
+      "brand": "ASUS",
+      "officialUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-z890-p-wifi/",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 1,
+        "normalized": 1
+      },
+      "rawFields": [
+        {
+          "field": "og:description",
+          "value": "ASUS PRIME Z890-P WIFI motherboard with Intel® Core™ Ultra Processors, Wi-Fi 7, PCIe 5.0, and AI features for unmatched performance and customization.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "pcie",
+          "label": "PCIe",
+          "rawField": "og:description",
+          "rawValue": "ASUS PRIME Z890-P WIFI motherboard with Intel® Core™ Ultra Processors, Wi-Fi 7, PCIe 5.0, and AI features for unmatched performance and customization.",
+          "value": [
+            "PCIe 5.0"
+          ],
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-z890-p-wifi/",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "socket",
+        "chipset",
+        "formFactor",
+        "memoryType",
+        "memorySlots",
+        "wifi",
+        "ethernet"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-9023ff4d74c0c7ff",
+      "sourceId": "asus-official-index",
+      "category": "motherboard",
+      "brand": "ASUS",
+      "officialUrl": "https://www.asus.com/motherboards-components/motherboards/expedition/ex-b860m-v5/",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 1,
+        "normalized": 2
+      },
+      "rawFields": [
+        {
+          "field": "og:description",
+          "value": "Expedition EX-B860M-V5: Intel® Core™ Ultra Processors (Series 2), DDR5, dual M.2, Realtek 2.5Gb Ethernet. Built for non-stop gaming with unbeatable durability.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "memoryType",
+          "label": "Type de mémoire",
+          "rawField": "og:description",
+          "rawValue": "Expedition EX-B860M-V5: Intel® Core™ Ultra Processors (Series 2), DDR5, dual M.2, Realtek 2.5Gb Ethernet. Built for non-stop gaming with unbeatable durability.",
+          "value": "DDR5",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://www.asus.com/motherboards-components/motherboards/expedition/ex-b860m-v5/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "ethernet",
+          "label": "Ethernet",
+          "rawField": "og:description",
+          "rawValue": "Expedition EX-B860M-V5: Intel® Core™ Ultra Processors (Series 2), DDR5, dual M.2, Realtek 2.5Gb Ethernet. Built for non-stop gaming with unbeatable durability.",
+          "value": "2.5GbE",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://www.asus.com/motherboards-components/motherboards/expedition/ex-b860m-v5/",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "socket",
+        "chipset",
+        "formFactor",
+        "memorySlots",
+        "pcie",
+        "wifi"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-a21abcb8abe9783f",
+      "sourceId": "fractal-official-index",
+      "category": "case",
+      "brand": "Fractal Design",
+      "officialUrl": "https://www.fractal-design.com/products/cases/mood/mood/",
+      "collectedAt": "2026-08-16",
+      "coverage": {
+        "rawFields": 37,
+        "normalized": 5
+      },
+      "rawFields": [
+        {
+          "field": "3.5\" drive mounts",
+          "value": "1x 3.5” included",
+          "method": "spec-list"
+        },
+        {
+          "field": "Dedicated 2.5\" drive mounts",
+          "value": "2x included, 2x positions total",
+          "method": "spec-list"
+        },
+        {
+          "field": "5.25” drive mounts",
+          "value": "0",
+          "method": "spec-list"
+        },
+        {
+          "field": "Expansion slots",
+          "value": "2 slot (2.75)",
+          "method": "spec-list"
+        },
+        {
+          "field": "Front interface",
+          "value": "1x USB 3.2 Gen 2x2 Type-C (20 Gbps), 2x USB 3.0 Type-A (5 Gbps), 1x Combo jack – Audio/Microphone Power button",
+          "method": "spec-list"
+        },
+        {
+          "field": "Total fan mounts",
+          "value": "1x 180 mm 2x 120 mm 2x 140 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Front fan",
+          "value": "2x 120/140 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Top fan",
+          "value": "1x 180 mm (included)",
+          "method": "spec-list"
+        },
+        {
+          "field": "Rear fan",
+          "value": "None",
+          "method": "spec-list"
+        },
+        {
+          "field": "Bottom fan",
+          "value": "None",
+          "method": "spec-list"
+        },
+        {
+          "field": "Dust filters",
+          "value": "Rear magnetic filter mesh included",
+          "method": "spec-list"
+        },
+        {
+          "field": "Fixed cable straps",
+          "value": "No",
+          "method": "spec-list"
+        },
+        {
+          "field": "Tool-less push-to-lock",
+          "value": "Rear panel + 2x SSD 2.5” brackets",
+          "method": "spec-list"
+        },
+        {
+          "field": "Captive thumbscrews",
+          "value": "2x PCIe blanks",
+          "method": "spec-list"
+        },
+        {
+          "field": "Motherboard compatibility",
+          "value": "mITX",
+          "method": "spec-list"
+        },
+        {
+          "field": "Power supply type",
+          "value": "SFX, SFX-L",
+          "method": "spec-list"
+        },
+        {
+          "field": "Front radiator",
+          "value": "Up to 280 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Top radiator",
+          "value": "None",
+          "method": "spec-list"
+        },
+        {
+          "field": "Rear radiator",
+          "value": "None",
+          "method": "spec-list"
+        },
+        {
+          "field": "Bottom radiator",
+          "value": "None",
+          "method": "spec-list"
+        },
+        {
+          "field": "PSU max length",
+          "value": "130 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "GPU max length",
+          "value": "325 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "GPU thickness",
+          "value": "56 mm (2.75 slot)",
+          "method": "spec-list"
+        },
+        {
+          "field": "GPU height",
+          "value": "145 mm (excluding cables) 158 mm (including cables)",
+          "method": "spec-list"
+        },
+        {
+          "field": "CPU cooler max height",
+          "value": "114 mm (from top of IHS)",
+          "method": "spec-list"
+        },
+        {
+          "field": "SFF-Ready Enthusiast GeForce Cards",
+          "value": "Yes",
+          "method": "spec-list"
+        },
+        {
+          "field": "Case dimensions (LxWxH)",
+          "value": "212 x 212 x 453 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Package dimensions (LxWxH)",
+          "value": "303 x 287 x 580 mm",
+          "method": "spec-list"
+        },
+        {
+          "field": "Net weight",
+          "value": "4.6 kg",
+          "method": "spec-list"
+        },
+        {
+          "field": "Gross weight",
+          "value": "5.9 kg",
+          "method": "spec-list"
+        },
+        {
+          "field": "Package contents",
+          "value": "Case, Accessory Box, Manual",
+          "method": "spec-list"
+        },
+        {
+          "field": "Accessory Box contents",
+          "value": "Mounting screw (6-32) - 10pcs (x4 pcs for motherboard) (x4 pcs for power supply) (x2 extra) Mounting screw (M3) - 8pcs (8x pcs for SSD) 3.5” Drive screw - 4pcs Thumbscrew - 2pcs Cable straps - 6pcs Cable ties - 8pcs 2.5” Side bracket – 1 pc 2.5” Top bracket - 1pc",
+          "method": "spec-list"
+        },
+        {
+          "field": "SKU",
+          "value": "Light Gray: FD-C-MOD1N-01 Black: FD-C-MOD1N-02",
+          "method": "spec-list"
+        },
+        {
+          "field": "EAN",
+          "value": "Light Gray: 7340172703921 Black: 7340172703938",
+          "method": "spec-list"
+        },
+        {
+          "field": "UPC",
+          "value": "Light Gray: 843276103927 Black: 843276103934",
+          "method": "spec-list"
+        },
+        {
+          "field": "JAN",
+          "value": "Light Gray: 4537694299770 Black: 4537694299787",
+          "method": "spec-list"
+        },
+        {
+          "field": "Warranty",
+          "value": "2 years",
+          "method": "spec-list"
+        }
+      ],
+      "specs": [
+        {
+          "field": "motherboardSupport",
+          "label": "Cartes mères acceptées",
+          "rawField": "Motherboard compatibility",
+          "rawValue": "mITX",
+          "value": [
+            "Mini-ITX"
+          ],
+          "unit": null,
+          "method": "spec-list",
+          "confidence": "high",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/mood/mood/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "maxGpuLength",
+          "label": "Longueur GPU maximale",
+          "rawField": "GPU max length",
+          "rawValue": "325 mm",
+          "value": 325,
+          "unit": "mm",
+          "method": "spec-list",
+          "confidence": "high",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/mood/mood/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "maxCoolerHeight",
+          "label": "Hauteur ventirad maximale",
+          "rawField": "CPU cooler max height",
+          "rawValue": "114 mm (from top of IHS)",
+          "value": 114,
+          "unit": "mm",
+          "method": "spec-list",
+          "confidence": "medium",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/mood/mood/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "radiators",
+          "label": "Radiateurs",
+          "rawField": "Front radiator",
+          "rawValue": "Up to 280 mm",
+          "value": [
+            "280 mm"
+          ],
+          "unit": null,
+          "method": "spec-list",
+          "confidence": "medium",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/mood/mood/",
+          "collectedAt": "2026-08-16"
+        },
+        {
+          "field": "dimensions",
+          "label": "Dimensions",
+          "rawField": "Case dimensions (LxWxH)",
+          "rawValue": "212 x 212 x 453 mm",
+          "value": "212 × 212 × 453 mm",
+          "unit": null,
+          "method": "spec-list",
+          "confidence": "high",
+          "sourceUrl": "https://www.fractal-design.com/products/cases/mood/mood/",
+          "collectedAt": "2026-08-16"
+        }
+      ],
+      "missingFields": [
+        "caseFormFactor"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    }
+  ],
+  "failures": []
+}

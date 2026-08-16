@@ -5,12 +5,17 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+import spec_normalization as normalization  # noqa: E402
+
 CATEGORIES = {"cpu", "gpu", "motherboard", "ram", "psu", "case", "storage", "cooling", "expansion"}
+ISO_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
 def main() -> int:
@@ -21,6 +26,7 @@ def main() -> int:
     rejected = json.loads((ROOT / "src/catalog/rejected.generated.json").read_text(encoding="utf-8"))
     verification = json.loads((ROOT / "src/catalog/candidate-verification.generated.json").read_text(encoding="utf-8"))
     evidence = json.loads((ROOT / "src/catalog/manufacturer-evidence.generated.json").read_text(encoding="utf-8"))
+    specifications = json.loads((ROOT / "src/catalog/manufacturer-specs.generated.json").read_text(encoding="utf-8"))
     report = json.loads((ROOT / "src/catalog/discovery-report.generated.json").read_text(encoding="utf-8"))
     manufacturers = json.loads((ROOT / "src/catalog/manufacturer-registry.json").read_text(encoding="utf-8"))
     registry = json.loads((ROOT / "src/catalog/source-registry.json").read_text(encoding="utf-8"))
@@ -35,6 +41,8 @@ def main() -> int:
     manufacturer_candidate_limit = int(policy.get("manufacturerIndexCandidateLimit", 0))
     manufacturer_evidence_budget = int(policy.get("manufacturerEvidencePageBudget", 0))
     manufacturer_evidence_property_limit = int(policy.get("manufacturerEvidencePropertyLimit", 0))
+    manufacturer_spec_budget = int(policy.get("manufacturerSpecPageBudget", 0))
+    manufacturer_spec_field_limit = int(policy.get("manufacturerSpecFieldLimit", 0))
     if not 1 <= page_size <= 50 or not 1 <= max_pages <= 2:
         errors.append("unsafe Wikidata pagination policy")
     if request_budget < len(registry.get("queries", [])) * max_pages:
@@ -43,6 +51,8 @@ def main() -> int:
         errors.append("unsafe manufacturer index policy")
     if not 1 <= manufacturer_evidence_budget <= 50 or not 1 <= manufacturer_evidence_property_limit <= 100:
         errors.append("unsafe manufacturer evidence policy")
+    if not 1 <= manufacturer_spec_budget <= 50 or not 1 <= manufacturer_spec_field_limit <= 200:
+        errors.append("unsafe manufacturer specification policy")
     query_pairs: set[tuple[str, str]] = set()
     for query in registry.get("queries", []):
         pair = (query.get("category", ""), query.get("brand", ""))
@@ -304,6 +314,115 @@ def main() -> int:
         errors.append("stale manufacturer evidence summary")
     if int(evidence.get("lastRun", {}).get("limit", 0)) > manufacturer_evidence_budget:
         errors.append("manufacturer evidence run exceeds page budget")
+    spec_policy = specifications.get("policy", {})
+    if spec_policy.get("publishAutomatically") is not False:
+        errors.append("manufacturer specifications must never publish automatically")
+    if spec_policy.get("pageBudget") != manufacturer_spec_budget or spec_policy.get("fieldLimit") != manufacturer_spec_field_limit:
+        errors.append("stale manufacturer specification policy")
+    if spec_policy.get("categories") != list(normalization.SUPPORTED_CATEGORIES):
+        errors.append("stale manufacturer specification categories")
+    specs_by_id: dict[str, dict] = {}
+    for record in specifications.get("records", []):
+        candidate_id = record.get("candidateId", "")
+        candidate = official_candidates_by_id.get(candidate_id)
+        category = record.get("category", "")
+        if not candidate or candidate_id in specs_by_id or candidate_id not in evidence_by_id:
+            errors.append(f"orphan or duplicate manufacturer specification: {candidate_id}")
+            continue
+        specs_by_id[candidate_id] = record
+        if record.get("sourceId") != candidate.get("sourceId") or record.get("officialUrl") != candidate.get("url"):
+            errors.append(f"manufacturer specification subject mismatch: {candidate_id}")
+        if record.get("brand") != candidate.get("brand") or category != candidate.get("category"):
+            errors.append(f"manufacturer specification classification mismatch: {candidate_id}")
+        if category not in normalization.SUPPORTED_CATEGORIES:
+            errors.append(f"unsupported manufacturer specification category: {candidate_id}")
+            continue
+        if not ISO_DATE.match(str(record.get("collectedAt", ""))):
+            errors.append(f"invalid manufacturer specification date: {candidate_id}")
+        if record.get("review", {}).get("status") != "pending" or not record.get("review", {}).get("reason"):
+            errors.append(f"manufacturer specification bypasses human review: {candidate_id}")
+        if "verified" in json.dumps(record, ensure_ascii=False):
+            errors.append(f"manufacturer specification claims a verification: {candidate_id}")
+        raw_fields = record.get("rawFields", [])
+        if not isinstance(raw_fields, list) or len(raw_fields) > manufacturer_spec_field_limit or not all(
+            isinstance(row, dict) and isinstance(row.get("field"), str) and isinstance(row.get("value"), str)
+            and row.get("method") in normalization.METHODS
+            for row in raw_fields
+        ):
+            errors.append(f"invalid manufacturer specification raw fields: {candidate_id}")
+        declared = [definition["field"] for definition in normalization.CATEGORY_FIELDS[category]]
+        labels = normalization.FIELD_LABELS[category]
+        prose_allowed = normalization.PROSE_FIELDS.get(category, ())
+        seen_fields: list[str] = []
+        for spec in record.get("specs", []):
+            name = spec.get("field", "")
+            if name not in declared or name in seen_fields:
+                errors.append(f"unknown or duplicate normalized field {name}: {candidate_id}")
+                continue
+            seen_fields.append(name)
+            if spec.get("label") != labels[name]:
+                errors.append(f"stale normalized label {name}: {candidate_id}")
+            if spec.get("value") is None or spec.get("value") == "" or spec.get("value") == []:
+                errors.append(f"empty normalized value {name}: {candidate_id}")
+            if not spec.get("rawField") or not spec.get("rawValue"):
+                errors.append(f"normalized value without raw evidence {name}: {candidate_id}")
+            if spec.get("method") not in normalization.METHODS or spec.get("confidence") not in normalization.CONFIDENCES:
+                errors.append(f"invalid extraction method or confidence {name}: {candidate_id}")
+            if spec.get("method") == "meta" and (name not in prose_allowed or spec.get("confidence") != "low"):
+                errors.append(f"page prose used outside the allowlist {name}: {candidate_id}")
+            if spec.get("unit") is not None and not isinstance(spec.get("unit"), str):
+                errors.append(f"invalid unit {name}: {candidate_id}")
+            if not ISO_DATE.match(str(spec.get("collectedAt", ""))):
+                errors.append(f"invalid normalized value date {name}: {candidate_id}")
+            url = str(spec.get("sourceUrl", ""))
+            hostname = (urlparse(url).hostname or "").lower()
+            allowed = manufacturer_domains.get(candidate.get("brand"), set())
+            if url != candidate.get("url") or not url.startswith("https://") or not any(
+                hostname == domain or hostname.endswith(f".{domain}") for domain in allowed
+            ):
+                errors.append(f"untrusted normalized source {name}: {candidate_id}")
+        if record.get("missingFields") != [name for name in declared if name not in seen_fields]:
+            errors.append(f"stale missing field list: {candidate_id}")
+        coverage = record.get("coverage", {})
+        if coverage.get("rawFields") != len(raw_fields) or coverage.get("normalized") != len(seen_fields):
+            errors.append(f"stale manufacturer specification coverage: {candidate_id}")
+    spec_failure_ids: set[str] = set()
+    for failure in specifications.get("failures", []):
+        candidate_id = failure.get("candidateId", "")
+        if candidate_id not in official_candidates_by_id or candidate_id in spec_failure_ids or candidate_id in specs_by_id:
+            errors.append(f"orphan, duplicate or resolved specification failure: {candidate_id}")
+            continue
+        spec_failure_ids.add(candidate_id)
+        if not isinstance(failure.get("attempts"), int) or failure.get("attempts", 0) < 1 or not failure.get("error"):
+            errors.append(f"invalid manufacturer specification failure: {candidate_id}")
+    eligible_specs = {
+        candidate_id for candidate_id, item in evidence_by_id.items()
+        if item.get("status") in {"structured-product", "page-metadata"}
+        and official_candidates_by_id[candidate_id].get("category") in normalization.SUPPORTED_CATEGORIES
+    }
+    expected_spec_summary = {
+        "eligibleCandidates": len(eligible_specs),
+        "collected": len(specs_by_id),
+        "remaining": len(eligible_specs) - len(specs_by_id),
+        "failures": len(spec_failure_ids),
+        "rawValues": sum(len(record["rawFields"]) for record in specs_by_id.values()),
+        "normalizedValues": sum(len(record["specs"]) for record in specs_by_id.values()),
+        "byCategory": {
+            category: {
+                "records": sum(record["category"] == category for record in specs_by_id.values()),
+                "normalizedValues": sum(len(record["specs"]) for record in specs_by_id.values() if record["category"] == category),
+            }
+            for category in normalization.SUPPORTED_CATEGORIES
+        },
+        "byConfidence": {
+            level: sum(spec["confidence"] == level for record in specs_by_id.values() for spec in record["specs"])
+            for level in normalization.CONFIDENCES
+        },
+    }
+    if specifications.get("summary") != expected_spec_summary:
+        errors.append("stale manufacturer specification summary")
+    if int(specifications.get("lastRun", {}).get("limit", 0)) > manufacturer_spec_budget:
+        errors.append("manufacturer specification run exceeds page budget")
     if errors:
         print("\n".join(errors))
         return 1
@@ -316,6 +435,8 @@ def main() -> int:
         "verified": sum(item.get("status") == "verified" for item in verification.get("candidates", [])),
         "manufacturerEvidence": len(evidence_by_id),
         "manufacturerEvidenceFailures": len(failure_ids),
+        "manufacturerSpecifications": len(specs_by_id),
+        "normalizedValues": expected_spec_summary["normalizedValues"],
         "sources": len(source_ids),
         "registeredQueries": len(registry.get("queries", [])),
         "registeredBrands": len({query["brand"] for query in registry.get("queries", [])}),

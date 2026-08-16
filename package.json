@@ -1,7 +1,7 @@
 {
   "name": "configpilot",
   "private": true,
-  "version": "1.7.0",
+  "version": "1.8.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,8 +10,10 @@
     "test": "vitest run",
     "catalog:discover": "python scripts/discover-open-catalog.py",
     "catalog:evidence": "python scripts/collect-manufacturer-evidence.py",
+    "catalog:specs": "python scripts/collect-manufacturer-specs.py",
+    "catalog:specs:offline": "python scripts/collect-manufacturer-specs.py --offline",
     "catalog:triage": "python scripts/discover-open-catalog.py --offline",
-    "catalog:test": "python scripts/test_catalog_triage.py && python scripts/test_catalog_promotion.py && python scripts/test_catalog_discovery.py && python scripts/test_manufacturer_evidence.py",
+    "catalog:test": "python scripts/test_catalog_triage.py && python scripts/test_catalog_promotion.py && python scripts/test_catalog_discovery.py && python scripts/test_manufacturer_evidence.py && python scripts/test_manufacturer_specs.py",
     "catalog:promote": "python scripts/promote-candidates.py",
     "catalog:validate": "python scripts/validate-catalog.py",
     "test:e2e": "playwright test",

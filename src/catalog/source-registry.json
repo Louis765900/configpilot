@@ -12,6 +12,8 @@
     "manufacturerIndexCandidateLimit": 500,
     "manufacturerEvidencePageBudget": 20,
     "manufacturerEvidencePropertyLimit": 50,
+    "manufacturerSpecPageBudget": 20,
+    "manufacturerSpecFieldLimit": 80,
     "maxLagSeconds": 5,
     "retryAttempts": 3
   },
