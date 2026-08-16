@@ -21,6 +21,8 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+from catalog_triage import triage
+
 
 ROOT = Path(__file__).resolve().parents[1]
 VALID_CATEGORIES = {"cpu", "gpu", "motherboard", "ram", "psu", "case", "storage", "cooling", "expansion"}
@@ -202,11 +204,15 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=ROOT / "src/catalog/discovery.generated.json")
     parser.add_argument("--documentary", type=Path, default=ROOT / "src/catalog/documentary.generated.json")
     parser.add_argument("--data", type=Path, default=ROOT / "src/data.ts")
+    parser.add_argument("--hardware-output", type=Path, default=ROOT / "src/catalog/hardware-identifiers.generated.json")
+    parser.add_argument("--rejected-output", type=Path, default=ROOT / "src/catalog/rejected.generated.json")
     parser.add_argument("--offline", action="store_true", help="Validate and normalize the existing queue without network calls")
     parser.add_argument("--fresh", action="store_true", help="Rebuild the queue instead of merging the previous candidates")
     args = parser.parse_args()
     registry = load_json(args.registry)
     previous_feed = load_json(args.output) if args.output.exists() and not args.fresh else {"version": 1, "candidates": []}
+    previous_hardware = load_json(args.hardware_output) if args.hardware_output.exists() and not args.fresh else {"version": 1, "identifiers": []}
+    previous_rejected = load_json(args.rejected_output) if args.rejected_output.exists() and not args.fresh else {"version": 1, "candidates": []}
     known = existing_identities(args.documentary, args.data)
     run_date = date.today().isoformat()
     discovered: list[dict[str, Any]] = []
@@ -216,11 +222,20 @@ def main() -> int:
         pci, pci_errors = pci_candidates(registry, known, run_date)
         discovered.extend(wiki + pci)
         errors.extend(wiki_errors + pci_errors)
-    candidates = merge_candidates(previous_feed.get("candidates", []), discovered, int(registry["policy"]["candidateLimit"]))
-    payload = {"version": 1, "candidates": candidates}
+    previous = previous_feed.get("candidates", []) + previous_hardware.get("identifiers", []) + previous_rejected.get("candidates", [])
+    candidates = [triage(candidate) for candidate in merge_candidates(previous, discovered, int(registry["policy"]["candidateLimit"]))]
+    product_candidates = [candidate for candidate in candidates if candidate["triage"] not in {"hardware-identifier", "false-positive"}]
+    hardware_identifiers = [candidate for candidate in candidates if candidate["triage"] == "hardware-identifier"]
+    rejected_candidates = [candidate for candidate in candidates if candidate["triage"] == "false-positive"]
+    payload = {"version": 2, "candidates": product_candidates}
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"existingProducts": len(known), "newObservations": len(discovered), "candidates": len(candidates), "errors": errors}, ensure_ascii=False))
+    args.hardware_output.write_text(json.dumps({"version": 1, "identifiers": hardware_identifiers}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    args.rejected_output.write_text(json.dumps({"version": 1, "candidates": rejected_candidates}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    counts: dict[str, int] = {}
+    for candidate in candidates:
+        counts[candidate["triage"]] = counts.get(candidate["triage"], 0) + 1
+    print(json.dumps({"existingProducts": len(known), "newObservations": len(discovered), "activeCandidates": len(product_candidates), "hardwareIdentifiers": len(hardware_identifiers), "rejected": len(rejected_candidates), "triage": counts, "errors": errors}, ensure_ascii=False))
     return 0 if not errors or discovered else 2
 
 
