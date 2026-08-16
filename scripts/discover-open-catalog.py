@@ -593,6 +593,8 @@ def build_coverage_report(
             "requestBudget": policy.get("requestBudget", len(registry["queries"])),
             "manufacturerIndexPageBudget": policy.get("manufacturerIndexPageBudget", 20),
             "manufacturerIndexCandidateLimit": policy.get("manufacturerIndexCandidateLimit", 500),
+            "manufacturerEvidencePageBudget": policy.get("manufacturerEvidencePageBudget", 20),
+            "manufacturerEvidencePropertyLimit": policy.get("manufacturerEvidencePropertyLimit", 50),
         },
         "totals": {
             "registeredQueries": len(registry["queries"]),

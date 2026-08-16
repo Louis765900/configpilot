@@ -10,6 +10,8 @@
     "requestBudget": 180,
     "manufacturerIndexPageBudget": 30,
     "manufacturerIndexCandidateLimit": 500,
+    "manufacturerEvidencePageBudget": 20,
+    "manufacturerEvidencePropertyLimit": 50,
     "maxLagSeconds": 5,
     "retryAttempts": 3
   },

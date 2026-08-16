@@ -1,0 +1,606 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-16",
+  "summary": {
+    "officialCandidates": 222,
+    "collected": 20,
+    "remaining": 202,
+    "failures": 0,
+    "byStatus": {
+      "insufficient-metadata": 0,
+      "page-metadata": 12,
+      "structured-product": 8
+    }
+  },
+  "lastRun": {
+    "attempted": 20,
+    "collected": 20,
+    "limit": 20,
+    "errors": []
+  },
+  "evidence": [
+    {
+      "candidateId": "candidate-0286dc054bebf7b2",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-ddr5",
+      "checkedAt": "2026-08-16",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Signature Line DDR5",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/signature-line-ddr5"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "signature",
+          "ddr5",
+          "line"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-03649c7fda9cd6b5",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS720-SE-DIGITAL-360mm-Liquid-Cooler-With-Status-Display-1851-1700-AM5/2024/17234.shtml",
+      "checkedAt": "2026-08-16",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LS720 SE DIGITAL - DeepCool",
+        "description": "The LS720 SE DIGITAL cooler is an upgraded version of DeepCool's LS SE liquid coolers. Everything you love from DeepCool AIOs, but with the inclusion of a CPU status screen! Clear up precious room on your desktop by moving the CPU monitoring software off your monitor and onto the pump in your computer tower. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS720-SE-DIGITAL-360mm-Liquid-Cooler-With-Status-Display-1851-1700-AM5/2024/17234.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "digital",
+          "ls720",
+          "se"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-053576aab497eb30",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AN400-Top-Flow-Low-Profile-Cooler-1851-1700-AM5/2023/16838.shtml",
+      "checkedAt": "2026-08-16",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AN400 - DeepCool",
+        "description": "The AN400 is a 4-heatpipe low-profile air cooler that provides 150W of TDP in a compact heatsink. With unobstructed clearance for RAM modules, and a top-down air flow, the AN400 is a great option for everything down to small ITX builds. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AN400-Top-Flow-Low-Profile-Cooler-1851-1700-AM5/2023/16838.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "an400"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-05852f9bcc7c9310",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-BK-ARGB-120mm-CPU-Cooler-1851-1700-AM5/2022/16085.shtml",
+      "checkedAt": "2026-08-16",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG400 BK ARGB - DeepCool",
+        "description": "The DeepCool AG400BKARGB is a single tower 120mm CPU cooler that builds upon our legacy for high-quality cooling performance but stripped down for a streamlined and efficient package. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-BK-ARGB-120mm-CPU-Cooler-1851-1700-AM5/2022/16085.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ag400",
+          "argb",
+          "bk"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-0757ae6f81f8fb17",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/GAMMAXX-AG620-Dual-Tower-CPU-Cooler-1851-1700-AM5/2024/15900.shtml",
+      "checkedAt": "2026-08-16",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG620 - DeepCool",
+        "description": "The DeepCool AG620 is a dual-tower 120mm CPU cooler that boasts impressive 260W cooling power performance that's been stripped down and optimized for terrific efficiency throughout. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/GAMMAXX-AG620-Dual-Tower-CPU-Cooler-1851-1700-AM5/2024/15900.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ag620"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-0ebee05fda6e2d15",
+      "sourceId": "fractal-official-index",
+      "category": "case",
+      "brand": "Fractal Design",
+      "officialUrl": "https://www.fractal-design.com/products/cases/terra/terra/",
+      "checkedAt": "2026-08-16",
+      "status": "structured-product",
+      "identity": {
+        "name": "Terra",
+        "model": "Terra"
+      },
+      "page": {
+        "title": "Terra",
+        "description": "Terra is a PC case designed and engineered to reshape the small form factor gaming experience. Inspired by the homes of modern gamers, Terra incorporates boutique design features such as thick panels cut from anodized aluminum, CNC-milled details and FSC-certified solid walnut. Inside, it includes a PCIe 4.0 riser cable and features a stepless slidable central wall for build flexibility, providing space for a powerful GPU up to 322 mm in length.",
+        "canonicalUrl": "https://www.fractal-design.com/products/cases/terra/terra/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "terra"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-11d497a721c25340",
+      "sourceId": "asus-official-index",
+      "category": "motherboard",
+      "brand": "ASUS",
+      "officialUrl": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-pro-wifi/",
+      "checkedAt": "2026-08-16",
+      "status": "structured-product",
+      "identity": {
+        "name": "TUF GAMING Z890-PRO WIFI",
+        "sku": "29694",
+        "brand": "ASUS"
+      },
+      "page": {
+        "title": "TUF GAMING Z890-PRO WIFI",
+        "description": "ASUS TUF GAMING Z890-PRO WIFI is an Advanced AI PC ready ATX motherboard with 16+1+2+1 80A DrMOS power stages, DDR5 slots, PCIe® 5.0, DisplayPort, HDMI™",
+        "canonicalUrl": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z890-pro-wifi/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "wifi",
+          "z890",
+          "pro",
+          "tuf"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-12e6205e62d1f2ba",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/prime-px/",
+      "checkedAt": "2026-08-16",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "PRIME PX",
+        "description": "Seasonic PRIME PX PSU features a platinum efficiency rating for outstanding energy conservation and performance stability. For gamers and professionals.",
+        "canonicalUrl": "https://seasonic.com/prime-px/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "prime",
+          "px"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-140e3e2478ece84d",
+      "sourceId": "asus-official-index",
+      "category": "motherboard",
+      "brand": "ASUS",
+      "officialUrl": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-wrx90e-sage-se/",
+      "checkedAt": "2026-08-16",
+      "status": "structured-product",
+      "identity": {
+        "name": "Pro WS WRX90E-SAGE SE",
+        "sku": "25120",
+        "brand": "ASUS"
+      },
+      "page": {
+        "title": "Pro WS WRX90E-SAGE SE",
+        "description": "A supreme workstation performer with seven PCIe 5.0 x16 slots, 32+3+3+3 power stages, CPU and memory overclocking, 4 PCIe 5.0 M.2 slots, dual 10 Gb LAN, PCIe Q-release Slim.",
+        "canonicalUrl": "https://www.asus.com/motherboards-components/motherboards/workstation/pro-ws-wrx90e-sage-se/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "wrx90e",
+          "sage",
+          "pro",
+          "se",
+          "ws"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-16ea45ee29addc3c",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-premium-ddr5-ckd",
+      "checkedAt": "2026-08-16",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Signature Line Premium CKD DDR5",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/signature-line-premium-ddr5-ckd"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "signature",
+          "premium",
+          "ddr5",
+          "line",
+          "ckd"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-1e096bec8f60c35e",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/prime-tx/",
+      "checkedAt": "2026-08-16",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "PRIME TX",
+        "description": "Seasonic PRIME TX PSU deliver unparalleled stability and top-tier efficiency with a titanium rating. Designed for demanding systems and professional builds.",
+        "canonicalUrl": "https://seasonic.com/prime-tx/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "prime",
+          "tx"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-21178e6dcff4d9bd",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-ddr3",
+      "checkedAt": "2026-08-16",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Signature Line DDR3",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/signature-line-ddr3"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "signature",
+          "ddr3",
+          "line"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-25571c14981d9622",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/tuf-gaming-elite5-ddr5-performance-ram",
+      "checkedAt": "2026-08-16",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Viper Elite 5 RGB TUF Gaming Alliance Performance DDR5 Performance DRAM",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/tuf-gaming-elite5-ddr5-performance-ram"
+      },
+      "properties": [],
+      "match": {
+        "score": 0.75,
+        "signals": [
+          "performance",
+          "ddr5",
+          "tuf"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-3fd76bfdbe51d90d",
+      "sourceId": "asus-official-index",
+      "category": "motherboard",
+      "brand": "ASUS",
+      "officialUrl": "https://www.asus.com/motherboards-components/motherboards/proart/proart-z890-creator-wifi/",
+      "checkedAt": "2026-08-16",
+      "status": "structured-product",
+      "identity": {
+        "name": "ProArt Z890-CREATOR WIFI",
+        "sku": "30710",
+        "brand": "ASUS"
+      },
+      "page": {
+        "title": "ProArt Z890-CREATOR WIFI",
+        "description": "The ProArt Z890-CREATOR WIFI features ASUS AI, PCIe® 5.0, DDR5 slots, Thunderbolt™ 5, USB4/Thunderbolt™ port, 10G and 2.5G LAN ports, WiFi 7 and five M.2 slots",
+        "canonicalUrl": "https://www.asus.com/motherboards-components/motherboards/proart/proart-z890-creator-wifi/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "creator",
+          "proart",
+          "wifi",
+          "z890"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-43c7b25e3274757e",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/g12-gm-2024/",
+      "checkedAt": "2026-08-16",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "G12 GM (2024)",
+        "description": "Seasonic G12 GC 2024 – a reliable and efficient power supply unit designed for optimal performance, quiet operation, and 80 PLUS Gold efficiency. Ideal for gamers, system builders and PC",
+        "canonicalUrl": "https://seasonic.com/g12-gm-2024/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "2024",
+          "g12",
+          "gm"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-582a98ea5fd403a3",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/s12iii/",
+      "checkedAt": "2026-08-16",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "S12III",
+        "description": "Seasonic S12III PSU offers excellent bronze-rated energy efficiency and stability for your system. Ideal for budget-conscious builders.",
+        "canonicalUrl": "https://seasonic.com/s12iii/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "s12iii"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-5a286bc157533332",
+      "sourceId": "fractal-official-index",
+      "category": "case",
+      "brand": "Fractal Design",
+      "officialUrl": "https://www.fractal-design.com/products/cases/epoch/epoch/",
+      "checkedAt": "2026-08-16",
+      "status": "structured-product",
+      "identity": {
+        "name": "Epoch",
+        "model": "Epoch"
+      },
+      "page": {
+        "title": "Epoch",
+        "description": "Epoch combines clean, contemporary design with modern airflow engineering. It features a mesh front and three powerful Momentum fans to deliver gaming performance that integrates stylishly into your gaming station.",
+        "canonicalUrl": "https://www.fractal-design.com/products/cases/epoch/epoch/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "epoch"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-65dd4b0959acbe99",
+      "sourceId": "asus-official-index",
+      "category": "motherboard",
+      "brand": "ASUS",
+      "officialUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-z890-p-wifi/",
+      "checkedAt": "2026-08-16",
+      "status": "structured-product",
+      "identity": {
+        "name": "PRIME Z890-P WIFI",
+        "sku": "29668",
+        "brand": "ASUS"
+      },
+      "page": {
+        "title": "PRIME Z890-P WIFI",
+        "description": "ASUS PRIME Z890-P WIFI motherboard with Intel® Core™ Ultra Processors, Wi-Fi 7, PCIe 5.0, and AI features for unmatched performance and customization.",
+        "canonicalUrl": "https://www.asus.com/motherboards-components/motherboards/prime/prime-z890-p-wifi/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "prime",
+          "wifi",
+          "z890",
+          "p"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-9023ff4d74c0c7ff",
+      "sourceId": "asus-official-index",
+      "category": "motherboard",
+      "brand": "ASUS",
+      "officialUrl": "https://www.asus.com/motherboards-components/motherboards/expedition/ex-b860m-v5/",
+      "checkedAt": "2026-08-16",
+      "status": "structured-product",
+      "identity": {
+        "name": "EX-B860M-V5",
+        "sku": "30907",
+        "brand": "ASUS"
+      },
+      "page": {
+        "title": "EX-B860M-V5",
+        "description": "Expedition EX-B860M-V5: Intel® Core™ Ultra Processors (Series 2), DDR5, dual M.2, Realtek 2.5Gb Ethernet. Built for non-stop gaming with unbeatable durability.",
+        "canonicalUrl": "https://www.asus.com/motherboards-components/motherboards/expedition/ex-b860m-v5/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "b860m",
+          "ex",
+          "v5"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-a21abcb8abe9783f",
+      "sourceId": "fractal-official-index",
+      "category": "case",
+      "brand": "Fractal Design",
+      "officialUrl": "https://www.fractal-design.com/products/cases/mood/mood/",
+      "checkedAt": "2026-08-16",
+      "status": "structured-product",
+      "identity": {
+        "name": "Mood",
+        "model": "Mood"
+      },
+      "page": {
+        "title": "Mood",
+        "description": "Mood is designed to streamline the gaming station with a look which harmonizes with the homes of modern gamers.",
+        "canonicalUrl": "https://www.fractal-design.com/products/cases/mood/mood/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "mood"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    }
+  ],
+  "failures": []
+}

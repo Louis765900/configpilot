@@ -7,6 +7,7 @@ import promotedFeed from './catalog/promoted.generated.json'
 import verificationFeed from './catalog/candidate-verification.generated.json'
 import discoveryReport from './catalog/discovery-report.generated.json'
 import sourceRegistry from './catalog/source-registry.json'
+import manufacturerEvidence from './catalog/manufacturer-evidence.generated.json'
 import { analyzeListing, checkCompatibility, searchProducts } from './engine'
 
 describe('catalogue', () => {
@@ -57,6 +58,15 @@ describe('catalogue', () => {
     expect(officialCandidates.some(candidate => candidate.sourceId.includes('gskill'))).toBe(false)
     expect(sourceRegistry.policy.publishAutomatically).toBe(false)
     expect(sourceRegistry.policy.requestBudget).toBeGreaterThanOrEqual(sourceRegistry.queries.length * sourceRegistry.policy.wikidataMaxPagesPerQuery)
+  })
+  it('conserve les preuves automatiques en attente de relecture humaine', () => {
+    const officialCandidateIds = new Set(discoveryFeed.candidates.filter(candidate => candidate.sourceId.endsWith('-official-index')).map(candidate => candidate.id))
+    expect(manufacturerEvidence.summary.officialCandidates).toBe(222)
+    expect(manufacturerEvidence.summary.collected).toBe(20)
+    expect(manufacturerEvidence.evidence).toHaveLength(20)
+    expect(manufacturerEvidence.evidence.every(item => officialCandidateIds.has(item.candidateId))).toBe(true)
+    expect(manufacturerEvidence.evidence.every(item => item.review.status === 'pending')).toBe(true)
+    expect(manufacturerEvidence.evidence.some(item => item.status === 'structured-product')).toBe(true)
   })
   it('retrouve le i9-9900KF sans tenir compte de la casse', () => expect(searchProducts('I9-9900kf')[0]?.id).toBe('cpu-9900kf'))
   it('filtre le socket LGA1151 v2', () => expect(searchProducts('', 'cpu', 'LGA1151 v2').map(p => p.id)).toEqual(expect.arrayContaining(['cpu-8600k','cpu-9700k','cpu-9900kf'])))

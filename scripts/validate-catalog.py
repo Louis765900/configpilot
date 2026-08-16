@@ -20,6 +20,7 @@ def main() -> int:
     hardware = json.loads((ROOT / "src/catalog/hardware-identifiers.generated.json").read_text(encoding="utf-8"))
     rejected = json.loads((ROOT / "src/catalog/rejected.generated.json").read_text(encoding="utf-8"))
     verification = json.loads((ROOT / "src/catalog/candidate-verification.generated.json").read_text(encoding="utf-8"))
+    evidence = json.loads((ROOT / "src/catalog/manufacturer-evidence.generated.json").read_text(encoding="utf-8"))
     report = json.loads((ROOT / "src/catalog/discovery-report.generated.json").read_text(encoding="utf-8"))
     manufacturers = json.loads((ROOT / "src/catalog/manufacturer-registry.json").read_text(encoding="utf-8"))
     registry = json.loads((ROOT / "src/catalog/source-registry.json").read_text(encoding="utf-8"))
@@ -32,12 +33,16 @@ def main() -> int:
     request_budget = int(policy.get("requestBudget", 0))
     manufacturer_page_budget = int(policy.get("manufacturerIndexPageBudget", 0))
     manufacturer_candidate_limit = int(policy.get("manufacturerIndexCandidateLimit", 0))
+    manufacturer_evidence_budget = int(policy.get("manufacturerEvidencePageBudget", 0))
+    manufacturer_evidence_property_limit = int(policy.get("manufacturerEvidencePropertyLimit", 0))
     if not 1 <= page_size <= 50 or not 1 <= max_pages <= 2:
         errors.append("unsafe Wikidata pagination policy")
     if request_budget < len(registry.get("queries", [])) * max_pages:
         errors.append("request budget does not cover every registered query")
     if not 1 <= manufacturer_page_budget <= 50 or not 1 <= manufacturer_candidate_limit <= 1000:
         errors.append("unsafe manufacturer index policy")
+    if not 1 <= manufacturer_evidence_budget <= 50 or not 1 <= manufacturer_evidence_property_limit <= 100:
+        errors.append("unsafe manufacturer evidence policy")
     query_pairs: set[tuple[str, str]] = set()
     for query in registry.get("queries", []):
         pair = (query.get("category", ""), query.get("brand", ""))
@@ -175,6 +180,11 @@ def main() -> int:
         if row.get("hardwareIdentifiers") != sum(item.get("category") == category for item in identifiers):
             errors.append(f"stale identifier coverage: {category}")
     report_totals = report.get("totals", {})
+    report_policy = report.get("policy", {})
+    if report_policy.get("manufacturerEvidencePageBudget") != manufacturer_evidence_budget:
+        errors.append("stale manufacturer evidence page budget")
+    if report_policy.get("manufacturerEvidencePropertyLimit") != manufacturer_evidence_property_limit:
+        errors.append("stale manufacturer evidence property limit")
     expected_totals = {
         "registeredQueries": len(registry.get("queries", [])),
         "registeredBrands": len({query["brand"] for query in registry.get("queries", [])}),
@@ -225,6 +235,75 @@ def main() -> int:
             errors.append(f"verified candidate without product data: {candidate_id}")
         if proof.get("status") != "verified" and proof.get("product"):
             errors.append(f"blocked candidate contains promotable data: {candidate_id}")
+    official_candidates_by_id = {
+        candidate.get("id", ""): candidate
+        for candidate in active
+        if candidate.get("sourceId") in official_source_ids
+    }
+    evidence_by_id: dict[str, dict] = {}
+    evidence_statuses = {"structured-product", "page-metadata", "insufficient-metadata"}
+    for item in evidence.get("evidence", []):
+        candidate_id = item.get("candidateId", "")
+        candidate = official_candidates_by_id.get(candidate_id)
+        if not candidate or candidate_id in evidence_by_id:
+            errors.append(f"orphan or duplicate manufacturer evidence: {candidate_id}")
+            continue
+        evidence_by_id[candidate_id] = item
+        if item.get("sourceId") != candidate.get("sourceId") or item.get("officialUrl") != candidate.get("url"):
+            errors.append(f"manufacturer evidence subject mismatch: {candidate_id}")
+        if item.get("brand") != candidate.get("brand") or item.get("category") != candidate.get("category"):
+            errors.append(f"manufacturer evidence classification mismatch: {candidate_id}")
+        if item.get("status") not in evidence_statuses:
+            errors.append(f"invalid manufacturer evidence status: {candidate_id}")
+        if item.get("review", {}).get("status") != "pending" or not item.get("review", {}).get("reason"):
+            errors.append(f"manufacturer evidence bypasses human review: {candidate_id}")
+        if not isinstance(item.get("identity"), dict) or not all(
+            isinstance(key, str) and isinstance(value, str) for key, value in item.get("identity", {}).items()
+        ):
+            errors.append(f"invalid manufacturer evidence identity: {candidate_id}")
+        properties = item.get("properties", [])
+        if not isinstance(properties, list) or len(properties) > manufacturer_evidence_property_limit or not all(
+            isinstance(prop, dict) and isinstance(prop.get("name"), str) and isinstance(prop.get("value"), str)
+            for prop in properties
+        ):
+            errors.append(f"invalid manufacturer evidence properties: {candidate_id}")
+        score = item.get("match", {}).get("score")
+        signals = item.get("match", {}).get("signals")
+        if not isinstance(score, (int, float)) or not 0 <= score <= 1 or not isinstance(signals, list):
+            errors.append(f"invalid manufacturer evidence match: {candidate_id}")
+        canonical = str(item.get("page", {}).get("canonicalUrl", ""))
+        hostname = (urlparse(canonical).hostname or "").lower()
+        allowed = manufacturer_domains.get(candidate.get("brand"), set())
+        if not canonical.startswith("https://") or not any(hostname == domain or hostname.endswith(f".{domain}") for domain in allowed):
+            errors.append(f"untrusted manufacturer evidence canonical: {candidate_id}")
+    failure_ids: set[str] = set()
+    for failure in evidence.get("failures", []):
+        candidate_id = failure.get("candidateId", "")
+        candidate = official_candidates_by_id.get(candidate_id)
+        if not candidate or candidate_id in failure_ids or candidate_id in evidence_by_id:
+            errors.append(f"orphan, duplicate or resolved evidence failure: {candidate_id}")
+            continue
+        failure_ids.add(candidate_id)
+        if failure.get("sourceId") != candidate.get("sourceId") or failure.get("officialUrl") != candidate.get("url"):
+            errors.append(f"manufacturer evidence failure subject mismatch: {candidate_id}")
+        if not isinstance(failure.get("attempts"), int) or failure.get("attempts", 0) < 1 or not failure.get("error"):
+            errors.append(f"invalid manufacturer evidence failure: {candidate_id}")
+    evidence_summary = evidence.get("summary", {})
+    expected_statuses = {
+        status: sum(item.get("status") == status for item in evidence_by_id.values())
+        for status in sorted(evidence_statuses)
+    }
+    expected_evidence_summary = {
+        "officialCandidates": len(official_candidates_by_id),
+        "collected": len(evidence_by_id),
+        "remaining": len(official_candidates_by_id) - len(evidence_by_id),
+        "failures": len(failure_ids),
+        "byStatus": expected_statuses,
+    }
+    if evidence_summary != expected_evidence_summary:
+        errors.append("stale manufacturer evidence summary")
+    if int(evidence.get("lastRun", {}).get("limit", 0)) > manufacturer_evidence_budget:
+        errors.append("manufacturer evidence run exceeds page budget")
     if errors:
         print("\n".join(errors))
         return 1
@@ -235,6 +314,8 @@ def main() -> int:
         "hardwareIdentifiers": len(identifiers),
         "rejected": len(discarded),
         "verified": sum(item.get("status") == "verified" for item in verification.get("candidates", [])),
+        "manufacturerEvidence": len(evidence_by_id),
+        "manufacturerEvidenceFailures": len(failure_ids),
         "sources": len(source_ids),
         "registeredQueries": len(registry.get("queries", [])),
         "registeredBrands": len({query["brand"] for query in registry.get("queries", [])}),

@@ -27,11 +27,15 @@ jobs:
       - name: Rechercher les nouvelles références ouvertes
         run: python scripts/discover-open-catalog.py | tee catalog-run.json
 
+      - name: Collecter un lot de preuves constructeur
+        run: python scripts/collect-manufacturer-evidence.py | tee manufacturer-evidence-run.json
+
       - name: Valider les données générées
         run: |
           python scripts/test_catalog_triage.py
           python scripts/test_catalog_promotion.py
           python scripts/test_catalog_discovery.py
+          python scripts/test_manufacturer_evidence.py
           python scripts/validate-catalog.py
 
       - name: Résumer le passage du bot
@@ -39,13 +43,14 @@ jobs:
           echo "## Bot catalogue ConfigPilot" >> "$GITHUB_STEP_SUMMARY"
           echo '```json' >> "$GITHUB_STEP_SUMMARY"
           cat catalog-run.json >> "$GITHUB_STEP_SUMMARY"
+          cat manufacturer-evidence-run.json >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Enregistrer uniquement les candidats modifiés
         run: |
           git config user.name "configpilot-catalog-bot"
           git config user.email "catalog-bot@users.noreply.github.com"
-          git add src/catalog/discovery.generated.json src/catalog/hardware-identifiers.generated.json src/catalog/rejected.generated.json src/catalog/discovery-report.generated.json
+          git add src/catalog/discovery.generated.json src/catalog/hardware-identifiers.generated.json src/catalog/rejected.generated.json src/catalog/discovery-report.generated.json src/catalog/manufacturer-evidence.generated.json
           if git diff --cached --quiet; then
             echo "Aucun nouveau candidat."
             exit 0
