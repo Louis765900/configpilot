@@ -1,1 +1,645 @@
-[]
+[
+  {
+    "id": "open-lian-li-o11-dynamic-evo-xl-d3602b10",
+    "candidateId": "candidate-87fc5afcdbba2fc5",
+    "category": "case",
+    "brand": "Lian Li",
+    "name": "Lian Li O11 Dynamic Evo XL",
+    "reference": "O11DEXL-X / O11DEXL-W",
+    "series": "O11 Dynamic",
+    "year": 2023,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Caractéristiques communes aux versions noire et blanche ; vérifier la référence couleur avant achat.",
+    "performance": null,
+    "specs": {
+      "Format": "Grande tour",
+      "Cartes mères": [
+        "E-ATX",
+        "ATX",
+        "Micro-ATX",
+        "Mini-ITX"
+      ],
+      "GPU max (mm)": 460,
+      "Ventirad max (mm)": 167,
+      "Dimensions": "522 × 304 × 531,9 mm",
+      "Radiateurs": "Jusqu’à 3 × 420 mm",
+      "Ventilateurs": 11,
+      "Stockage": "Jusqu’à 7 unités",
+      "Identifiant découverte": "Q125678632",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "Fiche constructeur retrouvée",
+      "Dégagement GPU de 460 mm"
+    ],
+    "weaknesses": [
+      "Grande tour encombrante",
+      "Prix non suivi"
+    ],
+    "usage": "Configuration grand format et watercooling",
+    "source": "https://lian-li.com/product/o11-dynamic-evo-xl/"
+  },
+  {
+    "id": "open-amd-ryzen-3-1200-19046c26",
+    "candidateId": "candidate-a461de35ba5d61f6",
+    "category": "cpu",
+    "brand": "AMD",
+    "name": "AMD Ryzen 3 1200",
+    "reference": "YD1200BBAEBOX",
+    "series": "Ryzen 1000",
+    "year": 2017,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Processeur Summit Ridge 14 nm ; carte graphique séparée requise.",
+    "performance": null,
+    "specs": {
+      "Socket": "AM4",
+      "Architecture": "Zen",
+      "Cœurs": 4,
+      "Threads": 4,
+      "Base (GHz)": 3.1,
+      "Boost (GHz)": 3.4,
+      "Cache (Mo)": 10,
+      "TDP": 65,
+      "Mémoire": "DDR4-2667",
+      "iGPU": "Absent",
+      "Identifiant découverte": "Q65582574",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "Socket AM4",
+      "Coefficient débloqué"
+    ],
+    "weaknesses": [
+      "Quatre threads",
+      "Prix non suivi"
+    ],
+    "usage": "Remise en service d’une plateforme AM4 ancienne",
+    "source": "https://www.amd.com/en/newsroom/press-releases/2017-7-27-amd-completes-ryzen-mainstream-desktop-lineup-wit.html"
+  },
+  {
+    "id": "open-amd-ryzen-5-1600-5b5cce09",
+    "candidateId": "candidate-f894d2cbb1006655",
+    "category": "cpu",
+    "brand": "AMD",
+    "name": "AMD Ryzen 5 1600",
+    "reference": "Ryzen 5 1600 (2017)",
+    "series": "Ryzen 1000",
+    "year": 2017,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Cette fiche vise la version Summit Ridge lancée en 2017. Une révision AF 12 nm existe sous un nom proche : contrôler le code produit physique.",
+    "performance": null,
+    "specs": {
+      "Socket": "AM4",
+      "Architecture": "Zen",
+      "Cœurs": 6,
+      "Threads": 12,
+      "Base (GHz)": 3.2,
+      "Boost (GHz)": 3.6,
+      "TDP": 65,
+      "Mémoire": "DDR4",
+      "iGPU": "Absent",
+      "Refroidisseur": "Wraith Spire",
+      "Identifiant découverte": "Q28972980",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "Six cœurs et douze threads",
+      "Refroidisseur inclus à l’origine"
+    ],
+    "weaknesses": [
+      "Révision AE/AF à contrôler",
+      "Prix non suivi"
+    ],
+    "usage": "Plateforme AM4 ancienne et multitâche léger",
+    "source": "https://www.amd.com/en/newsroom/press-releases/2017-4-11-worldwide-release-of-amd-ryzen-5-desktop-processor.html"
+  },
+  {
+    "id": "open-amd-ryzen-5-3600-2e44d08a",
+    "candidateId": "candidate-17586bbafa2872eb",
+    "category": "cpu",
+    "brand": "AMD",
+    "name": "AMD Ryzen 5 3600",
+    "reference": "Ryzen 5 3600",
+    "series": "Ryzen 3000",
+    "year": 2019,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Caractéristiques de référence AMD ; compatibilité BIOS à vérifier selon la carte mère AM4.",
+    "performance": null,
+    "specs": {
+      "Socket": "AM4",
+      "Architecture": "Zen 2",
+      "Cœurs": 6,
+      "Threads": 12,
+      "Base (GHz)": 3.6,
+      "Boost (GHz)": 4.2,
+      "Cache (Mo)": 35,
+      "TDP": 65,
+      "Mémoire": "DDR4",
+      "iGPU": "Absent",
+      "PCIe": "4.0",
+      "Identifiant découverte": "Q65584693",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "Six cœurs et douze threads",
+      "PCIe 4.0"
+    ],
+    "weaknesses": [
+      "Pas de partie graphique intégrée",
+      "Prix non suivi"
+    ],
+    "usage": "Jeu et polyvalence sur AM4",
+    "source": "https://www.amd.com/en/newsroom/press-releases/2019-7-7-amd-unleashes-ultimate-pc-gaming-platform-with-wor.html"
+  },
+  {
+    "id": "open-amd-ryzen-threadripper-1900x-eb622908",
+    "candidateId": "candidate-27aeaa98a3f4f1e3",
+    "category": "cpu",
+    "brand": "AMD",
+    "name": "AMD Ryzen Threadripper 1900X",
+    "reference": "YD190XA8AEWOF",
+    "series": "Ryzen Threadripper 1000",
+    "year": 2017,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Refroidisseur non inclus ; plateforme X399 requise.",
+    "performance": null,
+    "specs": {
+      "Socket": "sTR4",
+      "Architecture": "Zen",
+      "Cœurs": 8,
+      "Threads": 16,
+      "Base (GHz)": 3.8,
+      "Boost (GHz)": 4.0,
+      "Cache L3 (Mo)": 16,
+      "TDP": 180,
+      "Mémoire": "DDR4-2667, 4 canaux",
+      "PCIe": "3.0",
+      "Identifiant découverte": "Q56062710",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "Mémoire quatre canaux",
+      "Huit cœurs et seize threads"
+    ],
+    "weaknesses": [
+      "TDP de 180 W",
+      "Plateforme sTR4 ancienne"
+    ],
+    "usage": "Station de travail X399 ancienne",
+    "source": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen-threadripper/ryzen-threadripper-1000-series/amd-ryzen-threadripper-1900x.html"
+  },
+  {
+    "id": "open-amd-ryzen-threadripper-2990wx-d830c662",
+    "candidateId": "candidate-0493cee91d9fd894",
+    "category": "cpu",
+    "brand": "AMD",
+    "name": "AMD Ryzen Threadripper 2990WX",
+    "reference": "YD299XAZAFWOF",
+    "series": "Ryzen Threadripper 2000",
+    "year": 2018,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Refroidisseur non inclus ; vérifier BIOS X399 et capacité de refroidissement pour 250 W.",
+    "performance": null,
+    "specs": {
+      "Socket": "sTR4",
+      "Architecture": "Zen+",
+      "Cœurs": 32,
+      "Threads": 64,
+      "Base (GHz)": 3.0,
+      "Boost (GHz)": 4.2,
+      "Cache L3 (Mo)": 64,
+      "TDP": 250,
+      "Mémoire": "DDR4-2933, 4 canaux",
+      "PCIe": "3.0",
+      "Identifiant découverte": "Q56062941",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "Trente-deux cœurs et soixante-quatre threads",
+      "Mémoire quatre canaux"
+    ],
+    "weaknesses": [
+      "TDP de 250 W",
+      "Plateforme sTR4 ancienne"
+    ],
+    "usage": "Rendu fortement multithreadé sur X399",
+    "source": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen-threadripper/ryzen-threadripper-2000-series/amd-ryzen-threadripper-2990wx.html"
+  },
+  {
+    "id": "open-core-i7-6700-089c0d38",
+    "candidateId": "candidate-5a4f90be28573b75",
+    "category": "cpu",
+    "brand": "Intel",
+    "name": "Core i7-6700",
+    "reference": "i7-6700",
+    "series": "Core 6e génération",
+    "year": 2015,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Référence Intel de bureau en fin de cycle de support ; vérifier le chipset et le BIOS de la carte mère.",
+    "performance": null,
+    "specs": {
+      "Socket": "LGA1151",
+      "Architecture": "Skylake",
+      "Cœurs": 4,
+      "Threads": 8,
+      "Base (GHz)": 3.4,
+      "Boost (GHz)": 4.0,
+      "Cache (Mo)": 8,
+      "TDP": 65,
+      "Mémoire": "DDR4-2133 / DDR3L-1600",
+      "iGPU": "Intel HD Graphics 530",
+      "PCIe": "3.0, 16 lignes",
+      "Identifiant découverte": "Q28739510",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "Hyper-Threading",
+      "Partie graphique intégrée"
+    ],
+    "weaknesses": [
+      "Plateforme ancienne",
+      "Quatre cœurs"
+    ],
+    "usage": "Maintenance d’un PC LGA1151 de première génération",
+    "source": "https://www.intel.com/content/www/us/en/products/sku/88196/intel-core-i76700-processor-8m-cache-up-to-4-00-ghz/specifications.html"
+  },
+  {
+    "id": "open-amd-radeon-rx-6800-xt-c1e4d270",
+    "candidateId": "candidate-64e5dcae194294aa",
+    "category": "gpu",
+    "brand": "AMD",
+    "name": "AMD Radeon RX 6800 XT",
+    "reference": "Radeon RX 6800 XT",
+    "series": "Radeon RX 6000",
+    "year": 2020,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Dimensions et fréquences d’une carte partenaire peuvent différer de la conception de référence AMD.",
+    "performance": null,
+    "specs": {
+      "Architecture": "RDNA 2",
+      "Unités de calcul": 72,
+      "Processeurs de flux": 4608,
+      "VRAM": 16,
+      "Type VRAM": "GDDR6",
+      "Bus mémoire": "256-bit",
+      "Consommation (W)": 300,
+      "PSU recommandé (W)": 750,
+      "Longueur de référence (mm)": 267,
+      "Slots de référence": 2.5,
+      "Connecteurs": "2 × 8 broches",
+      "Identifiant découverte": "Q127163790",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "16 Go de GDDR6",
+      "72 accélérateurs de rayons"
+    ],
+    "weaknesses": [
+      "Consommation de référence de 300 W",
+      "Variante constructeur à contrôler"
+    ],
+    "usage": "Jeu en 1440p ou 4K",
+    "source": "https://www.amd.com/en/products/graphics/desktops/radeon/6000-series/amd-radeon-rx-6800-xt.html"
+  },
+  {
+    "id": "open-radeon-rx-5600-xt-6424e453",
+    "candidateId": "candidate-aea81b7b60e39964",
+    "category": "gpu",
+    "brand": "AMD",
+    "name": "Radeon RX 5600 XT",
+    "reference": "Radeon RX 5600 XT",
+    "series": "Radeon RX 5000",
+    "year": 2020,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Les fréquences et connecteurs varient selon la carte partenaire et sa version de BIOS.",
+    "performance": null,
+    "specs": {
+      "Architecture": "RDNA",
+      "Unités de calcul": 36,
+      "Processeurs de flux": 2304,
+      "VRAM": 6,
+      "Type VRAM": "GDDR6",
+      "Bus mémoire": "192-bit",
+      "Fréquence jeu (MHz)": 1375,
+      "Boost de référence (MHz)": 1560,
+      "Consommation (W)": 150,
+      "PSU recommandé (W)": 550,
+      "Identifiant découverte": "Q114937252",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "6 Go de GDDR6",
+      "Consommation de référence de 150 W"
+    ],
+    "weaknesses": [
+      "Variante constructeur à contrôler",
+      "Pas d’encodage AV1"
+    ],
+    "usage": "Jeu en 1080p",
+    "source": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5600-xt.html"
+  },
+  {
+    "id": "open-intel-arc-b570-86b26206",
+    "candidateId": "candidate-689b84822abe096c",
+    "category": "gpu",
+    "brand": "Intel",
+    "name": "Intel Arc B570",
+    "reference": "Arc B570",
+    "series": "Arc B-Series",
+    "year": 2024,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Spécifications du GPU Intel ; dimensions et alimentation dépendent de la carte du partenaire.",
+    "performance": null,
+    "specs": {
+      "Architecture": "Xe2 Battlemage",
+      "Xe-cores": 18,
+      "Unités ray tracing": 18,
+      "VRAM": 10,
+      "Type VRAM": "GDDR6",
+      "Bus mémoire": "160-bit",
+      "Bande passante": "380 GB/s",
+      "Fréquence (MHz)": 2500,
+      "Consommation (W)": 150,
+      "Interface": "PCIe 4.0 x8",
+      "Encodeur": "AV1 / HEVC / AVC",
+      "Identifiant découverte": "Q131460527",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "10 Go de GDDR6",
+      "Encodage AV1"
+    ],
+    "weaknesses": [
+      "Resizable BAR conseillé",
+      "Variante constructeur à contrôler"
+    ],
+    "usage": "Jeu en 1080p/1440p et encodage AV1",
+    "source": "https://www.intel.com/content/www/us/en/products/sku/241676/intel-arc-b570-graphics/specifications.html"
+  },
+  {
+    "id": "open-intel-arc-b580-b0d8beac",
+    "candidateId": "candidate-b5fc8a49f8571420",
+    "category": "gpu",
+    "brand": "Intel",
+    "name": "Intel Arc B580",
+    "reference": "Arc B580",
+    "series": "Arc B-Series",
+    "year": 2024,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Spécifications du GPU Intel ; la B580 Limited Edition exige notamment Resizable BAR et une alimentation adaptée.",
+    "performance": null,
+    "specs": {
+      "Architecture": "Xe2 Battlemage",
+      "Xe-cores": 20,
+      "Unités ray tracing": 20,
+      "VRAM": 12,
+      "Type VRAM": "GDDR6",
+      "Bus mémoire": "192-bit",
+      "Bande passante": "456 GB/s",
+      "Fréquence (MHz)": 2670,
+      "Consommation (W)": 190,
+      "Encodeur": "AV1 / HEVC / AVC",
+      "Identifiant découverte": "Q131459642",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "12 Go de GDDR6",
+      "Encodage AV1"
+    ],
+    "weaknesses": [
+      "Resizable BAR conseillé",
+      "Variante constructeur à contrôler"
+    ],
+    "usage": "Jeu en 1440p et encodage AV1",
+    "source": "https://www.intel.com/content/www/us/en/products/sku/241598/intel-arc-b580-graphics/specifications.html"
+  },
+  {
+    "id": "open-msi-geforce-rtx-2080-ventus-8g-oc-0586ab3b",
+    "candidateId": "candidate-f1fab617f9aa6a4a",
+    "category": "gpu",
+    "brand": "MSI",
+    "name": "MSI GeForce RTX 2080 Ventus 8G OC",
+    "reference": "GeForce RTX 2080 VENTUS 8G OC",
+    "series": "Ventus",
+    "year": 2018,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Fiche propre au modèle MSI Ventus 8G OC.",
+    "performance": null,
+    "specs": {
+      "Architecture": "Turing",
+      "Cœurs CUDA": 2944,
+      "Boost (MHz)": 1800,
+      "VRAM": 8,
+      "Type VRAM": "GDDR6",
+      "Bus mémoire": "256-bit",
+      "Consommation (W)": 225,
+      "PSU recommandé (W)": 650,
+      "Dimensions": "268 × 114 × 50 mm",
+      "Connecteurs": "1 × 8 broches + 1 × 6 broches",
+      "Sorties": "3 × DisplayPort 1.4a, HDMI 2.0b, USB-C",
+      "Identifiant découverte": "Q110814332",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "Modèle MSI précisément identifié",
+      "8 Go de GDDR6"
+    ],
+    "weaknesses": [
+      "Consommation de 225 W",
+      "Ancienne génération de ray tracing"
+    ],
+    "usage": "Jeu en 1440p et création CUDA",
+    "source": "https://www.msi.com/Graphics-Card/GeForce-RTX-2080-VENTUS-8G-OC/Specification"
+  },
+  {
+    "id": "open-msi-geforce-rtx-4080-super-16g-expert-a3f5514c",
+    "candidateId": "candidate-b96a4fe0ad2a3220",
+    "category": "gpu",
+    "brand": "MSI",
+    "name": "MSI GeForce RTX 4080 SUPER 16G EXPERT",
+    "reference": "GeForce RTX 4080 SUPER 16G EXPERT",
+    "series": "Expert",
+    "year": 2024,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Fiche propre au modèle MSI Expert ; MSI indique 750 W minimum et recommande 850 W.",
+    "performance": null,
+    "specs": {
+      "Architecture": "Ada Lovelace",
+      "Cœurs CUDA": 10240,
+      "Boost (MHz)": 2610,
+      "VRAM": 16,
+      "Type VRAM": "GDDR6X",
+      "Bus mémoire": "256-bit",
+      "Consommation (W)": 320,
+      "PSU recommandé (W)": 850,
+      "Dimensions": "312 × 141 × 61 mm",
+      "Connecteurs": "1 × 16 broches",
+      "Sorties": "3 × DisplayPort 1.4a, HDMI 2.1a",
+      "Identifiant découverte": "Q132183456",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "16 Go de GDDR6X",
+      "Modèle MSI précisément identifié"
+    ],
+    "weaknesses": [
+      "Carte de 312 mm",
+      "Consommation de 320 W"
+    ],
+    "usage": "Jeu en 4K et création accélérée",
+    "source": "https://www.msi.com/Graphics-Card/GeForce-RTX-4080-SUPER-16G-Expert/Specification"
+  },
+  {
+    "id": "open-geforce-rtx-4070-942b886c",
+    "candidateId": "candidate-4fa53d533f172f89",
+    "category": "gpu",
+    "brand": "NVIDIA",
+    "name": "GeForce RTX 4070",
+    "reference": "GeForce RTX 4070",
+    "series": "GeForce RTX 40",
+    "year": 2023,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Caractéristiques du GPU et de la conception de référence NVIDIA ; dimensions, mémoire exacte et alimentation peuvent varier selon le fabricant de carte.",
+    "performance": null,
+    "specs": {
+      "Architecture": "Ada Lovelace",
+      "Cœurs CUDA": 5888,
+      "Boost (GHz)": 2.48,
+      "VRAM": 12,
+      "Type VRAM": "GDDR6 / GDDR6X",
+      "Bus mémoire": "192-bit",
+      "Ray tracing": "3e génération",
+      "DLSS": "DLSS 3",
+      "Identifiant découverte": "Q117705531",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "12 Go de mémoire",
+      "DLSS 3"
+    ],
+    "weaknesses": [
+      "Fabricant de carte non précisé",
+      "Dimensions à vérifier"
+    ],
+    "usage": "Jeu en 1440p et création",
+    "source": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4070-family/"
+  },
+  {
+    "id": "open-geforce-rtx-4070-ti-62630a79",
+    "candidateId": "candidate-f3ace10209f4580d",
+    "category": "gpu",
+    "brand": "NVIDIA",
+    "name": "GeForce RTX 4070 Ti",
+    "reference": "GeForce RTX 4070 Ti",
+    "series": "GeForce RTX 40",
+    "year": 2023,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Caractéristiques de référence NVIDIA ; dimensions, refroidissement et alimentation varient selon le fabricant de carte.",
+    "performance": null,
+    "specs": {
+      "Architecture": "Ada Lovelace",
+      "Cœurs CUDA": 7680,
+      "Boost (GHz)": 2.61,
+      "VRAM": 12,
+      "Type VRAM": "GDDR6X",
+      "Bus mémoire": "192-bit",
+      "Ray tracing": "3e génération",
+      "DLSS": "DLSS 3",
+      "Identifiant découverte": "Q116004030",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "12 Go de GDDR6X",
+      "DLSS 3"
+    ],
+    "weaknesses": [
+      "Fabricant de carte non précisé",
+      "Dimensions à vérifier"
+    ],
+    "usage": "Jeu en 1440p haut niveau et création",
+    "source": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4070-family/"
+  },
+  {
+    "id": "open-geforce-rtx-4080-403113dd",
+    "candidateId": "candidate-448ad7c5903b5039",
+    "category": "gpu",
+    "brand": "NVIDIA",
+    "name": "GeForce RTX 4080",
+    "reference": "GeForce RTX 4080",
+    "series": "GeForce RTX 40",
+    "year": 2022,
+    "newPrice": null,
+    "usedPrice": null,
+    "confidence": "Bonne",
+    "status": "Documentaire",
+    "notes": "Caractéristiques de référence NVIDIA ; dimensions, refroidissement et alimentation varient selon le fabricant de carte.",
+    "performance": null,
+    "specs": {
+      "Architecture": "Ada Lovelace",
+      "Cœurs CUDA": 9728,
+      "Boost (GHz)": 2.51,
+      "VRAM": 16,
+      "Type VRAM": "GDDR6X",
+      "Bus mémoire": "256-bit",
+      "Ray tracing": "3e génération",
+      "DLSS": "DLSS 3",
+      "Identifiant découverte": "Q114062792",
+      "Source découverte": "wikidata"
+    },
+    "strengths": [
+      "16 Go de GDDR6X",
+      "DLSS 3"
+    ],
+    "weaknesses": [
+      "Fabricant de carte non précisé",
+      "Dimensions à vérifier"
+    ],
+    "usage": "Jeu en 4K et création",
+    "source": "https://www.nvidia.com/en-us/geforce/graphics-cards/compare/?section=compare-specs"
+  }
+]

@@ -27,7 +27,7 @@ Site Vercel : _à compléter après le déploiement_.
 
 - Catalogue local structuré de plus de 1 100 références couvrant processeurs, GPU, cartes mères, RAM, alimentations, boîtiers, stockage, refroidissement et cartes d’extension.
 - Import documentaire reproductible depuis le catalogue Word et l’inventaire PDF, avec données inconnues explicitement laissées à vérifier.
-- Bots gratuits de découverte Wikidata et PCI IDs, registre de sources, dédoublonnage, quarantaine et décisions locales de vérification/rejet.
+- Bots gratuits de découverte Wikidata et PCI IDs, registre de sources, dédoublonnage, quarantaine, preuves constructeur et décisions locales de vérification/rejet.
 - Recherche automatique hebdomadaire avec GitHub Actions, sans clé API, service payant ni publication aveugle.
 - Recherche instantanée tolérante à la casse et aux accents, filtres par catégorie, marque, prix et socket, tris par prix, performance et valeur.
 - Fiches détaillées avec caractéristiques, indices, prix indicatifs, confiance, points forts, points faibles et recherches marketplace encodées.
@@ -90,7 +90,7 @@ Connecter ce dépôt à un projet Vercel existant avec les réglages suivants :
 | Install Command | `npm install` |
 | Root Directory | `./` |
 
-Aucune variable d’environnement n’est requise pour la version 1.3.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
+Aucune variable d’environnement n’est requise pour la version 1.4.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
 
 ## Structure du projet
 
@@ -99,6 +99,7 @@ public/                 favicon, manifeste et image Open Graph
 src/App.tsx             écrans et interactions React
 src/data.ts             catalogue local typé
 src/catalog/            catalogue documentaire généré
+src/catalog/manufacturer-registry.json domaines constructeurs autorisés
 src/engine.ts           recherche, compatibilité et estimation
 src/engine.test.ts      tests des règles critiques
 src/styles.css          identité visuelle et responsive
@@ -129,7 +130,8 @@ La découverte fonctionne sans modèle d’IA payant :
 5. `scripts/validate-catalog.py` bloque les catégories inconnues, identifiants dupliqués, chemins locaux, URL non sécurisées, incohérences de triage et toute publication automatique.
 6. `.github/workflows/catalog-discovery.yml` exécute ce processus chaque dimanche à 03:17, teste les règles, puis enregistre les trois files si elles ont changé.
 7. L’écran **Bots** affiche séparément les produits candidats, identifiants PCI et faux positifs. Une validation locale ne publie pas encore de fiche.
-8. Après contrôle de la source constructeur, `npm run catalog:promote -- --ids candidate-…` accepte seulement une référence commerciale précise, non dupliquée, puis la transforme en fiche documentaire dans `promoted.generated.json`.
+8. `candidate-verification.generated.json` conserve la correspondance constructeur, le lien officiel et les caractéristiques confirmées ; `manufacturer-registry.json` limite les preuves aux domaines autorisés.
+9. `npm run catalog:promote -- --ids candidate-…` accepte seulement une référence commerciale précise, non dupliquée et marquée `verified`, puis la transforme en fiche documentaire dans `promoted.generated.json`.
 
 État du premier triage des 340 résultats :
 
@@ -140,6 +142,13 @@ La découverte fonctionne sans modèle d’IA payant :
 | Composants intégrés | 2 | Bloquée |
 | Identifiants matériels PCI | 290 | Bloquée |
 | Faux positifs | 1 | Bloquée |
+
+État du chantier de validation constructeur :
+
+- 16 références ont été reliées à une fiche officielle AMD, Intel, NVIDIA, MSI ou Lian Li puis intégrées au catalogue ;
+- toutes conservent des prix `null` et une source constructeur cliquable ;
+- l’Intel Arc A770 reste en quarantaine, car le nom seul ne permet pas de distinguer les versions 8 Go et 16 Go ;
+- la file active est passée de 49 à 33 candidats après retrait des références intégrées.
 
 Sources activées :
 
@@ -162,6 +171,7 @@ Le résultat doit toujours être confronté à des annonces réelles avant un ac
 
 - Aucun catalogue ne peut garantir « tous les composants au monde ». La couverture est évolutive et dépend des documents et sources ouvertes disponibles.
 - Les résultats des bots sont des candidats non validés : une fiche constructeur officielle doit être contrôlée avant intégration au catalogue fiable.
+- Une validation de modèle générique de GPU ne remplace pas la vérification de la carte partenaire exacte, dont les dimensions, fréquences et connecteurs peuvent varier.
 - Les identifiants PCI décrivent souvent une puce ou un sous-système et non une référence commerciale vendue en magasin.
 - Open Icecat n’est pas activé automatiquement, car son accès gratuit exige la création personnelle d’un compte et l’acceptation de sa licence.
 - Une fiche documentaire ou une information inconnue est indiquée par « À vérifier » au lieu d’être remplacée par une valeur inventée.

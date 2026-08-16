@@ -30,6 +30,7 @@ jobs:
       - name: Valider les données générées
         run: |
           python scripts/test_catalog_triage.py
+          python scripts/test_catalog_promotion.py
           python scripts/validate-catalog.py
 
       - name: Résumer le passage du bot
