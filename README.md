@@ -70,6 +70,8 @@ npm run lint      # analyse ESLint
 npm run build     # build TypeScript et Vite
 npm run preview   # prévisualisation du build
 npm run catalog:discover # actualiser la file depuis les sources ouvertes
+npm run catalog:triage # reclasser les résultats existants hors ligne
+npm run catalog:test # tester les règles de triage
 npm run catalog:promote -- --ids candidate-… # publier une sélection vérifiée
 npm run catalog:validate # contrôler les catalogues et les sources
 ```
@@ -88,7 +90,7 @@ Connecter ce dépôt à un projet Vercel existant avec les réglages suivants :
 | Install Command | `npm install` |
 | Root Directory | `./` |
 
-Aucune variable d’environnement n’est requise pour la version 1.0.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
+Aucune variable d’environnement n’est requise pour la version 1.3.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
 
 ## Structure du projet
 
@@ -122,11 +124,22 @@ La découverte fonctionne sans modèle d’IA payant :
 
 1. `src/catalog/source-registry.json` déclare chaque source, sa licence, les marques et les requêtes autorisées.
 2. `scripts/discover-open-catalog.py` interroge poliment Wikidata et télécharge le snapshot public PCI IDs.
-3. Les noms sont normalisés et comparés au catalogue existant pour signaler les doublons.
-4. `scripts/validate-catalog.py` bloque les catégories inconnues, identifiants dupliqués, chemins locaux, URL non sécurisées et toute publication automatique.
-5. `.github/workflows/catalog-discovery.yml` exécute ce processus chaque dimanche à 03:17, puis enregistre uniquement la file de candidats si elle a changé.
-6. L’écran **Bots** permet de marquer localement un candidat comme vérifié ou rejeté. Une validation ne le publie pas encore comme fiche complète.
-7. Après contrôle de la source, `npm run catalog:promote -- --ids candidate-…` transforme seulement les identifiants choisis en fiches documentaires dans `promoted.generated.json`.
+3. `scripts/catalog_triage.py` classe chaque résultat comme produit précis, famille, composant intégré, identifiant matériel, faux positif ou cas à revoir.
+4. Les résultats sont séparés dans `discovery.generated.json`, `hardware-identifiers.generated.json` et `rejected.generated.json` au lieu de mélanger produits et identifiants techniques.
+5. `scripts/validate-catalog.py` bloque les catégories inconnues, identifiants dupliqués, chemins locaux, URL non sécurisées, incohérences de triage et toute publication automatique.
+6. `.github/workflows/catalog-discovery.yml` exécute ce processus chaque dimanche à 03:17, teste les règles, puis enregistre les trois files si elles ont changé.
+7. L’écran **Bots** affiche séparément les produits candidats, identifiants PCI et faux positifs. Une validation locale ne publie pas encore de fiche.
+8. Après contrôle de la source constructeur, `npm run catalog:promote -- --ids candidate-…` accepte seulement une référence commerciale précise, non dupliquée, puis la transforme en fiche documentaire dans `promoted.generated.json`.
+
+État du premier triage des 340 résultats :
+
+| Classe | Nombre | Publication automatique |
+| --- | ---: | --- |
+| Références commerciales précises | 19, dont 17 non dupliquées | Non ; promotion manuelle possible pour les 17 |
+| Familles ou séries | 28 | Bloquée |
+| Composants intégrés | 2 | Bloquée |
+| Identifiants matériels PCI | 290 | Bloquée |
+| Faux positifs | 1 | Bloquée |
 
 Sources activées :
 

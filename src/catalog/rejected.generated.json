@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "candidates": [
+    {
+      "id": "candidate-838ce11cbbfe50d7",
+      "sourceId": "wikidata",
+      "externalId": "Q28133964",
+      "kind": "product-candidate",
+      "label": "GeForce Now",
+      "description": "service de streaming de jeux basé sur le cloud de Nvidia",
+      "url": "https://www.wikidata.org/wiki/Q28133964",
+      "brand": "NVIDIA",
+      "category": "gpu",
+      "query": "NVIDIA GeForce",
+      "confidence": "Moyenne",
+      "score": 1.0,
+      "duplicate": false,
+      "status": "À vérifier",
+      "firstSeenAt": "2026-08-16",
+      "triage": "false-positive",
+      "triageReason": "Le résultat décrit un service, une organisation ou un appareil hors catalogue PC.",
+      "promotable": false,
+      "promotionBlocker": "Le résultat décrit un service, une organisation ou un appareil hors catalogue PC."
+    }
+  ]
+}

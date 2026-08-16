@@ -65,6 +65,13 @@ def main() -> int:
     if missing:
         print(f"Candidats introuvables: {', '.join(missing)}")
         return 1
+    blocked = [candidate_id for candidate_id in args.ids if not available[candidate_id].get("promotable")]
+    if blocked:
+        print("Promotion refusée pour les candidats non commerciaux, dupliqués ou insuffisamment qualifiés:")
+        for candidate_id in blocked:
+            candidate = available[candidate_id]
+            print(f"- {candidate_id}: {candidate.get('promotionBlocker') or candidate.get('triageReason')}")
+        return 2
     previous = load(args.output) if args.output.exists() else []
     products = {product["id"]: product for product in previous}
     for candidate_id in args.ids:
