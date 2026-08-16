@@ -70,7 +70,7 @@ test('catalogue paginé et bot de découverte fonctionnel', async ({ page }) => 
   await expect(page.locator('.product-row')).toHaveCount(40)
   await page.goto('/#bots')
   await expect(page.getByRole('heading', { name: 'Élargir le catalogue, sans inventer.' })).toBeVisible()
-  await expect(page.getByText(/16 sont intégrées au catalogue/)).toBeVisible()
+  await expect(page.getByText(/20 ont des métadonnées constructeur collectées, 16 sont validés humainement et 16 sont intégrés/)).toBeVisible()
   await expect(page.getByRole('region', { name: 'Couverture du bot' })).toContainText('55 marques · 89 recherches')
   await expect(page.getByRole('region', { name: 'Couverture du bot' })).toContainText('5 index constructeurs · 9/9 catégories')
   await expect(page.getByRole('region', { name: 'Couverture du bot' }).locator('article')).toHaveCount(9)

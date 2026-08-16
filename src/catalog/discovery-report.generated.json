@@ -25,7 +25,9 @@
     "maxPagesPerQuery": 2,
     "requestBudget": 180,
     "manufacturerIndexPageBudget": 30,
-    "manufacturerIndexCandidateLimit": 500
+    "manufacturerIndexCandidateLimit": 500,
+    "manufacturerEvidencePageBudget": 20,
+    "manufacturerEvidencePropertyLimit": 50
   },
   "totals": {
     "registeredQueries": 89,

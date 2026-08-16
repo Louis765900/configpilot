@@ -70,6 +70,7 @@ npm run lint      # analyse ESLint
 npm run build     # build TypeScript et Vite
 npm run preview   # prévisualisation du build
 npm run catalog:discover # actualiser la file depuis les sources ouvertes
+npm run catalog:evidence # collecter un lot borné de métadonnées constructeur
 npm run catalog:triage # reclasser les résultats existants hors ligne
 npm run catalog:test # tester les règles de triage
 npm run catalog:promote -- --ids candidate-… # publier une sélection vérifiée
@@ -90,7 +91,7 @@ Connecter ce dépôt à un projet Vercel existant avec les réglages suivants :
 | Install Command | `npm install` |
 | Root Directory | `./` |
 
-Aucune variable d’environnement n’est requise pour la version 1.6.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
+Aucune variable d’environnement n’est requise pour la version 1.7.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
 
 ## Structure du projet
 
@@ -100,6 +101,7 @@ src/App.tsx             écrans et interactions React
 src/data.ts             catalogue local typé
 src/catalog/            catalogue documentaire généré
 src/catalog/manufacturer-registry.json domaines constructeurs autorisés
+src/catalog/manufacturer-evidence.generated.json preuves automatiques à relire
 src/engine.ts           recherche, compatibilité et estimation
 src/engine.test.ts      tests des règles critiques
 src/styles.css          identité visuelle et responsive
@@ -128,11 +130,12 @@ La découverte fonctionne sans modèle d’IA payant :
 3. `scripts/catalog_triage.py` classe chaque résultat comme produit précis, famille, composant intégré, identifiant matériel, faux positif ou cas à revoir.
 4. Les résultats sont séparés dans `discovery.generated.json`, `hardware-identifiers.generated.json` et `rejected.generated.json` au lieu de mélanger produits et identifiants techniques.
 5. Le bot vérifie le `robots.txt` disponible avant chaque index constructeur. `scripts/validate-catalog.py` bloque les catégories inconnues, domaines non autorisés, identifiants dupliqués, chemins locaux, URL non sécurisées, incohérences de triage et toute publication automatique.
-6. `.github/workflows/catalog-discovery.yml` exécute ce processus chaque dimanche à 03:17, teste les règles, puis enregistre les files et le rapport de couverture s’ils ont changé.
+6. `.github/workflows/catalog-discovery.yml` exécute ce processus chaque dimanche à 03:17, collecte au plus 20 nouvelles fiches constructeur, teste les règles, puis enregistre les files et les rapports s’ils ont changé.
 7. L’écran **Bots** affiche séparément les produits candidats, identifiants PCI et faux positifs, ainsi que la couverture réelle par catégorie. Une validation locale ne publie pas encore de fiche.
 8. `candidate-verification.generated.json` conserve la correspondance constructeur, le lien officiel et les caractéristiques confirmées ; `manufacturer-registry.json` limite les preuves aux domaines autorisés.
 9. `npm run catalog:promote -- --ids candidate-…` accepte seulement une référence commerciale précise, non dupliquée et marquée `verified`, puis la transforme en fiche documentaire dans `promoted.generated.json`.
 10. `discovery-report.generated.json` rend visibles le nombre de marques suivies, les catégories déjà observées, les pages demandées, les erreurs et un éventuel épuisement du budget.
+11. `manufacturer-evidence.generated.json` conserve séparément les objets Schema.org `Product`, les métadonnées de page et les échecs à réessayer. Chaque preuve automatique reste marquée `pending`.
 
 État du premier triage des 340 résultats :
 
@@ -166,6 +169,14 @@ La découverte fonctionne sans modèle d’IA payant :
 - G.Skill a été écarté parce que son `robots.txt` interdit l’exploration automatisée ; Patriot le remplace avec une politique qui autorise la collecte ;
 - le passage complet a terminé 89/89 recherches Wikidata et 5/5 index constructeurs, sans erreur : 222 candidats officiels parmi 530 candidats produits, plus 290 identifiants PCI et 2 faux positifs ;
 - les 9 catégories sur 9 contiennent désormais des observations. Les 222 candidats officiels sont eux aussi en quarantaine jusqu’au contrôle de leur référence exacte et de leurs caractéristiques.
+
+État du chantier 5 — preuves constructeur structurées :
+
+- `scripts/collect-manufacturer-evidence.py` visite les fiches officielles par lots équitablement répartis entre les sources, sous un budget maximal de 20 pages par passage ;
+- l’extracteur reconnaît les objets Schema.org `Product` et `ProductModel`, les identifiants `model`, `sku`, `mpn`, `gtin`, les propriétés additionnelles, puis utilise les métadonnées Open Graph ou le titre comme niveau de preuve inférieur ;
+- le rapprochement lexical produit seulement des signaux de relecture. Il ne crée jamais le statut `verified`, ne modifie pas `candidate-verification.generated.json` et ne déclenche aucune promotion ;
+- les échecs conservent leur nombre de tentatives et sont dépriorisés pour que les autres références continuent d’avancer ;
+- le premier lot réel a collecté 20 fiches sur 20 sans erreur : 8 objets produit structurés et 12 preuves par métadonnées de page. Il reste 202 fiches, qui avanceront lors des passages hebdomadaires suivants.
 
 Sources activées :
 
