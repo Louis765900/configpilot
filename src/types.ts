@@ -7,7 +7,7 @@ export type Product = {
   name: string
   reference: string
   series: string
-  year: number
+  year: number | null
   newPrice: number | null
   usedPrice: number | null
   confidence: 'Bonne' | 'Moyenne' | 'Faible'

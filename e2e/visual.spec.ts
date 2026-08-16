@@ -53,3 +53,23 @@ test('navigation mobile et thème sombre', async ({ page }) => {
   await page.getByRole('button', { name: 'Activer le thème sombre' }).click()
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
 })
+
+test('catalogue paginé et bot de découverte fonctionnel', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', error => errors.push(error.message))
+  await page.route('https://www.wikidata.org/w/api.php?**', route => route.fulfill({
+    contentType:'application/json',
+    body:JSON.stringify({search:[{id:'QTEST',label:'ASUS ROG Test Board',description:'carte mère de test',concepturi:'https://www.wikidata.org/wiki/QTEST'}]}),
+  }))
+  await page.setViewportSize({ width: 1366, height: 768 })
+  await page.goto('/#catalog')
+  await expect(page.getByRole('navigation', { name: 'Pagination du catalogue' })).toBeVisible()
+  await expect(page.locator('.product-row')).toHaveCount(40)
+  await page.goto('/#bots')
+  await expect(page.getByRole('heading', { name: 'Élargir le catalogue, sans inventer.' })).toBeVisible()
+  await expect(page.getByRole('button', { name: /Balayer 9 marques/ })).toBeVisible()
+  await expect(page.locator('.candidate-list article').first()).toBeVisible()
+  await page.getByRole('button', { name: 'Rechercher cette marque' }).click()
+  await expect(page.getByRole('heading', { name: 'ASUS ROG Test Board' })).toBeVisible()
+  expect(errors).toEqual([])
+})

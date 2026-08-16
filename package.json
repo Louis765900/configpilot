@@ -1,13 +1,16 @@
 {
   "name": "configpilot",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "test": "vitest run",
+    "catalog:discover": "python scripts/discover-open-catalog.py",
+    "catalog:promote": "python scripts/promote-candidates.py",
+    "catalog:validate": "python scripts/validate-catalog.py",
     "test:e2e": "playwright test",
     "preview": "vite preview"
   },

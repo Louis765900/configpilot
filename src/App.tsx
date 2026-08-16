@@ -1,15 +1,16 @@
 import { useEffect, useMemo, useState } from 'react'
 import {
-  ArrowRight, BarChart3, Check, ChevronRight, Clipboard, Compass, Cpu, ExternalLink,
+  ArrowRight, BarChart3, Bot, Check, ChevronLeft, ChevronRight, Clipboard, Compass, Cpu, ExternalLink,
   Gauge, HardDrive, Heart, Menu, Moon, PackageSearch, Plus, RefreshCw, Search, ShieldCheck,
   Sparkles, Sun, TriangleAlert, X, Zap,
 } from 'lucide-react'
 import { categoryLabels, frequentSockets, louisBuild, products } from './data'
+import sourceRegistry from './catalog/source-registry.json'
 import { analyzeListing, buildSummary, categoryOrder, checkCompatibility, getProduct, money, searchProducts, valueScore } from './engine'
 import type { Build, Category, ListingInput, Product } from './types'
 
-type Page = 'home' | 'catalog' | 'compare' | 'builder' | 'estimate' | 'recommend' | 'glossary'
-const validPages: Page[] = ['home','catalog','compare','builder','estimate','recommend','glossary']
+type Page = 'home' | 'catalog' | 'compare' | 'builder' | 'estimate' | 'recommend' | 'bots' | 'glossary'
+const validPages: Page[] = ['home','catalog','compare','builder','estimate','recommend','bots','glossary']
 
 function useStoredState<T>(key: string, initial: T) {
   const [value,setValue] = useState<T>(() => {
@@ -45,7 +46,7 @@ function EmptyState({ query }: { query?: string }) {
 
 function Header({ page, navigate, dark, setDark }: { page: Page; navigate:(p:Page)=>void; dark:boolean; setDark:(v:boolean)=>void }) {
   const [open,setOpen] = useState(false)
-  const links: [Page,string][] = [['catalog','Catalogue'],['compare','Comparer'],['builder','Configurer'],['estimate','Estimer'],['recommend','Recommander']]
+  const links: [Page,string][] = [['catalog','Catalogue'],['compare','Comparer'],['builder','Configurer'],['estimate','Estimer'],['recommend','Recommander'],['bots','Bots']]
   return <header className="topbar">
     <button className="brand-button" onClick={()=>navigate('home')}><Logo/></button>
     <nav className={open ? 'nav-open' : ''} aria-label="Navigation principale">
@@ -118,7 +119,7 @@ function ProductRow({ product, compare, toggleCompare, onDetail, onBuild, onEsti
   return <article className="product-row">
     <button className="favorite" onClick={()=>toggleFavorite(product.id)} aria-label={favorite?'Retirer des favoris':'Ajouter aux favoris'}><Heart fill={favorite?'currentColor':'none'}/></button>
     <div className="product-icon"><IconFor category={product.category}/></div>
-    <div className="product-main"><Pill>{categoryLabels[product.category]}</Pill><h3>{product.name}</h3><p>{product.reference} · {product.series} · {product.year}</p></div>
+    <div className="product-main"><Pill>{categoryLabels[product.category]}</Pill><h3>{product.name}</h3><p>{product.reference} · {product.series} · {product.year ?? 'Année à vérifier'}</p></div>
     <div className="product-spec"><small>CARACTÉRISTIQUE</small><strong>{String(product.specs.Socket ?? product.specs.Architecture ?? product.specs.Type ?? product.specs.Puissance ?? 'À vérifier')}</strong></div>
     <div className="product-spec"><small>INDICE</small><strong>{product.performance ?? '—'}<span>{product.performance ? '/100':''}</span></strong></div>
     <div className="product-price"><small>OCCASION INDICATIVE</small><strong>{money(product.usedPrice)}</strong><span>Neuf : {money(product.newPrice)}</span></div>
@@ -133,11 +134,12 @@ function ProductRow({ product, compare, toggleCompare, onDetail, onBuild, onEsti
 function Catalog({ compare, setCompare, onDetail, navigate, setBuild, favorites, setFavorites, estimatorSelect }:{
   compare:string[]; setCompare:(ids:string[])=>void; onDetail:(p:Product)=>void; navigate:(p:Page)=>void; setBuild:(b:Build|((x:Build)=>Build))=>void; favorites:string[]; setFavorites:(x:string[])=>void; estimatorSelect:(id:string)=>void
 }) {
-  const [query,setQuery] = useState(''), [category,setCategory] = useState<Category|'all'>('all'), [socket,setSocket] = useState(''), [brand,setBrand] = useState(''), [sort,setSort] = useState('relevance'), [maxPrice,setMaxPrice] = useState(1000)
+  const [query,setQuery] = useState(''), [category,setCategory] = useState<Category|'all'>('all'), [socket,setSocket] = useState(''), [brand,setBrand] = useState(''), [sort,setSort] = useState('relevance'), [maxPrice,setMaxPrice] = useState(1000), [pageNumber,setPageNumber] = useState(1)
   const visible = useMemo(()=>{
     const list = searchProducts(query,category,socket).filter(p=>(!brand||p.brand===brand)&&(p.usedPrice??p.newPrice??0)<=maxPrice)
     return [...list].sort((a,b)=>sort==='price-asc'?(a.usedPrice??a.newPrice??Infinity)-(b.usedPrice??b.newPrice??Infinity):sort==='price-desc'?(b.usedPrice??b.newPrice??-1)-(a.usedPrice??a.newPrice??-1):sort==='performance'?(b.performance??-1)-(a.performance??-1):sort==='value'?(valueScore(b)??-1)-(valueScore(a)??-1):0)
   },[query,category,socket,brand,sort,maxPrice])
+  const pageSize=40, totalPages=Math.max(1,Math.ceil(visible.length/pageSize)), activePage=Math.min(pageNumber,totalPages), paged=visible.slice((activePage-1)*pageSize,activePage*pageSize)
   const brands = [...new Set(products.filter(p=>category==='all'||p.category===category).map(p=>p.brand))].sort()
   const toggleCompare = (p:Product) => {
     const existing = compare.map(getProduct).filter(Boolean) as Product[]
@@ -145,25 +147,26 @@ function Catalog({ compare, setCompare, onDetail, navigate, setBuild, favorites,
     if (existing.length && existing[0].category!==p.category) { setCompare([p.id]); return }
     if (compare.length<4) setCompare([...compare,p.id])
   }
-  const reset=()=>{setQuery('');setCategory('all');setSocket('');setBrand('');setSort('relevance');setMaxPrice(1000)}
+  const reset=()=>{setQuery('');setCategory('all');setSocket('');setBrand('');setSort('relevance');setMaxPrice(1000);setPageNumber(1)}
   return <main className="shell app-page">
     <div className="page-title"><div><span className="eyebrow">CATALOGUE ÉTENDU</span><h1>Les composants, sans le bruit.</h1><p>Caractéristiques structurées, prix indicatifs et zones d’incertitude clairement signalées.</p></div><div className="result-count"><strong>{visible.length}</strong><span>résultat{visible.length>1?'s':''}</span></div></div>
     <div className="catalog-toolbar">
-      <label className="search-box"><Search/><span className="sr-only">Rechercher</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Nom, référence, marque, socket…"/><kbd>⌘ K</kbd></label>
-      <select aria-label="Catégorie" value={category} onChange={e=>{setCategory(e.target.value as Category|'all');setSocket('')}}><option value="all">Toutes les catégories</option>{categoryOrder.map(c=><option value={c} key={c}>{categoryLabels[c]}</option>)}</select>
-      <select aria-label="Trier" value={sort} onChange={e=>setSort(e.target.value)}><option value="relevance">Pertinence</option><option value="price-asc">Prix croissant</option><option value="price-desc">Prix décroissant</option><option value="performance">Performance</option><option value="value">Performance / euro</option></select>
+      <label className="search-box"><Search/><span className="sr-only">Rechercher</span><input value={query} onChange={e=>{setQuery(e.target.value);setPageNumber(1)}} placeholder="Nom, référence, marque, socket…"/><kbd>⌘ K</kbd></label>
+      <select aria-label="Catégorie" value={category} onChange={e=>{setCategory(e.target.value as Category|'all');setSocket('');setPageNumber(1)}}><option value="all">Toutes les catégories</option>{categoryOrder.map(c=><option value={c} key={c}>{categoryLabels[c]}</option>)}</select>
+      <select aria-label="Trier" value={sort} onChange={e=>{setSort(e.target.value);setPageNumber(1)}}><option value="relevance">Pertinence</option><option value="price-asc">Prix croissant</option><option value="price-desc">Prix décroissant</option><option value="performance">Performance</option><option value="value">Performance / euro</option></select>
     </div>
     <div className="catalog-layout">
       <aside className="filters">
         <div className="filter-heading"><b>Filtres</b><button onClick={reset}>Réinitialiser</button></div>
-        <label>Marque<select value={brand} onChange={e=>setBrand(e.target.value)}><option value="">Toutes</option>{brands.map(b=><option key={b}>{b}</option>)}</select></label>
-        <label>Prix maximal <span>{maxPrice} €</span><input type="range" min="25" max="1000" step="25" value={maxPrice} onChange={e=>setMaxPrice(+e.target.value)}/></label>
-        <fieldset><legend>Catégories</legend>{categoryOrder.map(c=><button className={category===c?'active':''} onClick={()=>{setCategory(c);setSocket('')}} key={c}><IconFor category={c}/>{categoryLabels[c]}<span>{products.filter(p=>p.category===c).length}</span></button>)}</fieldset>
+        <label>Marque<select value={brand} onChange={e=>{setBrand(e.target.value);setPageNumber(1)}}><option value="">Toutes</option>{brands.map(b=><option key={b}>{b}</option>)}</select></label>
+        <label>Prix maximal <span>{maxPrice} €</span><input type="range" min="25" max="1000" step="25" value={maxPrice} onChange={e=>{setMaxPrice(+e.target.value);setPageNumber(1)}}/></label>
+        <fieldset><legend>Catégories</legend>{categoryOrder.map(c=><button className={category===c?'active':''} onClick={()=>{setCategory(c);setSocket('');setPageNumber(1)}} key={c}><IconFor category={c}/>{categoryLabels[c]}<span>{products.filter(p=>p.category===c).length}</span></button>)}</fieldset>
       </aside>
       <div className="catalog-content">
-        {(category==='cpu'||category==='motherboard'||category==='all')&&<div className="socket-strip"><span>SOCKETS</span><div>{frequentSockets.map(s=><button key={s} className={socket===s?'active':''} onClick={()=>{setSocket(socket===s?'':s);setCategory(category==='all'?'cpu':category)}}>{s}</button>)}</div></div>}
+        {(category==='cpu'||category==='motherboard'||category==='all')&&<div className="socket-strip"><span>SOCKETS</span><div>{frequentSockets.map(s=><button key={s} className={socket===s?'active':''} onClick={()=>{setSocket(socket===s?'':s);setCategory(category==='all'?'cpu':category);setPageNumber(1)}}>{s}</button>)}</div></div>}
         {compare.length>0&&<div className="compare-toast"><span><BarChart3/> {compare.length}/4 produit{compare.length>1?'s':''} à comparer</span><button onClick={()=>navigate('compare')}>Ouvrir le comparateur <ArrowRight/></button></div>}
-        <div className="product-list">{visible.length?visible.map(p=><ProductRow key={p.id} product={p} compare={compare} toggleCompare={toggleCompare} onDetail={onDetail} favorite={favorites.includes(p.id)} toggleFavorite={id=>setFavorites(favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id])} onBuild={p=>{setBuild(b=>({...b,[p.category]:p.id}));navigate('builder')}} onEstimate={p=>{estimatorSelect(p.id);navigate('estimate')}}/>):<EmptyState query={query}/>}</div>
+        <div className="product-list">{visible.length?paged.map(p=><ProductRow key={p.id} product={p} compare={compare} toggleCompare={toggleCompare} onDetail={onDetail} favorite={favorites.includes(p.id)} toggleFavorite={id=>setFavorites(favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id])} onBuild={p=>{setBuild(b=>({...b,[p.category]:p.id}));navigate('builder')}} onEstimate={p=>{estimatorSelect(p.id);navigate('estimate')}}/>):<EmptyState query={query}/>}</div>
+        {visible.length>pageSize&&<nav className="pagination" aria-label="Pagination du catalogue"><button disabled={activePage===1} onClick={()=>setPageNumber(page=>Math.max(1,page-1))}><ChevronLeft/> Précédent</button><span>Page <b>{activePage}</b> sur {totalPages}</span><button disabled={activePage===totalPages} onClick={()=>setPageNumber(page=>Math.min(totalPages,page+1))}>Suivant <ChevronRight/></button></nav>}
       </div>
     </div>
   </main>
@@ -220,7 +223,7 @@ function Estimator({ input, setInput }:{input:ListingInput;setInput:(x:ListingIn
     <div className="page-title"><div><span className="eyebrow">ESTIMATEUR D’ANNONCE</span><h1>Une annonce vaut-elle vraiment son prix&nbsp;?</h1><p>Une estimation locale qui tient compte de l’état, des preuves, des frais et du risque — jamais présentée comme un relevé en temps réel.</p></div></div>
     <div className="estimator-layout"><section className="form-panel"><div className="step-title"><span>01</span><div><h2>Le composant</h2><p>Sélectionnez la référence exacte.</p></div></div>
       <label>Référence<select value={input.productId} onChange={e=>set('productId',e.target.value)}>{products.map(p=><option value={p.id} key={p.id}>{p.name}</option>)}</select></label>
-      {selected&&<div className="selected-product"><div className="product-icon"><IconFor category={selected.category}/></div><div><Pill>{categoryLabels[selected.category]}</Pill><b>{selected.name}</b><span>Sortie {selected.year} · Indice {selected.performance??'à vérifier'}</span></div></div>}
+      {selected&&<div className="selected-product"><div className="product-icon"><IconFor category={selected.category}/></div><div><Pill>{categoryLabels[selected.category]}</Pill><b>{selected.name}</b><span>Sortie {selected.year??'à vérifier'} · Indice {selected.performance??'à vérifier'}</span></div></div>}
       <div className="step-title"><span>02</span><div><h2>Le prix total</h2><p>Incluez tous les frais obligatoires.</p></div></div><div className="field-grid"><label>Prix de l’annonce (€)<input type="number" min="0" value={input.price} onChange={e=>set('price',+e.target.value)}/></label><label>Livraison (€)<input type="number" min="0" value={input.shipping} onChange={e=>set('shipping',+e.target.value)}/></label><label>Protection (€)<input type="number" min="0" value={input.protection} onChange={e=>set('protection',+e.target.value)}/></label></div>
       <div className="step-title"><span>03</span><div><h2>État et preuves</h2><p>Plus les preuves sont solides, plus la confiance augmente.</p></div></div><label>État<select value={input.condition} onChange={e=>set('condition',e.target.value)}>{conditions.map(([v,l])=><option value={v} key={v}>{l}</option>)}</select></label>
       <div className="check-grid">{([['box','Boîte et accessoires'],['invoice','Facture'],['warranty','Garantie restante'],['tested','Preuve de fonctionnement'],['benchmarks','Températures / benchmarks'],['professional','Vendeur professionnel']] as [keyof ListingInput,string][]).map(([key,label])=><label className="check-option" key={key}><input type="checkbox" checked={Boolean(input[key])} onChange={e=>set(key,e.target.checked)}/><span><Check/></span>{label}</label>)}</div>
@@ -248,18 +251,73 @@ function Recommend({ navigate,setBuild }:{navigate:(p:Page)=>void;setBuild:(b:Bu
     </div></main>
 }
 
+type BotCandidate = { id:string; label:string; description:string; url:string; brand:string; category:Category; duplicate:boolean; discoveredAt?:string; firstSeenAt?:string; sourceId?:string; kind?:string; confidence?:'Moyenne'|'Faible' }
+type WikidataSearchResult = { id:string; label?:string; description?:string; concepturi?:string }
+type ReviewDecision = 'pending'|'verified'|'rejected'
+const registeredQueries=(sourceRegistry as {queries:{category:Category;brand:string;query:string}[]}).queries
+const discoveryAliases=categoryOrder.reduce((groups,category)=>({...groups,[category]:Object.fromEntries(registeredQueries.filter(query=>query.category===category).map(query=>[query.brand,query.query]))}),{} as Record<Category,Record<string,string>>)
+const discoveryBrands=[...new Set(Object.values(discoveryAliases).flatMap(group=>Object.keys(group)))].sort()
+const normalizeBotText=(value:string)=>value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()
+
+function CatalogBots(){
+  const [category,setCategory]=useState<Category>('motherboard'),[brand,setBrand]=useState('ASUS'),[candidates,setCandidates]=useStoredState<BotCandidate[]>('configpilot:bot-candidates',[]),[decisions,setDecisions]=useStoredState<Record<string,ReviewDecision>>('configpilot:bot-decisions',{}),[filter,setFilter]=useState<ReviewDecision>('pending'),[running,setRunning]=useState(false),[progress,setProgress]=useState('Prêt'),[error,setError]=useState('')
+  const [automaticCandidates,setAutomaticCandidates]=useState<BotCandidate[]>([])
+  useEffect(()=>{let active=true;import('./catalog/discovery.generated.json').then(module=>{if(active)setAutomaticCandidates((module.default as unknown as {candidates:BotCandidate[]}).candidates)});return()=>{active=false}},[])
+  const known=useMemo(()=>new Set(products.flatMap(product=>[product.name,product.reference].map(normalizeBotText))),[])
+  const categoryBrands=Object.keys(discoveryAliases[category])
+  const allCandidates=useMemo(()=>{const merged=new Map(automaticCandidates.map(candidate=>[candidate.id,candidate]));candidates.forEach(candidate=>merged.set(candidate.id,candidate));return [...merged.values()]},[automaticCandidates,candidates])
+  const decisionFor=(candidate:BotCandidate):ReviewDecision=>decisions[candidate.id]??'pending'
+  const shownCandidates=allCandidates.filter(candidate=>decisionFor(candidate)===filter)
+  const reviewCounts={pending:allCandidates.filter(candidate=>decisionFor(candidate)==='pending').length,verified:allCandidates.filter(candidate=>decisionFor(candidate)==='verified').length,rejected:allCandidates.filter(candidate=>decisionFor(candidate)==='rejected').length}
+  const discover=async(brands:string[])=>{
+    setRunning(true);setError('');const found:BotCandidate[]=[];let failures=0
+    try{
+      for(let index=0;index<brands.length;index++){
+        const current=brands[index].trim();if(!current)continue
+        setProgress(`${index+1}/${brands.length} · ${current}`)
+        try{
+          const query=discoveryAliases[category][current]??`${current} computer hardware`
+          const params=new URLSearchParams({action:'wbsearchentities',search:query,language:'en',uselang:'fr',type:'item',limit:'10',format:'json',formatversion:'2',origin:'*'})
+          const response=await fetch(`https://www.wikidata.org/w/api.php?${params}`)
+          if(!response.ok)throw new Error(`réponse ${response.status}`)
+          const payload=await response.json() as {search?:WikidataSearchResult[]}
+          for(const hit of payload.search??[]){const label=hit.label?.trim();if(!label)continue;found.push({id:`live-${hit.id}-${category}`,label,description:hit.description?.trim()||'Description non fournie',url:`https://www.wikidata.org/wiki/${hit.id}`,brand:current,category,duplicate:known.has(normalizeBotText(label)),discoveredAt:new Date().toISOString(),sourceId:'wikidata',kind:'product-candidate',confidence:'Faible'})}
+        }catch{failures++}
+        if(brands.length>1)await new Promise(resolve=>window.setTimeout(resolve,700))
+      }
+      setCandidates(previous=>{const merged=new Map(previous.map(candidate=>[candidate.id,candidate]));found.forEach(candidate=>merged.set(candidate.id,candidate));return [...merged.values()].sort((a,b)=>(b.discoveredAt??'').localeCompare(a.discoveredAt??''))})
+      setProgress(`${found.length} candidat${found.length>1?'s':''} trouvé${found.length>1?'s':''}${failures?` · ${failures} source${failures>1?'s':''} indisponible${failures>1?'s':''}`:''}`)
+      if(failures===brands.length)setError('Wikidata est temporairement indisponible ou limite les requêtes. Réessayez plus tard.')
+    }catch(reason){setError(reason instanceof Error?reason.message:'La recherche a échoué.');setProgress('Recherche interrompue')}
+    finally{setRunning(false)}
+  }
+  return <main className="shell app-page bots-page">
+    <div className="page-title"><div><span className="eyebrow">BOTS DE DÉCOUVERTE · 0 €</span><h1>Élargir le catalogue, sans inventer.</h1><p>Les bots interrogent des sources ouvertes, détectent les doublons et placent chaque résultat en quarantaine. Aucun candidat n’est publié automatiquement comme fiche fiable.</p></div><div className="result-count"><strong>{reviewCounts.pending}</strong><span>à vérifier</span></div></div>
+    <div className="bots-layout"><section className="bot-panel"><div className="bot-heading"><span><Bot/></span><div><Pill tone="green">Automatisation gratuite</Pill><h2>Bot de découverte multimarque</h2><p>{automaticCandidates.length} candidats ont déjà été collectés automatiquement depuis Wikidata et PCI IDs. Vous pouvez aussi lancer une recherche immédiate, sans clé API.</p></div></div>
+      <div className="bot-controls"><label>Catégorie<select value={category} onChange={event=>setCategory(event.target.value as Category)}>{categoryOrder.map(item=><option key={item} value={item}>{categoryLabels[item]}</option>)}</select></label><label>Marque<input list="discovery-brands" value={brand} onChange={event=>setBrand(event.target.value)} placeholder="Toute marque…"/><datalist id="discovery-brands">{discoveryBrands.map(item=><option key={item} value={item}/>)}</datalist></label></div>
+      <div className="bot-actions"><button className="button primary" disabled={running||!brand.trim()} onClick={()=>discover([brand])}><Search/> Rechercher cette marque</button><button className="button secondary" disabled={running} onClick={()=>discover(categoryBrands)}><RefreshCw/> Balayer {categoryBrands.length} marques</button></div>
+      <div className={`bot-status ${error?'error':''}`}><span className={running?'pulse':''}></span><div><b>{progress}</b><small>{error||'Résultats candidats uniquement · validation constructeur requise'}</small></div></div>
+      <div className="bot-rules"><article><Search/><b>1. Découverte</b><p>Recherche hebdomadaire et immédiate sur sources ouvertes.</p></article><article><ShieldCheck/><b>2. Quarantaine</b><p>Dédoublonnage et validation automatique du format.</p></article><article><Clipboard/><b>3. Décision</b><p>Contrôle humain obligatoire avant publication.</p></article></div>
+      <div className="source-links"><a className="source-link" href="https://www.wikidata.org/" target="_blank" rel="noreferrer">Wikidata <ExternalLink/></a><a className="source-link" href="https://pci-ids.ucw.cz/" target="_blank" rel="noreferrer">PCI IDs <ExternalLink/></a></div>
+    </section><aside className="candidate-panel"><div className="panel-title"><div><small>FILE DE VÉRIFICATION</small><h2>Candidats découverts</h2></div>{candidates.length>0&&<button className="text-link danger" onClick={()=>setCandidates([])}>Effacer les recherches manuelles</button>}</div>
+      <div className="candidate-tabs" role="tablist" aria-label="État des candidats">{([['pending','À vérifier'],['verified','Vérifiés'],['rejected','Rejetés']] as [ReviewDecision,string][]).map(([state,label])=><button role="tab" aria-selected={filter===state} className={filter===state?'active':''} onClick={()=>setFilter(state)} key={state}>{label}<span>{reviewCounts[state]}</span></button>)}</div>
+      <div className="candidate-list">{shownCandidates.length?shownCandidates.map(candidate=><article key={candidate.id}><div><Pill tone={decisionFor(candidate)==='verified'?'green':candidate.duplicate?'yellow':decisionFor(candidate)==='rejected'?'red':'neutral'}>{decisionFor(candidate)==='verified'?'Vérifié localement':decisionFor(candidate)==='rejected'?'Rejeté':candidate.duplicate?'Doublon possible':'À vérifier'}</Pill><h3>{candidate.label}</h3><p>{candidate.description}</p><small>{candidate.brand} · {categoryLabels[candidate.category]} · {candidate.sourceId??'recherche locale'} · confiance {candidate.confidence??'Faible'} · {candidate.id}</small></div><div><a href={candidate.url} target="_blank" rel="noreferrer" aria-label={`Vérifier ${candidate.label} à la source`}><ExternalLink/></a><button onClick={()=>navigator.clipboard?.writeText(candidate.id)} aria-label={`Copier l’identifiant de ${candidate.label}`}><Clipboard/></button>{decisionFor(candidate)!=='verified'&&<button className="approve-candidate" onClick={()=>setDecisions({...decisions,[candidate.id]:'verified'})} aria-label={`Marquer ${candidate.label} comme vérifié`}><Check/></button>}{decisionFor(candidate)!=='rejected'?<button onClick={()=>setDecisions({...decisions,[candidate.id]:'rejected'})} aria-label={`Rejeter ${candidate.label}`}><X/></button>:<button onClick={()=>setDecisions({...decisions,[candidate.id]:'pending'})} aria-label={`Remettre ${candidate.label} à vérifier`}><RefreshCw/></button>}</div></article>):<div className="candidate-empty"><Bot/><b>Aucun candidat dans cette vue</b><p>Changez de filtre ou lancez une nouvelle recherche.</p></div>}</div>
+    </aside></div>
+  </main>
+}
+
 const glossary=[['Socket','Le support physique et électrique reliant le processeur à la carte mère. Les noms doivent correspondre exactement.'],['Chipset','Le contrôleur de la carte mère qui détermine une partie de ses fonctions et des générations CPU prises en charge.'],['TDP','Un indicateur thermique, utile pour dimensionner le refroidissement mais différent de la consommation maximale réelle.'],['VRM','Le circuit qui alimente le processeur. Sa qualité influence températures et stabilité avec un CPU exigeant.'],['XMP / EXPO','Des profils mémoire préconfigurés. XMP est historiquement associé à Intel, EXPO à AMD.'],['PCIe','L’interface des GPU, SSD et cartes d’extension. Les générations sont généralement rétrocompatibles à vitesse réduite.']]
 function Glossary(){return <main className="shell app-page"><div className="page-title"><div><span className="eyebrow">GLOSSAIRE</span><h1>Le matériel PC, en langage clair.</h1></div></div><div className="glossary-grid">{glossary.map(([t,d])=><article key={t}><span>{t.slice(0,2).toUpperCase()}</span><h2>{t}</h2><p>{d}</p></article>)}</div></main>}
 
 function DetailModal({ product, close, addCompare, addBuild, estimate }:{product:Product;close:()=>void;addCompare:(p:Product)=>void;addBuild:(p:Product)=>void;estimate:(p:Product)=>void}) {
   const links=[['eBay',`https://www.ebay.fr/sch/i.html?_nkw=${encodeURIComponent(product.name)}`],['Leboncoin',`https://www.leboncoin.fr/recherche?text=${encodeURIComponent(product.name)}`],['Google Shopping',`https://www.google.com/search?tbm=shop&q=${encodeURIComponent(product.name)}`]]
-  return <div className="modal-backdrop" onMouseDown={e=>{if(e.target===e.currentTarget)close()}} role="presentation"><article className="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title"><button className="modal-close" onClick={close} aria-label="Fermer"><X/></button><div className="detail-hero"><div className="large-product-icon"><IconFor category={product.category}/></div><div><Pill tone="orange">{categoryLabels[product.category]} · {product.status}</Pill><h1 id="detail-title">{product.name}</h1><p>{product.brand} · {product.reference} · Sortie {product.year}</p></div></div><div className="detail-actions"><button className="button primary" onClick={()=>addCompare(product)}><BarChart3/> Comparer</button><button className="button secondary" onClick={()=>addBuild(product)}><Plus/> Ajouter à ma configuration</button><button className="button secondary" onClick={()=>estimate(product)}>€ Estimer une annonce</button></div>
+  return <div className="modal-backdrop" onMouseDown={e=>{if(e.target===e.currentTarget)close()}} role="presentation"><article className="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title"><button className="modal-close" onClick={close} aria-label="Fermer"><X/></button><div className="detail-hero"><div className="large-product-icon"><IconFor category={product.category}/></div><div><Pill tone="orange">{categoryLabels[product.category]} · {product.status}</Pill><h1 id="detail-title">{product.name}</h1><p>{product.brand} · {product.reference} · Sortie {product.year??'à vérifier'}</p></div></div><div className="detail-actions"><button className="button primary" onClick={()=>addCompare(product)}><BarChart3/> Comparer</button><button className="button secondary" onClick={()=>addBuild(product)}><Plus/> Ajouter à ma configuration</button><button className="button secondary" onClick={()=>estimate(product)}>€ Estimer une annonce</button></div>
     <div className="detail-score-grid"><div><small>Indice performance</small><strong>{product.performance??'—'}</strong></div><div><small>Indice valeur</small><strong>{valueScore(product)??'—'}</strong></div><div><small>Prix neuf indicatif</small><strong>{money(product.newPrice)}</strong></div><div><small>Prix occasion indicatif</small><strong>{money(product.usedPrice)}</strong></div><div><small>Confiance</small><strong>{product.confidence}</strong></div></div>
     <div className="detail-columns"><section><h2>Caractéristiques</h2><dl>{Object.entries(product.specs).map(([k,v])=><div key={k}><dt>{k}</dt><dd>{v==null?'À vérifier':Array.isArray(v)?v.join(', '):String(v)}</dd></div>)}</dl></section><aside><div className="pros-cons"><h3>Points forts</h3>{product.strengths.map(x=><p className="pro" key={x}><Check/>{x}</p>)}<h3>Points faibles</h3>{product.weaknesses.map(x=><p className="con" key={x}><TriangleAlert/>{x}</p>)}</div><div className="notice"><TriangleAlert/><p><b>À savoir</b>{product.notes}</p></div><div><small>Usage conseillé</small><p>{product.usage}</p></div></aside></div>
     <div className="external-links">{links.map(([name,url])=><a key={name} href={url} target="_blank" rel="noreferrer">Rechercher sur {name}<ExternalLink/></a>)}</div>{product.source&&<a className="source-link" href={product.source} target="_blank" rel="noreferrer">Source constructeur disponible <ExternalLink/></a>}</article></div>
 }
 
-function Footer({navigate}:{navigate:(p:Page)=>void}){return <footer><div className="shell footer-grid"><div><Logo/><p>Ta configuration. Les bons composants. Le juste prix.</p></div><div><b>Outils</b><button onClick={()=>navigate('catalog')}>Catalogue</button><button onClick={()=>navigate('builder')}>Configurateur</button><button onClick={()=>navigate('estimate')}>Estimateur</button></div><div><b>Comprendre</b><button onClick={()=>navigate('glossary')}>Glossaire</button><span>Prix indicatifs, jamais en direct</span><span>Catalogue local évolutif</span></div><div className="footer-note"><ShieldCheck/><p>ConfigPilot ne remplace pas la vérification des références exactes, du BIOS et des annonces réelles avant achat.</p></div></div><div className="shell copyright">© {new Date().getFullYear()} ConfigPilot <span>Version locale 1.0.0</span></div></footer>}
+function Footer({navigate}:{navigate:(p:Page)=>void}){return <footer><div className="shell footer-grid"><div><Logo/><p>Ta configuration. Les bons composants. Le juste prix.</p></div><div><b>Outils</b><button onClick={()=>navigate('catalog')}>Catalogue</button><button onClick={()=>navigate('builder')}>Configurateur</button><button onClick={()=>navigate('estimate')}>Estimateur</button><button onClick={()=>navigate('bots')}>Bots catalogue</button></div><div><b>Comprendre</b><button onClick={()=>navigate('glossary')}>Glossaire</button><span>Prix indicatifs, jamais en direct</span><span>Catalogue local évolutif</span></div><div className="footer-note"><ShieldCheck/><p>ConfigPilot ne remplace pas la vérification des références exactes, du BIOS et des annonces réelles avant achat.</p></div></div><div className="shell copyright">© {new Date().getFullYear()} ConfigPilot <span>Version locale 1.2.0</span></div></footer>}
 
 export default function App(){
   const initialHash=location.hash.replace('#','').split('?')[0] as Page
@@ -279,5 +337,5 @@ export default function App(){
   const addCompare=(p:Product)=>{const current=compare.map(getProduct).filter(Boolean) as Product[];setCompare(current.length&&current[0].category!==p.category?[p.id]:compare.includes(p.id)?compare:compare.length<4?[...compare,p.id]:compare);setDetail(null);navigate('compare')}
   const addBuild=(p:Product)=>{setBuildState({...build,[p.category]:p.id});setDetail(null);navigate('builder')}
   const estimate=(p:Product)=>{setListing({...listing,productId:p.id});setDetail(null);navigate('estimate')}
-  return <div className="app"><Header page={page} navigate={navigate} dark={dark} setDark={setDark}/>{page==='home'&&<Home navigate={navigate}/>} {page==='catalog'&&<Catalog compare={compare} setCompare={setCompare} onDetail={setDetail} navigate={navigate} setBuild={setBuildState} favorites={favorites} setFavorites={setFavorites} estimatorSelect={id=>setListing({...listing,productId:id})}/>} {page==='compare'&&<Compare ids={compare} setIds={setCompare} onDetail={setDetail} navigate={navigate}/>} {page==='builder'&&<Builder build={build} setBuild={setBuildState} navigate={navigate}/>} {page==='estimate'&&<Estimator input={listing} setInput={setListing}/>} {page==='recommend'&&<Recommend navigate={navigate} setBuild={setBuildState}/>} {page==='glossary'&&<Glossary/>}<Footer navigate={navigate}/>{detail&&<DetailModal product={detail} close={()=>setDetail(null)} addCompare={addCompare} addBuild={addBuild} estimate={estimate}/>}</div>
+  return <div className="app"><Header page={page} navigate={navigate} dark={dark} setDark={setDark}/>{page==='home'&&<Home navigate={navigate}/>} {page==='catalog'&&<Catalog compare={compare} setCompare={setCompare} onDetail={setDetail} navigate={navigate} setBuild={setBuildState} favorites={favorites} setFavorites={setFavorites} estimatorSelect={id=>setListing({...listing,productId:id})}/>} {page==='compare'&&<Compare ids={compare} setIds={setCompare} onDetail={setDetail} navigate={navigate}/>} {page==='builder'&&<Builder build={build} setBuild={setBuildState} navigate={navigate}/>} {page==='estimate'&&<Estimator input={listing} setInput={setListing}/>} {page==='recommend'&&<Recommend navigate={navigate} setBuild={setBuildState}/>} {page==='bots'&&<CatalogBots/>} {page==='glossary'&&<Glossary/>}<Footer navigate={navigate}/>{detail&&<DetailModal product={detail} close={()=>setDetail(null)} addCompare={addCompare} addBuild={addBuild} estimate={estimate}/>}</div>
 }
