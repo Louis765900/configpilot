@@ -2,6 +2,7 @@ export type Category = 'cpu' | 'gpu' | 'motherboard' | 'ram' | 'psu' | 'case' | 
 
 export type Product = {
   id: string
+  candidateId?: string
   category: Category
   brand: string
   name: string

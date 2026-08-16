@@ -54,11 +54,12 @@ def candidate_key(source_id: str, external_id: str, category: str) -> str:
     return f"candidate-{hashlib.sha1(raw.encode('utf-8')).hexdigest()[:16]}"
 
 
-def existing_identities(documentary_path: Path, data_path: Path) -> set[str]:
+def existing_identities(documentary_path: Path, promoted_path: Path, data_path: Path) -> set[str]:
     identities: set[str] = set()
-    if documentary_path.exists():
-        for product in load_json(documentary_path):
-            identities.update({normalize(str(product.get("name", ""))), normalize(str(product.get("reference", "")))})
+    for catalog_path in (documentary_path, promoted_path):
+        if catalog_path.exists():
+            for product in load_json(catalog_path):
+                identities.update({normalize(str(product.get("name", ""))), normalize(str(product.get("reference", "")))})
     if data_path.exists():
         source = data_path.read_text(encoding="utf-8")
         for match in re.finditer(r"\bp\('([^']*)','([^']*)','([^']*)','([^']*)','([^']*)'", source):
@@ -203,6 +204,7 @@ def main() -> int:
     parser.add_argument("--registry", type=Path, default=ROOT / "src/catalog/source-registry.json")
     parser.add_argument("--output", type=Path, default=ROOT / "src/catalog/discovery.generated.json")
     parser.add_argument("--documentary", type=Path, default=ROOT / "src/catalog/documentary.generated.json")
+    parser.add_argument("--promoted", type=Path, default=ROOT / "src/catalog/promoted.generated.json")
     parser.add_argument("--data", type=Path, default=ROOT / "src/data.ts")
     parser.add_argument("--hardware-output", type=Path, default=ROOT / "src/catalog/hardware-identifiers.generated.json")
     parser.add_argument("--rejected-output", type=Path, default=ROOT / "src/catalog/rejected.generated.json")
@@ -213,7 +215,9 @@ def main() -> int:
     previous_feed = load_json(args.output) if args.output.exists() and not args.fresh else {"version": 1, "candidates": []}
     previous_hardware = load_json(args.hardware_output) if args.hardware_output.exists() and not args.fresh else {"version": 1, "identifiers": []}
     previous_rejected = load_json(args.rejected_output) if args.rejected_output.exists() and not args.fresh else {"version": 1, "candidates": []}
-    known = existing_identities(args.documentary, args.data)
+    promoted_products = load_json(args.promoted) if args.promoted.exists() else []
+    promoted_candidate_ids = {product.get("candidateId") for product in promoted_products}
+    known = existing_identities(args.documentary, args.promoted, args.data)
     run_date = date.today().isoformat()
     discovered: list[dict[str, Any]] = []
     errors: list[str] = []
@@ -224,7 +228,7 @@ def main() -> int:
         errors.extend(wiki_errors + pci_errors)
     previous = previous_feed.get("candidates", []) + previous_hardware.get("identifiers", []) + previous_rejected.get("candidates", [])
     candidates = [triage(candidate) for candidate in merge_candidates(previous, discovered, int(registry["policy"]["candidateLimit"]))]
-    product_candidates = [candidate for candidate in candidates if candidate["triage"] not in {"hardware-identifier", "false-positive"}]
+    product_candidates = [candidate for candidate in candidates if candidate["triage"] not in {"hardware-identifier", "false-positive"} and candidate["id"] not in promoted_candidate_ids]
     hardware_identifiers = [candidate for candidate in candidates if candidate["triage"] == "hardware-identifier"]
     rejected_candidates = [candidate for candidate in candidates if candidate["triage"] == "false-positive"]
     payload = {"version": 2, "candidates": product_candidates}

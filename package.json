@@ -1,7 +1,7 @@
 {
   "name": "configpilot",
   "private": true,
-  "version": "1.3.0",
+  "version": "1.4.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "test": "vitest run",
     "catalog:discover": "python scripts/discover-open-catalog.py",
     "catalog:triage": "python scripts/discover-open-catalog.py --offline",
-    "catalog:test": "python scripts/test_catalog_triage.py",
+    "catalog:test": "python scripts/test_catalog_triage.py && python scripts/test_catalog_promotion.py",
     "catalog:promote": "python scripts/promote-candidates.py",
     "catalog:validate": "python scripts/validate-catalog.py",
     "test:e2e": "playwright test",

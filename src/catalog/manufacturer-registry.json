@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "manufacturers": [
+    {"id":"amd","brands":["AMD"],"domains":["amd.com"]},
+    {"id":"intel","brands":["Intel"],"domains":["intel.com"]},
+    {"id":"nvidia","brands":["NVIDIA"],"domains":["nvidia.com"]},
+    {"id":"msi","brands":["MSI"],"domains":["msi.com"]},
+    {"id":"lian-li","brands":["Lian Li"],"domains":["lian-li.com"]}
+  ]
+}

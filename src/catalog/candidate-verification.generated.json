@@ -1,0 +1,286 @@
+{
+  "version": 1,
+  "checkedAt": "2026-08-16",
+  "candidates": [
+    {
+      "candidateId": "candidate-87fc5afcdbba2fc5",
+      "status": "verified",
+      "manufacturer": "Lian Li",
+      "officialUrl": "https://lian-li.com/product/o11-dynamic-evo-xl/",
+      "reason": "Le nom et les deux références couleur correspondent à la fiche Lian Li.",
+      "product": {
+        "reference": "O11DEXL-X / O11DEXL-W",
+        "series": "O11 Dynamic",
+        "year": 2023,
+        "specs": {"Format":"Grande tour","Cartes mères":["E-ATX","ATX","Micro-ATX","Mini-ITX"],"GPU max (mm)":460,"Ventirad max (mm)":167,"Dimensions":"522 × 304 × 531,9 mm","Radiateurs":"Jusqu’à 3 × 420 mm","Ventilateurs":11,"Stockage":"Jusqu’à 7 unités"},
+        "notes": "Caractéristiques communes aux versions noire et blanche ; vérifier la référence couleur avant achat.",
+        "usage": "Configuration grand format et watercooling",
+        "strengths": ["Fiche constructeur retrouvée","Dégagement GPU de 460 mm"],
+        "weaknesses": ["Grande tour encombrante","Prix non suivi"]
+      }
+    },
+    {
+      "candidateId": "candidate-a461de35ba5d61f6",
+      "status": "verified",
+      "manufacturer": "AMD",
+      "officialUrl": "https://www.amd.com/en/newsroom/press-releases/2017-7-27-amd-completes-ryzen-mainstream-desktop-lineup-wit.html",
+      "reason": "Le modèle, les fréquences, le TDP et la plateforme figurent dans l’annonce AMD.",
+      "product": {
+        "reference": "YD1200BBAEBOX",
+        "series": "Ryzen 1000",
+        "year": 2017,
+        "specs": {"Socket":"AM4","Architecture":"Zen","Cœurs":4,"Threads":4,"Base (GHz)":3.1,"Boost (GHz)":3.4,"Cache (Mo)":10,"TDP":65,"Mémoire":"DDR4-2667","iGPU":"Absent"},
+        "notes": "Processeur Summit Ridge 14 nm ; carte graphique séparée requise.",
+        "usage": "Remise en service d’une plateforme AM4 ancienne",
+        "strengths": ["Socket AM4","Coefficient débloqué"],
+        "weaknesses": ["Quatre threads","Prix non suivi"]
+      }
+    },
+    {
+      "candidateId": "candidate-f894d2cbb1006655",
+      "status": "verified",
+      "manufacturer": "AMD",
+      "officialUrl": "https://www.amd.com/en/newsroom/press-releases/2017-4-11-worldwide-release-of-amd-ryzen-5-desktop-processor.html",
+      "reason": "L’entrée correspond au Ryzen 5 1600 lancé en 2017 par AMD.",
+      "product": {
+        "reference": "Ryzen 5 1600 (2017)",
+        "series": "Ryzen 1000",
+        "year": 2017,
+        "specs": {"Socket":"AM4","Architecture":"Zen","Cœurs":6,"Threads":12,"Base (GHz)":3.2,"Boost (GHz)":3.6,"TDP":65,"Mémoire":"DDR4","iGPU":"Absent","Refroidisseur":"Wraith Spire"},
+        "notes": "Cette fiche vise la version Summit Ridge lancée en 2017. Une révision AF 12 nm existe sous un nom proche : contrôler le code produit physique.",
+        "usage": "Plateforme AM4 ancienne et multitâche léger",
+        "strengths": ["Six cœurs et douze threads","Refroidisseur inclus à l’origine"],
+        "weaknesses": ["Révision AE/AF à contrôler","Prix non suivi"]
+      }
+    },
+    {
+      "candidateId": "candidate-17586bbafa2872eb",
+      "status": "verified",
+      "manufacturer": "AMD",
+      "officialUrl": "https://www.amd.com/en/newsroom/press-releases/2019-7-7-amd-unleashes-ultimate-pc-gaming-platform-with-wor.html",
+      "reason": "Le tableau AMD confirme le modèle et ses caractéristiques principales.",
+      "product": {
+        "reference": "Ryzen 5 3600",
+        "series": "Ryzen 3000",
+        "year": 2019,
+        "specs": {"Socket":"AM4","Architecture":"Zen 2","Cœurs":6,"Threads":12,"Base (GHz)":3.6,"Boost (GHz)":4.2,"Cache (Mo)":35,"TDP":65,"Mémoire":"DDR4","iGPU":"Absent","PCIe":"4.0"},
+        "notes": "Caractéristiques de référence AMD ; compatibilité BIOS à vérifier selon la carte mère AM4.",
+        "usage": "Jeu et polyvalence sur AM4",
+        "strengths": ["Six cœurs et douze threads","PCIe 4.0"],
+        "weaknesses": ["Pas de partie graphique intégrée","Prix non suivi"]
+      }
+    },
+    {
+      "candidateId": "candidate-27aeaa98a3f4f1e3",
+      "status": "verified",
+      "manufacturer": "AMD",
+      "officialUrl": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen-threadripper/ryzen-threadripper-1000-series/amd-ryzen-threadripper-1900x.html",
+      "reason": "La fiche AMD correspond exactement au Threadripper 1900X.",
+      "product": {
+        "reference": "YD190XA8AEWOF",
+        "series": "Ryzen Threadripper 1000",
+        "year": 2017,
+        "specs": {"Socket":"sTR4","Architecture":"Zen","Cœurs":8,"Threads":16,"Base (GHz)":3.8,"Boost (GHz)":4.0,"Cache L3 (Mo)":16,"TDP":180,"Mémoire":"DDR4-2667, 4 canaux","PCIe":"3.0"},
+        "notes": "Refroidisseur non inclus ; plateforme X399 requise.",
+        "usage": "Station de travail X399 ancienne",
+        "strengths": ["Mémoire quatre canaux","Huit cœurs et seize threads"],
+        "weaknesses": ["TDP de 180 W","Plateforme sTR4 ancienne"]
+      }
+    },
+    {
+      "candidateId": "candidate-0493cee91d9fd894",
+      "status": "verified",
+      "manufacturer": "AMD",
+      "officialUrl": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen-threadripper/ryzen-threadripper-2000-series/amd-ryzen-threadripper-2990wx.html",
+      "reason": "La fiche AMD correspond exactement au Threadripper 2990WX.",
+      "product": {
+        "reference": "YD299XAZAFWOF",
+        "series": "Ryzen Threadripper 2000",
+        "year": 2018,
+        "specs": {"Socket":"sTR4","Architecture":"Zen+","Cœurs":32,"Threads":64,"Base (GHz)":3.0,"Boost (GHz)":4.2,"Cache L3 (Mo)":64,"TDP":250,"Mémoire":"DDR4-2933, 4 canaux","PCIe":"3.0"},
+        "notes": "Refroidisseur non inclus ; vérifier BIOS X399 et capacité de refroidissement pour 250 W.",
+        "usage": "Rendu fortement multithreadé sur X399",
+        "strengths": ["Trente-deux cœurs et soixante-quatre threads","Mémoire quatre canaux"],
+        "weaknesses": ["TDP de 250 W","Plateforme sTR4 ancienne"]
+      }
+    },
+    {
+      "candidateId": "candidate-5a4f90be28573b75",
+      "status": "verified",
+      "manufacturer": "Intel",
+      "officialUrl": "https://www.intel.com/content/www/us/en/products/sku/88196/intel-core-i76700-processor-8m-cache-up-to-4-00-ghz/specifications.html",
+      "reason": "Intel ARK confirme le numéro i7-6700 et toutes les caractéristiques utilisées.",
+      "product": {
+        "reference": "i7-6700",
+        "series": "Core 6e génération",
+        "year": 2015,
+        "specs": {"Socket":"LGA1151","Architecture":"Skylake","Cœurs":4,"Threads":8,"Base (GHz)":3.4,"Boost (GHz)":4.0,"Cache (Mo)":8,"TDP":65,"Mémoire":"DDR4-2133 / DDR3L-1600","iGPU":"Intel HD Graphics 530","PCIe":"3.0, 16 lignes"},
+        "notes": "Référence Intel de bureau en fin de cycle de support ; vérifier le chipset et le BIOS de la carte mère.",
+        "usage": "Maintenance d’un PC LGA1151 de première génération",
+        "strengths": ["Hyper-Threading","Partie graphique intégrée"],
+        "weaknesses": ["Plateforme ancienne","Quatre cœurs"]
+      }
+    },
+    {
+      "candidateId": "candidate-64e5dcae194294aa",
+      "status": "verified",
+      "manufacturer": "AMD",
+      "officialUrl": "https://www.amd.com/en/products/graphics/desktops/radeon/6000-series/amd-radeon-rx-6800-xt.html",
+      "reason": "La fiche AMD correspond au modèle de référence RX 6800 XT.",
+      "product": {
+        "reference": "Radeon RX 6800 XT",
+        "series": "Radeon RX 6000",
+        "year": 2020,
+        "specs": {"Architecture":"RDNA 2","Unités de calcul":72,"Processeurs de flux":4608,"VRAM":16,"Type VRAM":"GDDR6","Bus mémoire":"256-bit","Consommation (W)":300,"PSU recommandé (W)":750,"Longueur de référence (mm)":267,"Slots de référence":2.5,"Connecteurs":"2 × 8 broches"},
+        "notes": "Dimensions et fréquences d’une carte partenaire peuvent différer de la conception de référence AMD.",
+        "usage": "Jeu en 1440p ou 4K",
+        "strengths": ["16 Go de GDDR6","72 accélérateurs de rayons"],
+        "weaknesses": ["Consommation de référence de 300 W","Variante constructeur à contrôler"]
+      }
+    },
+    {
+      "candidateId": "candidate-aea81b7b60e39964",
+      "status": "verified",
+      "manufacturer": "AMD",
+      "officialUrl": "https://www.amd.com/en/support/downloads/drivers.html/graphics/radeon-rx/radeon-rx-5000-series/amd-radeon-rx-5600-xt.html",
+      "reason": "La fiche AMD confirme le GPU RX 5600 XT et ses spécifications de référence.",
+      "product": {
+        "reference": "Radeon RX 5600 XT",
+        "series": "Radeon RX 5000",
+        "year": 2020,
+        "specs": {"Architecture":"RDNA","Unités de calcul":36,"Processeurs de flux":2304,"VRAM":6,"Type VRAM":"GDDR6","Bus mémoire":"192-bit","Fréquence jeu (MHz)":1375,"Boost de référence (MHz)":1560,"Consommation (W)":150,"PSU recommandé (W)":550},
+        "notes": "Les fréquences et connecteurs varient selon la carte partenaire et sa version de BIOS.",
+        "usage": "Jeu en 1080p",
+        "strengths": ["6 Go de GDDR6","Consommation de référence de 150 W"],
+        "weaknesses": ["Variante constructeur à contrôler","Pas d’encodage AV1"]
+      }
+    },
+    {
+      "candidateId": "candidate-1ae6b737a3d09a6d",
+      "status": "variant-required",
+      "manufacturer": "Intel",
+      "officialUrl": "https://www.intel.com/content/www/us/en/products/details/discrete-gpus/arc/desktop/a-series.html",
+      "reason": "Intel publie deux A770 de bureau distinctes, en 8 Go et 16 Go ; le candidat ne précise pas laquelle.",
+      "requiredField": "Capacité VRAM ou référence exacte de la carte"
+    },
+    {
+      "candidateId": "candidate-689b84822abe096c",
+      "status": "verified",
+      "manufacturer": "Intel",
+      "officialUrl": "https://www.intel.com/content/www/us/en/products/sku/241676/intel-arc-b570-graphics/specifications.html",
+      "reason": "Intel ARK confirme le modèle B570.",
+      "product": {
+        "reference": "Arc B570",
+        "series": "Arc B-Series",
+        "year": 2024,
+        "specs": {"Architecture":"Xe2 Battlemage","Xe-cores":18,"Unités ray tracing":18,"VRAM":10,"Type VRAM":"GDDR6","Bus mémoire":"160-bit","Bande passante":"380 GB/s","Fréquence (MHz)":2500,"Consommation (W)":150,"Interface":"PCIe 4.0 x8","Encodeur":"AV1 / HEVC / AVC"},
+        "notes": "Spécifications du GPU Intel ; dimensions et alimentation dépendent de la carte du partenaire.",
+        "usage": "Jeu en 1080p/1440p et encodage AV1",
+        "strengths": ["10 Go de GDDR6","Encodage AV1"],
+        "weaknesses": ["Resizable BAR conseillé","Variante constructeur à contrôler"]
+      }
+    },
+    {
+      "candidateId": "candidate-b5fc8a49f8571420",
+      "status": "verified",
+      "manufacturer": "Intel",
+      "officialUrl": "https://www.intel.com/content/www/us/en/products/sku/241598/intel-arc-b580-graphics/specifications.html",
+      "reason": "Intel ARK et le guide B-Series confirment le modèle B580.",
+      "product": {
+        "reference": "Arc B580",
+        "series": "Arc B-Series",
+        "year": 2024,
+        "specs": {"Architecture":"Xe2 Battlemage","Xe-cores":20,"Unités ray tracing":20,"VRAM":12,"Type VRAM":"GDDR6","Bus mémoire":"192-bit","Bande passante":"456 GB/s","Fréquence (MHz)":2670,"Consommation (W)":190,"Encodeur":"AV1 / HEVC / AVC"},
+        "notes": "Spécifications du GPU Intel ; la B580 Limited Edition exige notamment Resizable BAR et une alimentation adaptée.",
+        "usage": "Jeu en 1440p et encodage AV1",
+        "strengths": ["12 Go de GDDR6","Encodage AV1"],
+        "weaknesses": ["Resizable BAR conseillé","Variante constructeur à contrôler"]
+      }
+    },
+    {
+      "candidateId": "candidate-f1fab617f9aa6a4a",
+      "status": "verified",
+      "manufacturer": "MSI",
+      "officialUrl": "https://www.msi.com/Graphics-Card/GeForce-RTX-2080-VENTUS-8G-OC/Specification",
+      "reason": "Le nom MSI correspond exactement à la page de spécifications.",
+      "product": {
+        "reference": "GeForce RTX 2080 VENTUS 8G OC",
+        "series": "Ventus",
+        "year": 2018,
+        "specs": {"Architecture":"Turing","Cœurs CUDA":2944,"Boost (MHz)":1800,"VRAM":8,"Type VRAM":"GDDR6","Bus mémoire":"256-bit","Consommation (W)":225,"PSU recommandé (W)":650,"Dimensions":"268 × 114 × 50 mm","Connecteurs":"1 × 8 broches + 1 × 6 broches","Sorties":"3 × DisplayPort 1.4a, HDMI 2.0b, USB-C"},
+        "notes": "Fiche propre au modèle MSI Ventus 8G OC.",
+        "usage": "Jeu en 1440p et création CUDA",
+        "strengths": ["Modèle MSI précisément identifié","8 Go de GDDR6"],
+        "weaknesses": ["Consommation de 225 W","Ancienne génération de ray tracing"]
+      }
+    },
+    {
+      "candidateId": "candidate-b96a4fe0ad2a3220",
+      "status": "verified",
+      "manufacturer": "MSI",
+      "officialUrl": "https://www.msi.com/Graphics-Card/GeForce-RTX-4080-SUPER-16G-Expert/Specification",
+      "reason": "Le nom MSI correspond exactement à la page de spécifications.",
+      "product": {
+        "reference": "GeForce RTX 4080 SUPER 16G EXPERT",
+        "series": "Expert",
+        "year": 2024,
+        "specs": {"Architecture":"Ada Lovelace","Cœurs CUDA":10240,"Boost (MHz)":2610,"VRAM":16,"Type VRAM":"GDDR6X","Bus mémoire":"256-bit","Consommation (W)":320,"PSU recommandé (W)":850,"Dimensions":"312 × 141 × 61 mm","Connecteurs":"1 × 16 broches","Sorties":"3 × DisplayPort 1.4a, HDMI 2.1a"},
+        "notes": "Fiche propre au modèle MSI Expert ; MSI indique 750 W minimum et recommande 850 W.",
+        "usage": "Jeu en 4K et création accélérée",
+        "strengths": ["16 Go de GDDR6X","Modèle MSI précisément identifié"],
+        "weaknesses": ["Carte de 312 mm","Consommation de 320 W"]
+      }
+    },
+    {
+      "candidateId": "candidate-4fa53d533f172f89",
+      "status": "verified",
+      "manufacturer": "NVIDIA",
+      "officialUrl": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4070-family/",
+      "reason": "NVIDIA publie les caractéristiques de référence de la RTX 4070.",
+      "product": {
+        "reference": "GeForce RTX 4070",
+        "series": "GeForce RTX 40",
+        "year": 2023,
+        "specs": {"Architecture":"Ada Lovelace","Cœurs CUDA":5888,"Boost (GHz)":2.48,"VRAM":12,"Type VRAM":"GDDR6 / GDDR6X","Bus mémoire":"192-bit","Ray tracing":"3e génération","DLSS":"DLSS 3"},
+        "notes": "Caractéristiques du GPU et de la conception de référence NVIDIA ; dimensions, mémoire exacte et alimentation peuvent varier selon le fabricant de carte.",
+        "usage": "Jeu en 1440p et création",
+        "strengths": ["12 Go de mémoire","DLSS 3"],
+        "weaknesses": ["Fabricant de carte non précisé","Dimensions à vérifier"]
+      }
+    },
+    {
+      "candidateId": "candidate-f3ace10209f4580d",
+      "status": "verified",
+      "manufacturer": "NVIDIA",
+      "officialUrl": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4070-family/",
+      "reason": "NVIDIA publie les caractéristiques de référence de la RTX 4070 Ti.",
+      "product": {
+        "reference": "GeForce RTX 4070 Ti",
+        "series": "GeForce RTX 40",
+        "year": 2023,
+        "specs": {"Architecture":"Ada Lovelace","Cœurs CUDA":7680,"Boost (GHz)":2.61,"VRAM":12,"Type VRAM":"GDDR6X","Bus mémoire":"192-bit","Ray tracing":"3e génération","DLSS":"DLSS 3"},
+        "notes": "Caractéristiques de référence NVIDIA ; dimensions, refroidissement et alimentation varient selon le fabricant de carte.",
+        "usage": "Jeu en 1440p haut niveau et création",
+        "strengths": ["12 Go de GDDR6X","DLSS 3"],
+        "weaknesses": ["Fabricant de carte non précisé","Dimensions à vérifier"]
+      }
+    },
+    {
+      "candidateId": "candidate-448ad7c5903b5039",
+      "status": "verified",
+      "manufacturer": "NVIDIA",
+      "officialUrl": "https://www.nvidia.com/en-us/geforce/graphics-cards/compare/?section=compare-specs",
+      "reason": "Le comparateur NVIDIA confirme les caractéristiques de référence de la RTX 4080.",
+      "product": {
+        "reference": "GeForce RTX 4080",
+        "series": "GeForce RTX 40",
+        "year": 2022,
+        "specs": {"Architecture":"Ada Lovelace","Cœurs CUDA":9728,"Boost (GHz)":2.51,"VRAM":16,"Type VRAM":"GDDR6X","Bus mémoire":"256-bit","Ray tracing":"3e génération","DLSS":"DLSS 3"},
+        "notes": "Caractéristiques de référence NVIDIA ; dimensions, refroidissement et alimentation varient selon le fabricant de carte.",
+        "usage": "Jeu en 4K et création",
+        "strengths": ["16 Go de GDDR6X","DLSS 3"],
+        "weaknesses": ["Fabricant de carte non précisé","Dimensions à vérifier"]
+      }
+    }
+  ]
+}
