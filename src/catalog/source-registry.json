@@ -8,6 +8,8 @@
     "wikidataPageSize": 50,
     "wikidataMaxPagesPerQuery": 2,
     "requestBudget": 180,
+    "manufacturerIndexPageBudget": 30,
+    "manufacturerIndexCandidateLimit": 500,
     "maxLagSeconds": 5,
     "retryAttempts": 3
   },
@@ -29,6 +31,115 @@
       "license": "BSD-3-Clause OR GPL-2.0-or-later",
       "licenseUrl": "https://pci-ids.ucw.cz/",
       "enabled": true
+    },
+    {
+      "id": "asus-official-index",
+      "name": "ASUS Motherboards",
+      "type": "manufacturer-index",
+      "url": "https://www.asus.com/motherboards-components/motherboards/all-series/",
+      "license": "Manufacturer metadata reference only",
+      "licenseUrl": "https://www.asus.com/terms_of_use_notice_privacy_policy/official-site/",
+      "robotsUrl": "https://www.asus.com/robots.txt",
+      "enabled": true
+    },
+    {
+      "id": "patriot-official-index",
+      "name": "Patriot Desktop Memory",
+      "type": "manufacturer-index",
+      "url": "https://www.patriotmemory.com/sitemap.xml",
+      "license": "Manufacturer metadata reference only",
+      "licenseUrl": "https://www.patriotmemory.com/privacy-policy",
+      "robotsUrl": "https://www.patriotmemory.com/robots.txt",
+      "enabled": true
+    },
+    {
+      "id": "seasonic-official-index",
+      "name": "Seasonic Power Supplies",
+      "type": "manufacturer-index",
+      "url": "https://seasonic.com/power-supplies/",
+      "license": "Manufacturer metadata reference only",
+      "licenseUrl": "https://seasonic.com/privacy-policy/",
+      "robotsUrl": "https://seasonic.com/robots.txt",
+      "enabled": true
+    },
+    {
+      "id": "fractal-official-index",
+      "name": "Fractal Design Cases",
+      "type": "manufacturer-index",
+      "url": "https://www.fractal-design.com/products/cases/",
+      "license": "Manufacturer metadata reference only",
+      "licenseUrl": "https://www.fractal-design.com/privacy-policy/",
+      "robotsUrl": "https://www.fractal-design.com/robots.txt",
+      "enabled": true
+    },
+    {
+      "id": "deepcool-official-index",
+      "name": "DeepCool Cooling",
+      "type": "manufacturer-index",
+      "url": "https://global.deepcool.com/products/Cooling/index.shtml",
+      "license": "Manufacturer metadata reference only",
+      "licenseUrl": "https://global.deepcool.com/company/aboutus/index.shtml",
+      "robotsUrl": "https://global.deepcool.com/robots.txt",
+      "allowMissingRobots": true,
+      "robotsUnavailableCheckedAt": "2026-08-16",
+      "enabled": true
+    }
+  ],
+  "manufacturerIndexes": [
+    {
+      "id": "asus-motherboards",
+      "sourceId": "asus-official-index",
+      "brand": "ASUS",
+      "category": "motherboard",
+      "allowedDomains": ["asus.com"],
+      "productUrlPatterns": ["^/motherboards-components/motherboards/(?!all-series|business|accessories)[^/]+/(?!filter/?$)[^/]+/?$"],
+      "maxCandidates": 200,
+      "maxFollowPages": 0
+    },
+    {
+      "id": "patriot-memory",
+      "sourceId": "patriot-official-index",
+      "brand": "Patriot",
+      "category": "ram",
+      "allowedDomains": ["patriotmemory.com"],
+      "format": "sitemap",
+      "productUrlPatterns": ["^/products/[^/]+/?$"],
+      "labelPatterns": ["\\bDDR[2345]\\b", "\\bperformance ram\\b", "^signature line"],
+      "maxCandidates": 120,
+      "maxFollowPages": 0
+    },
+    {
+      "id": "seasonic-power-supplies",
+      "sourceId": "seasonic-official-index",
+      "brand": "Seasonic",
+      "category": "psu",
+      "allowedDomains": ["seasonic.com"],
+      "productUrlPatterns": ["^/[a-z0-9][a-z0-9-]+/?$"],
+      "labelPatterns": ["(PRIME|VERTEX|FOCUS|CORE|G12|B12|S12|SYNCRO|MAGFLOW)"],
+      "maxCandidates": 120,
+      "maxFollowPages": 0
+    },
+    {
+      "id": "fractal-cases",
+      "sourceId": "fractal-official-index",
+      "brand": "Fractal Design",
+      "category": "case",
+      "allowedDomains": ["fractal-design.com"],
+      "followUrlPatterns": ["^/products/cases/[^/]+/?$"],
+      "productUrlPatterns": ["^/products/cases/[^/]+/[^/]+/?$"],
+      "maxCandidates": 120,
+      "maxFollowPages": 15
+    },
+    {
+      "id": "deepcool-cooling",
+      "sourceId": "deepcool-official-index",
+      "brand": "DeepCool",
+      "category": "cooling",
+      "allowedDomains": ["deepcool.com"],
+      "productUrlPatterns": ["^/products/Cooling/(cpuliquidcoolers|cpuaircoolers)/[^/]+/[0-9]+/[0-9]+\\.shtml$"],
+      "labelFromPathSegment": -3,
+      "maxCandidates": 250,
+      "maxFollowPages": 0
     }
   ],
   "queries": [

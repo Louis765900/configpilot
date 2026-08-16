@@ -90,7 +90,7 @@ Connecter ce dépôt à un projet Vercel existant avec les réglages suivants :
 | Install Command | `npm install` |
 | Root Directory | `./` |
 
-Aucune variable d’environnement n’est requise pour la version 1.5.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
+Aucune variable d’environnement n’est requise pour la version 1.6.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
 
 ## Structure du projet
 
@@ -124,10 +124,10 @@ Le fichier généré ne remplace pas les fiches détaillées. Il ajoute des réf
 La découverte fonctionne sans modèle d’IA payant :
 
 1. `src/catalog/source-registry.json` déclare chaque source, sa licence et 89 recherches couvrant 55 marques dans les 9 catégories.
-2. `scripts/discover-open-catalog.py` interroge poliment Wikidata, jusqu’à deux pages de 50 résultats par recherche, puis télécharge le snapshot public PCI IDs. Un budget maximal de 180 pages, un délai de 1,1 seconde, `maxlag` et des nouvelles tentatives progressives protègent les services gratuits.
+2. `scripts/discover-open-catalog.py` interroge poliment Wikidata, jusqu’à deux pages de 50 résultats par recherche, lit cinq index constructeurs explicitement autorisés, puis télécharge le snapshot public PCI IDs. Les budgets de 180 pages Wikidata et 30 pages constructeur, le délai de 1,1 seconde, `maxlag` et les nouvelles tentatives progressives protègent les services gratuits.
 3. `scripts/catalog_triage.py` classe chaque résultat comme produit précis, famille, composant intégré, identifiant matériel, faux positif ou cas à revoir.
 4. Les résultats sont séparés dans `discovery.generated.json`, `hardware-identifiers.generated.json` et `rejected.generated.json` au lieu de mélanger produits et identifiants techniques.
-5. `scripts/validate-catalog.py` bloque les catégories inconnues, identifiants dupliqués, chemins locaux, URL non sécurisées, incohérences de triage et toute publication automatique.
+5. Le bot vérifie le `robots.txt` disponible avant chaque index constructeur. `scripts/validate-catalog.py` bloque les catégories inconnues, domaines non autorisés, identifiants dupliqués, chemins locaux, URL non sécurisées, incohérences de triage et toute publication automatique.
 6. `.github/workflows/catalog-discovery.yml` exécute ce processus chaque dimanche à 03:17, teste les règles, puis enregistre les files et le rapport de couverture s’ils ont changé.
 7. L’écran **Bots** affiche séparément les produits candidats, identifiants PCI et faux positifs, ainsi que la couverture réelle par catégorie. Une validation locale ne publie pas encore de fiche.
 8. `candidate-verification.generated.json` conserve la correspondance constructeur, le lien officiel et les caractéristiques confirmées ; `manufacturer-registry.json` limite les preuves aux domaines autorisés.
@@ -159,12 +159,25 @@ La découverte fonctionne sans modèle d’IA payant :
 - 4 catégories sur 9 ont produit des observations exploitables. Le rapport rend les 5 lacunes visibles : Wikidata contient peu de fiches détaillées pour les cartes mères, la RAM, les alimentations, les boîtiers et le refroidissement ;
 - cette absence n’est jamais compensée par une fiche inventée. Elle indique les prochaines sources officielles à intégrer.
 
+État du chantier 4 — index constructeurs ouverts :
+
+- cinq connecteurs bornés couvrent ASUS (cartes mères), Patriot (RAM), Seasonic (alimentations), Fractal Design (boîtiers) et DeepCool (refroidissement) ;
+- le connecteur sait lire des index HTML et des sitemaps XML, suit uniquement les domaines et chemins autorisés, et purge les observations d’une source retirée ;
+- G.Skill a été écarté parce que son `robots.txt` interdit l’exploration automatisée ; Patriot le remplace avec une politique qui autorise la collecte ;
+- le passage complet a terminé 89/89 recherches Wikidata et 5/5 index constructeurs, sans erreur : 222 candidats officiels parmi 530 candidats produits, plus 290 identifiants PCI et 2 faux positifs ;
+- les 9 catégories sur 9 contiennent désormais des observations. Les 222 candidats officiels sont eux aussi en quarantaine jusqu’au contrôle de leur référence exacte et de leurs caractéristiques.
+
 Sources activées :
 
 | Source | Usage | Licence déclarée | Secret requis |
 | --- | --- | --- | --- |
 | Wikidata | Familles et références candidates | CC0 1.0 | Non |
 | PCI ID Repository | Identifiants de puces et cartes PCI | BSD-3-Clause ou GPL-2.0+ | Non |
+| ASUS | Index officiel de cartes mères | Métadonnées constructeur de référence | Non |
+| Patriot | Sitemap officiel, filtré sur la RAM | Métadonnées constructeur de référence | Non |
+| Seasonic | Index officiel d’alimentations | Métadonnées constructeur de référence | Non |
+| Fractal Design | Index officiel de boîtiers | Métadonnées constructeur de référence | Non |
+| DeepCool | Index officiel de refroidissement | Métadonnées constructeur de référence | Non |
 
 Le workflow GitHub Actions reste gratuit avec les runners standards tant que le dépôt est public. GitHub peut désactiver les tâches planifiées d’un dépôt public resté sans activité pendant 60 jours ; elles peuvent alors être réactivées depuis l’onglet Actions.
 

@@ -16,8 +16,11 @@ import time
 import unicodedata
 import urllib.error
 import urllib.parse
+import urllib.robotparser
 import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import date
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Callable
 
@@ -39,6 +42,46 @@ CATEGORY_TERMS = {
 }
 
 
+class LinkCollector(HTMLParser):
+    """Collect links and their visible/alternative labels from an index page."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.current_href: str | None = None
+        self.current_text: list[str] = []
+        self.current_heading: list[str] = []
+        self.in_heading = False
+        self.links: list[tuple[str, str]] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = dict(attrs)
+        if tag == "a" and values.get("href") and self.current_href is None:
+            self.current_href = str(values["href"])
+            self.current_text = []
+            self.current_heading = []
+        elif tag in {"h1", "h2", "h3", "h4", "h5", "h6"} and self.current_href:
+            self.in_heading = True
+        elif tag == "img" and self.current_href and values.get("alt"):
+            self.current_text.append(str(values["alt"]))
+
+    def handle_data(self, data: str) -> None:
+        if self.current_href:
+            self.current_text.append(data)
+            if self.in_heading:
+                self.current_heading.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "a" and self.current_href:
+            label = self.current_heading if any(part.strip() for part in self.current_heading) else self.current_text
+            self.links.append((self.current_href, " ".join(label)))
+            self.current_href = None
+            self.current_text = []
+            self.current_heading = []
+            self.in_heading = False
+        elif tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
+            self.in_heading = False
+
+
 def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -52,6 +95,61 @@ def normalize(value: str) -> str:
 def candidate_key(source_id: str, external_id: str, category: str) -> str:
     raw = f"{source_id}:{external_id}:{category}"
     return f"candidate-{hashlib.sha1(raw.encode('utf-8')).hexdigest()[:16]}"
+
+
+def trusted_domain(url: str, allowed_domains: list[str]) -> bool:
+    hostname = (urllib.parse.urlparse(url).hostname or "").lower()
+    return any(hostname == domain.lower() or hostname.endswith(f".{domain.lower()}") for domain in allowed_domains)
+
+
+def clean_index_label(value: str, url: str, path_segment: int = -1) -> str:
+    label = " ".join(value.split())
+    label = re.sub(r"\b(Learn more|Where to buy|Buy now|Compare|See more|See less|Explore)\b", " ", label, flags=re.I)
+    label = " ".join(label.split()).strip(" -|·")
+    if len(label) >= 3 and label.lower() not in {"product", "products", "image", "all"}:
+        return label
+    segments = [urllib.parse.unquote(part) for part in urllib.parse.urlparse(url).path.split("/") if part]
+    if not segments:
+        return ""
+    try:
+        slug = segments[path_segment]
+    except IndexError:
+        slug = segments[-1]
+    slug = re.sub(r"\.(?:s?html?|php)$", "", slug, flags=re.I)
+    return " ".join(slug.replace("_", "-").split("-")).strip()
+
+
+def extract_index_links(html: str, base_url: str, path_segment: int = -1) -> list[dict[str, str]]:
+    parser = LinkCollector()
+    parser.feed(html)
+    links: dict[str, str] = {}
+    for href, raw_label in parser.links:
+        absolute = urllib.parse.urljoin(base_url, href)
+        parsed = urllib.parse.urlparse(absolute)
+        if parsed.scheme != "https":
+            continue
+        canonical = urllib.parse.urlunparse((parsed.scheme, parsed.netloc.lower(), parsed.path, "", "", ""))
+        label = clean_index_label(raw_label, canonical, path_segment)
+        if label and (canonical not in links or len(label) > len(links[canonical])):
+            links[canonical] = label
+    return [{"url": url, "label": label} for url, label in links.items()]
+
+
+def extract_sitemap_links(xml: str, path_segment: int = -1) -> list[dict[str, str]]:
+    """Extract canonical HTTPS URLs from a sitemap, regardless of its XML namespace."""
+    root = ET.fromstring(xml)
+    links: dict[str, str] = {}
+    for element in root.iter():
+        if element.tag.rsplit("}", 1)[-1] != "loc" or not element.text:
+            continue
+        parsed = urllib.parse.urlparse(element.text.strip())
+        if parsed.scheme != "https":
+            continue
+        canonical = urllib.parse.urlunparse((parsed.scheme, parsed.netloc.lower(), parsed.path, "", "", ""))
+        label = clean_index_label("", canonical, path_segment)
+        if label:
+            links[canonical] = label
+    return [{"url": url, "label": label} for url, label in links.items()]
 
 
 def existing_identities(documentary_path: Path, promoted_path: Path, data_path: Path) -> set[str]:
@@ -216,6 +314,153 @@ def wikidata_candidates(
     return found, errors, metrics
 
 
+def manufacturer_index_candidates(
+    registry: dict[str, Any],
+    known: set[str],
+    run_date: str,
+    requester: Callable[[str, str, int], bytes] = request_bytes,
+    sleeper: Callable[[float], None] = time.sleep,
+) -> tuple[list[dict[str, Any]], list[str], dict[str, Any]]:
+    """Discover candidate names and URLs from explicitly allowlisted official indexes."""
+    policy = registry["policy"]
+    delay = policy["minimumDelayMs"] / 1000
+    page_budget = max(1, int(policy.get("manufacturerIndexPageBudget", 20)))
+    candidate_limit = max(1, int(policy.get("manufacturerIndexCandidateLimit", 500)))
+    attempts = max(1, int(policy.get("retryAttempts", 3)))
+    sources = {source["id"]: source for source in registry["sources"] if source.get("enabled")}
+    found: dict[str, dict[str, Any]] = {}
+    errors: list[str] = []
+    metrics: dict[str, Any] = {
+        "manufacturerIndexesAttempted": 0,
+        "manufacturerIndexesCompleted": 0,
+        "manufacturerPagesRequested": 0,
+        "manufacturerRequestsSucceeded": 0,
+        "manufacturerRobotsRequested": 0,
+        "manufacturerRobotsSucceeded": 0,
+        "manufacturerBudgetExhausted": False,
+    }
+    for index in registry.get("manufacturerIndexes", []):
+        if len(found) >= candidate_limit or metrics["manufacturerPagesRequested"] >= page_budget:
+            metrics["manufacturerBudgetExhausted"] = True
+            break
+        source = sources.get(index["sourceId"])
+        if not source or index.get("category") not in VALID_CATEGORIES:
+            errors.append(f"manufacturer-index:{index.get('id', 'unknown')}:disabled-or-invalid")
+            continue
+        allowed_domains = list(index.get("allowedDomains", []))
+        if not trusted_domain(source["url"], allowed_domains):
+            errors.append(f"manufacturer-index:{index['id']}:untrusted-index-url")
+            continue
+        product_patterns = [re.compile(pattern, re.I) for pattern in index.get("productUrlPatterns", [])]
+        follow_patterns = [re.compile(pattern, re.I) for pattern in index.get("followUrlPatterns", [])]
+        label_patterns = [re.compile(pattern, re.I) for pattern in index.get("labelPatterns", [])]
+        max_candidates = max(1, int(index.get("maxCandidates", 100)))
+        max_follow_pages = max(0, int(index.get("maxFollowPages", 0)))
+        path_segment = int(index.get("labelFromPathSegment", -1))
+        index_format = index.get("format", "html")
+        queue = [source["url"]]
+        queued = {source["url"]}
+        visited: set[str] = set()
+        index_found = 0
+        index_failed = False
+        metrics["manufacturerIndexesAttempted"] += 1
+        robots_url = source.get("robotsUrl")
+        if robots_url:
+            sleeper(delay)
+            metrics["manufacturerRobotsRequested"] += 1
+            try:
+                robots_text = requester(robots_url, policy["userAgent"], attempts).decode("utf-8", errors="replace")
+                robots = urllib.robotparser.RobotFileParser()
+                robots.set_url(robots_url)
+                robots.parse(robots_text.splitlines())
+                metrics["manufacturerRobotsSucceeded"] += 1
+                if not robots.can_fetch(policy["userAgent"], source["url"]):
+                    errors.append(f"manufacturer-index:{index['id']}:robots-disallowed")
+                    continue
+            except Exception as exc:
+                missing_allowed = (
+                    isinstance(exc, urllib.error.HTTPError)
+                    and exc.code == 404
+                    and source.get("allowMissingRobots") is True
+                    and source.get("robotsUnavailableCheckedAt")
+                )
+                if not missing_allowed:
+                    errors.append(f"manufacturer-index:{index['id']}:robots-{type(exc).__name__}")
+                    continue
+        while queue and index_found < max_candidates and len(found) < candidate_limit:
+            if metrics["manufacturerPagesRequested"] >= page_budget:
+                metrics["manufacturerBudgetExhausted"] = True
+                index_failed = True
+                break
+            page_url = queue.pop(0)
+            if page_url in visited:
+                continue
+            visited.add(page_url)
+            sleeper(delay)
+            metrics["manufacturerPagesRequested"] += 1
+            try:
+                raw = requester(page_url, policy["userAgent"], attempts)
+                document = raw.decode("utf-8", errors="replace")
+                metrics["manufacturerRequestsSucceeded"] += 1
+            except Exception as exc:
+                errors.append(f"manufacturer-index:{index['id']}:{type(exc).__name__}")
+                index_failed = True
+                continue
+            try:
+                links = (
+                    extract_sitemap_links(document, path_segment)
+                    if index_format == "sitemap"
+                    else extract_index_links(document, page_url, path_segment)
+                )
+            except ET.ParseError:
+                errors.append(f"manufacturer-index:{index['id']}:invalid-sitemap")
+                index_failed = True
+                continue
+            for link in links:
+                parsed = urllib.parse.urlparse(link["url"])
+                if not trusted_domain(link["url"], allowed_domains):
+                    continue
+                path = parsed.path
+                is_product = any(pattern.search(path) for pattern in product_patterns)
+                if is_product and (not label_patterns or any(pattern.search(link["label"]) for pattern in label_patterns)):
+                    external_id = link["url"]
+                    candidate_id = candidate_key(index["sourceId"], external_id, index["category"])
+                    if candidate_id not in found:
+                        label = link["label"]
+                        if not normalize(label).startswith(normalize(index["brand"])):
+                            label = f"{index['brand']} {label}"
+                        found[candidate_id] = {
+                            "id": candidate_id,
+                            "sourceId": index["sourceId"],
+                            "externalId": external_id,
+                            "kind": "product-candidate",
+                            "label": label,
+                            "description": f"Référence repérée dans l’index officiel {index['brand']}; caractéristiques à contrôler sur la fiche constructeur.",
+                            "url": external_id,
+                            "brand": index["brand"],
+                            "category": index["category"],
+                            "query": index["id"],
+                            "confidence": "Moyenne",
+                            "score": 0.9,
+                            "duplicate": normalize(label) in known,
+                            "status": "À vérifier",
+                            "firstSeenAt": run_date,
+                        }
+                        index_found += 1
+                        if index_found >= max_candidates or len(found) >= candidate_limit:
+                            break
+                elif (
+                    len(queued) - 1 < max_follow_pages
+                    and any(pattern.search(path) for pattern in follow_patterns)
+                    and link["url"] not in queued
+                ):
+                    queued.add(link["url"])
+                    queue.append(link["url"])
+        if not index_failed:
+            metrics["manufacturerIndexesCompleted"] += 1
+    return list(found.values()), errors, metrics
+
+
 def infer_pci_category(name: str) -> str | None:
     value = normalize(name)
     if any(term in value for term in ("geforce", "radeon", "graphics", "display", "vga", "arc a")):
@@ -295,6 +540,10 @@ def build_coverage_report(
     previous_report: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     all_candidates = [*product_candidates, *hardware_identifiers, *rejected_candidates]
+    official_source_ids = {
+        source["id"] for source in registry["sources"]
+        if source.get("enabled") and source.get("type") == "manufacturer-index"
+    }
     coverage: list[dict[str, Any]] = []
     for category in sorted(VALID_CATEGORIES):
         queries = [query for query in registry["queries"] if query["category"] == category]
@@ -307,6 +556,7 @@ def build_coverage_report(
             "registeredBrands": sorted({query["brand"] for query in queries}),
             "observedBrands": observed_brands,
             "candidates": len(category_products),
+            "officialCandidates": sum(item.get("sourceId") in official_source_ids for item in category_products),
             "promotable": sum(bool(item.get("promotable")) for item in category_products),
             "hardwareIdentifiers": len(category_identifiers),
             "rejected": len(category_rejected),
@@ -341,6 +591,8 @@ def build_coverage_report(
             "pageSize": policy.get("wikidataPageSize", 10),
             "maxPagesPerQuery": policy.get("wikidataMaxPagesPerQuery", 1),
             "requestBudget": policy.get("requestBudget", len(registry["queries"])),
+            "manufacturerIndexPageBudget": policy.get("manufacturerIndexPageBudget", 20),
+            "manufacturerIndexCandidateLimit": policy.get("manufacturerIndexCandidateLimit", 500),
         },
         "totals": {
             "registeredQueries": len(registry["queries"]),
@@ -350,6 +602,7 @@ def build_coverage_report(
                 any(item["category"] == category for item in all_candidates) for category in VALID_CATEGORIES
             ),
             "candidates": len(product_candidates),
+            "officialCandidates": sum(item.get("sourceId") in official_source_ids for item in product_candidates),
             "hardwareIdentifiers": len(hardware_identifiers),
             "rejected": len(rejected_candidates),
         },
@@ -383,10 +636,17 @@ def main() -> int:
     metrics: dict[str, Any] = {}
     if not args.offline:
         wiki, wiki_errors, metrics = wikidata_candidates(registry, known, run_date)
+        official, official_errors, official_metrics = manufacturer_index_candidates(registry, known, run_date)
         pci, pci_errors = pci_candidates(registry, known, run_date)
-        discovered.extend(wiki + pci)
-        errors.extend(wiki_errors + pci_errors)
-    previous = previous_feed.get("candidates", []) + previous_hardware.get("identifiers", []) + previous_rejected.get("candidates", [])
+        metrics.update(official_metrics)
+        discovered.extend(wiki + official + pci)
+        errors.extend(wiki_errors + official_errors + pci_errors)
+    enabled_source_ids = {source["id"] for source in registry["sources"] if source.get("enabled")}
+    previous = [
+        candidate
+        for candidate in previous_feed.get("candidates", []) + previous_hardware.get("identifiers", []) + previous_rejected.get("candidates", [])
+        if candidate.get("sourceId") in enabled_source_ids
+    ]
     candidates = [triage(candidate) for candidate in merge_candidates(previous, discovered, int(registry["policy"]["candidateLimit"]))]
     product_candidates = [candidate for candidate in candidates if candidate["triage"] not in {"hardware-identifier", "false-positive"} and candidate["id"] not in promoted_candidate_ids]
     hardware_identifiers = [candidate for candidate in candidates if candidate["triage"] == "hardware-identifier"]
