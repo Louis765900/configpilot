@@ -1,5 +1,8 @@
 export type Category = 'cpu' | 'gpu' | 'motherboard' | 'ram' | 'psu' | 'case' | 'storage' | 'cooling' | 'expansion'
 
+/** Relevé de prix saisi par un humain. Aucun relevé n'est collecté automatiquement. */
+export type PriceObservation = { date: string; condition: 'new' | 'used'; price: number; source: string }
+
 export type Product = {
   id: string
   candidateId?: string
@@ -9,6 +12,9 @@ export type Product = {
   reference: string
   series: string
   year: number | null
+  /** Tarif public conseillé à la sortie, en euros. `null` tant qu'il n'est pas documenté. */
+  launchPrice: number | null
+  observations?: PriceObservation[]
   newPrice: number | null
   usedPrice: number | null
   confidence: 'Bonne' | 'Moyenne' | 'Faible'
@@ -23,8 +29,17 @@ export type Product = {
 }
 
 export type Build = Partial<Record<Category, string>>
-export type CheckStatus = 'ok' | 'warning' | 'error' | 'unknown'
-export type CompatibilityCheck = { id: string; label: string; detail: string; status: CheckStatus }
+export type CheckStatus = 'ok' | 'warning' | 'error' | 'unknown' | 'info'
+export type CheckGroup = 'Plateforme' | 'Mémoire' | 'Refroidissement' | 'Alimentation' | 'Intégration' | 'Stockage'
+export type CompatibilityCheck = {
+  id: string
+  group: CheckGroup
+  label: string
+  detail: string
+  status: CheckStatus
+  /** Champs de fiche réellement lus pour rendre ce verdict, affichés à l'utilisateur. */
+  basis: string
+}
 
 export type ListingInput = {
   productId: string

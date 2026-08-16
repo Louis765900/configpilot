@@ -17,28 +17,46 @@
 
 ## Présentation
 
-ConfigPilot aide à comparer des composants, vérifier leur compatibilité, construire une configuration et évaluer le prix d’une annonce d’occasion. L’interface reste accessible aux débutants tout en exposant les informations utiles aux utilisateurs expérimentés.
+ConfigPilot est un outil public de configuration de PC. Il tient sur deux promesses :
 
-Version actuelle : **1.8.0** · Auteur : **Louis**
+1. **Un configurateur qui vérifie vraiment.** On compose sa machine dans le navigateur et une vingtaine de règles croisent socket, chipset, version de BIOS, mémoire, dimensions, connecteurs, refroidissement et stockage. Chaque verdict affiche les champs de fiche sur lesquels il se prononce, et une donnée manquante n'est jamais interprétée en faveur de la compatibilité.
+2. **Une fiche technique avec sa trajectoire de prix.** Pour chaque référence : le tarif public conseillé au lancement, la décote depuis la sortie, le rapport performance/prix face à sa catégorie, l'ensemble des caractéristiques publiées, et un verdict d'achat argumenté facteur par facteur.
+
+L'interface reste lisible pour un débutant tout en exposant les détails attendus par un utilisateur expérimenté.
+
+Version actuelle : **2.0.0**
 
 Site Vercel : _à compléter après le déploiement_.
 
 ## Fonctionnalités
 
-- Catalogue local structuré de plus de 1 100 références couvrant processeurs, GPU, cartes mères, RAM, alimentations, boîtiers, stockage, refroidissement et cartes d’extension.
-- Import documentaire reproductible depuis le catalogue Word et l’inventaire PDF, avec données inconnues explicitement laissées à vérifier.
-- Bots gratuits de découverte Wikidata et PCI IDs, registre de sources, dédoublonnage, quarantaine, preuves constructeur et décisions locales de vérification/rejet.
-- Normalisation bornée des caractéristiques publiées par les constructeurs, avec valeur brute et valeur normalisée conservées côte à côte, source, date, méthode et niveau de confiance.
-- Recherche automatique hebdomadaire avec GitHub Actions, sans clé API, service payant ni publication aveugle.
-- Recherche instantanée tolérante à la casse et aux accents, filtres par catégorie, marque, prix et socket, tris par prix, performance et valeur.
-- Fiches détaillées avec caractéristiques, indices, prix indicatifs, confiance, points forts, points faibles et recherches marketplace encodées.
-- Comparaison de quatre produits d’une même catégorie avec alignement des caractéristiques et mise en évidence des meilleurs indices.
-- Configurateur avec contrôle du socket, BIOS, RAM, formats, dimensions, refroidissement, alimentation, connecteurs, M.2 et VRM.
-- Configuration personnelle de Louis préchargée, avec diagnostic du Core i9-9900KF sur MSI Z370.
-- Estimation d’annonces tenant compte de l’état, de l’âge, des preuves, des frais et du risque propre à chaque catégorie.
-- Recommandations locales par budget et résolution, intégrant le coût global de plateforme.
-- Favoris, comparaisons et configurations sauvegardés avec `localStorage`, export texte, thème sombre et partage par URL.
-- Interface responsive avec navigation clavier, focus visible et tableaux défilants sur petits écrans.
+### Configurateur
+
+- Neuf emplacements à remplir, du processeur à la carte d'extension, avec illustration de chaque type de composant.
+- Une vingtaine de contrôles croisés répartis en six familles : plateforme, mémoire, refroidissement, alimentation, intégration physique, stockage.
+- Table de compatibilité chipset ↔ génération de processeur qui distingue la prise en charge native de celle qui exige une mise à jour du BIOS, et signale si la carte dispose du flash sans processeur.
+- Contrôles dimensionnels réels : longueur de carte graphique, hauteur de ventirad, emplacement de radiateur, format de carte mère et format d'alimentation acceptés par le boîtier.
+- Contrôles électriques : puissance face à la consommation estimée, recommandation du fabricant du GPU, comptage des connecteurs PCIe, présence d'un 12V-2x6, conformité ATX 3.x.
+- Chaque contrôle affiche la ligne « Champs lus » qui énumère les caractéristiques consultées, pour que le verdict soit contestable.
+- Cinq états distincts : validé, à confirmer, conflit, information manquante, à savoir. L'absence de donnée ne devient jamais un verdict favorable.
+
+### Fiches et trajectoire de prix
+
+- Tarif public conseillé au lancement, prix indicatifs neuf et occasion, décote cumulée et rythme annuel.
+- Courbe de prix tracée entre les ancres documentées, avec les segments modélisés en pointillés et la méthode de calcul affichée.
+- Verdict d'achat argumenté : décote déjà réalisée, rapport performance/prix face à la médiane de la catégorie, âge par rapport à l'horizon de la catégorie, et état de la plateforme (socket encore alimenté, mature ou fermé).
+- Caractéristiques regroupées par thème, avec « À vérifier » affiché tel quel pour tout champ absent.
+- Structure de relevés manuels prête à recevoir de vraies observations de prix, vide par défaut.
+
+### Le reste
+
+- Catalogue de plus de 1 100 références sur neuf catégories, filtres par catégorie, marque et socket, affichage en cartes ou en liste.
+- Illustrations vectorielles dessinées pour chaque type de composant, adaptées à la fiche (nombre de barrettes, type de refroidissement, longueur de carte graphique, format de boîtier et de stockage).
+- Comparateur de quatre références d'une même catégorie, incluant tarif de lancement, décote et verdict d'achat.
+- Estimateur d'annonce d'occasion : état, âge, preuves du vendeur, frais obligatoires et risque propre à la catégorie.
+- Assistant qui propose une base publique déjà passée au configurateur, selon le budget, la résolution et la contrainte d'encombrement.
+- Bots gratuits de découverte Wikidata, PCI IDs et index constructeurs, avec quarantaine, preuves constructeur et caractéristiques normalisées en attente de relecture humaine.
+- Thème sombre et thème clair, navigation clavier, focus visible, tableaux défilants et absence de débordement horizontal vérifiée par les tests sur huit écrans.
 
 ## Technologies
 
@@ -46,7 +64,8 @@ Site Vercel : _à compléter après le déploiement_.
 - TypeScript
 - Vite
 - CSS moderne sans framework d’exécution
-- Lucide React pour les pictogrammes
+- Inter et JetBrains Mono auto-hébergées via `@fontsource`, sans requête vers un CDN
+- Lucide React pour les pictogrammes, illustrations de composants dessinées en SVG inline
 - Vitest et ESLint pour la qualité
 
 ## Installation locale
@@ -94,13 +113,19 @@ Connecter ce dépôt à un projet Vercel existant avec les réglages suivants :
 | Install Command | `npm install` |
 | Root Directory | `./` |
 
-Aucune variable d’environnement n’est requise pour la version 1.8.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
+Aucune variable d’environnement n’est requise pour la version 2.0.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
 
 ## Structure du projet
 
 ```text
 public/                 favicon, manifeste et image Open Graph
-src/App.tsx             écrans et interactions React
+src/App.tsx             coquille applicative, navigation et état partagé
+src/screens/            un fichier par écran
+src/compatibility.ts    moteur de compatibilité et synthèse du diagnostic
+src/pricing.ts          trajectoire de prix et verdict d'achat
+src/illustrations.tsx   schémas SVG des composants
+src/launch-prices.ts    tarifs publics conseillés au lancement
+src/ui.tsx              primitives d'interface partagées
 src/data.ts             catalogue local typé
 src/catalog/            catalogue documentaire généré
 src/catalog/manufacturer-registry.json domaines constructeurs autorisés
@@ -220,6 +245,38 @@ Sources activées :
 
 Le workflow GitHub Actions reste gratuit avec les runners standards tant que le dépôt est public. GitHub peut désactiver les tâches planifiées d’un dépôt public resté sans activité pendant 60 jours ; elles peuvent alors être réactivées depuis l’onglet Actions.
 
+## Direction visuelle
+
+L'identité « Technical Precision » a été produite par Google Stitch à partir d'un brief laissant la direction
+artistique entièrement libre, puis portée à la main dans le CSS du projet. Les jetons Stitch sont repris tels quels
+pour le thème sombre ; le thème clair, absent de la maquette, a été dérivé en conservant le rôle de chaque couleur.
+
+- Fond sombre par défaut, couches tonales plutôt qu'ombres portées, bordure de 1 px pour délimiter les surfaces.
+- Accent émeraude réservé aux états validés et aux actions principales, ambre pour « à confirmer », rouge pour les conflits.
+- Inter pour l'interface, JetBrains Mono pour toute valeur technique : fréquences, watts, sockets, identifiants, prix.
+- Rayons de 4 px, badges d'état quasi carrés, grille de 4 px pour les espacements.
+
+Aucune ressource n'est chargée depuis un CDN : les deux polices sont auto-hébergées par `@fontsource` et les
+illustrations de composants sont des SVG dessinés dans le dépôt, ce qui évite de republier une image constructeur.
+
+## Méthode de trajectoire de prix
+
+ConfigPilot n'interroge aucune marketplace, aucune API payante et ne pratique aucun scraping de prix. La trajectoire
+affichée sur une fiche est donc construite à partir de trois sources explicites :
+
+1. `src/launch-prices.ts` conserve le tarif public conseillé au lancement, en euros, référence par référence. Une
+   référence absente de cette table affiche « À vérifier » : aucune valeur n'est déduite pour combler un trou.
+2. Les prix indicatifs du catalogue local servent d'ancre pour l'année courante.
+3. `observations` accueille des relevés saisis à la main, avec date et source. Le tableau est vide par défaut.
+
+Entre deux ancres, la valeur est interpolée géométriquement, ce qui fait passer la courbe exactement par les points
+documentés. Sans prix actuel, une décote annuelle moyenne par catégorie prend le relais. Tous les points calculés
+sont tracés en pointillés et signalés comme modélisés ; seules les ancres sont pleines.
+
+Le verdict d'achat combine quatre facteurs, tous énoncés à l'écran : la décote déjà réalisée, le rapport
+performance/prix face à la médiane de la catégorie, l'âge par rapport à l'horizon retenu pour la catégorie, et
+l'état de la plateforme pour un processeur ou une carte mère. Aucun facteur n'est agrégé en silence.
+
 ## Méthode d’estimation
 
 L’estimateur combine le prix indicatif du catalogue avec l’âge, la catégorie, l’état déclaré, la garantie, la facture, les tests, les accessoires, le type de vendeur et les frais obligatoires. Les risques propres aux GPU, CPU, alimentations, cartes mères et supports de stockage sont affichés séparément.
@@ -240,7 +297,9 @@ Le résultat doit toujours être confronté à des annonces réelles avant un ac
 - La normalisation ne lit que le HTML servi directement. Une fiche dont les caractéristiques sont rendues par JavaScript, comme les pages ASUS, ne fournit que ses métadonnées de page.
 - Une page qui décrit une série entière plutôt qu’une référence précise, comme les pages Patriot ou les séries d’alimentations, ne produit volontairement aucune valeur normalisée.
 - Les contrôles de compatibilité sont une aide à la décision. La référence exacte de la carte mère, la version du BIOS, les dimensions du boîtier et les manuels constructeurs doivent être vérifiés avant montage.
-- Aucun scraping de marketplace ni contournement de CAPTCHA n’est réalisé.
+- Aucun scraping de marketplace ni contournement de CAPTCHA n’est réalisé. Aucun prix marchand n’est donc affiché en direct : « prix actuel » signifie toujours « repère calculé localement ».
+- Les tarifs de lancement sont des repères indicatifs. Un prix public varie selon le pays, la date exacte de mise en vente et les remises constructeur.
+- Le moteur de compatibilité ne conclut que sur les champs présents dans les fiches. Il ne remplace pas la liste de compatibilité officielle du fabricant de la carte mère, ni la vérification des dimensions réelles avant montage.
 
 ## Licence
 
