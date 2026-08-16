@@ -20,9 +20,28 @@ def main() -> int:
     hardware = json.loads((ROOT / "src/catalog/hardware-identifiers.generated.json").read_text(encoding="utf-8"))
     rejected = json.loads((ROOT / "src/catalog/rejected.generated.json").read_text(encoding="utf-8"))
     verification = json.loads((ROOT / "src/catalog/candidate-verification.generated.json").read_text(encoding="utf-8"))
+    report = json.loads((ROOT / "src/catalog/discovery-report.generated.json").read_text(encoding="utf-8"))
     manufacturers = json.loads((ROOT / "src/catalog/manufacturer-registry.json").read_text(encoding="utf-8"))
     registry = json.loads((ROOT / "src/catalog/source-registry.json").read_text(encoding="utf-8"))
     errors: list[str] = []
+    policy = registry.get("policy", {})
+    if policy.get("publishAutomatically") is not False:
+        errors.append("automatic publication must remain disabled")
+    page_size = int(policy.get("wikidataPageSize", 0))
+    max_pages = int(policy.get("wikidataMaxPagesPerQuery", 0))
+    request_budget = int(policy.get("requestBudget", 0))
+    if not 1 <= page_size <= 50 or not 1 <= max_pages <= 2:
+        errors.append("unsafe Wikidata pagination policy")
+    if request_budget < len(registry.get("queries", [])) * max_pages:
+        errors.append("request budget does not cover every registered query")
+    query_pairs: set[tuple[str, str]] = set()
+    for query in registry.get("queries", []):
+        pair = (query.get("category", ""), query.get("brand", ""))
+        if pair in query_pairs:
+            errors.append(f"duplicate category/brand query: {pair[0]}:{pair[1]}")
+        query_pairs.add(pair)
+        if pair[0] not in CATEGORIES or not pair[1] or not query.get("query"):
+            errors.append(f"invalid discovery query: {pair[0]}:{pair[1]}")
     verification_by_id = {item.get("candidateId", ""): item for item in verification.get("candidates", [])}
     manufacturer_domains = {
         brand: set(manufacturer["domains"])
@@ -94,6 +113,38 @@ def main() -> int:
             errors.append(f"non-PCI hardware identifier: {candidate.get('id', '')}")
     for candidate in discarded:
         validate_candidate(candidate, {"false-positive"})
+    report_rows = report.get("coverage", [])
+    report_by_category = {row.get("category", ""): row for row in report_rows}
+    if set(report_by_category) != CATEGORIES or len(report_rows) != len(CATEGORIES):
+        errors.append("coverage report must contain every category exactly once")
+    for category in CATEGORIES:
+        expected_brands = sorted({
+            query["brand"] for query in registry.get("queries", []) if query.get("category") == category
+        })
+        row = report_by_category.get(category, {})
+        if row.get("registeredBrands") != expected_brands:
+            errors.append(f"stale registered brand coverage: {category}")
+        if row.get("candidates") != sum(item.get("category") == category for item in active):
+            errors.append(f"stale candidate coverage: {category}")
+        if row.get("hardwareIdentifiers") != sum(item.get("category") == category for item in identifiers):
+            errors.append(f"stale identifier coverage: {category}")
+    report_totals = report.get("totals", {})
+    expected_totals = {
+        "registeredQueries": len(registry.get("queries", [])),
+        "registeredBrands": len({query["brand"] for query in registry.get("queries", [])}),
+        "registeredCategories": len({query["category"] for query in registry.get("queries", [])}),
+        "candidates": len(active),
+        "hardwareIdentifiers": len(identifiers),
+        "rejected": len(discarded),
+    }
+    for field, expected in expected_totals.items():
+        if report_totals.get(field) != expected:
+            errors.append(f"stale coverage total: {field}")
+    collection = report.get("collection", {})
+    if collection.get("status") not in {"not-run", "success", "partial", "failed"}:
+        errors.append("invalid discovery collection status")
+    if int(collection.get("pagesRequested", 0)) > request_budget:
+        errors.append("discovery report exceeds request budget")
     subjects_by_candidate_id = {
         candidate.get("id", ""): candidate
         for candidate in [*active, *identifiers, *discarded]
@@ -136,6 +187,8 @@ def main() -> int:
         "rejected": len(discarded),
         "verified": sum(item.get("status") == "verified" for item in verification.get("candidates", [])),
         "sources": len(source_ids),
+        "registeredQueries": len(registry.get("queries", [])),
+        "registeredBrands": len({query["brand"] for query in registry.get("queries", [])}),
     }))
     return 0
 
