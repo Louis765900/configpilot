@@ -5,6 +5,7 @@ import hardwareFeed from './catalog/hardware-identifiers.generated.json'
 import rejectedFeed from './catalog/rejected.generated.json'
 import promotedFeed from './catalog/promoted.generated.json'
 import verificationFeed from './catalog/candidate-verification.generated.json'
+import discoveryReport from './catalog/discovery-report.generated.json'
 import sourceRegistry from './catalog/source-registry.json'
 import { analyzeListing, checkCompatibility, searchProducts } from './engine'
 
@@ -38,6 +39,15 @@ describe('catalogue', () => {
     expect(verificationFeed.candidates.filter(item => item.status === 'verified')).toHaveLength(16)
     expect(verificationFeed.candidates).toContainEqual(expect.objectContaining({candidateId:'candidate-1ae6b737a3d09a6d',status:'variant-required'}))
     expect(searchProducts('Intel Arc B580')[0]?.source).toContain('intel.com')
+  })
+  it('mesure une recherche gratuite sur toutes les catégories', () => {
+    expect(discoveryReport.totals.registeredQueries).toBe(89)
+    expect(discoveryReport.totals.registeredBrands).toBeGreaterThanOrEqual(50)
+    expect(discoveryReport.totals.registeredCategories).toBe(9)
+    expect(discoveryReport.coverage).toHaveLength(9)
+    expect(discoveryReport.coverage.every(item => item.registeredBrands.length >= 2)).toBe(true)
+    expect(sourceRegistry.policy.publishAutomatically).toBe(false)
+    expect(sourceRegistry.policy.requestBudget).toBeGreaterThanOrEqual(sourceRegistry.queries.length * sourceRegistry.policy.wikidataMaxPagesPerQuery)
   })
   it('retrouve le i9-9900KF sans tenir compte de la casse', () => expect(searchProducts('I9-9900kf')[0]?.id).toBe('cpu-9900kf'))
   it('filtre le socket LGA1151 v2', () => expect(searchProducts('', 'cpu', 'LGA1151 v2').map(p => p.id)).toEqual(expect.arrayContaining(['cpu-8600k','cpu-9700k','cpu-9900kf'])))

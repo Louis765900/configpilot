@@ -90,7 +90,7 @@ Connecter ce dépôt à un projet Vercel existant avec les réglages suivants :
 | Install Command | `npm install` |
 | Root Directory | `./` |
 
-Aucune variable d’environnement n’est requise pour la version 1.4.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
+Aucune variable d’environnement n’est requise pour la version 1.5.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
 
 ## Structure du projet
 
@@ -123,15 +123,16 @@ Le fichier généré ne remplace pas les fiches détaillées. Il ajoute des réf
 
 La découverte fonctionne sans modèle d’IA payant :
 
-1. `src/catalog/source-registry.json` déclare chaque source, sa licence, les marques et les requêtes autorisées.
-2. `scripts/discover-open-catalog.py` interroge poliment Wikidata et télécharge le snapshot public PCI IDs.
+1. `src/catalog/source-registry.json` déclare chaque source, sa licence et 89 recherches couvrant 55 marques dans les 9 catégories.
+2. `scripts/discover-open-catalog.py` interroge poliment Wikidata, jusqu’à deux pages de 50 résultats par recherche, puis télécharge le snapshot public PCI IDs. Un budget maximal de 180 pages, un délai de 1,1 seconde, `maxlag` et des nouvelles tentatives progressives protègent les services gratuits.
 3. `scripts/catalog_triage.py` classe chaque résultat comme produit précis, famille, composant intégré, identifiant matériel, faux positif ou cas à revoir.
 4. Les résultats sont séparés dans `discovery.generated.json`, `hardware-identifiers.generated.json` et `rejected.generated.json` au lieu de mélanger produits et identifiants techniques.
 5. `scripts/validate-catalog.py` bloque les catégories inconnues, identifiants dupliqués, chemins locaux, URL non sécurisées, incohérences de triage et toute publication automatique.
-6. `.github/workflows/catalog-discovery.yml` exécute ce processus chaque dimanche à 03:17, teste les règles, puis enregistre les trois files si elles ont changé.
-7. L’écran **Bots** affiche séparément les produits candidats, identifiants PCI et faux positifs. Une validation locale ne publie pas encore de fiche.
+6. `.github/workflows/catalog-discovery.yml` exécute ce processus chaque dimanche à 03:17, teste les règles, puis enregistre les files et le rapport de couverture s’ils ont changé.
+7. L’écran **Bots** affiche séparément les produits candidats, identifiants PCI et faux positifs, ainsi que la couverture réelle par catégorie. Une validation locale ne publie pas encore de fiche.
 8. `candidate-verification.generated.json` conserve la correspondance constructeur, le lien officiel et les caractéristiques confirmées ; `manufacturer-registry.json` limite les preuves aux domaines autorisés.
 9. `npm run catalog:promote -- --ids candidate-…` accepte seulement une référence commerciale précise, non dupliquée et marquée `verified`, puis la transforme en fiche documentaire dans `promoted.generated.json`.
+10. `discovery-report.generated.json` rend visibles le nombre de marques suivies, les catégories déjà observées, les pages demandées, les erreurs et un éventuel épuisement du budget.
 
 État du premier triage des 340 résultats :
 
@@ -148,7 +149,15 @@ La découverte fonctionne sans modèle d’IA payant :
 - 16 références ont été reliées à une fiche officielle AMD, Intel, NVIDIA, MSI ou Lian Li puis intégrées au catalogue ;
 - toutes conservent des prix `null` et une source constructeur cliquable ;
 - l’Intel Arc A770 reste en quarantaine, car le nom seul ne permet pas de distinguer les versions 8 Go et 16 Go ;
-- la file active est passée de 49 à 33 candidats après retrait des références intégrées.
+- la file active était passée de 49 à 33 candidats après retrait des références intégrées.
+
+État du premier balayage élargi du chantier 3 :
+
+- les 89 recherches sur 55 marques ont été exécutées sans erreur en 93 pages, bien sous le budget de 180 ;
+- 616 observations ont été traitées et la quarantaine contient maintenant 308 candidats produits, 290 identifiants PCI et 2 faux positifs ;
+- 158 résultats ont la forme d’une référence commerciale précise, mais restent bloqués jusqu’à leur validation constructeur ;
+- 4 catégories sur 9 ont produit des observations exploitables. Le rapport rend les 5 lacunes visibles : Wikidata contient peu de fiches détaillées pour les cartes mères, la RAM, les alimentations, les boîtiers et le refroidissement ;
+- cette absence n’est jamais compensée par une fiche inventée. Elle indique les prochaines sources officielles à intégrer.
 
 Sources activées :
 

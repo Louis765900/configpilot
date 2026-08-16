@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-16",
+  "collection": {
+    "date": "2026-08-16",
+    "status": "success",
+    "queriesAttempted": 89,
+    "queriesCompleted": 89,
+    "pagesRequested": 93,
+    "requestsSucceeded": 93,
+    "budgetExhausted": false,
+    "errors": []
+  },
+  "policy": {
+    "publishAutomatically": false,
+    "minimumDelayMs": 1100,
+    "pageSize": 50,
+    "maxPagesPerQuery": 2,
+    "requestBudget": 180
+  },
+  "totals": {
+    "registeredQueries": 89,
+    "registeredBrands": 55,
+    "registeredCategories": 9,
+    "categoriesWithCandidates": 4,
+    "candidates": 308,
+    "hardwareIdentifiers": 290,
+    "rejected": 2
+  },
+  "coverage": [
+    {
+      "category": "case",
+      "registeredBrands": [
+        "Cooler Master",
+        "Corsair",
+        "DeepCool",
+        "Fractal Design",
+        "HYTE",
+        "Lian Li",
+        "Montech",
+        "NZXT",
+        "Phanteks",
+        "Thermaltake",
+        "be quiet!"
+      ],
+      "observedBrands": [],
+      "candidates": 0,
+      "promotable": 0,
+      "hardwareIdentifiers": 0,
+      "rejected": 0
+    },
+    {
+      "category": "cooling",
+      "registeredBrands": [
+        "Arctic",
+        "Cooler Master",
+        "Corsair",
+        "DeepCool",
+        "EKWB",
+        "Lian Li",
+        "NZXT",
+        "Noctua",
+        "Thermalright",
+        "be quiet!"
+      ],
+      "observedBrands": [],
+      "candidates": 0,
+      "promotable": 0,
+      "hardwareIdentifiers": 0,
+      "rejected": 0
+    },
+    {
+      "category": "cpu",
+      "registeredBrands": [
+        "AMD",
+        "Intel"
+      ],
+      "observedBrands": [
+        "AMD",
+        "Intel"
+      ],
+      "candidates": 165,
+      "promotable": 86,
+      "hardwareIdentifiers": 0,
+      "rejected": 0
+    },
+    {
+      "category": "expansion",
+      "registeredBrands": [
+        "ASUS",
+        "AVerMedia",
+        "Blackmagic Design",
+        "Creative",
+        "Elgato",
+        "Gigabyte",
+        "Intel",
+        "TP-Link"
+      ],
+      "observedBrands": [
+        "AMD",
+        "Broadcom",
+        "Intel",
+        "MSI",
+        "NVIDIA",
+        "Realtek"
+      ],
+      "candidates": 0,
+      "promotable": 0,
+      "hardwareIdentifiers": 126,
+      "rejected": 0
+    },
+    {
+      "category": "gpu",
+      "registeredBrands": [
+        "AMD",
+        "ASRock",
+        "ASUS",
+        "Colorful",
+        "EVGA",
+        "Gainward",
+        "Gigabyte",
+        "Intel",
+        "MSI",
+        "NVIDIA",
+        "PNY",
+        "Palit",
+        "PowerColor",
+        "Sapphire",
+        "XFX",
+        "Zotac"
+      ],
+      "observedBrands": [
+        "AMD",
+        "Gigabyte",
+        "Intel",
+        "NVIDIA",
+        "Sapphire"
+      ],
+      "candidates": 143,
+      "promotable": 40,
+      "hardwareIdentifiers": 81,
+      "rejected": 2
+    },
+    {
+      "category": "motherboard",
+      "registeredBrands": [
+        "ASRock",
+        "ASUS",
+        "Biostar",
+        "Colorful",
+        "EVGA",
+        "Gigabyte",
+        "MSI",
+        "NZXT",
+        "Supermicro"
+      ],
+      "observedBrands": [],
+      "candidates": 0,
+      "promotable": 0,
+      "hardwareIdentifiers": 0,
+      "rejected": 0
+    },
+    {
+      "category": "psu",
+      "registeredBrands": [
+        "ASUS",
+        "Cooler Master",
+        "Corsair",
+        "EVGA",
+        "FSP",
+        "MSI",
+        "NZXT",
+        "Seasonic",
+        "SilverStone",
+        "Super Flower",
+        "Thermaltake",
+        "be quiet!"
+      ],
+      "observedBrands": [],
+      "candidates": 0,
+      "promotable": 0,
+      "hardwareIdentifiers": 0,
+      "rejected": 0
+    },
+    {
+      "category": "ram",
+      "registeredBrands": [
+        "ADATA",
+        "Corsair",
+        "Crucial",
+        "G.Skill",
+        "Kingston",
+        "Patriot",
+        "SK hynix",
+        "Samsung",
+        "TeamGroup"
+      ],
+      "observedBrands": [],
+      "candidates": 0,
+      "promotable": 0,
+      "hardwareIdentifiers": 0,
+      "rejected": 0
+    },
+    {
+      "category": "storage",
+      "registeredBrands": [
+        "ADATA",
+        "Corsair",
+        "Crucial",
+        "Kingston",
+        "Kioxia",
+        "SK hynix",
+        "Sabrent",
+        "Samsung",
+        "Seagate",
+        "Solidigm",
+        "TeamGroup",
+        "Western Digital"
+      ],
+      "observedBrands": [
+        "AMD",
+        "Broadcom",
+        "Intel",
+        "NVIDIA",
+        "Realtek"
+      ],
+      "candidates": 0,
+      "promotable": 0,
+      "hardwareIdentifiers": 83,
+      "rejected": 0
+    }
+  ]
+}

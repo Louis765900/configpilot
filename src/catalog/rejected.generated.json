@@ -21,6 +21,27 @@
       "triageReason": "Le résultat décrit un service, une organisation ou un appareil hors catalogue PC.",
       "promotable": false,
       "promotionBlocker": "Le résultat décrit un service, une organisation ou un appareil hors catalogue PC."
+    },
+    {
+      "id": "candidate-a10cf602f00c4b98",
+      "sourceId": "wikidata",
+      "externalId": "Q85640555",
+      "kind": "product-candidate",
+      "label": "NVIDIA GeForce Now",
+      "description": "official app of NVIDIA’s cloud-based game streaming service",
+      "url": "https://www.wikidata.org/wiki/Q85640555",
+      "brand": "NVIDIA",
+      "category": "gpu",
+      "query": "NVIDIA GeForce",
+      "confidence": "Moyenne",
+      "score": 1.0,
+      "duplicate": false,
+      "status": "À vérifier",
+      "firstSeenAt": "2026-08-16",
+      "triage": "false-positive",
+      "triageReason": "Le résultat décrit un service, une organisation ou un appareil hors catalogue PC.",
+      "promotable": false,
+      "promotionBlocker": "Le résultat décrit un service, une organisation ou un appareil hors catalogue PC."
     }
   ]
 }
