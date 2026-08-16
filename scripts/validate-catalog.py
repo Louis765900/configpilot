@@ -30,10 +30,14 @@ def main() -> int:
     page_size = int(policy.get("wikidataPageSize", 0))
     max_pages = int(policy.get("wikidataMaxPagesPerQuery", 0))
     request_budget = int(policy.get("requestBudget", 0))
+    manufacturer_page_budget = int(policy.get("manufacturerIndexPageBudget", 0))
+    manufacturer_candidate_limit = int(policy.get("manufacturerIndexCandidateLimit", 0))
     if not 1 <= page_size <= 50 or not 1 <= max_pages <= 2:
         errors.append("unsafe Wikidata pagination policy")
     if request_budget < len(registry.get("queries", [])) * max_pages:
         errors.append("request budget does not cover every registered query")
+    if not 1 <= manufacturer_page_budget <= 50 or not 1 <= manufacturer_candidate_limit <= 1000:
+        errors.append("unsafe manufacturer index policy")
     query_pairs: set[tuple[str, str]] = set()
     for query in registry.get("queries", []):
         pair = (query.get("category", ""), query.get("brand", ""))
@@ -74,6 +78,38 @@ def main() -> int:
             errors.append(f"promoted source does not match proof: {product.get('id')}")
     candidate_ids: set[str] = set()
     source_ids = {source["id"] for source in registry["sources"] if source.get("enabled")}
+    sources_by_id = {source["id"]: source for source in registry["sources"] if source.get("enabled")}
+    official_source_ids = {
+        source_id for source_id, source in sources_by_id.items() if source.get("type") == "manufacturer-index"
+    }
+    seen_indexes: set[str] = set()
+    for index in registry.get("manufacturerIndexes", []):
+        index_id = index.get("id", "")
+        if not index_id or index_id in seen_indexes:
+            errors.append(f"duplicate or empty manufacturer index: {index_id}")
+        seen_indexes.add(index_id)
+        source = sources_by_id.get(index.get("sourceId", ""), {})
+        allowed_domains = set(index.get("allowedDomains", []))
+        hostname = (urlparse(str(source.get("url", ""))).hostname or "").lower()
+        if source.get("type") != "manufacturer-index" or not any(
+            hostname == domain or hostname.endswith(f".{domain}") for domain in allowed_domains
+        ):
+            errors.append(f"invalid manufacturer index source: {index_id}")
+        if not source.get("robotsUrl") and not source.get("robotsUnavailableCheckedAt"):
+            errors.append(f"missing robots policy for manufacturer index: {index_id}")
+        if source.get("allowMissingRobots") is True and not source.get("robotsUnavailableCheckedAt"):
+            errors.append(f"missing robots absence check date: {index_id}")
+        if index.get("format", "html") not in {"html", "sitemap"}:
+            errors.append(f"invalid manufacturer index format: {index_id}")
+        if index.get("category") not in CATEGORIES or not index.get("brand"):
+            errors.append(f"invalid manufacturer index target: {index_id}")
+        if not allowed_domains.issubset(manufacturer_domains.get(index.get("brand"), set())):
+            errors.append(f"unregistered manufacturer index domain: {index_id}")
+        try:
+            for pattern in [*index.get("productUrlPatterns", []), *index.get("followUrlPatterns", []), *index.get("labelPatterns", [])]:
+                re.compile(pattern)
+        except re.error:
+            errors.append(f"invalid manufacturer index pattern: {index_id}")
 
     def validate_candidate(candidate: dict, expected_triage: set[str]) -> None:
         candidate_id = candidate.get("id", "")
@@ -101,6 +137,11 @@ def main() -> int:
             errors.append(f"missing triage reason: {candidate_id}")
         if not should_be_promotable and not candidate.get("promotionBlocker"):
             errors.append(f"missing promotion blocker: {candidate_id}")
+        if candidate.get("sourceId") in official_source_ids:
+            hostname = (urlparse(str(candidate.get("url", ""))).hostname or "").lower()
+            allowed = manufacturer_domains.get(candidate.get("brand"), set())
+            if not any(hostname == domain or hostname.endswith(f".{domain}") for domain in allowed):
+                errors.append(f"official candidate outside manufacturer domain: {candidate_id}")
 
     active = discovery.get("candidates", [])
     identifiers = hardware.get("identifiers", [])
@@ -126,6 +167,11 @@ def main() -> int:
             errors.append(f"stale registered brand coverage: {category}")
         if row.get("candidates") != sum(item.get("category") == category for item in active):
             errors.append(f"stale candidate coverage: {category}")
+        expected_official = sum(
+            item.get("category") == category and item.get("sourceId") in official_source_ids for item in active
+        )
+        if row.get("officialCandidates") != expected_official:
+            errors.append(f"stale official candidate coverage: {category}")
         if row.get("hardwareIdentifiers") != sum(item.get("category") == category for item in identifiers):
             errors.append(f"stale identifier coverage: {category}")
     report_totals = report.get("totals", {})
@@ -134,6 +180,7 @@ def main() -> int:
         "registeredBrands": len({query["brand"] for query in registry.get("queries", [])}),
         "registeredCategories": len({query["category"] for query in registry.get("queries", [])}),
         "candidates": len(active),
+        "officialCandidates": sum(item.get("sourceId") in official_source_ids for item in active),
         "hardwareIdentifiers": len(identifiers),
         "rejected": len(discarded),
     }
@@ -145,6 +192,8 @@ def main() -> int:
         errors.append("invalid discovery collection status")
     if int(collection.get("pagesRequested", 0)) > request_budget:
         errors.append("discovery report exceeds request budget")
+    if int(collection.get("manufacturerPagesRequested", 0)) > manufacturer_page_budget:
+        errors.append("manufacturer discovery report exceeds page budget")
     subjects_by_candidate_id = {
         candidate.get("id", ""): candidate
         for candidate in [*active, *identifiers, *discarded]
@@ -189,6 +238,7 @@ def main() -> int:
         "sources": len(source_ids),
         "registeredQueries": len(registry.get("queries", [])),
         "registeredBrands": len({query["brand"] for query in registry.get("queries", [])}),
+        "officialIndexes": len(seen_indexes),
     }))
     return 0
 

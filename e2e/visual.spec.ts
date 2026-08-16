@@ -72,6 +72,7 @@ test('catalogue paginé et bot de découverte fonctionnel', async ({ page }) => 
   await expect(page.getByRole('heading', { name: 'Élargir le catalogue, sans inventer.' })).toBeVisible()
   await expect(page.getByText(/16 sont intégrées au catalogue/)).toBeVisible()
   await expect(page.getByRole('region', { name: 'Couverture du bot' })).toContainText('55 marques · 89 recherches')
+  await expect(page.getByRole('region', { name: 'Couverture du bot' })).toContainText('5 index constructeurs · 9/9 catégories')
   await expect(page.getByRole('region', { name: 'Couverture du bot' }).locator('article')).toHaveCount(9)
   await expect(page.getByRole('button', { name: /Balayer 9 marques/ })).toBeVisible()
   await expect(page.locator('.candidate-list article').first()).toBeVisible()

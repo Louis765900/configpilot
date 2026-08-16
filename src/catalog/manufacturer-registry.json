@@ -4,6 +4,11 @@
     {"id":"amd","brands":["AMD"],"domains":["amd.com"]},
     {"id":"intel","brands":["Intel"],"domains":["intel.com"]},
     {"id":"nvidia","brands":["NVIDIA"],"domains":["nvidia.com"]},
+    {"id":"asus","brands":["ASUS"],"domains":["asus.com"]},
+    {"id":"patriot","brands":["Patriot"],"domains":["patriotmemory.com"]},
+    {"id":"seasonic","brands":["Seasonic"],"domains":["seasonic.com"]},
+    {"id":"fractal-design","brands":["Fractal Design"],"domains":["fractal-design.com"]},
+    {"id":"deepcool","brands":["DeepCool"],"domains":["deepcool.com"]},
     {"id":"msi","brands":["MSI"],"domains":["msi.com"]},
     {"id":"lian-li","brands":["Lian Li"],"domains":["lian-li.com"]}
   ]

@@ -9,6 +9,13 @@
     "pagesRequested": 93,
     "requestsSucceeded": 93,
     "budgetExhausted": false,
+    "manufacturerIndexesAttempted": 5,
+    "manufacturerIndexesCompleted": 5,
+    "manufacturerPagesRequested": 18,
+    "manufacturerRequestsSucceeded": 18,
+    "manufacturerRobotsRequested": 5,
+    "manufacturerRobotsSucceeded": 4,
+    "manufacturerBudgetExhausted": false,
     "errors": []
   },
   "policy": {
@@ -16,14 +23,17 @@
     "minimumDelayMs": 1100,
     "pageSize": 50,
     "maxPagesPerQuery": 2,
-    "requestBudget": 180
+    "requestBudget": 180,
+    "manufacturerIndexPageBudget": 30,
+    "manufacturerIndexCandidateLimit": 500
   },
   "totals": {
     "registeredQueries": 89,
     "registeredBrands": 55,
     "registeredCategories": 9,
-    "categoriesWithCandidates": 4,
-    "candidates": 308,
+    "categoriesWithCandidates": 9,
+    "candidates": 530,
+    "officialCandidates": 222,
     "hardwareIdentifiers": 290,
     "rejected": 2
   },
@@ -43,8 +53,11 @@
         "Thermaltake",
         "be quiet!"
       ],
-      "observedBrands": [],
-      "candidates": 0,
+      "observedBrands": [
+        "Fractal Design"
+      ],
+      "candidates": 3,
+      "officialCandidates": 3,
       "promotable": 0,
       "hardwareIdentifiers": 0,
       "rejected": 0
@@ -63,8 +76,11 @@
         "Thermalright",
         "be quiet!"
       ],
-      "observedBrands": [],
-      "candidates": 0,
+      "observedBrands": [
+        "DeepCool"
+      ],
+      "candidates": 152,
+      "officialCandidates": 152,
       "promotable": 0,
       "hardwareIdentifiers": 0,
       "rejected": 0
@@ -80,6 +96,7 @@
         "Intel"
       ],
       "candidates": 165,
+      "officialCandidates": 0,
       "promotable": 86,
       "hardwareIdentifiers": 0,
       "rejected": 0
@@ -105,6 +122,7 @@
         "Realtek"
       ],
       "candidates": 0,
+      "officialCandidates": 0,
       "promotable": 0,
       "hardwareIdentifiers": 126,
       "rejected": 0
@@ -137,6 +155,7 @@
         "Sapphire"
       ],
       "candidates": 143,
+      "officialCandidates": 0,
       "promotable": 40,
       "hardwareIdentifiers": 81,
       "rejected": 2
@@ -154,8 +173,11 @@
         "NZXT",
         "Supermicro"
       ],
-      "observedBrands": [],
-      "candidates": 0,
+      "observedBrands": [
+        "ASUS"
+      ],
+      "candidates": 5,
+      "officialCandidates": 5,
       "promotable": 0,
       "hardwareIdentifiers": 0,
       "rejected": 0
@@ -176,8 +198,11 @@
         "Thermaltake",
         "be quiet!"
       ],
-      "observedBrands": [],
-      "candidates": 0,
+      "observedBrands": [
+        "Seasonic"
+      ],
+      "candidates": 31,
+      "officialCandidates": 31,
       "promotable": 0,
       "hardwareIdentifiers": 0,
       "rejected": 0
@@ -195,8 +220,11 @@
         "Samsung",
         "TeamGroup"
       ],
-      "observedBrands": [],
-      "candidates": 0,
+      "observedBrands": [
+        "Patriot"
+      ],
+      "candidates": 31,
+      "officialCandidates": 31,
       "promotable": 0,
       "hardwareIdentifiers": 0,
       "rejected": 0
@@ -225,6 +253,7 @@
         "Realtek"
       ],
       "candidates": 0,
+      "officialCandidates": 0,
       "promotable": 0,
       "hardwareIdentifiers": 83,
       "rejected": 0

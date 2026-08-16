@@ -112,6 +112,117 @@ class CatalogDiscoveryTests(unittest.TestCase):
         self.assertEqual({row["category"] for row in report["coverage"]}, DISCOVERY.VALID_CATEGORIES)
         self.assertFalse(report["policy"]["publishAutomatically"])
 
+    def test_official_index_stays_on_allowlisted_domains_and_follows_bounded_pages(self) -> None:
+        source_registry = {
+            "policy": {
+                "minimumDelayMs": 0,
+                "userAgent": "ConfigPilot-Test/1.0",
+                "manufacturerIndexPageBudget": 3,
+                "manufacturerIndexCandidateLimit": 10,
+                "retryAttempts": 1,
+            },
+            "sources": [{
+                "id": "brand-official-index",
+                "type": "manufacturer-index",
+                "url": "https://brand.example/products/",
+                "enabled": True,
+            }],
+            "manufacturerIndexes": [{
+                "id": "brand-products",
+                "sourceId": "brand-official-index",
+                "brand": "Brand",
+                "category": "case",
+                "allowedDomains": ["brand.example"],
+                "followUrlPatterns": [r"^/products/[^/]+/?$"],
+                "productUrlPatterns": [r"^/products/[^/]+/[^/]+/?$"],
+                "maxCandidates": 5,
+                "maxFollowPages": 1,
+            }],
+        }
+        pages = {
+            "https://brand.example/products/": b'''<a href="/products/north/">North</a><a href="https://evil.example/products/north/fake/">Fake</a>''',
+            "https://brand.example/products/north/": b'''<a href="/products/north/model-one/">Model One Learn more</a><a href="/products/north/model-two/">Model Two</a>''',
+        }
+
+        def fake_request(url: str, _user_agent: str, attempts: int) -> bytes:
+            self.assertEqual(attempts, 1)
+            return pages[url]
+
+        candidates, errors, metrics = DISCOVERY.manufacturer_index_candidates(
+            source_registry, set(), "2026-08-16", requester=fake_request, sleeper=lambda _delay: None
+        )
+
+        self.assertEqual(errors, [])
+        self.assertEqual({item["label"] for item in candidates}, {"Brand Model One", "Brand Model Two"})
+        self.assertTrue(all(item["url"].startswith("https://brand.example/") for item in candidates))
+        self.assertEqual(metrics["manufacturerPagesRequested"], 2)
+        self.assertEqual(metrics["manufacturerIndexesCompleted"], 1)
+
+    def test_sitemap_index_filters_products_and_obeys_robots(self) -> None:
+        source_registry = {
+            "policy": {
+                "minimumDelayMs": 0,
+                "userAgent": "ConfigPilot-Test/1.0",
+                "manufacturerIndexPageBudget": 2,
+                "manufacturerIndexCandidateLimit": 10,
+                "retryAttempts": 1,
+            },
+            "sources": [{
+                "id": "memory-official-index",
+                "type": "manufacturer-index",
+                "url": "https://memory.example/sitemap.xml",
+                "robotsUrl": "https://memory.example/robots.txt",
+                "enabled": True,
+            }],
+            "manufacturerIndexes": [{
+                "id": "memory-products",
+                "sourceId": "memory-official-index",
+                "brand": "MemoryCo",
+                "category": "ram",
+                "allowedDomains": ["memory.example"],
+                "format": "sitemap",
+                "productUrlPatterns": [r"^/products/[^/]+/?$"],
+                "labelPatterns": [r"\bDDR5\b"],
+                "maxCandidates": 5,
+                "maxFollowPages": 0,
+            }],
+        }
+        pages = {
+            "https://memory.example/robots.txt": b"User-agent: *\nAllow: /\n",
+            "https://memory.example/sitemap.xml": b'''<?xml version="1.0"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://memory.example/products/venom-ddr5-performance-ram</loc></url><url><loc>https://memory.example/products/portable-ssd</loc></url><url><loc>https://evil.example/products/fake-ddr5</loc></url></urlset>''',
+        }
+
+        candidates, errors, metrics = DISCOVERY.manufacturer_index_candidates(
+            source_registry, set(), "2026-08-16", requester=lambda url, _ua, _attempts: pages[url], sleeper=lambda _delay: None
+        )
+
+        self.assertEqual(errors, [])
+        self.assertEqual([item["label"] for item in candidates], ["MemoryCo venom ddr5 performance ram"])
+        self.assertEqual(metrics["manufacturerRobotsSucceeded"], 1)
+
+        pages["https://memory.example/robots.txt"] = b"User-agent: *\nDisallow: /\n"
+        candidates, errors, metrics = DISCOVERY.manufacturer_index_candidates(
+            source_registry, set(), "2026-08-16", requester=lambda url, _ua, _attempts: pages[url], sleeper=lambda _delay: None
+        )
+        self.assertEqual(candidates, [])
+        self.assertIn("manufacturer-index:memory-products:robots-disallowed", errors)
+        self.assertEqual(metrics["manufacturerPagesRequested"], 0)
+
+        source_registry["sources"][0]["allowMissingRobots"] = True
+        source_registry["sources"][0]["robotsUnavailableCheckedAt"] = "2026-08-16"
+
+        def missing_robots_request(url: str, _ua: str, _attempts: int) -> bytes:
+            if url.endswith("robots.txt"):
+                raise urllib.error.HTTPError(url, 404, "Not Found", {}, None)
+            return pages[url]
+
+        candidates, errors, metrics = DISCOVERY.manufacturer_index_candidates(
+            source_registry, set(), "2026-08-16", requester=missing_robots_request, sleeper=lambda _delay: None
+        )
+        self.assertEqual(errors, [])
+        self.assertEqual(len(candidates), 1)
+        self.assertEqual(metrics["manufacturerRobotsSucceeded"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()
