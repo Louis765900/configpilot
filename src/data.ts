@@ -1,4 +1,6 @@
 import type { Category, Product } from './types'
+import documentaryCatalog from './catalog/documentary.generated.json'
+import promotedCatalog from './catalog/promoted.generated.json'
 
 const p = (
   id: string, category: Category, brand: string, name: string, reference: string, series: string,
@@ -17,7 +19,7 @@ export const categoryLabels: Record<Category, string> = {
   psu: 'Alimentations', case: 'Boîtiers', storage: 'Stockage', cooling: 'Refroidissement', expansion: "Cartes d’extension",
 }
 
-export const products: Product[] = [
+const detailedProducts: Product[] = [
   p('cpu-8600k','cpu','Intel','Intel Core i5-8600K','BX80684I58600K','Coffee Lake',2017,null,45,55,
     {Socket:'LGA1151 v2',Architecture:'Coffee Lake','Cœurs':6,Threads:6,'Base (GHz)':3.6,'Boost (GHz)':4.3,'Cache (Mo)':9,TDP:95,Mémoire:'DDR4-2666',iGPU:'UHD 630','Indice monocœur':60,'Indice multicœur':48,'Indice gaming':55},
     ['Encore adapté aux usages courants','Coefficient débloqué'],['6 threads seulement','Plateforme sans évolution'],'PC existant et jeu léger',
@@ -137,6 +139,15 @@ export const products: Product[] = [
   p('ext-capture','expansion','Elgato','Elgato Game Capture 4K60 Pro MK.2','10GAS9901','Capture',2019,220,130,75,
     {Type:'Capture',Interface:'PCIe x4',Fonctions:'Capture 4K60 HDR',Antenne:'Sans objet',Profil:'Pleine hauteur'},['Capture 4K60','Faible latence'],['Nécessite un slot x4'],'Streaming et capture'),
 ]
+
+const normalizedIdentity = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+const detailedIdentities = new Set(detailedProducts.flatMap(product => [product.name, product.reference].map(normalizedIdentity)))
+const importedProducts = [...documentaryCatalog, ...promotedCatalog] as unknown as Product[]
+const documentaryProducts = importedProducts.filter(product =>
+  ![product.name, product.reference].map(normalizedIdentity).some(identity => detailedIdentities.has(identity)),
+)
+
+export const products: Product[] = [...detailedProducts, ...documentaryProducts]
 
 export const frequentSockets = ['LGA775','LGA1150','LGA1151 v1','LGA1151 v2','LGA1200','LGA1700','LGA1851','AM3+','AM4','AM5','LGA2011','LGA2011-v3']
 

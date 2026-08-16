@@ -19,13 +19,16 @@
 
 ConfigPilot aide à comparer des composants, vérifier leur compatibilité, construire une configuration et évaluer le prix d’une annonce d’occasion. L’interface reste accessible aux débutants tout en exposant les informations utiles aux utilisateurs expérimentés.
 
-Version actuelle : **1.0.0** · Auteur : **Louis**
+Version actuelle : **1.2.0** · Auteur : **Louis**
 
 Site Vercel : _à compléter après le déploiement_.
 
 ## Fonctionnalités
 
-- Catalogue local structuré couvrant processeurs, GPU, cartes mères, RAM, alimentations, boîtiers, stockage, refroidissement et cartes d’extension.
+- Catalogue local structuré de plus de 1 100 références couvrant processeurs, GPU, cartes mères, RAM, alimentations, boîtiers, stockage, refroidissement et cartes d’extension.
+- Import documentaire reproductible depuis le catalogue Word et l’inventaire PDF, avec données inconnues explicitement laissées à vérifier.
+- Bots gratuits de découverte Wikidata et PCI IDs, registre de sources, dédoublonnage, quarantaine et décisions locales de vérification/rejet.
+- Recherche automatique hebdomadaire avec GitHub Actions, sans clé API, service payant ni publication aveugle.
 - Recherche instantanée tolérante à la casse et aux accents, filtres par catégorie, marque, prix et socket, tris par prix, performance et valeur.
 - Fiches détaillées avec caractéristiques, indices, prix indicatifs, confiance, points forts, points faibles et recherches marketplace encodées.
 - Comparaison de quatre produits d’une même catégorie avec alignement des caractéristiques et mise en évidence des meilleurs indices.
@@ -66,6 +69,9 @@ npm run test      # tests unitaires
 npm run lint      # analyse ESLint
 npm run build     # build TypeScript et Vite
 npm run preview   # prévisualisation du build
+npm run catalog:discover # actualiser la file depuis les sources ouvertes
+npm run catalog:promote -- --ids candidate-… # publier une sélection vérifiée
+npm run catalog:validate # contrôler les catalogues et les sources
 ```
 
 Le build de production est généré dans `dist/`.
@@ -90,12 +96,46 @@ Aucune variable d’environnement n’est requise pour la version 1.0.0. La navi
 public/                 favicon, manifeste et image Open Graph
 src/App.tsx             écrans et interactions React
 src/data.ts             catalogue local typé
+src/catalog/            catalogue documentaire généré
 src/engine.ts           recherche, compatibilité et estimation
 src/engine.test.ts      tests des règles critiques
 src/styles.css          identité visuelle et responsive
 src/types.ts            modèles TypeScript
+scripts/                import et normalisation des documents sources
 index.html              métadonnées et point d’entrée
 ```
+
+## Actualiser le catalogue documentaire
+
+L’importeur exige Python 3 et `pypdf` :
+
+```bash
+python -m pip install pypdf
+python scripts/build-documentary-catalog.py --docx chemin/catalogue.docx --pdf chemin/inventaire.pdf --out src/catalog/documentary.generated.json
+```
+
+Le fichier généré ne remplace pas les fiches détaillées. Il ajoute des références documentaires avec prix et caractéristiques inconnus laissés à `null`.
+
+## Automatisation gratuite du catalogue
+
+La découverte fonctionne sans modèle d’IA payant :
+
+1. `src/catalog/source-registry.json` déclare chaque source, sa licence, les marques et les requêtes autorisées.
+2. `scripts/discover-open-catalog.py` interroge poliment Wikidata et télécharge le snapshot public PCI IDs.
+3. Les noms sont normalisés et comparés au catalogue existant pour signaler les doublons.
+4. `scripts/validate-catalog.py` bloque les catégories inconnues, identifiants dupliqués, chemins locaux, URL non sécurisées et toute publication automatique.
+5. `.github/workflows/catalog-discovery.yml` exécute ce processus chaque dimanche à 03:17, puis enregistre uniquement la file de candidats si elle a changé.
+6. L’écran **Bots** permet de marquer localement un candidat comme vérifié ou rejeté. Une validation ne le publie pas encore comme fiche complète.
+7. Après contrôle de la source, `npm run catalog:promote -- --ids candidate-…` transforme seulement les identifiants choisis en fiches documentaires dans `promoted.generated.json`.
+
+Sources activées :
+
+| Source | Usage | Licence déclarée | Secret requis |
+| --- | --- | --- | --- |
+| Wikidata | Familles et références candidates | CC0 1.0 | Non |
+| PCI ID Repository | Identifiants de puces et cartes PCI | BSD-3-Clause ou GPL-2.0+ | Non |
+
+Le workflow GitHub Actions reste gratuit avec les runners standards tant que le dépôt est public. GitHub peut désactiver les tâches planifiées d’un dépôt public resté sans activité pendant 60 jours ; elles peuvent alors être réactivées depuis l’onglet Actions.
 
 ## Méthode d’estimation
 
@@ -107,7 +147,10 @@ Le résultat doit toujours être confronté à des annonces réelles avant un ac
 
 ## Limites et avertissements
 
-- Le catalogue est une sélection évolutive, pas une liste exhaustive de tous les composants commercialisés.
+- Aucun catalogue ne peut garantir « tous les composants au monde ». La couverture est évolutive et dépend des documents et sources ouvertes disponibles.
+- Les résultats des bots sont des candidats non validés : une fiche constructeur officielle doit être contrôlée avant intégration au catalogue fiable.
+- Les identifiants PCI décrivent souvent une puce ou un sous-système et non une référence commerciale vendue en magasin.
+- Open Icecat n’est pas activé automatiquement, car son accès gratuit exige la création personnelle d’un compte et l’acceptation de sa licence.
 - Une fiche documentaire ou une information inconnue est indiquée par « À vérifier » au lieu d’être remplacée par une valeur inventée.
 - Les contrôles de compatibilité sont une aide à la décision. La référence exacte de la carte mère, la version du BIOS, les dimensions du boîtier et les manuels constructeurs doivent être vérifiés avant montage.
 - Aucun scraping de marketplace ni contournement de CAPTCHA n’est réalisé.

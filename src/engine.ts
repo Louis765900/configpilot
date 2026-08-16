@@ -108,8 +108,8 @@ export function analyzeListing(input: ListingInput, nowYear = new Date().getFull
   const product = getProduct(input.productId)
   if (!product) return null
   const total = Math.max(0,input.price) + Math.max(0,input.shipping) + Math.max(0,input.protection)
-  const age = Math.max(0, nowYear - product.year)
-  const base = product.usedPrice ?? (product.newPrice ? product.newPrice * Math.max(.25, .84 - age * .055) : null)
+  const age = product.year == null ? null : Math.max(0, nowYear - product.year)
+  const base = product.usedPrice ?? (product.newPrice ? product.newPrice * Math.max(.25, .84 - (age ?? 0) * .055) : null)
   if (base == null) return { product, total, age, confidence: 'Données insuffisantes', target: null, maximum: null, verdict: 'Données insuffisantes', score: 0, delta: null }
   const evidence = (input.warranty ? .04 : 0) + (input.invoice ? .025 : 0) + (input.box ? .02 : 0) + (input.tested ? .04 : -.05) + (input.benchmarks ? .025 : 0) + (input.professional ? .025 : 0)
   const target = Math.round(base * conditionFactor[input.condition] * categoryRisk[product.category] * (1 + evidence))

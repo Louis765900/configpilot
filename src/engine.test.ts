@@ -1,7 +1,22 @@
 import { describe, expect, it } from 'vitest'
+import { products } from './data'
+import discoveryFeed from './catalog/discovery.generated.json'
+import sourceRegistry from './catalog/source-registry.json'
 import { analyzeListing, checkCompatibility, searchProducts } from './engine'
 
 describe('catalogue', () => {
+  it('intègre plus de mille références documentaires sans inventer de prix', () => {
+    const documentary = products.filter(product => product.id.startsWith('doc-'))
+    expect(products.length).toBeGreaterThan(1100)
+    expect(documentary.length).toBeGreaterThan(1000)
+    expect(documentary.every(product => product.newPrice === null && product.usedPrice === null)).toBe(true)
+  })
+  it('maintient une quarantaine automatique issue uniquement de sources enregistrées', () => {
+    const registered = new Set(sourceRegistry.sources.filter(source => source.enabled).map(source => source.id))
+    expect(discoveryFeed.candidates.length).toBeGreaterThan(300)
+    expect(discoveryFeed.candidates.every(candidate => candidate.status === 'À vérifier')).toBe(true)
+    expect(discoveryFeed.candidates.every(candidate => registered.has(candidate.sourceId))).toBe(true)
+  })
   it('retrouve le i9-9900KF sans tenir compte de la casse', () => expect(searchProducts('I9-9900kf')[0]?.id).toBe('cpu-9900kf'))
   it('filtre le socket LGA1151 v2', () => expect(searchProducts('', 'cpu', 'LGA1151 v2').map(p => p.id)).toEqual(expect.arrayContaining(['cpu-8600k','cpu-9700k','cpu-9900kf'])))
   it('retourne une liste vide pour une recherche absente', () => expect(searchProducts('processeur introuvable xyz')).toHaveLength(0))
