@@ -1,11 +1,11 @@
 {
   "name": "configpilot",
   "private": true,
-  "version": "2.0.0",
+  "version": "2.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && tsc -p tsconfig.server.json --noEmit && vite build",
     "lint": "eslint .",
     "test": "vitest run",
     "catalog:discover": "python scripts/discover-open-catalog.py",
@@ -16,6 +16,13 @@
     "catalog:test": "python scripts/test_catalog_triage.py && python scripts/test_catalog_promotion.py && python scripts/test_catalog_discovery.py && python scripts/test_manufacturer_evidence.py && python scripts/test_manufacturer_specs.py",
     "catalog:promote": "python scripts/promote-candidates.py",
     "catalog:validate": "python scripts/validate-catalog.py",
+    "components:migrate": "node --import tsx scripts/components/migrate.ts",
+    "components:import:local": "node --import tsx scripts/components/import-local.ts",
+    "components:import:buildcores": "node --import tsx scripts/components/import-buildcores.ts",
+    "components:import:icecat": "node --import tsx scripts/components/import-icecat.ts",
+    "components:sync": "node --import tsx scripts/components/sync.ts",
+    "components:stats": "node --import tsx scripts/components/stats.ts",
+    "components:test": "vitest run server scripts/components",
     "test:e2e": "playwright test",
     "preview": "vite preview"
   },
@@ -24,20 +31,24 @@
     "@fontsource/inter": "^5.3.0",
     "@vitejs/plugin-react": "latest",
     "lucide-react": "latest",
+    "postgres": "^3.4.9",
     "react": "latest",
     "react-dom": "latest",
     "typescript": "latest",
-    "vite": "latest"
+    "vite": "latest",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@eslint/js": "latest",
     "@playwright/test": "latest",
+    "@types/node": "^26.2.0",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "eslint": "latest",
     "eslint-plugin-react-hooks": "latest",
     "eslint-plugin-react-refresh": "latest",
     "globals": "latest",
+    "tsx": "^4.23.12",
     "typescript-eslint": "latest",
     "vitest": "latest"
   }

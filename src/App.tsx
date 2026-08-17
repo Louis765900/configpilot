@@ -160,7 +160,7 @@ export default function App() {
         {route.page === 'glossary' && <Glossary />}
 
         <footer className="foot">
-          <span>ConfigPilot · version 2.0.0</span>
+          <span>ConfigPilot · version 2.1.0</span>
           <nav>
             <button onClick={() => go({ page: 'glossary' })}>Glossaire</button>
             <button onClick={() => go({ page: 'bots' })}>Sources et méthode</button>

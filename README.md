@@ -24,9 +24,9 @@ ConfigPilot est un outil public de configuration de PC. Il tient sur deux promes
 
 L'interface reste lisible pour un débutant tout en exposant les détails attendus par un utilisateur expérimenté.
 
-Version actuelle : **2.0.0**
+Version actuelle : **2.1.0**
 
-Site Vercel : _à compléter après le déploiement_.
+Site Vercel : [configpilot-flax.vercel.app](https://configpilot-flax.vercel.app/).
 
 ## Fonctionnalités
 
@@ -67,6 +67,14 @@ Site Vercel : _à compléter après le déploiement_.
 - Inter et JetBrains Mono auto-hébergées via `@fontsource`, sans requête vers un CDN
 - Lucide React pour les pictogrammes, illustrations de composants dessinées en SVG inline
 - Vitest et ESLint pour la qualité
+- PostgreSQL pour le catalogue centralisé et les imports idempotents
+- Vercel Functions pour l’API paginée
+
+## Catalogue PostgreSQL et API
+
+La version 2.1 ajoute l’infrastructure destinée aux dizaines de milliers de références : migration PostgreSQL, provenance par champ, MPN/GTIN/EAN/UPC normalisés, déduplication conservatrice, import BuildCores par lots, enrichissement Icecat désactivable, API paginée et recherche serveur. Le catalogue local historique reste disponible tant que la base n’est pas configurée.
+
+La documentation complète se trouve dans [`docs/component-catalog.md`](docs/component-catalog.md). Les attributions et limites de licences sont détaillées dans [`THIRD_PARTY_DATA.md`](THIRD_PARTY_DATA.md).
 
 ## Installation locale
 
