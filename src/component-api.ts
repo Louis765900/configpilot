@@ -60,3 +60,10 @@ export async function searchRemoteComponents(params: { q: string; category?: Cat
   const payload = await response.json() as ApiResponse
   return { products: payload.data.map(apiComponentToProduct), total: payload.pagination.total }
 }
+
+export async function getRemoteCatalogSize(signal?: AbortSignal) {
+  const response = await fetch('/api/components?limit=1', { signal, headers: { Accept: 'application/json' } })
+  if (!response.ok) throw new Error(`Catalogue serveur indisponible (${response.status})`)
+  const payload = await response.json() as ApiResponse
+  return payload.pagination.total
+}

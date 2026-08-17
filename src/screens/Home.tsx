@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { ArrowRight, Calculator, CircuitBoard, Layers, ShieldCheck, TrendingDown } from 'lucide-react'
 import { categoryLabels, products, starterBuilds } from '../data'
 import { buildSummary, categoryOrder, getProduct, money } from '../engine'
@@ -6,14 +7,23 @@ import { StatusIcon } from '../ui'
 import { PartArt } from '../illustrations'
 import type { Build, Category } from '../types'
 import type { Route } from '../routes'
+import { getRemoteCatalogSize, remoteCatalogEnabled } from '../component-api'
 
 export default function Home({ go, loadBuild }: { go: (route: Route) => void; loadBuild: (build: Build) => void }) {
+  const [remoteTotal, setRemoteTotal] = useState<number | null>(null)
   const demo = starterBuilds[0].build as Build
   const allChecks = checkCompatibility(demo)
   const checks = allChecks.filter(check => check.status !== 'info').slice(0, 3)
   const verdict = buildVerdict(allChecks)
   const summary = buildSummary(demo)
   const counts = Object.fromEntries(categoryOrder.map(category => [category, products.filter(item => item.category === category).length])) as Record<Category, number>
+
+  useEffect(() => {
+    if (!remoteCatalogEnabled) return
+    const controller = new AbortController()
+    getRemoteCatalogSize(controller.signal).then(setRemoteTotal).catch(() => undefined)
+    return () => controller.abort()
+  }, [])
 
   return (
     <div className="view">
@@ -134,7 +144,11 @@ export default function Home({ go, loadBuild }: { go: (route: Route) => void; lo
 
       <div className="section-head">
         <h2>Couverture du catalogue</h2>
-        <span className="hint">{products.length.toLocaleString('fr-FR')} références documentées</span>
+        <span className="hint">
+          {remoteTotal == null
+            ? `${products.length.toLocaleString('fr-FR')} références dans le socle local`
+            : `${remoteTotal.toLocaleString('fr-FR')} références en base PostgreSQL · ${products.length.toLocaleString('fr-FR')} dans le socle local`}
+        </span>
       </div>
       <div className="grid cols-3">
         {categoryOrder.map(category => (
@@ -143,7 +157,7 @@ export default function Home({ go, loadBuild }: { go: (route: Route) => void; lo
               <div className="art-frame sm"><PartArt category={category} /></div>
               <div className="part-card-id">
                 <h3>{categoryLabels[category]}</h3>
-                <span className="ref">{counts[category].toLocaleString('fr-FR')} références</span>
+                <span className="ref">{counts[category].toLocaleString('fr-FR')} références du socle local</span>
               </div>
             </div>
           </button>

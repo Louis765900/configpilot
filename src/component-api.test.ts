@@ -1,5 +1,7 @@
-import { describe, expect, it } from 'vitest'
-import { apiComponentToProduct } from './component-api'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { apiComponentToProduct, getRemoteCatalogSize } from './component-api'
+
+afterEach(() => vi.unstubAllGlobals())
 
 describe('adaptateur API vers interface existante', () => {
   it('préserve la référence exacte et les caractéristiques', () => {
@@ -13,5 +15,18 @@ describe('adaptateur API vers interface existante', () => {
     expect(product.reference).toBe('MZ-V9P2T0BW')
     expect(product.specs.capacity).toBe(2000)
     expect(product.category).toBe('storage')
+  })
+
+  it('lit le total réel exposé par PostgreSQL', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ data: [], pagination: { page: 1, limit: 1, total: 34_500, pages: 34_500 } }),
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    await expect(getRemoteCatalogSize()).resolves.toBe(34_500)
+    expect(fetchMock).toHaveBeenCalledWith('/api/components?limit=1', expect.objectContaining({
+      headers: { Accept: 'application/json' },
+    }))
   })
 })
