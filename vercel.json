@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/api/components/search", "destination": "/api/components" },
+    { "source": "/api/components/slug/:slug", "destination": "/api/component-lookup?kind=slug&value=:slug" },
+    { "source": "/api/components/mpn/:mpn", "destination": "/api/component-lookup?kind=mpn&value=:mpn" },
+    { "source": "/api/components/:id", "destination": "/api/component-lookup?kind=id&value=:id" }
+  ]
+}
