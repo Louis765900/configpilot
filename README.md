@@ -19,7 +19,7 @@
 
 ConfigPilot aide à comparer des composants, vérifier leur compatibilité, construire une configuration et évaluer le prix d’une annonce d’occasion. L’interface reste accessible aux débutants tout en exposant les informations utiles aux utilisateurs expérimentés.
 
-Version actuelle : **1.2.0** · Auteur : **Louis**
+Version actuelle : **1.8.0** · Auteur : **Louis**
 
 Site Vercel : _à compléter après le déploiement_.
 
@@ -28,6 +28,7 @@ Site Vercel : _à compléter après le déploiement_.
 - Catalogue local structuré de plus de 1 100 références couvrant processeurs, GPU, cartes mères, RAM, alimentations, boîtiers, stockage, refroidissement et cartes d’extension.
 - Import documentaire reproductible depuis le catalogue Word et l’inventaire PDF, avec données inconnues explicitement laissées à vérifier.
 - Bots gratuits de découverte Wikidata et PCI IDs, registre de sources, dédoublonnage, quarantaine, preuves constructeur et décisions locales de vérification/rejet.
+- Normalisation bornée des caractéristiques publiées par les constructeurs, avec valeur brute et valeur normalisée conservées côte à côte, source, date, méthode et niveau de confiance.
 - Recherche automatique hebdomadaire avec GitHub Actions, sans clé API, service payant ni publication aveugle.
 - Recherche instantanée tolérante à la casse et aux accents, filtres par catégorie, marque, prix et socket, tris par prix, performance et valeur.
 - Fiches détaillées avec caractéristiques, indices, prix indicatifs, confiance, points forts, points faibles et recherches marketplace encodées.
@@ -71,6 +72,8 @@ npm run build     # build TypeScript et Vite
 npm run preview   # prévisualisation du build
 npm run catalog:discover # actualiser la file depuis les sources ouvertes
 npm run catalog:evidence # collecter un lot borné de métadonnées constructeur
+npm run catalog:specs # normaliser un lot borné de caractéristiques constructeur
+npm run catalog:specs:offline # renormaliser les valeurs brutes déjà stockées, sans réseau
 npm run catalog:triage # reclasser les résultats existants hors ligne
 npm run catalog:test # tester les règles de triage
 npm run catalog:promote -- --ids candidate-… # publier une sélection vérifiée
@@ -91,7 +94,7 @@ Connecter ce dépôt à un projet Vercel existant avec les réglages suivants :
 | Install Command | `npm install` |
 | Root Directory | `./` |
 
-Aucune variable d’environnement n’est requise pour la version 1.7.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
+Aucune variable d’environnement n’est requise pour la version 1.8.0. La navigation est fondée sur le fragment d’URL (`#`) : aucune règle de réécriture Vercel n’est nécessaire.
 
 ## Structure du projet
 
@@ -102,6 +105,9 @@ src/data.ts             catalogue local typé
 src/catalog/            catalogue documentaire généré
 src/catalog/manufacturer-registry.json domaines constructeurs autorisés
 src/catalog/manufacturer-evidence.generated.json preuves automatiques à relire
+src/catalog/manufacturer-specs.generated.json caractéristiques brutes et normalisées à relire
+scripts/spec_normalization.py couche de normalisation par catégorie
+scripts/fixtures/specs/  pages HTML minimales des tests déterministes
 src/engine.ts           recherche, compatibilité et estimation
 src/engine.test.ts      tests des règles critiques
 src/styles.css          identité visuelle et responsive
@@ -136,6 +142,7 @@ La découverte fonctionne sans modèle d’IA payant :
 9. `npm run catalog:promote -- --ids candidate-…` accepte seulement une référence commerciale précise, non dupliquée et marquée `verified`, puis la transforme en fiche documentaire dans `promoted.generated.json`.
 10. `discovery-report.generated.json` rend visibles le nombre de marques suivies, les catégories déjà observées, les pages demandées, les erreurs et un éventuel épuisement du budget.
 11. `manufacturer-evidence.generated.json` conserve séparément les objets Schema.org `Product`, les métadonnées de page et les échecs à réessayer. Chaque preuve automatique reste marquée `pending`.
+12. `scripts/collect-manufacturer-specs.py` relit les fiches déjà qualifiées par l’étape précédente, conserve chaque ligne publiée telle quelle, puis ajoute une valeur normalisée par catégorie dans `manufacturer-specs.generated.json`. Les deux niveaux restent visibles côte à côte et la promotion reste bloquée.
 
 État du premier triage des 340 résultats :
 
@@ -178,6 +185,27 @@ La découverte fonctionne sans modèle d’IA payant :
 - les échecs conservent leur nombre de tentatives et sont dépriorisés pour que les autres références continuent d’avancer ;
 - le premier lot réel a collecté 20 fiches sur 20 sans erreur : 8 objets produit structurés et 12 preuves par métadonnées de page. Il reste 202 fiches, qui avanceront lors des passages hebdomadaires suivants.
 
+État du chantier 6 — normalisation des caractéristiques constructeur :
+
+- `scripts/spec_normalization.py` déclare les champs suivis par catégorie et ne dépend d’aucun réseau : cartes mères (socket, chipset, format, type et nombre d’emplacements mémoire, PCIe, Wi-Fi, Ethernet), RAM (DDR3/4/5, capacité, nombre de modules, fréquence, latence, XMP, EXPO, ECC), alimentations (puissance, certification 80 PLUS, norme ATX, modularité, connecteurs PCIe, connecteur 12V-2x6, garantie publiée), boîtiers (format, cartes mères acceptées, longueur GPU, hauteur ventirad, radiateurs, dimensions) et refroidissement (type air/AIO, sockets, taille de radiateur, hauteur, nombre et taille des ventilateurs, dimensions) ;
+- chaque valeur enregistre l’URL constructeur, la date de collecte, le champ brut, la valeur brute exacte, la valeur normalisée, la méthode d’extraction et un niveau de confiance `high`, `medium` ou `low` ;
+- l’extraction lit dans l’ordre le JSON-LD, les tableaux de caractéristiques, les listes de définitions HTML et les listes étiquetées `label` / `value`. Les métadonnées de page ne peuvent alimenter qu’une courte liste de champs sans ambiguïté, toujours au niveau de confiance le plus bas ;
+- un tableau qui décrit plusieurs références à la fois n’est jamais réduit à l’une d’elles : il est ignoré. Une taille de radiateur cachée dans une dimension longueur × largeur × épaisseur est écartée, et la hauteur d’un ventirad n’est lue que si le constructeur publie lui-même l’ordre des axes ;
+- une caractéristique absente de la fiche est listée dans `missingFields` et reste inconnue. Elle n’est jamais convertie en réponse négative : seul un refus explicite du constructeur (`N/A`, `Non-ECC`…) produit la valeur `false` ;
+- la normalisation ne crée jamais le statut `verified`, n’écrit jamais dans `candidate-verification.generated.json` et ne promeut aucun candidat. `npm run catalog:specs:offline` rejoue la normalisation sur les valeurs brutes déjà stockées, sans aucune requête ;
+- 19 tests déterministes couvrent les cinq catégories à partir de pages HTML minimales dans `scripts/fixtures/specs/`, plus le respect de `robots.txt`, la file de reprise et le mode hors ligne ;
+- le premier lot réel a lu 20 fiches sur 20 sans erreur, sous le budget de 20 pages : 272 valeurs brutes relevées et 49 valeurs normalisées, dont 16 à confiance élevée, 21 moyenne et 12 faible.
+
+Résultat par catégorie du premier lot réel :
+
+| Catégorie | Fiches lues | Valeurs normalisées | Observation |
+| --- | ---: | ---: | --- |
+| Cartes mères (ASUS) | 5 | 9 | Les tableaux sont rendus côté navigateur ; seules les métadonnées de page sont lisibles, donc toutes les valeurs restent en confiance faible |
+| Mémoire RAM (Patriot) | 4 | 0 | Les pages regroupent plusieurs SKU dans un même tableau ; aucune valeur n’est retenue plutôt qu’inventée |
+| Alimentations (Seasonic) | 4 | 12 | Certification, norme et garantie relevées ; la puissance dépend du modèle exact et n’est pas publiée sur la page de série |
+| Boîtiers (Fractal Design) | 3 | 16 | Listes étiquetées complètes : cartes mères acceptées, longueur GPU, hauteur ventirad, radiateurs et dimensions |
+| Refroidissement (DeepCool) | 4 | 12 | Tableaux détaillés : hauteur, taille de ventilateur et dimensions ; les sockets ne figurent pas dans le HTML statique |
+
 Sources activées :
 
 | Source | Usage | Licence déclarée | Secret requis |
@@ -208,6 +236,9 @@ Le résultat doit toujours être confronté à des annonces réelles avant un ac
 - Les identifiants PCI décrivent souvent une puce ou un sous-système et non une référence commerciale vendue en magasin.
 - Open Icecat n’est pas activé automatiquement, car son accès gratuit exige la création personnelle d’un compte et l’acceptation de sa licence.
 - Une fiche documentaire ou une information inconnue est indiquée par « À vérifier » au lieu d’être remplacée par une valeur inventée.
+- Une caractéristique normalisée reste une preuve automatique à relire. Elle ne devient jamais `verified` et ne peut pas déclencher une promotion.
+- La normalisation ne lit que le HTML servi directement. Une fiche dont les caractéristiques sont rendues par JavaScript, comme les pages ASUS, ne fournit que ses métadonnées de page.
+- Une page qui décrit une série entière plutôt qu’une référence précise, comme les pages Patriot ou les séries d’alimentations, ne produit volontairement aucune valeur normalisée.
 - Les contrôles de compatibilité sont une aide à la décision. La référence exacte de la carte mère, la version du BIOS, les dimensions du boîtier et les manuels constructeurs doivent être vérifiés avant montage.
 - Aucun scraping de marketplace ni contournement de CAPTCHA n’est réalisé.
 

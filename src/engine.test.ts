@@ -8,6 +8,7 @@ import verificationFeed from './catalog/candidate-verification.generated.json'
 import discoveryReport from './catalog/discovery-report.generated.json'
 import sourceRegistry from './catalog/source-registry.json'
 import manufacturerEvidence from './catalog/manufacturer-evidence.generated.json'
+import manufacturerSpecs from './catalog/manufacturer-specs.generated.json'
 import { analyzeListing, checkCompatibility, searchProducts } from './engine'
 
 describe('catalogue', () => {
@@ -67,6 +68,27 @@ describe('catalogue', () => {
     expect(manufacturerEvidence.evidence.every(item => officialCandidateIds.has(item.candidateId))).toBe(true)
     expect(manufacturerEvidence.evidence.every(item => item.review.status === 'pending')).toBe(true)
     expect(manufacturerEvidence.evidence.some(item => item.status === 'structured-product')).toBe(true)
+  })
+  it('normalise les caractéristiques constructeur sans les publier', () => {
+    const evidenceIds = new Set(manufacturerEvidence.evidence.map(item => item.candidateId))
+    const specs = manufacturerSpecs.records.flatMap(record => record.specs)
+    expect(manufacturerSpecs.policy.publishAutomatically).toBe(false)
+    expect(manufacturerSpecs.policy.pageBudget).toBe(sourceRegistry.policy.manufacturerSpecPageBudget)
+    expect(manufacturerSpecs.records.length).toBeGreaterThanOrEqual(20)
+    expect(manufacturerSpecs.records.every(record => evidenceIds.has(record.candidateId))).toBe(true)
+    expect(manufacturerSpecs.records.every(record => record.review.status === 'pending')).toBe(true)
+    expect(specs.length).toBe(manufacturerSpecs.summary.normalizedValues)
+    expect(specs.length).toBeGreaterThan(40)
+    expect(specs.every(spec => spec.rawField && spec.rawValue && spec.sourceUrl.startsWith('https://'))).toBe(true)
+    expect(specs.every(spec => ['high','medium','low'].includes(spec.confidence))).toBe(true)
+    expect(specs.every(spec => spec.method !== 'meta' || spec.confidence === 'low')).toBe(true)
+    expect(new Set(specs.map(spec => spec.method))).toContain('spec-table')
+  })
+  it('laisse inconnue une caractéristique que le constructeur ne publie pas', () => {
+    const withGaps = manufacturerSpecs.records.filter(record => record.missingFields.length > 0)
+    expect(withGaps.length).toBeGreaterThan(0)
+    expect(withGaps.every(record => record.missingFields.every(field => !record.specs.some(spec => spec.field === field)))).toBe(true)
+    expect(verificationFeed.candidates.filter(item => item.status === 'verified')).toHaveLength(16)
   })
   it('retrouve le i9-9900KF sans tenir compte de la casse', () => expect(searchProducts('I9-9900kf')[0]?.id).toBe('cpu-9900kf'))
   it('filtre le socket LGA1151 v2', () => expect(searchProducts('', 'cpu', 'LGA1151 v2').map(p => p.id)).toEqual(expect.arrayContaining(['cpu-8600k','cpu-9700k','cpu-9900kf'])))
