@@ -3,6 +3,7 @@ import {
   BarChart3, BookOpen, Bot, Calculator, CircuitBoard, Compass, LayoutGrid, Menu, Moon, Search, Sparkles, Sun, X,
 } from 'lucide-react'
 import { getProduct } from './engine'
+import packageJson from '../package.json'
 import { parseHash, toHash } from './routes'
 import type { Page, Route } from './routes'
 import type { Build, Category, ListingInput, Product } from './types'
@@ -160,7 +161,7 @@ export default function App() {
         {route.page === 'glossary' && <Glossary />}
 
         <footer className="foot">
-          <span>ConfigPilot · version 2.1.0</span>
+          <span>ConfigPilot · version {packageJson.version}</span>
           <nav>
             <button onClick={() => go({ page: 'glossary' })}>Glossaire</button>
             <button onClick={() => go({ page: 'bots' })}>Sources et méthode</button>

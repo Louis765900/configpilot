@@ -24,7 +24,7 @@ ConfigPilot est un outil public de configuration de PC. Il tient sur deux promes
 
 L'interface reste lisible pour un débutant tout en exposant les détails attendus par un utilisateur expérimenté.
 
-Version actuelle : **2.1.0**
+Version actuelle : **2.1.1**
 
 Site Vercel : [configpilot-flax.vercel.app](https://configpilot-flax.vercel.app/).
 
