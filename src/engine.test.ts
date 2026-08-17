@@ -9,7 +9,9 @@ import discoveryReport from './catalog/discovery-report.generated.json'
 import sourceRegistry from './catalog/source-registry.json'
 import manufacturerEvidence from './catalog/manufacturer-evidence.generated.json'
 import manufacturerSpecs from './catalog/manufacturer-specs.generated.json'
-import { analyzeListing, checkCompatibility, searchProducts } from './engine'
+import { analyzeListing, getProduct, searchProducts } from './engine'
+import { buildVerdict, checkCompatibility, estimateSystemDraw } from './compatibility'
+import { categoryValueMedian, priceInsight, priceTrack } from './pricing'
 
 describe('catalogue', () => {
   it('intègre plus de mille références documentaires sans inventer de prix', () => {
@@ -95,15 +97,141 @@ describe('catalogue', () => {
   it('retourne une liste vide pour une recherche absente', () => expect(searchProducts('processeur introuvable xyz')).toHaveLength(0))
 })
 
-describe('compatibilité', () => {
-  it('signale le BIOS et le refroidissement pour la configuration Louis', () => {
-    const checks = checkCompatibility({ cpu:'cpu-9900kf', motherboard:'mb-msi-z370', gpu:'gpu-1660s', psu:'psu-evga-w1' })
-    expect(checks.find(c => c.id === 'bios')?.status).toBe('warning')
-    expect(checks.find(c => c.id === 'cooling')?.status).toBe('unknown')
+const check = (build: Parameters<typeof checkCompatibility>[0], id: string) =>
+  checkCompatibility(build).find(item => item.id === id)
+
+describe('compatibilité — conflits physiques', () => {
+  it('refuse un socket qui ne correspond pas', () => {
+    const socket = check({ cpu: 'cpu-7600', motherboard: 'mb-z390-a-pro' }, 'socket')
+    expect(socket?.status).toBe('error')
+    expect(socket?.detail).toContain('AM5')
+    expect(socket?.basis).toBe('Processeur.Socket · Carte mère.Socket')
   })
-  it('refuse un mauvais socket', () => expect(checkCompatibility({cpu:'cpu-7600',motherboard:'mb-z390-a-pro'}).find(c => c.id === 'socket')?.status).toBe('error'))
-  it('refuse le mauvais type de RAM', () => expect(checkCompatibility({ram:'ram-32-ddr5',motherboard:'mb-z390-a-pro'}).find(c => c.id === 'ram-type')?.status).toBe('error'))
-  it('refuse une alimentation insuffisante', () => expect(checkCompatibility({gpu:'gpu-7800xt',psu:'psu-evga-w1'}).find(c => c.id === 'psu-power')?.status).toBe('error'))
+  it('refuse un type de mémoire incompatible', () =>
+    expect(check({ ram: 'ram-32-ddr5', motherboard: 'mb-z390-a-pro' }, 'ram-type')?.status).toBe('error'))
+  it('refuse plus de barrettes que d’emplacements', () => {
+    const slots = check({ ram: 'ram-32-ddr4', motherboard: 'mb-b550' }, 'ram-slots')
+    expect(slots?.status).toBe('ok')
+  })
+  it('refuse une alimentation sous la recommandation du fabricant du GPU', () =>
+    expect(check({ gpu: 'gpu-7800xt', psu: 'psu-evga-w1' }, 'psu-power')?.status).toBe('error'))
+  it('refuse une alimentation ATX dans un boîtier qui n’accepte que le SFX', () => {
+    const format = check({ psu: 'psu-rm750e', case: 'case-nr200' }, 'psu-format')
+    expect(format?.status).toBe('error')
+    expect(format?.detail).toContain('SFX')
+  })
+  it('refuse une carte mère ATX dans un boîtier Mini-ITX', () =>
+    expect(check({ motherboard: 'mb-b650', case: 'case-nr200' }, 'case-format')?.status).toBe('error'))
+  it('signale l’absence de sortie vidéo quand le processeur n’a pas d’iGPU', () => {
+    const output = check({ cpu: 'cpu-5600' }, 'display-output')
+    expect(output?.status).toBe('error')
+    expect(output?.detail).toContain('n’affichera rien')
+  })
+})
+
+describe('compatibilité — nuances et données manquantes', () => {
+  it('valide une génération native sans exiger de mise à jour', () => {
+    const chipset = check({ cpu: 'cpu-9900kf', motherboard: 'mb-z390-a-pro' }, 'chipset')
+    expect(chipset?.status).toBe('ok')
+    expect(chipset?.detail).toContain('Z390')
+  })
+  it('avertit quand la génération demande une mise à jour du BIOS', () => {
+    const chipset = check({ cpu: 'cpu-5600', motherboard: 'mb-b550' }, 'chipset')
+    expect(chipset?.status).toBe('warning')
+    expect(chipset?.detail).toContain('flash BIOS sans processeur')
+  })
+  it('ne conclut pas quand une dimension n’est pas publiée', () => {
+    const height = check({ cooling: 'cool-lf3-240', case: 'case-pop-air' }, 'cooler-height')
+    expect(height?.status).toBe('unknown')
+    expect(height?.detail).toContain('non renseignés')
+  })
+  it('vérifie qu’un radiateur a bien un emplacement listé', () =>
+    expect(check({ cooling: 'cool-lf3-240', case: 'case-pop-air' }, 'radiator-mount')?.status).toBe('ok'))
+  it('avertit sur un profil mémoire propre à l’autre fondeur', () => {
+    const profile = check({ ram: 'ram-32-ddr5', cpu: 'cpu-13600k' }, 'ram-profile')
+    expect(profile?.status).toBe('warning')
+    expect(profile?.detail).toContain('EXPO')
+  })
+  it('avertit sur un connecteur 12VHPWR absent de l’alimentation', () =>
+    expect(check({ gpu: 'gpu-4070s', psu: 'psu-cx650' }, 'psu-connectors')?.status).toBe('warning'))
+  it('accepte des connecteurs PCIe en nombre suffisant', () =>
+    expect(check({ gpu: 'gpu-3060', psu: 'psu-rm750e' }, 'psu-connectors')?.status).toBe('ok'))
+  it('n’émet jamais de verdict favorable sans champ lu', () => {
+    const checks = checkCompatibility({ cpu: 'cpu-7800x3d', motherboard: 'mb-b650', ram: 'ram-32-ddr5' })
+    expect(checks.every(item => item.basis.length > 0)).toBe(true)
+    expect(checks.filter(item => item.status === 'ok').every(item => !item.detail.includes('non renseigné'))).toBe(true)
+  })
+  it('estime la consommation à partir du TDP et du GPU', () =>
+    expect(estimateSystemDraw({ cpu: 'cpu-7800x3d', gpu: 'gpu-7800xt' })).toBe(Math.round(120 * 1.35) + 263 + 85))
+})
+
+describe('compatibilité — synthèse', () => {
+  it('classe un conflit avant un avertissement', () => {
+    const verdict = buildVerdict(checkCompatibility({ cpu: 'cpu-7600', motherboard: 'mb-z390-a-pro' }))
+    expect(verdict.status).toBe('error')
+    expect(verdict.counts.error).toBeGreaterThan(0)
+  })
+  it('valide une configuration cohérente de bout en bout', () => {
+    const verdict = buildVerdict(checkCompatibility({
+      cpu: 'cpu-7600', gpu: 'gpu-7800xt', motherboard: 'mb-b650', ram: 'ram-32-ddr5',
+      psu: 'psu-rm750e', case: 'case-pop-air', storage: 'ssd-sn770', cooling: 'cool-lf3-240',
+    }))
+    expect(verdict.counts.error).toBe(0)
+  })
+  it('annonce une configuration vide plutôt qu’une configuration valide', () =>
+    expect(buildVerdict(checkCompatibility({})).status).toBe('unknown'))
+})
+
+describe('trajectoire de prix', () => {
+  it('ancre la courbe sur le tarif de lancement et le prix actuel', () => {
+    const track = priceTrack(getProduct('cpu-5600')!, 2026)
+    expect(track.launch).toBe(199)
+    expect(track.points[0]).toMatchObject({ year: 2022, value: 199, kind: 'launch' })
+    expect(track.points.at(-1)).toMatchObject({ year: 2026, value: 105, kind: 'current' })
+    expect(track.dropPercent).toBe(47)
+    expect(track.method).toContain('Interpolation')
+  })
+  it('ne fabrique aucune trajectoire sans tarif de lancement documenté', () => {
+    const orphan = products.find(product => product.launchPrice == null)!
+    const track = priceTrack(orphan, 2026)
+    expect(track.launch).toBeNull()
+    expect(track.dropPercent).toBeNull()
+    expect(track.points.filter(point => point.kind !== 'observed')).toHaveLength(0)
+  })
+  it('laisse la liste des relevés manuels vide tant que personne n’en saisit', () =>
+    expect(products.every(product => (product.observations?.length ?? 0) === 0)).toBe(true))
+  it('situe une référence face à la médiane de sa catégorie', () =>
+    expect(categoryValueMedian('cpu')).toBeGreaterThan(0))
+})
+
+describe('verdict d’achat', () => {
+  it('argumente chaque facteur retenu', () => {
+    const insight = priceInsight(getProduct('cpu-5600')!, 2026)
+    expect(insight.score).not.toBeNull()
+    expect(insight.reasons.length).toBeGreaterThanOrEqual(3)
+    expect(insight.reasons.some(reason => reason.text.includes('décote'))).toBe(true)
+  })
+  it('pénalise une plateforme fermée', () => {
+    const closed = priceInsight(getProduct('cpu-9900kf')!, 2026)
+    expect(closed.reasons.some(reason => reason.status === 'warning' && reason.text.includes('Socket'))).toBe(true)
+  })
+  it('valorise un socket encore alimenté en processeurs', () => {
+    const open = priceInsight(getProduct('cpu-7600')!, 2026)
+    expect(open.reasons.some(reason => reason.status === 'ok' && reason.text.includes('AM5'))).toBe(true)
+  })
+  it('refuse de conclure sans aucune donnée exploitable', () => {
+    const bare = priceInsight({ ...getProduct('cpu-5600')!, launchPrice: null, newPrice: null, usedPrice: null, performance: null, year: null, specs: {} }, 2026)
+    expect(bare.verdict).toBe('Données insuffisantes')
+    expect(bare.score).toBeNull()
+  })
+})
+
+describe('catalogue public', () => {
+  it('ne contient plus de fiche personnelle ni de configuration privée', () => {
+    const serialized = JSON.stringify(products.map(product => [product.name, product.usage, product.notes]))
+    expect(serialized).not.toContain('Louis')
+    expect(serialized).not.toContain('modèle à confirmer')
+  })
 })
 
 describe('estimateur', () => {

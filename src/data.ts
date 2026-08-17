@@ -1,15 +1,18 @@
 import type { Category, Product } from './types'
 import documentaryCatalog from './catalog/documentary.generated.json'
 import promotedCatalog from './catalog/promoted.generated.json'
+import { launchPrices } from './launch-prices'
 
 const p = (
   id: string, category: Category, brand: string, name: string, reference: string, series: string,
   year: number, newPrice: number | null, usedPrice: number | null, performance: number | null,
   specs: Product['specs'], strengths: string[], weaknesses: string[], usage: string,
-  options: Partial<Pick<Product, 'confidence' | 'status' | 'notes' | 'source'>> = {},
+  options: Partial<Pick<Product, 'confidence' | 'status' | 'notes' | 'source' | 'observations'>> = {},
 ): Product => ({
   id, category, brand, name, reference, series, year, newPrice, usedPrice, performance, specs,
   strengths, weaknesses, usage,
+  launchPrice: launchPrices[id] ?? null,
+  observations: options.observations ?? [],
   confidence: options.confidence ?? 'Bonne', status: options.status ?? 'Détaillée',
   notes: options.notes ?? 'Prix indicatifs issus du modèle local, pas de relevé en temps réel.', source: options.source,
 })
@@ -72,10 +75,6 @@ const detailedProducts: Product[] = [
     {Architecture:'Xe-HPG',VRAM:8,'Type VRAM':'GDDR6','Consommation (W)':225,'PSU recommandé (W)':600,'Longueur (mm)':270,Slots:2,Connecteurs:'1× 8 + 1× 6 broches','1080p':68,'1440p':52,'4K':27,'Ray tracing':'Oui','Upscaling':'XeSS','Encodeur':'AV1'},
     ['AV1','Bon rapport prix/performance'],['Resizable BAR fortement conseillé','Pilotes anciens jeux variables'],'1080p et encodage AV1'),
 
-  p('mb-msi-z370','motherboard','MSI','MSI Z370 — modèle à confirmer','MSI Z370','Intel 300',2017,null,55,null,
-    {Socket:'LGA1151 v2',Chipset:'Z370',Format:'ATX',RAM:'DDR4','Slots RAM':4,'RAM max (Go)':64,'RAM max (MHz)':4000,'Ports M.2':2,'Ports SATA':6,PCIe:'3.0',WiFi:'Selon modèle',Bluetooth:'Selon modèle',VRM:'Moyen, selon modèle exact','BIOS Flashback':'Selon modèle','Compatibilité CPU':'8e génération native ; 9e génération après BIOS compatible'},
-    ['Overclocking possible','Compatible 8e/9e génération avec bon BIOS'],['Modèle exact indispensable','VRM à surveiller avec i9'],'Diagnostic de la configuration de Louis',
-    {confidence:'Faible',status:'Documentaire',notes:'Fiche documentaire volontairement prudente : identifier la référence MSI exacte avant mise à jour BIOS ou montage.'}),
   p('mb-z390-a-pro','motherboard','MSI','MSI Z390-A PRO','Z390-A PRO','Intel 300',2018,null,70,55,
     {Socket:'LGA1151 v2',Chipset:'Z390',Format:'ATX',RAM:'DDR4','Slots RAM':4,'RAM max (Go)':128,'RAM max (MHz)':4400,'Ports M.2':2,'Ports SATA':6,PCIe:'3.0',WiFi:'Non',Bluetooth:'Non',VRM:'Moyen','BIOS Flashback':'Non','Compatibilité CPU':'8e et 9e générations'},
     ['9e génération native','Connectique correcte'],['Pas de Wi-Fi','VRM moyen'],'Plateforme Intel 8e/9e génération'),
@@ -89,10 +88,6 @@ const detailedProducts: Product[] = [
     {Socket:'LGA1700',Chipset:'B760',Format:'ATX',RAM:'DDR4','Slots RAM':4,'RAM max (Go)':128,'RAM max (MHz)':5333,'Ports M.2':3,'Ports SATA':4,PCIe:'5.0',WiFi:'Wi-Fi 6',Bluetooth:'Oui',VRM:'Bon','BIOS Flashback':'Non','Compatibilité CPU':'Intel 12e/13e/14e selon BIOS'},
     ['Connectique complète','Wi-Fi'],['Pas d’overclocking CPU'],'LGA1700 DDR4'),
 
-  p('ram-mixed-48','ram','ADATA','ADATA 48 Go mixte 3200 (2×16 + 2×8)','ADATA MIXED 48GB','DDR4',2020,null,55,null,
-    {Type:'DDR4',Capacité:48,Barrettes:4,Fréquence:3200,'Fréquence utilisée':2667,Latence:'À vérifier',Tension:'À vérifier',Profil:'XMP selon kits',ECC:'Non',Format:'DIMM'},
-    ['Grande capacité','Tous les slots exploités'],['Mélange de kits','Fréquence limitée à ~2667 MHz'],'Configuration actuelle de Louis',
-    {confidence:'Moyenne',status:'Documentaire',notes:'La stabilité dépend du modèle exact des kits et des réglages BIOS. Le contrôleur du 9900KF est officiellement DDR4-2666.'}),
   p('ram-16-ddr4','ram','Kingston','Kingston Fury Beast 16 Go (2×8) DDR4-3200','KF432C16BBK2/16','DDR4',2021,42,28,58,
     {Type:'DDR4',Capacité:16,Barrettes:2,Fréquence:3200,Latence:'CL16',Tension:'1,35 V',Profil:'XMP',ECC:'Non',Format:'DIMM'},['Fiable','Bon marché'],['Capacité juste pour certains usages'],'Jeu budget'),
   p('ram-32-ddr4','ram','Corsair','Corsair Vengeance LPX 32 Go (2×16) DDR4-3200','CMK32GX4M2E3200C16','DDR4',2020,68,45,68,
@@ -101,24 +96,20 @@ const detailedProducts: Product[] = [
     {Type:'DDR5',Capacité:32,Barrettes:2,Fréquence:6000,Latence:'CL30',Tension:'1,35 V',Profil:'EXPO',ECC:'On-die',Format:'DIMM'},['Bon point d’équilibre AM5','Latence contenue'],['Compatibilité haute fréquence à vérifier'],'AM5 gaming'),
 
   p('psu-evga-w1','psu','EVGA','EVGA 600 W1','100-W1-0600-K2','W1',2014,null,20,30,
-    {Puissance:600,Certification:'80 PLUS White',Modularité:'Non modulaire','Norme ATX':'ATX 2.x','ATX 3.x':'Non','12V-2x6':'Non',Tier:'Entrée de gamme',Protections:'OVP / UVP / OPP / SCP',Garantie:'3 ans',PCIe:'2× 6+2 broches'},
-    ['Puissance nominale suffisante pour une GTX 1660 Super'],['Plateforme modeste','Ancienne norme','Non modulaire'],'PC modeste sans GPU très exigeant',
-    {confidence:'Bonne',notes:'Pour la configuration de Louis, la puissance théorique suffit. Un remplacement qualitatif est conseillé avant un upgrade GPU important.'}),
+    {Puissance:600,Certification:'80 PLUS White',Format:'ATX',Modularité:'Non modulaire','Norme ATX':'ATX 2.x','ATX 3.x':'Non','12V-2x6':'Non',Tier:'Entrée de gamme',Protections:'OVP / UVP / OPP / SCP',Garantie:'3 ans',PCIe:'2× 6+2 broches'},
+    ['Puissance nominale suffisante pour un GPU d’entrée de gamme'],['Plateforme modeste','Ancienne norme','Non modulaire'],'PC modeste sans GPU très exigeant',
+    {confidence:'Bonne',notes:'Plateforme d’entrée de gamme ancienne : suffisante pour une carte graphique sobre, à remplacer avant toute montée en gamme du GPU.'}),
   p('psu-cx650','psu','Corsair','Corsair CX650','CP-9020278-EU','CX',2023,75,50,68,
-    {Puissance:650,Certification:'80 PLUS Bronze',Modularité:'Non modulaire','Norme ATX':'ATX 2.52','ATX 3.x':'Non','12V-2x6':'Non',Tier:'Milieu de gamme',Protections:'Complètes',Garantie:'5 ans',PCIe:'4× 6+2 broches'},['Plateforme sérieuse','Bonne réserve'],['Non modulaire','Pas ATX 3.0'],'PC milieu de gamme'),
+    {Puissance:650,Certification:'80 PLUS Bronze',Format:'ATX',Modularité:'Non modulaire','Norme ATX':'ATX 2.52','ATX 3.x':'Non','12V-2x6':'Non',Tier:'Milieu de gamme',Protections:'Complètes',Garantie:'5 ans',PCIe:'4× 6+2 broches'},['Plateforme sérieuse','Bonne réserve'],['Non modulaire','Pas ATX 3.0'],'PC milieu de gamme'),
   p('psu-rm750e','psu','Corsair','Corsair RM750e (2023)','CP-9020262-EU','RMe',2023,115,80,86,
-    {Puissance:750,Certification:'80 PLUS Gold',Modularité:'Complète','Norme ATX':'ATX 3.0','ATX 3.x':'Oui','12V-2x6':'12VHPWR',Tier:'Haut de gamme',Protections:'Complètes',Garantie:'7 ans',PCIe:'4× 6+2 broches'},['Silencieuse','ATX 3.0','Modulaire'],['Câbles un peu rigides'],'GPU moderne jusqu’au haut de gamme'),
+    {Puissance:750,Certification:'80 PLUS Gold',Format:'ATX',Modularité:'Complète','Norme ATX':'ATX 3.0','ATX 3.x':'Oui','12V-2x6':'12VHPWR',Tier:'Haut de gamme',Protections:'Complètes',Garantie:'7 ans',PCIe:'4× 6+2 broches'},['Silencieuse','ATX 3.0','Modulaire'],['Câbles un peu rigides'],'GPU moderne jusqu’au haut de gamme'),
   p('psu-focus850','psu','Seasonic','Seasonic Focus GX-850 ATX 3','FOCUS-GX-850-ATX30','Focus GX',2024,145,105,92,
-    {Puissance:850,Certification:'80 PLUS Gold',Modularité:'Complète','Norme ATX':'ATX 3.0','ATX 3.x':'Oui','12V-2x6':'Oui',Tier:'Haut de gamme',Protections:'Complètes',Garantie:'10 ans',PCIe:'3× PCIe + 12V-2x6'},['Très bonne qualité','Longue garantie'],['Prix'],'Configuration puissante'),
+    {Puissance:850,Certification:'80 PLUS Gold',Format:'ATX',Modularité:'Complète','Norme ATX':'ATX 3.0','ATX 3.x':'Oui','12V-2x6':'Oui',Tier:'Haut de gamme',Protections:'Complètes',Garantie:'10 ans',PCIe:'3× PCIe + 12V-2x6'},['Très bonne qualité','Longue garantie'],['Prix'],'Configuration puissante'),
 
-  p('case-cm-unknown','case','Cooler Master','Boîtier Cooler Master — modèle à confirmer','COOLER MASTER UNKNOWN','À vérifier',2017,null,25,null,
-    {Format:'Moyen tour','Cartes mères':['ATX','Micro-ATX'],'GPU max (mm)':null,'Ventirad max (mm)':null,Radiateurs:'À vérifier',Ventilateurs:'À vérifier','Ventilateurs inclus':'À vérifier',Airflow:'À vérifier',Stockage:'À vérifier'},
-    ['Boîtier déjà possédé'],['Dimensions critiques inconnues'],'Configuration actuelle de Louis',
-    {confidence:'Faible',status:'Documentaire',notes:'Relever le modèle ou mesurer la longueur GPU et la hauteur ventirad avant achat.'}),
   p('case-pop-air','case','Fractal Design','Fractal Design Pop Air','FD-C-POA1A-02','Pop',2022,90,60,82,
-    {Format:'Moyen tour','Cartes mères':['ATX','Micro-ATX','Mini-ITX'],'GPU max (mm)':405,'Ventirad max (mm)':170,Radiateurs:'Avant 280 mm, haut 240 mm',Ventilateurs:5,'Ventilateurs inclus':3,Airflow:'Bon',Stockage:'2× 3,5 + 2× 2,5'},['Excellent espace GPU','Bon airflow'],['USB-C optionnel'],'PC polyvalent'),
+    {Format:'Moyen tour','Cartes mères':['ATX','Micro-ATX','Mini-ITX'],'Formats alimentation':['ATX'],'GPU max (mm)':405,'Ventirad max (mm)':170,Radiateurs:'Avant 280 mm, haut 240 mm',Ventilateurs:5,'Ventilateurs inclus':3,Airflow:'Bon',Stockage:'2× 3,5 + 2× 2,5'},['Excellent espace GPU','Bon airflow'],['USB-C optionnel'],'PC polyvalent'),
   p('case-nr200','case','Cooler Master','Cooler Master NR200P','MCB-NR200P-KGNN-S00','NR200',2020,95,60,76,
-    {Format:'Mini tour','Cartes mères':['Mini-ITX'],'GPU max (mm)':330,'Ventirad max (mm)':155,Radiateurs:'Côté 280 mm, bas 240 mm',Ventilateurs:7,'Ventilateurs inclus':2,Airflow:'Bon',Stockage:'Jusqu’à 3× 2,5'},['Compact','Très modulable'],['SFX requis','Montage plus délicat'],'PC compact'),
+    {Format:'Mini tour','Cartes mères':['Mini-ITX'],'Formats alimentation':['SFX','SFX-L'],'GPU max (mm)':330,'Ventirad max (mm)':155,Radiateurs:'Côté 280 mm, bas 240 mm',Ventilateurs:7,'Ventilateurs inclus':2,Airflow:'Bon',Stockage:'Jusqu’à 3× 2,5'},['Compact','Très modulable'],['SFX requis','Montage plus délicat'],'PC compact'),
 
   p('ssd-mx500','storage','Crucial','Crucial MX500 1 To','CT1000MX500SSD1','MX500',2017,75,45,60,
     {Type:'SSD SATA',Interface:'SATA 6 Gb/s',Capacité:1000,Lecture:560,Écriture:510,DRAM:'Oui',NAND:'TLC',Endurance:'360 TBW',Format:'2,5 pouces'},['Fiable','DRAM'],['Limité par SATA'],'Upgrade d’un ancien PC'),
@@ -142,7 +133,8 @@ const detailedProducts: Product[] = [
 
 const normalizedIdentity = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
 const detailedIdentities = new Set(detailedProducts.flatMap(product => [product.name, product.reference].map(normalizedIdentity)))
-const importedProducts = [...documentaryCatalog, ...promotedCatalog] as unknown as Product[]
+const importedProducts = ([...documentaryCatalog, ...promotedCatalog] as unknown as Product[])
+  .map(product => ({ ...product, launchPrice: launchPrices[product.id] ?? null, observations: [] }))
 const documentaryProducts = importedProducts.filter(product =>
   ![product.name, product.reference].map(normalizedIdentity).some(identity => detailedIdentities.has(identity)),
 )
@@ -151,7 +143,24 @@ export const products: Product[] = [...detailedProducts, ...documentaryProducts]
 
 export const frequentSockets = ['LGA775','LGA1150','LGA1151 v1','LGA1151 v2','LGA1200','LGA1700','LGA1851','AM3+','AM4','AM5','LGA2011','LGA2011-v3']
 
-export const louisBuild = {
-  cpu: 'cpu-9900kf', gpu: 'gpu-1660s', motherboard: 'mb-msi-z370', ram: 'ram-mixed-48',
-  psu: 'psu-evga-w1', case: 'case-cm-unknown',
-} as const
+/** Configurations de départ publiques, proposées comme point d'entrée du configurateur. */
+export const starterBuilds: { id: string; name: string; summary: string; build: Record<string, string> }[] = [
+  {
+    id: 'am5-1440p',
+    name: 'AM5 — jeu 1440p',
+    summary: 'Plateforme récente, mémoire DDR5 et marge d’évolution sur le socket AM5.',
+    build: { cpu: 'cpu-7600', gpu: 'gpu-7800xt', motherboard: 'mb-b650', ram: 'ram-32-ddr5', psu: 'psu-rm750e', case: 'case-pop-air', storage: 'ssd-sn770', cooling: 'cool-lf3-240' },
+  },
+  {
+    id: 'am4-budget',
+    name: 'AM4 — budget maîtrisé',
+    summary: 'Plateforme mature et peu coûteuse, pensée pour du 1080p sans compromis inutile.',
+    build: { cpu: 'cpu-5600', gpu: 'gpu-6600', motherboard: 'mb-b550', ram: 'ram-16-ddr4', psu: 'psu-cx650', case: 'case-pop-air', storage: 'ssd-mx500', cooling: 'cool-hyper212' },
+  },
+  {
+    id: 'itx-compact',
+    name: 'Mini-ITX — compact',
+    summary: 'Boîtier compact : chaque contrainte de dimension compte et est vérifiée.',
+    build: { cpu: 'cpu-12400f', gpu: 'gpu-4060', motherboard: 'mb-b760', ram: 'ram-32-ddr4', psu: 'psu-cx650', case: 'case-nr200', storage: 'ssd-sn770', cooling: 'cool-pa120' },
+  },
+]
