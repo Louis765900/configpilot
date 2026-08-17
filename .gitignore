@@ -9,6 +9,8 @@ coverage/
 test-results/
 playwright-report/
 tmp/
+.cache/
+component-import-report*.json
 __pycache__/
 *.pyc
 .DS_Store

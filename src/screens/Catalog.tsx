@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { BarChart3, ChevronLeft, ChevronRight, LayoutGrid, List } from 'lucide-react'
 import { categoryLabels, frequentSockets, products } from '../data'
 import { categoryOrder, formatSpec, money, searchProducts, valueScore } from '../engine'
@@ -6,6 +6,7 @@ import { Empty } from '../ui'
 import { PartArt } from '../illustrations'
 import type { Category, Product } from '../types'
 import type { Route } from '../routes'
+import { remoteCatalogEnabled, searchRemoteComponents } from '../component-api'
 
 const PAGE_SIZE = 24
 const HEADLINE: Partial<Record<Category, string[]>> = {
@@ -36,9 +37,28 @@ export default function Catalog({ query, category, setCategory, go, compare, tog
   const [brand, setBrand] = useState(''), [socket, setSocket] = useState(''), [sort, setSort] = useState('relevance')
   const [onlyPriced, setOnlyPriced] = useState(false), [layout, setLayout] = useState<'grid' | 'rows'>('grid')
   const [page, setPage] = useState(1)
+  const [remote, setRemote] = useState<Product[] | null>(null)
+  const [remoteTotal, setRemoteTotal] = useState<number | null>(null)
+  const [remoteState, setRemoteState] = useState<'idle' | 'loading' | 'error'>('idle')
+  const useRemoteCatalog = remoteCatalogEnabled && query.trim().length >= 2
+
+  useEffect(() => {
+    if (!useRemoteCatalog) return
+    const controller = new AbortController()
+    const timeout = window.setTimeout(async () => {
+      setRemoteState('loading')
+      try {
+        const result = await searchRemoteComponents({ q: query, category, brand, socket, signal: controller.signal })
+        setRemote(result.products); setRemoteTotal(result.total); setRemoteState('idle')
+      } catch (error) {
+        if (!controller.signal.aborted) { console.warn(error); setRemote(null); setRemoteTotal(null); setRemoteState('error') }
+      }
+    }, 250)
+    return () => { window.clearTimeout(timeout); controller.abort() }
+  }, [query, category, brand, socket, useRemoteCatalog])
 
   const visible = useMemo(() => {
-    const list = searchProducts(query, category, socket)
+    const list = ((useRemoteCatalog ? remote : null) ?? searchProducts(query, category, socket))
       .filter(item => (!brand || item.brand === brand) && (!onlyPriced || item.newPrice != null || item.usedPrice != null))
     return [...list].sort((left, right) =>
       sort === 'price-asc' ? (left.usedPrice ?? left.newPrice ?? Infinity) - (right.usedPrice ?? right.newPrice ?? Infinity)
@@ -46,11 +66,12 @@ export default function Catalog({ query, category, setCategory, go, compare, tog
           : sort === 'performance' ? (right.performance ?? -1) - (left.performance ?? -1)
             : sort === 'value' ? (valueScore(right) ?? -1) - (valueScore(left) ?? -1)
               : (right.performance ?? -1) - (left.performance ?? -1))
-  }, [query, category, socket, brand, sort, onlyPriced])
+  }, [query, category, socket, brand, sort, onlyPriced, remote, useRemoteCatalog])
 
   const total = Math.max(1, Math.ceil(visible.length / PAGE_SIZE))
   const current = Math.min(page, total)
   const shown = visible.slice((current - 1) * PAGE_SIZE, current * PAGE_SIZE)
+  const displayedTotal = (useRemoteCatalog ? remoteTotal : null) ?? visible.length
   const brands = [...new Set(products.filter(item => category === 'all' || item.category === category).map(item => item.brand))].sort()
   const reset = () => { setBrand(''); setSocket(''); setSort('relevance'); setOnlyPriced(false); setCategory('all'); setPage(1) }
   const pick = <T,>(setter: (value: T) => void) => (value: T) => { setter(value); setPage(1) }
@@ -119,7 +140,9 @@ export default function Catalog({ query, category, setCategory, go, compare, tog
 
         <div>
           <div className="result-head">
-            <h2>{visible.length.toLocaleString('fr-FR')} résultat{visible.length > 1 ? 's' : ''}</h2>
+            <h2>{displayedTotal.toLocaleString('fr-FR')} résultat{displayedTotal > 1 ? 's' : ''}</h2>
+            {useRemoteCatalog && remoteState === 'loading' && <span className="muted">Recherche dans la base…</span>}
+            {useRemoteCatalog && remoteState === 'error' && <span className="muted">Base indisponible · résultats locaux affichés</span>}
             <span className="spacer" />
             <label className="field">
               <select aria-label="Trier les résultats" value={sort} onChange={event => pick(setSort)(event.target.value)}>

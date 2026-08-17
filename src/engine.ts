@@ -1,7 +1,8 @@
 import { products } from './data'
+import { getCachedRemoteProduct } from './component-api'
 import type { Build, Category, ListingInput, Product } from './types'
 
-export const getProduct = (id?: string) => products.find((item) => item.id === id)
+export const getProduct = (id?: string) => products.find((item) => item.id === id) ?? getCachedRemoteProduct(id)
 export const money = (value: number | null | undefined) => value == null ? 'À vérifier' : `${Math.round(value).toLocaleString('fr-FR')} €`
 export const valueScore = (product: Product) => product.performance && (product.usedPrice ?? product.newPrice)
   ? Math.round(product.performance / (product.usedPrice ?? product.newPrice)! * 100) : null

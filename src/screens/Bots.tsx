@@ -226,12 +226,17 @@ export default function Bots() {
 
           <Panel title="Sources activées">
             <div className="market-links">
+              <a href="https://github.com/buildcores/buildcores-open-db" target="_blank" rel="noreferrer">BuildCores OpenDB · ODC-By 1.0 <ExternalLink /></a>
               <a href="https://www.wikidata.org/" target="_blank" rel="noreferrer">Wikidata <ExternalLink /></a>
               <a href="https://pci-ids.ucw.cz/" target="_blank" rel="noreferrer">PCI IDs <ExternalLink /></a>
               {officialSources.map(source => (
                 <a href={source.url} target="_blank" rel="noreferrer" key={source.id}>{source.name} <ExternalLink /></a>
               ))}
             </div>
+            <p className="muted" style={{ fontSize: 11, marginTop: 10 }}>
+              Le catalogue étendu attribue BuildCores OpenDB conformément à sa licence ODC-By 1.0.
+              Open Icecat reste désactivé tant que le compte et les droits de syndication ne sont pas configurés.
+            </p>
           </Panel>
         </div>
 
