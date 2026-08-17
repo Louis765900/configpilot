@@ -9,6 +9,30 @@ type VercelResponse = {
   json(value: unknown): VercelResponse
 }
 
+type LookupKind = 'id' | 'slug' | 'mpn'
+
+const first = (value: string | string[] | undefined) => Array.isArray(value) ? value[0] : value
+const decode = (value: string) => {
+  try { return decodeURIComponent(value) } catch { return '' }
+}
+
+export function parseLookupTarget(query: VercelRequest['query']): { kind: LookupKind; value: string } | null {
+  const directKind = first(query.kind)
+  const directValue = first(query.value)
+  if ((directKind === 'id' || directKind === 'slug' || directKind === 'mpn') && directValue) {
+    const value = decode(directValue)
+    return value ? { kind: directKind, value } : null
+  }
+
+  const path = Array.isArray(query.path) ? query.path : query.path ? [query.path] : []
+  const [prefix, ...rest] = path
+  if (!prefix || prefix === 'search') return null
+  const kind: LookupKind = prefix === 'slug' || prefix === 'mpn' ? prefix : 'id'
+  const encodedValue = kind === 'id' ? [prefix, ...rest].join('/') : rest.join('/')
+  const value = decode(encodedValue)
+  return value ? { kind, value } : null
+}
+
 const headers = (response: VercelResponse) => {
   response.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=1800')
   response.setHeader('X-Content-Type-Options', 'nosniff')
@@ -41,19 +65,14 @@ export async function listComponents(request: VercelRequest, response: VercelRes
 export async function lookupComponent(request: VercelRequest, response: VercelResponse) {
   if (request.method !== 'GET') return fail(response, 405, 'METHOD_NOT_ALLOWED', 'Seule la méthode GET est acceptée.')
   const path = Array.isArray(request.query.path) ? request.query.path : request.query.path ? [request.query.path] : []
-  const [prefix, ...rest] = path
-  if (prefix === 'search') return listComponents(request, response)
-  const value = decodeURIComponent(rest.join('/'))
-  let kind: 'id' | 'slug' | 'mpn'
-  if (prefix === 'slug' || prefix === 'mpn') kind = prefix
-  else { kind = 'id'; rest.unshift(prefix); }
-  const lookupValue = kind === 'id' ? decodeURIComponent(rest.join('/')) : value
-  if (!lookupValue || lookupValue.length > 180) return fail(response, 400, 'INVALID_IDENTIFIER', 'Identifiant invalide.')
+  if (path[0] === 'search') return listComponents(request, response)
+  const target = parseLookupTarget(request.query)
+  if (!target || target.value.length > 180) return fail(response, 400, 'INVALID_IDENTIFIER', 'Identifiant invalide.')
   try {
-    const query = buildLookupQuery(kind, lookupValue)
+    const query = buildLookupQuery(target.kind, target.value)
     const rows = await getDatabase().unsafe(query.text, query.values as never[])
     if (!rows.length) return fail(response, 404, 'COMPONENT_NOT_FOUND', 'Aucun composant ne correspond à cet identifiant.')
-    if (kind === 'mpn' && rows.length > 1) return fail(response, 409, 'AMBIGUOUS_MPN', 'Plusieurs fabricants utilisent cette référence. Précisez la marque.')
+    if (target.kind === 'mpn' && rows.length > 1) return fail(response, 409, 'AMBIGUOUS_MPN', 'Plusieurs fabricants utilisent cette référence. Précisez la marque.')
     headers(response)
     return response.status(200).json({ data: rows[0] })
   } catch (error) {
