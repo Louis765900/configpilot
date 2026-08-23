@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-16",
+  "generatedAt": "2026-08-23",
   "summary": {
-    "officialCandidates": 222,
-    "collected": 20,
-    "remaining": 202,
+    "officialCandidates": 224,
+    "collected": 40,
+    "remaining": 184,
     "failures": 0,
     "byStatus": {
       "insufficient-metadata": 0,
-      "page-metadata": 12,
+      "page-metadata": 32,
       "structured-product": 8
     }
   },
@@ -156,6 +156,174 @@
       }
     },
     {
+      "candidateId": "candidate-07b660fe48ea1455",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG200-Single-Tower-CPU-Cooler-1851-1700-AM5/2022/16203.shtml",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG200 - DeepCool",
+        "description": "The AG200 is a compact single-tower CPU cooler representing a new generation update from the classic GAMMAXX basic coolers with upgraded appearance and efficiency at 100W heat dissipation power. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG200-Single-Tower-CPU-Cooler-1851-1700-AM5/2022/16203.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ag200"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-0808126616ea1709",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/focus-gx-atx-3-1/",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "FOCUS GX ATX 3.1 v5",
+        "description": "Seasonic FOCUS GX ATX 3.1 power supplies with Gold efficiency, 12V-2×6 connector, and silent operation for next-gen GPUs.",
+        "canonicalUrl": "https://seasonic.com/focus-gx-atx-3-1/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "focus",
+          "gx",
+          "v5",
+          "1",
+          "3"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-0818ce6c5d137893",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK620-Digital-Pro-Cooler-With-Multi-line-Display-1851-1700-AM5/2024/18681.shtml",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AK620 DIGITAL PRO - DeepCool",
+        "description": "The AK DIGITAL air coolers have gone pro with their newest iteration. The AK620 DIGITAL PRO has been upgraded in many aspects, including a multi-data point screen, visual color temperature warnings, and CTT 2.0 heatpipe technology. A very worthy step up in not just aesthetics but cooling performance. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK620-Digital-Pro-Cooler-With-Multi-line-Display-1851-1700-AM5/2024/18681.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "digital",
+          "ak620",
+          "pro"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-082fc5aac6d9134f",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/THETA-15-PWM-Compact-CPU-Cooler-1851-1700/2022/16190.shtml",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "THETA 15 PWM 1700 - DeepCool",
+        "description": "The DeepCool Theta 15 PWM 1700 low-profile CPU cooler provides up to 65W of cooling performance designed for Intel LGA 1851/1700 systems with an aluminum heatsink and a 100x25mm PWM fan. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/THETA-15-PWM-Compact-CPU-Cooler-1851-1700/2022/16190.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "theta",
+          "1700",
+          "pwm",
+          "15"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-0860a5b46c451dc2",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK620-DIGITAL-SE-Performance-CPU-Cooler-With-A-Status-Display/2025/21605.shtml",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AK620 DIGITAL SE - DeepCool",
+        "description": "The era of digital air coolers has arrived, and DeepCool is proud to introduce the AK620 DIGITAL SE. Everything you loved about the AK620, but with a sleek low-profile magnetic status display and ARGB LED strips. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK620-DIGITAL-SE-Performance-CPU-Cooler-With-A-Status-Display/2025/21605.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "digital",
+          "ak620",
+          "se"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-0d32b5639f8a4467",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LQ360-ULTRA-360mm-Dashboard-Display-Liquid-Cooler/2026/20909.shtml",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LQ360 ULTRA - DeepCool",
+        "description": "The LQ360 ULTRA delivers high-performance cooling with low-noise operation, featuring the signature ARGB Halo magnetic pump cover and sleek all-black fans that provide both function and style in modern setups. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LQ360-ULTRA-360mm-Dashboard-Display-Liquid-Cooler/2026/20909.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "lq360",
+          "ultra"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-0ebee05fda6e2d15",
       "sourceId": "fractal-official-index",
       "category": "case",
@@ -218,6 +386,33 @@
       }
     },
     {
+      "candidateId": "candidate-123755d85e6cd8bd",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-PLUS-Dual-Fan-CPU-Cooler-1851-1700-AM5/2022/16123.shtml",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG400 PLUS - DeepCool",
+        "description": "The DeepCool AG400 PLUS is a single tower 120mm CPU cooler that builds upon our legacy for high-quality cooling performance but stripped down for a streamlined and efficient package. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-PLUS-Dual-Fan-CPU-Cooler-1851-1700-AM5/2022/16123.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ag400",
+          "plus"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-12e6205e62d1f2ba",
       "sourceId": "seasonic-official-index",
       "category": "psu",
@@ -237,6 +432,36 @@
         "signals": [
           "prime",
           "px"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-1339afd70e5c0a44",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-DIGITAL-BK-ARGB-IF-Temperature-Display-Cooler-1851-1700-AM5/2024/18597.shtml",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG400 DIGITAL BK ARGB IF - DeepCool",
+        "description": "The era of digital air coolers has arrived, and DeepCool wants to popularize it. Everything you loved about the AG400 BK ARGB, but with a sleek low-profile status display. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-DIGITAL-BK-ARGB-IF-Temperature-Display-Cooler-1851-1700-AM5/2024/18597.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "digital",
+          "ag400",
+          "argb",
+          "bk",
+          "if"
         ]
       },
       "review": {
@@ -392,6 +617,66 @@
       }
     },
     {
+      "candidateId": "candidate-3b035fa99e2cd554",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/viper-steel-ddr4-performance-memory-ram-viper-gaming-by-patriot-memory",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Viper Steel DDR4",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/viper-steel-ddr4-performance-memory-ram-viper-gaming-by-patriot-memory"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "steel",
+          "viper",
+          "ddr4"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-3b5e57185b5f5e47",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/viper-steel-5-Infinite-ddr5-rog-edition-performance-ram",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Viper Steel 5 Infinite RGB DDR5 ROG Edition​",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/viper-steel-5-Infinite-ddr5-rog-edition-performance-ram"
+      },
+      "properties": [],
+      "match": {
+        "score": 0.88,
+        "signals": [
+          "infinite",
+          "edition",
+          "steel",
+          "viper",
+          "ddr5",
+          "rog",
+          "5"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-3fd76bfdbe51d90d",
       "sourceId": "asus-official-index",
       "category": "motherboard",
@@ -445,6 +730,92 @@
           "2024",
           "g12",
           "gm"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-440d44d566b69de4",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/viper-steel5-infinite-ddr5-performance-ram",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Viper Steel 5 Infinite RGB & Non-RGB DDR5 Performance DRAM",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/viper-steel5-infinite-ddr5-performance-ram"
+      },
+      "properties": [],
+      "match": {
+        "score": 0.8,
+        "signals": [
+          "performance",
+          "infinite",
+          "viper",
+          "ddr5"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-4d7199acfa3ebed3",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-premium-ddr4",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Signature Line Premium DDR4",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/signature-line-premium-ddr4"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "signature",
+          "premium",
+          "ddr4",
+          "line"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-53b6d33d8b167a0a",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-core",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Signature Line Core DDR5 SODIMM",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/signature-line-core"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "signature",
+          "core",
+          "line"
         ]
       },
       "review": {
@@ -508,6 +879,62 @@
       }
     },
     {
+      "candidateId": "candidate-5b1651b695433e3c",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/vertex-gx/",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "VERTEX GX ATX 3.1",
+        "description": "Seasonic VERTEX GX PSU combines gold-rated efficiency with robust performance for a superior computing experience. Ideal for gamers and professionals.",
+        "canonicalUrl": "https://seasonic.com/vertex-gx/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "vertex",
+          "gx",
+          "1",
+          "3"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-6004c4c3145f3910",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/b12-bm/",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "B12 BM",
+        "description": "Seasonic B12 BM PSU features a bronze efficiency rating and a semi-modular design, provides stable power delivery and convenient cable management.",
+        "canonicalUrl": "https://seasonic.com/b12-bm/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "b12",
+          "bm"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-65dd4b0959acbe99",
       "sourceId": "asus-official-index",
       "category": "motherboard",
@@ -533,6 +960,148 @@
           "wifi",
           "z890",
           "p"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-6878929dcdd64bb0",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/prime-tx-1600-noctua-edition/",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "PRIME TX-1600 Noctua Edition",
+        "description": "One of our best power supplies SeaSonic PRIME TX-1600 Noctua Edition",
+        "canonicalUrl": "https://seasonic.com/product/prime-tx-1600-noctua-edition/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "edition",
+          "noctua",
+          "prime",
+          "1600",
+          "tx"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-717011baa28a91b4",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-ddr4",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Signature Line DDR4",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/signature-line-ddr4"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "signature",
+          "ddr4",
+          "line"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-71aab43b86aafb9a",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/prime-enterprise/",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "PRIME ENTERPRISE",
+        "description": "",
+        "canonicalUrl": "https://seasonic.com/prime-enterprise/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "enterprise",
+          "prime"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-72afd3f33e9b7f95",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/atx3-focus-gx-white/",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "FOCUS GX WHITE ATX 3.0",
+        "description": "Seasonic FOCUS GX WHITE ATX 3.0 PSU combines white aesthetics with top-tier efficiency and performance. For gaming rigs and professional workstations.",
+        "canonicalUrl": "https://seasonic.com/atx3-focus-gx-white/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "focus",
+          "white",
+          "gx",
+          "0",
+          "3"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-77128192039f2c2a",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/xtreme5-ddr5-performance-ram",
+      "checkedAt": "2026-08-23",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Viper Xtreme 5 RGB & Non-RGB DDR5 Performance DRAM",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/xtreme5-ddr5-performance-ram"
+      },
+      "properties": [],
+      "match": {
+        "score": 0.67,
+        "signals": [
+          "performance",
+          "ddr5"
         ]
       },
       "review": {
