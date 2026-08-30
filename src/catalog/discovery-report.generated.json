@@ -1,22 +1,29 @@
 {
   "version": 1,
-  "generatedAt": "2026-08-23",
+  "generatedAt": "2026-08-30",
   "collection": {
-    "date": "2026-08-23",
-    "status": "success",
+    "date": "2026-08-30",
+    "status": "partial",
     "queriesAttempted": 89,
-    "queriesCompleted": 89,
-    "pagesRequested": 93,
-    "requestsSucceeded": 93,
+    "queriesCompleted": 83,
+    "pagesRequested": 89,
+    "requestsSucceeded": 83,
     "budgetExhausted": false,
     "manufacturerIndexesAttempted": 5,
     "manufacturerIndexesCompleted": 5,
-    "manufacturerPagesRequested": 18,
-    "manufacturerRequestsSucceeded": 18,
+    "manufacturerPagesRequested": 6,
+    "manufacturerRequestsSucceeded": 6,
     "manufacturerRobotsRequested": 5,
     "manufacturerRobotsSucceeded": 4,
     "manufacturerBudgetExhausted": false,
-    "errors": []
+    "errors": [
+      "wikidata:cpu:Intel:RuntimeError",
+      "wikidata:cpu:AMD:RuntimeError",
+      "wikidata:gpu:NVIDIA:RuntimeError",
+      "wikidata:gpu:AMD:RuntimeError",
+      "wikidata:gpu:Intel:RuntimeError",
+      "wikidata:gpu:ASUS:RuntimeError"
+    ]
   },
   "policy": {
     "publishAutomatically": false,
@@ -34,8 +41,8 @@
     "registeredBrands": 55,
     "registeredCategories": 9,
     "categoriesWithCandidates": 9,
-    "candidates": 532,
-    "officialCandidates": 224,
+    "candidates": 535,
+    "officialCandidates": 227,
     "hardwareIdentifiers": 290,
     "rejected": 2
   },
@@ -58,8 +65,8 @@
       "observedBrands": [
         "Fractal Design"
       ],
-      "candidates": 3,
-      "officialCandidates": 3,
+      "candidates": 5,
+      "officialCandidates": 5,
       "promotable": 0,
       "hardwareIdentifiers": 0,
       "rejected": 0
@@ -203,8 +210,8 @@
       "observedBrands": [
         "Seasonic"
       ],
-      "candidates": 33,
-      "officialCandidates": 33,
+      "candidates": 34,
+      "officialCandidates": 34,
       "promotable": 0,
       "hardwareIdentifiers": 0,
       "rejected": 0
