@@ -8549,6 +8549,27 @@
       "promotionBlocker": null
     },
     {
+      "id": "candidate-6892f6ef58af2d7b",
+      "sourceId": "wikidata",
+      "externalId": "Q133163416",
+      "kind": "product-candidate",
+      "label": "GeForce RTX 2070 Super",
+      "description": "graphics card with TU104 (09.07.2019)",
+      "url": "https://www.wikidata.org/wiki/Q133163416",
+      "brand": "NVIDIA",
+      "category": "gpu",
+      "query": "NVIDIA GeForce",
+      "confidence": "Faible",
+      "score": 0.45,
+      "duplicate": false,
+      "status": "À vérifier",
+      "firstSeenAt": "2026-09-06",
+      "triage": "retail-product",
+      "triageReason": "Le nom contient une référence de modèle commercial explicite.",
+      "promotable": true,
+      "promotionBlocker": null
+    },
+    {
       "id": "candidate-42f3b43e521c6de5",
       "sourceId": "wikidata",
       "externalId": "Q133163489",

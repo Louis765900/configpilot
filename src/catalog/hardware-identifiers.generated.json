@@ -2694,7 +2694,7 @@
       "sourceId": "pci-ids",
       "externalId": "1002:13c0",
       "kind": "hardware-identifier",
-      "label": "AMD Granite Ridge [Radeon Graphics]",
+      "label": "AMD Granite Ridge [Radeon 610M]",
       "description": "Identifiant matériel PCI 1002:13c0; modèle commercial à confirmer.",
       "url": "https://pci-ids.ucw.cz/read/PC/1002/13c0",
       "brand": "AMD",
