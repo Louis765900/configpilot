@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-06",
+  "generatedAt": "2026-09-13",
   "summary": {
-    "officialCandidates": 227,
-    "collected": 80,
-    "remaining": 147,
+    "officialCandidates": 228,
+    "collected": 100,
+    "remaining": 128,
     "failures": 0,
     "byStatus": {
       "insufficient-metadata": 0,
-      "page-metadata": 70,
+      "page-metadata": 90,
       "structured-product": 10
     }
   },
@@ -964,6 +964,196 @@
           "1700",
           "pwm",
           "9"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-288fcaca10c9747e",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/GAMMAXX-AG400-Single-Tower-CPU-Cooler-1851-1700-AM5/2024/15898.shtml",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG400 - DeepCool",
+        "description": "The DeepCool AG400 is a single tower 120mm CPU cooler that builds upon our legacy for high-quality cooling performance but stripped down for a streamlined and efficient package. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/GAMMAXX-AG400-Single-Tower-CPU-Cooler-1851-1700-AM5/2024/15898.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ag400"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-28cc2316ed643a63",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/Gammaxx-400-White-CPU-Cooler/2021/170.shtml",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "GAMMAXX 400 WH - DeepCool",
+        "description": "The GAMMAXX 400 White is a highly recommended CPU cooler for its excellent thermal performance and clean white aesthetics. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/Gammaxx-400-White-CPU-Cooler/2021/170.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 0.67,
+        "signals": [
+          "gammaxx",
+          "400"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-2a0b79bd885e7769",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG500-G2-ARGB-Superior-Performance-5-Heatpipe-Single-Tower-CPU-Cooler/2026/22909.shtml",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG500 G2 ARGB - DeepCool",
+        "description": "The AG500 G2 ARGB raises the bar for single-tower air cooling with a second-generation upgrade that delivers enhanced performance and a bold new look. Featuring five heat pipes embedded in a dense single-tower heatsink and paired with a finely tuned 120mm ARGB PWM fan for seriously powerful airflow and thermal transfer. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG500-G2-ARGB-Superior-Performance-5-Heatpipe-Single-Tower-CPU-Cooler/2026/22909.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ag500",
+          "argb",
+          "g2"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-2aa1b3f6a1b9aed5",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/MYSTIQUE-240-5th-Gen-Liquid-Cooler-with-LCD-1851-1700-AM5/2024/18058.shtml",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "MYSTIQUE 240 - DeepCool",
+        "description": "The MYSTIQUE series is DeepCool's new line of liquid coolers with highly sought-after customizable LCD screens. Bring your creative style to life with customized images and animated gifs on the brilliant 2.8",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/MYSTIQUE-240-5th-Gen-Liquid-Cooler-with-LCD-1851-1700-AM5/2024/18058.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "mystique",
+          "240"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-2c935131ddbc21df",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/ARCHER-BIGPRO-V2-Top-Flow-CPU-Cooler-1851-1700-AM5/2024/18925.shtml",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "ARCHER BIGPRO V2 - DeepCool",
+        "description": "The ARCHER BIGPRO V2 is a top-flow cooler that provides 125W of cooling at a great price point. Its easy-to-mount hardware and compact size make it an easy choice for your compact workstations and entry-level systems. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/ARCHER-BIGPRO-V2-Top-Flow-CPU-Cooler-1851-1700-AM5/2024/18925.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "archer",
+          "bigpro",
+          "v2"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-300fed0181d72858",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AN600-VC-67mm-Low-Profile-Cooler-with-Vapor-Chamber-2.0/2026/23360.shtml",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AN600 VC - DeepCool",
+        "description": "The AN600 VC is a premium low-profile CPU cooler built for high-performance ITX systems. Equipped with the second generation of vapor chamber base, it delivers up to 220W of cooling capacity from just a 67mm-tall profile. The optimized overhanging design also provides active cooling for memory modules up to 40mm tall while ensuring excellent compatibility with ITX motherboards. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-qu",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AN600-VC-67mm-Low-Profile-Cooler-with-Vapor-Chamber-2.0/2026/23360.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "an600",
+          "vc"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-305b752c26f350bd",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS520-SE-Liquid-CPU-Cooler-1851-1700-AM5/2022/16453.shtml",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LS520 SE - DeepCool",
+        "description": "The DeepCool LS520 SE is an all-in-one liquid CPU cooler that provides reliable high-performance cooling built on a new water pump design for optimal results. Color coordinate to the rest of your system with a big and bright ARGB infinity mirror cover on the CPU water block and included ARGB fans. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS520-SE-Liquid-CPU-Cooler-1851-1700-AM5/2022/16453.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ls520",
+          "se"
         ]
       },
       "review": {
@@ -2110,6 +2300,63 @@
       }
     },
     {
+      "candidateId": "candidate-b0b8f74a76e8fecc",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/vertex-sakura/",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "VERTEX SAKURA ATX 3.1",
+        "description": "Seasonic VERTEX SAKURA PSU features stunning aesthetics and gold-rated efficiency. Power with exceptional stability and quiet operation.",
+        "canonicalUrl": "https://seasonic.com/vertex-sakura/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "sakura",
+          "vertex",
+          "1",
+          "3"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-b8fe6163e15ed44f",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/focus-sgx-2021/",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "FOCUS SGX (2021)",
+        "description": "Seasonic FOCUS SGX (2021) PSU designed for compact builds requiring high efficiency. Fully modular PSU is perfect for mini-ITX and micro-ATX systems.",
+        "canonicalUrl": "https://seasonic.com/focus-sgx-2021/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "focus",
+          "2021",
+          "sgx"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-bd3f3477534cdd82",
       "sourceId": "patriot-official-index",
       "category": "ram",
@@ -2130,6 +2377,34 @@
           "signature",
           "premium",
           "line"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-c2086c2be7fc0d30",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/focus-gx/",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "FOCUS GX-750",
+        "description": "Seasonic FOCUS GX PSU, boasts gold-rated efficiency for optimal energy conservation and performance stability. Fully modular PSU for professional setups.",
+        "canonicalUrl": "https://seasonic.com/focus-gx/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "focus",
+          "750",
+          "gx"
         ]
       },
       "review": {
@@ -2224,6 +2499,65 @@
       }
     },
     {
+      "candidateId": "candidate-d06533cfc30af64b",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/core-bc/",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "CORE BC ATX 3.1",
+        "description": "Discover the Seasonic CORE BC Series — compact, quiet, and efficient 80 PLUS Bronze ATX 3.1 power supplies designed for reliable everyday performance.",
+        "canonicalUrl": "https://seasonic.com/core-bc/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "core",
+          "bc",
+          "1",
+          "3"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-d6d1ea182dd26eb5",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/focus-gx-white-atx-3/",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "FOCUS GX White ATX 3.1",
+        "description": "The Seasonic FOCUS GX White Series complies with the ATX 3.1 and PCIe 5.1 standards. It offers s a complete range of power supplies from 750W to 1000W.",
+        "canonicalUrl": "https://seasonic.com/focus-gx-white-atx-3/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "focus",
+          "white",
+          "gx",
+          "1",
+          "3"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-d717983af9dfdb97",
       "sourceId": "patriot-official-index",
       "category": "ram",
@@ -2245,6 +2579,34 @@
           "ddr5",
           "line",
           "amd"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-d8a8fcf605d0799a",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/prime-fanless-tx/",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "PRIME FANLESS TX",
+        "description": "Seasonic PRIME FANLESS TX completely fanless PSU delivers exceptional performance without any noise. Embrace the silence with advanced technology.",
+        "canonicalUrl": "https://seasonic.com/prime-fanless-tx/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "fanless",
+          "prime",
+          "tx"
         ]
       },
       "review": {
@@ -2301,6 +2663,208 @@
         "signals": [
           "performance",
           "ddr5"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-df348b5f1b4f1848",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/viper-elite-ii-ddr4-performance-memory-ram-viper-gaming-by-patriot-memory-gamercertified",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Viper Elite II DDR4",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/viper-elite-ii-ddr4-performance-memory-ram-viper-gaming-by-patriot-memory-gamercertified"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "elite",
+          "viper",
+          "ddr4",
+          "ii"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-e08d59d95174166f",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/viper-venom-amd-series-ddr5-performance-ram",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Viper Venom RGB & Non-RGB DDR5 AMD Series",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/viper-venom-amd-series-ddr5-performance-ram"
+      },
+      "properties": [],
+      "match": {
+        "score": 0.8,
+        "signals": [
+          "venom",
+          "viper",
+          "ddr5",
+          "amd"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-e18fcda32f59260e",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-rdimm-ddr5",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Signature Line RDIMM DDR5",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/signature-line-rdimm-ddr5"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "signature",
+          "rdimm",
+          "ddr5",
+          "line"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-ea410fb5281a51bd",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/viper-rgb-ddr4-performance-memory-ram-viper-gaming-by-patriot-memory",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Viper RGB DDR4 Performance Memory DRAM",
+        "description": "Patriot’s Viper RGB Series memory modules were designed and built for extreme performance. They have full compatibility with the latest Intel and AMD platforms to deliver a seamless connection to your build.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/viper-rgb-ddr4-performance-memory-ram-viper-gaming-by-patriot-memory"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "performance",
+          "viper",
+          "ddr4",
+          "rgb"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-eb44cf619ec880f7",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/viper-steel-rgb-ddr4-performance-ram",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Viper STEEL RGB DDR4 PERFORMANCE MEMORY DRAM",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/viper-steel-rgb-ddr4-performance-ram"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "performance",
+          "steel",
+          "viper",
+          "ddr4",
+          "rgb"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-f3bd798a56032851",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/viper-3-ddr3-performance-memory-ram-viper-gaming-by-patriot-memory",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Viper 3 DDR3",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/viper-3-ddr3-performance-memory-ram-viper-gaming-by-patriot-memory"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "viper",
+          "ddr3",
+          "3"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-f8abed13905c63b7",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-ddr2",
+      "checkedAt": "2026-09-13",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Signature Line DDR2",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/signature-line-ddr2"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "signature",
+          "ddr2",
+          "line"
         ]
       },
       "review": {

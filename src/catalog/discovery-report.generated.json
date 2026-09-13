@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-06",
+  "generatedAt": "2026-09-13",
   "collection": {
-    "date": "2026-09-06",
+    "date": "2026-09-13",
     "status": "success",
     "queriesAttempted": 89,
     "queriesCompleted": 89,
@@ -34,8 +34,8 @@
     "registeredBrands": 55,
     "registeredCategories": 9,
     "categoriesWithCandidates": 9,
-    "candidates": 536,
-    "officialCandidates": 227,
+    "candidates": 537,
+    "officialCandidates": 228,
     "hardwareIdentifiers": 290,
     "rejected": 2
   },
@@ -81,8 +81,8 @@
       "observedBrands": [
         "DeepCool"
       ],
-      "candidates": 152,
-      "officialCandidates": 152,
+      "candidates": 153,
+      "officialCandidates": 153,
       "promotable": 0,
       "hardwareIdentifiers": 0,
       "rejected": 0

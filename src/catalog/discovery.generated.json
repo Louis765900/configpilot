@@ -1556,6 +1556,27 @@
       "promotionBlocker": "La nature commerciale du résultat ne peut pas être établie automatiquement."
     },
     {
+      "id": "candidate-300fed0181d72858",
+      "sourceId": "deepcool-official-index",
+      "externalId": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AN600-VC-67mm-Low-Profile-Cooler-with-Vapor-Chamber-2.0/2026/23360.shtml",
+      "kind": "product-candidate",
+      "label": "DeepCool AN600 VC 67mm Low Profile Cooler with Vapor Chamber 2.0",
+      "description": "Référence repérée dans l’index officiel DeepCool; caractéristiques à contrôler sur la fiche constructeur.",
+      "url": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AN600-VC-67mm-Low-Profile-Cooler-with-Vapor-Chamber-2.0/2026/23360.shtml",
+      "brand": "DeepCool",
+      "category": "cooling",
+      "query": "deepcool-cooling",
+      "confidence": "Moyenne",
+      "score": 0.9,
+      "duplicate": false,
+      "status": "À vérifier",
+      "firstSeenAt": "2026-09-13",
+      "triage": "needs-review",
+      "triageReason": "La nature commerciale du résultat ne peut pas être établie automatiquement.",
+      "promotable": false,
+      "promotionBlocker": "La nature commerciale du résultat ne peut pas être établie automatiquement."
+    },
+    {
       "id": "candidate-2c935131ddbc21df",
       "sourceId": "deepcool-official-index",
       "externalId": "https://global.deepcool.com/products/Cooling/cpuaircoolers/ARCHER-BIGPRO-V2-Top-Flow-CPU-Cooler-1851-1700-AM5/2024/18925.shtml",
