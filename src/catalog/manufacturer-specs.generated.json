@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-13",
+  "generatedAt": "2026-09-20",
   "policy": {
     "pageBudget": 20,
     "fieldLimit": 80,
@@ -14,12 +14,12 @@
     "publishAutomatically": false
   },
   "summary": {
-    "eligibleCandidates": 100,
-    "collected": 100,
+    "eligibleCandidates": 120,
+    "collected": 120,
     "remaining": 0,
     "failures": 0,
-    "rawValues": 1250,
-    "normalizedValues": 203,
+    "rawValues": 1706,
+    "normalizedValues": 256,
     "byCategory": {
       "motherboard": {
         "records": 5,
@@ -30,22 +30,22 @@
         "normalizedValues": 2
       },
       "psu": {
-        "records": 28,
-        "normalizedValues": 81
+        "records": 34,
+        "normalizedValues": 99
       },
       "case": {
         "records": 5,
         "normalizedValues": 17
       },
       "cooling": {
-        "records": 31,
-        "normalizedValues": 94
+        "records": 45,
+        "normalizedValues": 129
       }
     },
     "byConfidence": {
-      "high": 64,
-      "medium": 108,
-      "low": 31
+      "high": 76,
+      "medium": 139,
+      "low": 41
     }
   },
   "lastRun": {
@@ -53,8 +53,8 @@
     "collected": 20,
     "limit": 20,
     "mode": "network",
-    "rawValues": 260,
-    "normalizedValues": 37,
+    "rawValues": 456,
+    "normalizedValues": 53,
     "errors": []
   },
   "records": [
@@ -6248,6 +6248,736 @@
       }
     },
     {
+      "candidateId": "candidate-34b467bb73c18305",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG600-ARGB-Superior-Performance-6-Heatpipe-Single-Tower-CPU-Cooler/2026/22803.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 22,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "Product Dimensions",
+          "value": "125×92×150 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatsink Dimensions",
+          "value": "120×92×149 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Net Weight",
+          "value": "696 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatpipe",
+          "value": "Ø6 mm×6 pcs",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~2200±10% RPM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Motor",
+          "value": "1-phase，4-slot，4-pole",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "68.85 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "2.10 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤30.93 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Hydro Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.18 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "2.16 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "Addressable RGB LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Connector",
+          "value": "3-pin(+5V-D-G)",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Rated Voltage",
+          "value": "5 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Power Consumption",
+          "value": "1.70 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412730286",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-AG600-BKAMMG2-G",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The AG600 ARGB is a single tower 120mm CPU cooler that builds upon our legacy for high-quality cooling performance but stripped down for a streamlined and efficient package. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerHeight",
+          "label": "Hauteur",
+          "rawField": "Product Dimensions",
+          "rawValue": "125×92×150 mm(L×W×H)",
+          "value": 150,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG600-ARGB-Superior-Performance-6-Heatpipe-Single-Tower-CPU-Cooler/2026/22803.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG600-ARGB-Superior-Performance-6-Heatpipe-Single-Tower-CPU-Cooler/2026/22803.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "dimensions",
+          "label": "Dimensions",
+          "rawField": "Product Dimensions",
+          "rawValue": "125×92×150 mm(L×W×H)",
+          "value": "125 × 92 × 150 mm",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG600-ARGB-Superior-Performance-6-Heatpipe-Single-Tower-CPU-Cooler/2026/22803.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "coolerType",
+        "sockets",
+        "radiatorSize",
+        "fanCount"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-381834c4c9b9d76d",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE300-120mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/15773.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 25,
+        "normalized": 2
+      },
+      "rawFields": [
+        {
+          "field": "Net Weight",
+          "value": "945 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Dimensions",
+          "value": "159×120×27 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Material",
+          "value": "Aluminum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Tube length",
+          "value": "315 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Dimensions",
+          "value": "91×80×52 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Speed",
+          "value": "2400 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Noise",
+          "value": "17.8 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Connector",
+          "value": "3-pin",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Current",
+          "value": "0.3 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Power Consumption",
+          "value": "3.6 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~2250RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "85.85 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "3.27 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤32.9 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Hydro Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.34 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "4.08 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "6-Color LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412727545",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-LE300-BKLNMC-G-1",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The DeepCool LE300 all-in-one liquid CPU cooler offers efficient cooling, bright LED lighting, and Anti-Leak Technology for a reliable upgrade in performance. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "The DeepCool LE300 all-in-one liquid CPU cooler offers efficient cooling, bright LED lighting, and Anti-Leak Technology for a reliable upgrade in performance. - DeepCool was founded with the mission of providing professional, innovative, hi",
+          "value": "AIO",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE300-120mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/15773.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE300-120mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/15773.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "coolerHeight",
+        "fanCount",
+        "dimensions"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-3957ffe760fface6",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LD240-Liquid-Cooler-with-a-Multi-Line-Display-1851-1700-AM5/2024/18030.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 28,
+        "normalized": 2
+      },
+      "rawFields": [
+        {
+          "field": "Net Weight",
+          "value": "1476 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Dimensions",
+          "value": "282×120×27 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Material",
+          "value": "Aluminum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Tube length",
+          "value": "410 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Dimensions",
+          "value": "89×78×53 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Speed",
+          "value": "3400 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Connector",
+          "value": "3-pin",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Current",
+          "value": "0.35 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Power Consumption",
+          "value": "4.2 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "600~2400 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "72.04 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "3.48 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤38.71 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Hydro Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.22 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "2.64 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "Addressable RGB LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Connector",
+          "value": "3-pin(+5V-D-G)",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Rated Voltage",
+          "value": "5 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Power Consumption",
+          "value": "2.55 W（PUMP）/ 2.1 W（FAN×2）",
+          "method": "spec-table"
+        },
+        {
+          "field": "Display Type",
+          "value": "LED Digital Display",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412728719",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-LD240-BKMSN-G-1",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The new LD240 is a jump into the next evolution of DeepCool liquid coolers. Everything you love from DeepCool AIOs of the previous generation, but with the inclusion of a multi-line CPU status screen and a brand new GEN 5 PRO pump! Clear up precious room on your desktop by moving the CPU monitoring software off your screen and onto the pump in your computer tower. - DeepCool was founded with the m",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "The new LD240 is a jump into the next evolution of DeepCool liquid coolers. Everything you love from DeepCool AIOs of the previous generation, but with the inclusion of a multi-line CPU status screen and a brand new GEN 5 PRO pump! Clear up",
+          "value": "AIO",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LD240-Liquid-Cooler-with-a-Multi-Line-Display-1851-1700-AM5/2024/18030.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LD240-Liquid-Cooler-with-a-Multi-Line-Display-1851-1700-AM5/2024/18030.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "coolerHeight",
+        "fanCount",
+        "dimensions"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-3990a409714f08cd",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/Castle-240R-Liquid-CPU-Cooler/2021/118.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 28,
+        "normalized": 2
+      },
+      "rawFields": [
+        {
+          "field": "Net Weight",
+          "value": "1298 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Dimensions",
+          "value": "282×120×27 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Material",
+          "value": "Aluminum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Tube length",
+          "value": "380 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Dimensions",
+          "value": "86 ×75×65 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Speed",
+          "value": "2550 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Noise",
+          "value": "17.8 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Connector",
+          "value": "3-pin",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Current",
+          "value": "0.2 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Power Consumption",
+          "value": "2.4 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~1800 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "69.34 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "2.42 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤30 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Hydro Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.17 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "2.04 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "RGB LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Connector",
+          "value": "4-pin(+12V-G-R-B)",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Power Consumption",
+          "value": "1.56 W（PUMP） / 2.88 W（FAN×2）",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412727156",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "DP-GS-H12-CSL240R",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The CASTLE 240R is an all-in-one CPU liquid cooler made for better cooling performance with a clean styled RGB pump head and fan. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "The CASTLE 240R is an all-in-one CPU liquid cooler made for better cooling performance with a clean styled RGB pump head and fan. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware an",
+          "value": "AIO",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/Castle-240R-Liquid-CPU-Cooler/2021/118.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/Castle-240R-Liquid-CPU-Cooler/2021/118.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "coolerHeight",
+        "fanCount",
+        "dimensions"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
       "candidateId": "candidate-3b035fa99e2cd554",
       "sourceId": "patriot-official-index",
       "category": "ram",
@@ -6316,6 +7046,518 @@
       }
     },
     {
+      "candidateId": "candidate-3b6429f77c3e2096",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE360-PRO-High-Performance-360mm-Liquid-CPU-Cooler/2025/21949.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 27,
+        "normalized": 1
+      },
+      "rawFields": [
+        {
+          "field": "Net Weight",
+          "value": "1817 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Dimensions",
+          "value": "402×120×27 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Material",
+          "value": "Aluminum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Tube length",
+          "value": "410mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Dimensions",
+          "value": "91×78×65 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Speed",
+          "value": "2500~3400 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Current",
+          "value": "0.29 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Power Consumption",
+          "value": "3.48 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "400~2400 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "66.23 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "3.27 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤36.07 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Hydro Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.18 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "2.16 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "Addressable RGB LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Connector",
+          "value": "3-pin(+5V-D-G)",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Rated Voltage",
+          "value": "5 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Power Consumption",
+          "value": "2.8 W（PUMP）/ 10.5W（FAN×3）",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412729846",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-LE360PRO-BKAMMC-G-1",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The LE360 PRO brings a vibrant update to DeepCool’s LE V2 Series with vivid FL12 SE fans, providing reliable cooling and bright ARGB lighting. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE360-PRO-High-Performance-360mm-Liquid-CPU-Cooler/2025/21949.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "coolerType",
+        "sockets",
+        "radiatorSize",
+        "coolerHeight",
+        "fanCount",
+        "dimensions"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-3e153708652d9694",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LT360-ARGB-360mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/18684.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 27,
+        "normalized": 2
+      },
+      "rawFields": [
+        {
+          "field": "Net Weight",
+          "value": "1856 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Dimensions",
+          "value": "402×120×27 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Material",
+          "value": "Aluminum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Tube length",
+          "value": "410 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Dimensions",
+          "value": "94×80×68 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Speed",
+          "value": "3400 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Connector",
+          "value": "3-pin",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Current",
+          "value": "0.35 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Power Consumption",
+          "value": "4.2 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "600~2400 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "72.04 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "3.48 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤38.71 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Hydro Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.22 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "2.64 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "Addressable RGB LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Connector",
+          "value": "3-pin(+5V-D-G)",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Rated Voltage",
+          "value": "5 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Power Consumption",
+          "value": "3.15 W（PUMP）/ 3.15 W（FAN×3）",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412728917",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-LT360-BKAMNC-G-1",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The LT360 ARGB is a high-performance liquid CPU cooler that has been upgraded to DeepCool's chart-topping 5th generation pump and provides strong heat dissipation power with a 360mm radiator, three precision-tuned FD12 ARGB fans, and a multidimensional infinity mirror top cap, all presented in a clean design. - DeepCool was founded with the mission of providing professional, innovative, high-perfo",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "The LT360 ARGB is a high-performance liquid CPU cooler that has been upgraded to DeepCool's chart-topping 5th generation pump and provides strong heat dissipation power with a 360mm radiator, three precision-tuned FD12 ARGB fans, and a mult",
+          "value": "AIO",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LT360-ARGB-360mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/18684.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LT360-ARGB-360mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/18684.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "coolerHeight",
+        "fanCount",
+        "dimensions"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-3f037b8b41867e14",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/UL551-ARGB-CPU-Cooler-1700/2022/16188.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 20,
+        "normalized": 2
+      },
+      "rawFields": [
+        {
+          "field": "Product Dimensions",
+          "value": "136×136×71 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatsink Dimensions",
+          "value": "90×90×36 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Net Weight",
+          "value": "412 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "Φ 136×27 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~1800 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "44.31 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "1.65 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤26.8 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Hydro Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.1 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "1.2 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "Addressable RGB LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Connector",
+          "value": "3-pin(+5V-D-G)",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Rated Voltage",
+          "value": "5 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Power Consumption",
+          "value": "2.2 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412727729",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-UL551-BKAMAB-G-17",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The DeepCool UL551 1700 ARGB CPU Cooler is an efficient top flow cooling solution for INTEL sockets equipped with a high performance 136mm fan and an ARGB LED ring with motherboard sync support. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerHeight",
+          "label": "Hauteur",
+          "rawField": "Product Dimensions",
+          "rawValue": "136×136×71 mm(L×W×H)",
+          "value": 71,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/UL551-ARGB-CPU-Cooler-1700/2022/16188.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "dimensions",
+          "label": "Dimensions",
+          "rawField": "Product Dimensions",
+          "rawValue": "136×136×71 mm(L×W×H)",
+          "value": "136 × 136 × 71 mm",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/UL551-ARGB-CPU-Cooler-1700/2022/16188.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "coolerType",
+        "sockets",
+        "radiatorSize",
+        "fanCount",
+        "fanSize"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
       "candidateId": "candidate-3fd76bfdbe51d90d",
       "sourceId": "asus-official-index",
       "category": "motherboard",
@@ -6366,6 +7608,382 @@
         "memorySlots",
         "pcie",
         "wifi"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-417e449fe469808c",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-ZERO-DARK-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16396.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 21,
+        "normalized": 4
+      },
+      "rawFields": [
+        {
+          "field": "Product Dimensions",
+          "value": "127×117×158 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatsink Dimensions",
+          "value": "127×90×158 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Net Weight",
+          "value": "1040 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatpipe",
+          "value": "Ø6 mm×5 pcs",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~1850 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "68.99 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "2.19 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤31.5 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed (with LSP)",
+          "value": "500~1550 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow (with LSP)",
+          "value": "52.24 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure (with LSP)",
+          "value": "1.2 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise (with LSP)",
+          "value": "≤25.9 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Fluid Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.12 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "1.44 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412727972",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-AK500-BKNNMT-G-1",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The DeepCool AK500 ZERO DARK is a high-performance single tower CPU cooler that maximizes cooling potential with a large heat sink, five advanced heat pipes, and a highly efficient 120mm FDB fan. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "The DeepCool AK500 ZERO DARK is a high-performance single tower CPU cooler that maximizes cooling potential with a large heat sink, five advanced heat pipes, and a highly efficient 120mm FDB fan. - DeepCool was founded with the mission of p",
+          "value": "Air",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-ZERO-DARK-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16396.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "coolerHeight",
+          "label": "Hauteur",
+          "rawField": "Product Dimensions",
+          "rawValue": "127×117×158 mm(L×W×H)",
+          "value": 158,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-ZERO-DARK-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16396.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-ZERO-DARK-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16396.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "dimensions",
+          "label": "Dimensions",
+          "rawField": "Product Dimensions",
+          "rawValue": "127×117×158 mm(L×W×H)",
+          "value": "127 × 117 × 158 mm",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-ZERO-DARK-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16396.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "fanCount"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-428cf47a821248cf",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-DIGITAL-CPU-Cooler-With-Status-Display-1851-1700-AM5/2023/17236.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 25,
+        "normalized": 4
+      },
+      "rawFields": [
+        {
+          "field": "Product Dimensions",
+          "value": "127×117×160 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatsink Dimensions",
+          "value": "127×92×156 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Net Weight",
+          "value": "1291 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatpipe",
+          "value": "Ø6 mm×5 pcs",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~1850 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "68.99 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "2.19 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤28 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed (with LSP)",
+          "value": "500~1550 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow (with LSP)",
+          "value": "52.24 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure (with LSP)",
+          "value": "1.2 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise (with LSP)",
+          "value": "≤25.9 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Fluid Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.12 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "1.44 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "Addressable RGB LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Connector",
+          "value": "3-pin(+5V-D-G) and 9-pin USB 2.0",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Rated Voltage",
+          "value": "5 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Power Consumption",
+          "value": "4.5 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412728269",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-AK500-BKADMN-G",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The era of digital air coolers has arrived, and DeepCool is proud to introduce the AK500 DIGITAL. Everything you loved about the AK500 ZERO DARK, but with a sleek magnetic status display and ARGB LED strips. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "The era of digital air coolers has arrived, and DeepCool is proud to introduce the AK500 DIGITAL. Everything you loved about the AK500 ZERO DARK, but with a sleek magnetic status display and ARGB LED strips. - DeepCool was founded with the ",
+          "value": "Air",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-DIGITAL-CPU-Cooler-With-Status-Display-1851-1700-AM5/2023/17236.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "coolerHeight",
+          "label": "Hauteur",
+          "rawField": "Product Dimensions",
+          "rawValue": "127×117×160 mm(L×W×H)",
+          "value": 160,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-DIGITAL-CPU-Cooler-With-Status-Display-1851-1700-AM5/2023/17236.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-DIGITAL-CPU-Cooler-With-Status-Display-1851-1700-AM5/2023/17236.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "dimensions",
+          "label": "Dimensions",
+          "rawField": "Product Dimensions",
+          "rawValue": "127×117×160 mm(L×W×H)",
+          "value": "127 × 117 × 160 mm",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-DIGITAL-CPU-Cooler-With-Status-Display-1851-1700-AM5/2023/17236.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "fanCount"
       ],
       "review": {
         "status": "pending",
@@ -6537,6 +8155,934 @@
         "xmp",
         "expo",
         "ecc"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-4457df29a439e189",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16040.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 21,
+        "normalized": 4
+      },
+      "rawFields": [
+        {
+          "field": "Product Dimensions",
+          "value": "127×117×158 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatsink Dimensions",
+          "value": "127×90×158 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Net Weight",
+          "value": "1040 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatpipe",
+          "value": "Ø6 mm×5 pcs",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~1850 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "68.99 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "2.19 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤31.5 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed (with LSP)",
+          "value": "500~1550 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow (with LSP)",
+          "value": "52.24 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure (with LSP)",
+          "value": "1.2 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise (with LSP)",
+          "value": "≤25.9 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Fluid Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.12 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "1.44 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412727637",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-AK500-BKNNMT-G",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The DeepCool AK500 is a high-performance single tower CPU cooler that maximizes cooling potential with a large heat sink, five advanced heat pipes, and a highly efficient 120mm FDB fan. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "The DeepCool AK500 is a high-performance single tower CPU cooler that maximizes cooling potential with a large heat sink, five advanced heat pipes, and a highly efficient 120mm FDB fan. - DeepCool was founded with the mission of providing p",
+          "value": "Air",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16040.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "coolerHeight",
+          "label": "Hauteur",
+          "rawField": "Product Dimensions",
+          "rawValue": "127×117×158 mm(L×W×H)",
+          "value": 158,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16040.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16040.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "dimensions",
+          "label": "Dimensions",
+          "rawField": "Product Dimensions",
+          "rawValue": "127×117×158 mm(L×W×H)",
+          "value": "127 × 117 × 158 mm",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16040.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "fanCount"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-47bacd0c1cf3ca0b",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE500-Marrs-240mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/15780.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 25,
+        "normalized": 2
+      },
+      "rawFields": [
+        {
+          "field": "Net Weight",
+          "value": "1238 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Dimensions",
+          "value": "282×120×27 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Material",
+          "value": "Aluminum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Tube length",
+          "value": "415 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Dimensions",
+          "value": "91×80×52 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Speed",
+          "value": "2400 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Noise",
+          "value": "17.8 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Connector",
+          "value": "3-pin",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Current",
+          "value": "0.27 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Power Consumption",
+          "value": "3.24 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~2250RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "85.85 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "3.27 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤32.9 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Hydro Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.31A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "3.72 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "Marrs Green LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412727576",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-LE500-BKLNMG-G-1",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The DeepCool LE500 Marrs all-in-one liquid CPU cooler offers efficient cooling, bright Marrs green LED lighting, and Anti-Leak Technology for a reliable upgrade in performance. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "The DeepCool LE500 Marrs all-in-one liquid CPU cooler offers efficient cooling, bright Marrs green LED lighting, and Anti-Leak Technology for a reliable upgrade in performance. - DeepCool was founded with the mission of providing profession",
+          "value": "AIO",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE500-Marrs-240mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/15780.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE500-Marrs-240mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/15780.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "coolerHeight",
+        "fanCount",
+        "dimensions"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-4875a7cc06f7142e",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS720-SE-360mm-Liquid-CPU-Cooler-1851-1700-AM5/2022/16469.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 32,
+        "normalized": 2
+      },
+      "rawFields": [
+        {
+          "field": "Net Weight",
+          "value": "1659 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Dimensions",
+          "value": "402×120×27 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Material",
+          "value": "Aluminum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Tube length",
+          "value": "410 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Dimensions",
+          "value": "85×73×55 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Speed",
+          "value": "3100 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Noise",
+          "value": "19 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Connector",
+          "value": "3-pin",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Current",
+          "value": "0.38 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Power Consumption",
+          "value": "4.56 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~2250 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "85.85 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "3.27 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤32.9 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed (with LSP)",
+          "value": "500~1600 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow (with LSP)",
+          "value": "60.85 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure (with LSP)",
+          "value": "1.65 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise (with LSP)",
+          "value": "≤28.2 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Hydro Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.25 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "3.0 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "Addressable RGB LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Connector",
+          "value": "3-pin(+5V-D-G)",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Rated Voltage",
+          "value": "5 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Power Consumption",
+          "value": "2.7 W （PUMP）/ 3.15 W（FAN×3）",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412728009",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-LS720-BKAMMM-G-1",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The DeepCool LS720 SE is an all-in-one liquid CPU cooler that provides reliable high-performance cooling built on a new water pump design for optimal results. Color coordinate to the rest of your system with a big and bright ARGB infinity mirror cover on the CPU water block and included ARGB fans. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC ha",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "The DeepCool LS720 SE is an all-in-one liquid CPU cooler that provides reliable high-performance cooling built on a new water pump design for optimal results. Color coordinate to the rest of your system with a big and bright ARGB infinity m",
+          "value": "AIO",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS720-SE-360mm-Liquid-CPU-Cooler-1851-1700-AM5/2022/16469.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS720-SE-360mm-Liquid-CPU-Cooler-1851-1700-AM5/2022/16469.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "coolerHeight",
+        "fanCount",
+        "dimensions"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-4909438e452f4c49",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LQ240-ULTRA-240mm-Dashboard-Display-Liquid-Cooler/2026/20908.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 32,
+        "normalized": 1
+      },
+      "rawFields": [
+        {
+          "field": "Net Weight",
+          "value": "1530 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Dimensions",
+          "value": "282×120×27 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Material",
+          "value": "Aluminum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Tube length",
+          "value": "410 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Dimensions",
+          "value": "89×76×64 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Speed",
+          "value": "2500～3400 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Current",
+          "value": "0.29 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Power Consumption",
+          "value": "3.48 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~2500 RPM±10%, 0 rpm<5 % PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "73.41 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "4.69 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤35.63 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Fluid Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.3 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "3.6 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Type",
+          "value": "Addressable RGB LED",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Connector",
+          "value": "3-pin(+5V-D-G)",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Rated Voltage",
+          "value": "5 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "LED Power Consumption",
+          "value": "2.4 W（PUMP）",
+          "method": "spec-table"
+        },
+        {
+          "field": "Display Type",
+          "value": "LED Digital Display",
+          "method": "spec-table"
+        },
+        {
+          "field": "Display Module Rated Voltage",
+          "value": "5 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Display Module Rated Current",
+          "value": "0.08 A±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Display Module Power Consumption",
+          "value": "0.4 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "Display Area",
+          "value": "53.9x49.15 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412729365",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-LQ240-BKLSMWP-G-U",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The LQ240 ULTRA delivers high-performance cooling with low-noise operation, featuring the signature ARGB Halo magnetic pump cover and sleek all-black fans that provide both function and style in modern setups. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LQ240-ULTRA-240mm-Dashboard-Display-Liquid-Cooler/2026/20908.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "coolerType",
+        "sockets",
+        "radiatorSize",
+        "coolerHeight",
+        "fanCount",
+        "dimensions"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-4a31b4ad6d9e6430",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-G2-Superior-Performance-4-Heatpipe-Single-Tower-CPU-Cooler/2025/22515.shtml",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 18,
+        "normalized": 4
+      },
+      "rawFields": [
+        {
+          "field": "Product Dimensions",
+          "value": "125×92×152 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatsink Dimensions",
+          "value": "120×92×150 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Net Weight",
+          "value": "631 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatpipe",
+          "value": "Ø6 mm×4 pcs",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~2200±10% RPM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Motor",
+          "value": "1-phase，4-slot，4-pole",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "70.09 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "2.49 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤29.22 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Hydro Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.18 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "2.16 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412730026",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-AG400-BKNPMG2-G",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The AG400 G2 raises the bar for single-tower air cooling with a second-generation upgrade that delivers enhanced performance and a bold new look. Featuring four heat pipes embedded in a dense single-tower heatsink and paired with a finely tuned 120mm PWM fan for seriously powerful airflow and thermal transfer. - DeepCool was founded with the mission of providing professional, innovative, high-perf",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "The AG400 G2 raises the bar for single-tower air cooling with a second-generation upgrade that delivers enhanced performance and a bold new look. Featuring four heat pipes embedded in a dense single-tower heatsink and paired with a finely t",
+          "value": "Air",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-G2-Superior-Performance-4-Heatpipe-Single-Tower-CPU-Cooler/2025/22515.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "coolerHeight",
+          "label": "Hauteur",
+          "rawField": "Product Dimensions",
+          "rawValue": "125×92×152 mm(L×W×H)",
+          "value": 152,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-G2-Superior-Performance-4-Heatpipe-Single-Tower-CPU-Cooler/2025/22515.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-G2-Superior-Performance-4-Heatpipe-Single-Tower-CPU-Cooler/2025/22515.shtml",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "dimensions",
+          "label": "Dimensions",
+          "rawField": "Product Dimensions",
+          "rawValue": "125×92×152 mm(L×W×H)",
+          "value": "125 × 92 × 152 mm",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-G2-Superior-Performance-4-Heatpipe-Single-Tower-CPU-Cooler/2025/22515.shtml",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "fanCount"
       ],
       "review": {
         "status": "pending",
@@ -11248,6 +13794,168 @@
       }
     },
     {
+      "candidateId": "candidate-e0922736a670d2e4",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/core-gx-white-atx-3-2024/",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 20,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "80PLUS®",
+          "value": "Gold",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "Form Factor",
+          "value": "ATX/EPS",
+          "method": "spec-table"
+        },
+        {
+          "field": "Dimensions",
+          "value": "140 × 150 × 86 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Control",
+          "value": "Smart and Silent Fan Control",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Bearing",
+          "value": "Hydro Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Life Expectancy",
+          "value": "25, 000 hours at 40 °C, 15 % — 65 % RH",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cable type",
+          "value": "Individual White Cables with Braided Pattern",
+          "method": "spec-table"
+        },
+        {
+          "field": "MTBF @ 25 °C, excl. fan",
+          "value": "100, 000 hours",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "Full Range",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OCP, OPP, OTP, OVP, SCP, UVP",
+          "method": "spec-table"
+        },
+        {
+          "field": "Environmental Compliance",
+          "value": "Energy Star, ErP Lot 6, REACH, RoHS, WEEE",
+          "method": "spec-table"
+        },
+        {
+          "field": "Warranty",
+          "value": "7 Years",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "100 V - 240 V",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "Platinum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "A-",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OCP, OPP, OTP, OVP, UVP, SCP",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OCP, OPP, UVP, OTP, OVP, SCP",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "Seasonic CORE GX White ATX 3.1 power supply – 80 PLUS Gold certified, with sleek white design and ATX 3.1 compliance for next-gen performance.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "efficiency",
+          "label": "Certification",
+          "rawField": "80PLUS®",
+          "rawValue": "Gold",
+          "value": "80 PLUS Gold",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/core-gx-white-atx-3-2024/",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "atxStandard",
+          "label": "Norme ATX",
+          "rawField": "Form Factor",
+          "rawValue": "ATX/EPS",
+          "value": "ATX",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://seasonic.com/core-gx-white-atx-3-2024/",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "warrantyYears",
+          "label": "Garantie",
+          "rawField": "Warranty",
+          "rawValue": "7 Years",
+          "value": 7,
+          "unit": "ans",
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/core-gx-white-atx-3-2024/",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "wattage",
+        "modularity",
+        "pcieConnectors",
+        "highPowerConnector"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
       "candidateId": "candidate-e18fcda32f59260e",
       "sourceId": "patriot-official-index",
       "category": "ram",
@@ -11275,6 +13983,178 @@
         "xmp",
         "expo",
         "ecc"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-e32290635dba09f0",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/core-gx-atx-3-2024/",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 22,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "80PLUS®",
+          "value": "Gold",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "Form Factor",
+          "value": "ATX/EPS",
+          "method": "spec-table"
+        },
+        {
+          "field": "Dimensions",
+          "value": "140 × 150 × 86 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Control",
+          "value": "Smart and Silent Fan Control",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Bearing",
+          "value": "Hydro Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Life Expectancy",
+          "value": "25, 000 hours at 40 °C, 15 % — 65 % RH",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cable type",
+          "value": "Individual Black Cables with Braided Pattern",
+          "method": "spec-table"
+        },
+        {
+          "field": "MTBF @ 25 °C, excl. fan",
+          "value": "100, 000 hours",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "Full Range",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OCP, OPP, OTP, OVP, SCP, UVP",
+          "method": "spec-table"
+        },
+        {
+          "field": "Environmental Compliance",
+          "value": "ErP Lot 6, WEEE, RoHS, REACH",
+          "method": "spec-table"
+        },
+        {
+          "field": "Warranty",
+          "value": "7 Years",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "100 V - 240 V",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "Platinum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "A-",
+          "method": "spec-table"
+        },
+        {
+          "field": "Environmental Compliance",
+          "value": "Energy Star, ErP Lot 6, REACH, RoHS, WEEE",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OCP, OPP, OTP, SCP, OVP, UVP",
+          "method": "spec-table"
+        },
+        {
+          "field": "Environmental Compliance",
+          "value": "ErP Lot 6, Energy Star, REACH, RoHS, WEEE",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OPP, OCP, OTP, OVP, SCP, UVP",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "Seasonic CORE GX ATX 3.1 (2024) – 80 PLUS Gold certified power supply designed for high performance, reliability, and next-gen hardware",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "efficiency",
+          "label": "Certification",
+          "rawField": "80PLUS®",
+          "rawValue": "Gold",
+          "value": "80 PLUS Gold",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/core-gx-atx-3-2024/",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "atxStandard",
+          "label": "Norme ATX",
+          "rawField": "Form Factor",
+          "rawValue": "ATX/EPS",
+          "value": "ATX",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://seasonic.com/core-gx-atx-3-2024/",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "warrantyYears",
+          "label": "Garantie",
+          "rawField": "Warranty",
+          "rawValue": "7 Years",
+          "value": 7,
+          "unit": "ans",
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/core-gx-atx-3-2024/",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "wattage",
+        "modularity",
+        "pcieConnectors",
+        "highPowerConnector"
       ],
       "review": {
         "status": "pending",
@@ -11343,6 +14223,290 @@
         "xmp",
         "expo",
         "ecc"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-edfa0c1d52ba8ee4",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/focus-px-atx-3-1-v5/",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 16,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "80PLUS®",
+          "value": "Platinum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "Platinum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "A+",
+          "method": "spec-table"
+        },
+        {
+          "field": "Form Factor",
+          "value": "ATX/EPS",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Control",
+          "value": "Digital Hybrid Fan Control",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Bearing",
+          "value": "Fluid Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Life Expectancy",
+          "value": "50, 000 hours at 40 °C, 15 % - 65 % RH",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cable type",
+          "value": "Individual Black Cables with Braided Pattern",
+          "method": "spec-table"
+        },
+        {
+          "field": "MTBF @ 25 °C, excl. fan",
+          "value": "100, 000 hours",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "Full Range",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OCP, OPP, OTP, OVP, SCP, UVP",
+          "method": "spec-table"
+        },
+        {
+          "field": "Environmental Compliance",
+          "value": "Energy Star, ErP Lot 6, REACH, RoHS, WEEE",
+          "method": "spec-table"
+        },
+        {
+          "field": "Warranty",
+          "value": "10 Years",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "100 V - 240 V",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "A++",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "Seasonic FOCUS PX ATX 3.1 power supplies with Platinum efficiency, 12V-2×6 connector, and silent operation for next-gen GPUs.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "efficiency",
+          "label": "Certification",
+          "rawField": "80PLUS®",
+          "rawValue": "Platinum",
+          "value": "80 PLUS Platinum",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/focus-px-atx-3-1-v5/",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "atxStandard",
+          "label": "Norme ATX",
+          "rawField": "Form Factor",
+          "rawValue": "ATX/EPS",
+          "value": "ATX",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://seasonic.com/focus-px-atx-3-1-v5/",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "warrantyYears",
+          "label": "Garantie",
+          "rawField": "Warranty",
+          "rawValue": "10 Years",
+          "value": 10,
+          "unit": "ans",
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/focus-px-atx-3-1-v5/",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "wattage",
+        "modularity",
+        "pcieConnectors",
+        "highPowerConnector"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-f263855f5fd17086",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/focus-gx-atx-3-1-white-v5/",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 16,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "80PLUS®",
+          "value": "Gold",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "Platinum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Form Factor",
+          "value": "ATX/EPS",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Control",
+          "value": "Digital Hybrid Fan Control",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Bearing",
+          "value": "Fluid Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Life Expectancy",
+          "value": "50, 000 hours at 40 °C, 15 % - 65 % RH",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cable type",
+          "value": "Individual White Cables with Braided Pattern",
+          "method": "spec-table"
+        },
+        {
+          "field": "MTBF @ 25 °C, excl. fan",
+          "value": "100, 000 hours",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "Full Range",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OCP, OPP, OTP, OVP, SCP, UVP",
+          "method": "spec-table"
+        },
+        {
+          "field": "Environmental Compliance",
+          "value": "Energy Star, ErP Lot 6, REACH, RoHS, WEEE",
+          "method": "spec-table"
+        },
+        {
+          "field": "Warranty",
+          "value": "10 Years",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "100 V - 240 V",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "A+",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "Seasonic FOCUS GX White ATX 3.1 power supplies with Gold efficiency, 12V-2×6 connector, and silent operation for next-gen GPUs.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "efficiency",
+          "label": "Certification",
+          "rawField": "80PLUS®",
+          "rawValue": "Gold",
+          "value": "80 PLUS Gold",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/focus-gx-atx-3-1-white-v5/",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "atxStandard",
+          "label": "Norme ATX",
+          "rawField": "Form Factor",
+          "rawValue": "ATX/EPS",
+          "value": "ATX",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://seasonic.com/focus-gx-atx-3-1-white-v5/",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "warrantyYears",
+          "label": "Garantie",
+          "rawField": "Warranty",
+          "rawValue": "10 Years",
+          "value": 10,
+          "unit": "ans",
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/focus-gx-atx-3-1-white-v5/",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "wattage",
+        "modularity",
+        "pcieConnectors",
+        "highPowerConnector"
       ],
       "review": {
         "status": "pending",
@@ -11453,6 +14617,285 @@
         "xmp",
         "expo",
         "ecc"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-f9b1038f751af053",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/g12-gc-2024/",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 15,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "80PLUS®",
+          "value": "Gold",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "TBA",
+          "method": "spec-table"
+        },
+        {
+          "field": "Form Factor",
+          "value": "ATX/EPS",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Control",
+          "value": "Smart and Silent Fan Control",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Bearing",
+          "value": "Sleeve Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Life Expectancy",
+          "value": "25, 000 hours at 40 °C, 15 % — 65 % RH",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cable type",
+          "value": "Flat Black Cables",
+          "method": "spec-table"
+        },
+        {
+          "field": "MTBF @ 25 °C, excl. fan",
+          "value": "100, 000 hours",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "Full Range",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OPP, OVP, UVP, SCP, OCP, OTP",
+          "method": "spec-table"
+        },
+        {
+          "field": "Environmental Compliance",
+          "value": "Energy Star, ErP Lot 6, REACH, RoHS, WEEE",
+          "method": "spec-table"
+        },
+        {
+          "field": "Warranty",
+          "value": "5 Years",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "100 V - 240 V",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "Seasonic G12 GC 2024 – a reliable and efficient power supply unit designed for optimal performance, quiet operation, and 80 PLUS Gold efficiency",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "efficiency",
+          "label": "Certification",
+          "rawField": "80PLUS®",
+          "rawValue": "Gold",
+          "value": "80 PLUS Gold",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/g12-gc-2024/",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "atxStandard",
+          "label": "Norme ATX",
+          "rawField": "Form Factor",
+          "rawValue": "ATX/EPS",
+          "value": "ATX",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://seasonic.com/g12-gc-2024/",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "warrantyYears",
+          "label": "Garantie",
+          "rawField": "Warranty",
+          "rawValue": "5 Years",
+          "value": 5,
+          "unit": "ans",
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/g12-gc-2024/",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "wattage",
+        "modularity",
+        "pcieConnectors",
+        "highPowerConnector"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-fb9f2dc644d10674",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/atx3-prime-px-2200/",
+      "collectedAt": "2026-09-20",
+      "coverage": {
+        "rawFields": 16,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "80PLUS®",
+          "value": "Platinum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "Titanium",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "Standard++",
+          "method": "spec-table"
+        },
+        {
+          "field": "Form Factor",
+          "value": "ATX/EPS",
+          "method": "spec-table"
+        },
+        {
+          "field": "Dimensions",
+          "value": "210 × 150 × 86 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Control",
+          "value": "Digital Hybrid Fan Control",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Bearing",
+          "value": "Fluid Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Life Expectancy",
+          "value": "50, 000 hours at 40 °C, 15 % - 65 % RH",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cable type",
+          "value": "Individual Black Cables with Braided Pattern",
+          "method": "spec-table"
+        },
+        {
+          "field": "MTBF @ 25 °C, excl. fan",
+          "value": "100, 000 hours",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "Fixed 230 V",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OPP, OVP, UVP, OCP, OTP, SCP",
+          "method": "spec-table"
+        },
+        {
+          "field": "Environmental Compliance",
+          "value": "Energy Star, RoHS, WEEE, ErP Lot 6, REACH",
+          "method": "spec-table"
+        },
+        {
+          "field": "Warranty",
+          "value": "12 Years",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "200 V - 240 V",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "Seasonic PRIME PX ATX 3.1 PSU designed for Professionals and AI systems. This PSU offers advanced ATX 3.1 compatibility, superb efficiency, stable power output.",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "efficiency",
+          "label": "Certification",
+          "rawField": "80PLUS®",
+          "rawValue": "Platinum",
+          "value": "80 PLUS Platinum",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/atx3-prime-px-2200/",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "atxStandard",
+          "label": "Norme ATX",
+          "rawField": "Form Factor",
+          "rawValue": "ATX/EPS",
+          "value": "ATX",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://seasonic.com/atx3-prime-px-2200/",
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "field": "warrantyYears",
+          "label": "Garantie",
+          "rawField": "Warranty",
+          "rawValue": "12 Years",
+          "value": 12,
+          "unit": "ans",
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/atx3-prime-px-2200/",
+          "collectedAt": "2026-09-20"
+        }
+      ],
+      "missingFields": [
+        "wattage",
+        "modularity",
+        "pcieConnectors",
+        "highPowerConnector"
       ],
       "review": {
         "status": "pending",

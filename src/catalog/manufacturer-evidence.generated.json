@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-13",
+  "generatedAt": "2026-09-20",
   "summary": {
     "officialCandidates": 228,
-    "collected": 100,
-    "remaining": 128,
+    "collected": 120,
+    "remaining": 108,
     "failures": 0,
     "byStatus": {
       "insufficient-metadata": 0,
-      "page-metadata": 90,
+      "page-metadata": 110,
       "structured-product": 10
     }
   },
@@ -1162,6 +1162,112 @@
       }
     },
     {
+      "candidateId": "candidate-34b467bb73c18305",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG600-ARGB-Superior-Performance-6-Heatpipe-Single-Tower-CPU-Cooler/2026/22803.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG600 ARGB - DeepCool",
+        "description": "The AG600 ARGB is a single tower 120mm CPU cooler that builds upon our legacy for high-quality cooling performance but stripped down for a streamlined and efficient package. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG600-ARGB-Superior-Performance-6-Heatpipe-Single-Tower-CPU-Cooler/2026/22803.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ag600",
+          "argb"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-381834c4c9b9d76d",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE300-120mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/15773.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LE300 - DeepCool",
+        "description": "The DeepCool LE300 all-in-one liquid CPU cooler offers efficient cooling, bright LED lighting, and Anti-Leak Technology for a reliable upgrade in performance. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE300-120mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/15773.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "le300"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-3957ffe760fface6",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LD240-Liquid-Cooler-with-a-Multi-Line-Display-1851-1700-AM5/2024/18030.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LD240 - DeepCool",
+        "description": "The new LD240 is a jump into the next evolution of DeepCool liquid coolers. Everything you love from DeepCool AIOs of the previous generation, but with the inclusion of a multi-line CPU status screen and a brand new GEN 5 PRO pump! Clear up precious room on your desktop by moving the CPU monitoring software off your screen and onto the pump in your computer tower. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LD240-Liquid-Cooler-with-a-Multi-Line-Display-1851-1700-AM5/2024/18030.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ld240"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-3990a409714f08cd",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/Castle-240R-Liquid-CPU-Cooler/2021/118.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "CASTLE 240R - DeepCool",
+        "description": "The CASTLE 240R is an all-in-one CPU liquid cooler made for better cooling performance with a clean styled RGB pump head and fan. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/Castle-240R-Liquid-CPU-Cooler/2021/118.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "castle",
+          "240r"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-3b035fa99e2cd554",
       "sourceId": "patriot-official-index",
       "category": "ram",
@@ -1222,6 +1328,87 @@
       }
     },
     {
+      "candidateId": "candidate-3b6429f77c3e2096",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE360-PRO-High-Performance-360mm-Liquid-CPU-Cooler/2025/21949.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LE360 PRO - DeepCool",
+        "description": "The LE360 PRO brings a vibrant update to DeepCool’s LE V2 Series with vivid FL12 SE fans, providing reliable cooling and bright ARGB lighting. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE360-PRO-High-Performance-360mm-Liquid-CPU-Cooler/2025/21949.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "le360",
+          "pro"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-3e153708652d9694",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LT360-ARGB-360mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/18684.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LT360 ARGB - DeepCool",
+        "description": "The LT360 ARGB is a high-performance liquid CPU cooler that has been upgraded to DeepCool's chart-topping 5th generation pump and provides strong heat dissipation power with a 360mm radiator, three precision-tuned FD12 ARGB fans, and a multidimensional infinity mirror top cap, all presented in a clean design. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LT360-ARGB-360mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/18684.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "lt360",
+          "argb"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-3f037b8b41867e14",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/UL551-ARGB-CPU-Cooler-1700/2022/16188.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "UL551 1700 - DeepCool",
+        "description": "The DeepCool UL551 1700 ARGB CPU Cooler is an efficient top flow cooling solution for INTEL sockets equipped with a high performance 136mm fan and an ARGB LED ring with motherboard sync support. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/UL551-ARGB-CPU-Cooler-1700/2022/16188.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ul551",
+          "1700"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-3fd76bfdbe51d90d",
       "sourceId": "asus-official-index",
       "category": "motherboard",
@@ -1247,6 +1434,61 @@
           "proart",
           "wifi",
           "z890"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-417e449fe469808c",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-ZERO-DARK-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16396.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AK500 ZERO DARK - DeepCool",
+        "description": "The DeepCool AK500 ZERO DARK is a high-performance single tower CPU cooler that maximizes cooling potential with a large heat sink, five advanced heat pipes, and a highly efficient 120mm FDB fan. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-ZERO-DARK-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16396.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ak500",
+          "dark",
+          "zero"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-428cf47a821248cf",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-DIGITAL-CPU-Cooler-With-Status-Display-1851-1700-AM5/2023/17236.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AK500 DIGITAL - DeepCool",
+        "description": "The era of digital air coolers has arrived, and DeepCool is proud to introduce the AK500 DIGITAL. Everything you loved about the AK500 ZERO DARK, but with a sleek magnetic status display and ARGB LED strips. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-DIGITAL-CPU-Cooler-With-Status-Display-1851-1700-AM5/2023/17236.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "digital",
+          "ak500"
         ]
       },
       "review": {
@@ -1304,6 +1546,140 @@
           "infinite",
           "viper",
           "ddr5"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-4457df29a439e189",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16040.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AK500 - DeepCool",
+        "description": "The DeepCool AK500 is a high-performance single tower CPU cooler that maximizes cooling potential with a large heat sink, five advanced heat pipes, and a highly efficient 120mm FDB fan. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-High-Performance-CPU-Cooler-1851-1700-AM5/2022/16040.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ak500"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-47bacd0c1cf3ca0b",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE500-Marrs-240mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/15780.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LE500 Marrs - DeepCool",
+        "description": "The DeepCool LE500 Marrs all-in-one liquid CPU cooler offers efficient cooling, bright Marrs green LED lighting, and Anti-Leak Technology for a reliable upgrade in performance. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE500-Marrs-240mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/15780.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "le500",
+          "marrs"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-4875a7cc06f7142e",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS720-SE-360mm-Liquid-CPU-Cooler-1851-1700-AM5/2022/16469.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LS720 SE - DeepCool",
+        "description": "The DeepCool LS720 SE is an all-in-one liquid CPU cooler that provides reliable high-performance cooling built on a new water pump design for optimal results. Color coordinate to the rest of your system with a big and bright ARGB infinity mirror cover on the CPU water block and included ARGB fans. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS720-SE-360mm-Liquid-CPU-Cooler-1851-1700-AM5/2022/16469.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ls720",
+          "se"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-4909438e452f4c49",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LQ240-ULTRA-240mm-Dashboard-Display-Liquid-Cooler/2026/20908.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LQ240 ULTRA - DeepCool",
+        "description": "The LQ240 ULTRA delivers high-performance cooling with low-noise operation, featuring the signature ARGB Halo magnetic pump cover and sleek all-black fans that provide both function and style in modern setups. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LQ240-ULTRA-240mm-Dashboard-Display-Liquid-Cooler/2026/20908.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "lq240",
+          "ultra"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-4a31b4ad6d9e6430",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-G2-Superior-Performance-4-Heatpipe-Single-Tower-CPU-Cooler/2025/22515.shtml",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG400 G2 - DeepCool",
+        "description": "The AG400 G2 raises the bar for single-tower air cooling with a second-generation upgrade that delivers enhanced performance and a bold new look. Featuring four heat pipes embedded in a dense single-tower heatsink and paired with a finely tuned 120mm PWM fan for seriously powerful airflow and thermal transfer. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-G2-Superior-Performance-4-Heatpipe-Single-Tower-CPU-Cooler/2025/22515.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ag400",
+          "g2"
         ]
       },
       "review": {
@@ -2729,6 +3105,36 @@
       }
     },
     {
+      "candidateId": "candidate-e0922736a670d2e4",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/core-gx-white-atx-3-2024/",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "CORE GX White ATX 3.1",
+        "description": "Seasonic CORE GX White ATX 3.1 power supply – 80 PLUS Gold certified, with sleek white design and ATX 3.1 compliance for next-gen performance.",
+        "canonicalUrl": "https://seasonic.com/core-gx-white-atx-3-2024/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "white",
+          "core",
+          "gx",
+          "1",
+          "3"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-e18fcda32f59260e",
       "sourceId": "patriot-official-index",
       "category": "ram",
@@ -2750,6 +3156,35 @@
           "rdimm",
           "ddr5",
           "line"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-e32290635dba09f0",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/core-gx-atx-3-2024/",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "CORE GX ATX 3.1",
+        "description": "Seasonic CORE GX ATX 3.1 (2024) – 80 PLUS Gold certified power supply designed for high performance, reliability, and next-gen hardware",
+        "canonicalUrl": "https://seasonic.com/core-gx-atx-3-2024/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "core",
+          "gx",
+          "1",
+          "3"
         ]
       },
       "review": {
@@ -2817,6 +3252,67 @@
       }
     },
     {
+      "candidateId": "candidate-edfa0c1d52ba8ee4",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/focus-px-atx-3-1-v5/",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "FOCUS PX ATX 3.1 v5",
+        "description": "Seasonic FOCUS PX ATX 3.1 power supplies with Platinum efficiency, 12V-2×6 connector, and silent operation for next-gen GPUs.",
+        "canonicalUrl": "https://seasonic.com/focus-px-atx-3-1-v5/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "focus",
+          "px",
+          "v5",
+          "1",
+          "3"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-f263855f5fd17086",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/focus-gx-atx-3-1-white-v5/",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "FOCUS GX ATX 3.1 White v5",
+        "description": "Seasonic FOCUS GX White ATX 3.1 power supplies with Gold efficiency, 12V-2×6 connector, and silent operation for next-gen GPUs.",
+        "canonicalUrl": "https://seasonic.com/focus-gx-atx-3-1-white-v5/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "focus",
+          "white",
+          "gx",
+          "v5",
+          "1",
+          "3"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-f3bd798a56032851",
       "sourceId": "patriot-official-index",
       "category": "ram",
@@ -2865,6 +3361,64 @@
           "signature",
           "ddr2",
           "line"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-f9b1038f751af053",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/g12-gc-2024/",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "G12 GC (2024)",
+        "description": "Seasonic G12 GC 2024 – a reliable and efficient power supply unit designed for optimal performance, quiet operation, and 80 PLUS Gold efficiency",
+        "canonicalUrl": "https://seasonic.com/g12-gc-2024/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "2024",
+          "g12",
+          "gc"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-fb9f2dc644d10674",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/atx3-prime-px-2200/",
+      "checkedAt": "2026-09-20",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "PRIME PX ATX 3.1 PSU",
+        "description": "Seasonic PRIME PX ATX 3.1 PSU designed for Professionals and AI systems. This PSU offers advanced ATX 3.1 compatibility, superb efficiency, stable power output.",
+        "canonicalUrl": "https://seasonic.com/atx3-prime-px-2200/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "prime",
+          "psu",
+          "px",
+          "1",
+          "3"
         ]
       },
       "review": {
