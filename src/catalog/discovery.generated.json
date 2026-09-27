@@ -10523,6 +10523,27 @@
       "promotionBlocker": "Le résultat représente une gamme, une génération ou une famille plutôt qu’un modèle précis."
     },
     {
+      "id": "candidate-608a2707fb15ad1a",
+      "sourceId": "patriot-official-index",
+      "externalId": "https://www.patriotmemory.com/products/signature-line-premium-ddr5",
+      "kind": "product-candidate",
+      "label": "Patriot signature line premium ddr5",
+      "description": "Référence repérée dans l’index officiel Patriot; caractéristiques à contrôler sur la fiche constructeur.",
+      "url": "https://www.patriotmemory.com/products/signature-line-premium-ddr5",
+      "brand": "Patriot",
+      "category": "ram",
+      "query": "patriot-memory",
+      "confidence": "Moyenne",
+      "score": 0.9,
+      "duplicate": false,
+      "status": "À vérifier",
+      "firstSeenAt": "2026-09-27",
+      "triage": "product-family",
+      "triageReason": "Le résultat représente une gamme, une génération ou une famille plutôt qu’un modèle précis.",
+      "promotable": false,
+      "promotionBlocker": "Le résultat représente une gamme, une génération ou une famille plutôt qu’un modèle précis."
+    },
+    {
       "id": "candidate-16ea45ee29addc3c",
       "sourceId": "patriot-official-index",
       "externalId": "https://www.patriotmemory.com/products/signature-line-premium-ddr5-ckd",
