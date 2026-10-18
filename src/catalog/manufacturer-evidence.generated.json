@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-11",
+  "generatedAt": "2026-10-18",
   "summary": {
-    "officialCandidates": 229,
-    "collected": 180,
-    "remaining": 49,
+    "officialCandidates": 230,
+    "collected": 200,
+    "remaining": 30,
     "failures": 0,
     "byStatus": {
       "insufficient-metadata": 0,
-      "page-metadata": 170,
+      "page-metadata": 190,
       "structured-product": 10
     }
   },
@@ -2688,6 +2688,35 @@
       }
     },
     {
+      "candidateId": "candidate-6f494f8f1be7e894",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-rdimm-ddr4",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Patriot Signature Line RDIMM DDR4​",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/signature-line-rdimm-ddr4"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "signature",
+          "rdimm",
+          "ddr4",
+          "line"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-6ff6936044412138",
       "sourceId": "deepcool-official-index",
       "category": "cooling",
@@ -4321,6 +4350,34 @@
       }
     },
     {
+      "candidateId": "candidate-b04bb15fa21e06c8",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-DIGITAL-PLUS-Temperature-Display-Cooler-1851-1700-AM5/2023/17687.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG400 DIGITAL PLUS - DeepCool",
+        "description": "The era of digital air coolers has arrived, and DeepCool wants to popularize it. Everything you loved about the AG400 PLUS, but with a sleek low-profile status display. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-DIGITAL-PLUS-Temperature-Display-Cooler-1851-1700-AM5/2023/17687.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "digital",
+          "ag400",
+          "plus"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-b0b8f74a76e8fecc",
       "sourceId": "seasonic-official-index",
       "category": "psu",
@@ -4342,6 +4399,224 @@
           "vertex",
           "1",
           "3"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-b28154859038b52e",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE500-240mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/15778.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LE500 - DeepCool",
+        "description": "The DeepCool LE500 all-in-one liquid CPU cooler offers efficient cooling, bright LED lighting, and Anti-Leak Technology for a reliable upgrade in performance. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE500-240mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/15778.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "le500"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-b302f318f1e2e256",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/Neptwin-RGB-CPU-Cooler/2021/146.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "NEPTWIN RGB - DeepCool",
+        "description": "NEPTWIN RGB is a specialized 6-heatpipe CPU cooler with PWM speed control and plus-sized twin-tower aluminum fins that provide excellent thermal performance. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/Neptwin-RGB-CPU-Cooler/2021/146.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "neptwin",
+          "rgb"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-b446fd945a22585d",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG600-Superior-Performance-6-Heatpipe-Single-Tower-CPU-Cooler/2025/22609.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG600 - DeepCool",
+        "description": "The AG600 is a single tower 120mm CPU cooler that builds upon our legacy for high-quality cooling performance but stripped down for a streamlined and efficient package. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG600-Superior-Performance-6-Heatpipe-Single-Tower-CPU-Cooler/2025/22609.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ag600"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-b5627b487f2782bb",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG620-G2-ARGB-Superior-Performance-6-Heatpipe-Dual-Tower-CPU-Cooler/2026/22801.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG620 G2 ARGB - DeepCool",
+        "description": "The AG620 G2 ARGB raises the bar for dual-tower air cooling with a second-generation upgrade that delivers enhanced performance and a bold new look. Featuring six heat pipes embedded in a dense dual-tower heatsink and paired with two finely tuned 120mm ARGB PWM fans for seriously powerful airflow and thermal transfer. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG620-G2-ARGB-Superior-Performance-6-Heatpipe-Dual-Tower-CPU-Cooler/2026/22801.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ag620",
+          "argb",
+          "g2"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-b65516899c783762",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LT240-ARGB-240mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/18682.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LT240 ARGB - DeepCool",
+        "description": "The LT240 ARGB is a high-performance liquid CPU cooler that has been upgraded to DeepCool's chart-topping 5th generation pump and provides strong heat dissipation power with a 240mm radiator, two precision-tuned FD12 ARGB fans, and a multidimensional infinity mirror top cap, all presented in a clean design. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LT240-ARGB-240mm-Liquid-CPU-Cooler-1851-1700-AM5/2024/18682.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "lt240",
+          "argb"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-b68df6f2d6d98344",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/ALTA-9-PWM-Compact-CPU-Cooler-1851-1700/2022/16194.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "ALTA 9 PWM 1700 - DeepCool",
+        "description": "The DeepCool ALTA 9 PWM 1700 mini low-profile CPU cooler provides efficient cooling performance designed for Intel LGA 1851/1700 systems with an aluminum heatsink and a 92x25mm PWM fan. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/ALTA-9-PWM-Compact-CPU-Cooler-1851-1700/2022/16194.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "1700",
+          "alta",
+          "pwm",
+          "9"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-b799e46bdbc742df",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS520S-ZERO-DARK-240mm-Pure-Performance-Liquid-Cooler-1851-1700-AM5/2024/17570.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LS520S ZERO DARK - DeepCool",
+        "description": "The ZERO DARK theme has spread into DeepCool's acclaimed LS line of liquid coolers. The all-blacked out design of the LS520S ZERO DARK has all the performance that you would expect from our 240mm 4th generation pump powered AIOs, but with minimal lighting. The perfect component for those ultra sleek stealth or professional builds. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across t",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS520S-ZERO-DARK-240mm-Pure-Performance-Liquid-Cooler-1851-1700-AM5/2024/17570.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ls520s",
+          "dark",
+          "zero"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-b8864a26131d9213",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/Assassin-4S-Minimalistic-Premium-CPU-Air-Cooler-1851-1700-AM5/2023/17881.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "ASSASSIN 4S - DeepCool",
+        "description": "The ASSASSIN 4S provides exceptional performance and is armed with seven 6mm heat pipes and a redesigned 140mm FDB fan. The 4S models eliminate the rear 120mm fan, providing a slimmer, more symmetrical cooler. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/Assassin-4S-Minimalistic-Premium-CPU-Air-Cooler-1851-1700-AM5/2023/17881.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "assassin",
+          "4s"
         ]
       },
       "review": {
@@ -4378,6 +4653,61 @@
       }
     },
     {
+      "candidateId": "candidate-b9a5839b1a82a5ae",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-ARGB-120mm-CPU-Cooler-1851-1700-AM5/2022/16084.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG400 ARGB - DeepCool",
+        "description": "The DeepCool AG400 ARGB is a single tower 120mm CPU cooler that builds upon our legacy for high-quality cooling performance but stripped down for a streamlined and efficient package. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-ARGB-120mm-CPU-Cooler-1851-1700-AM5/2022/16084.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ag400",
+          "argb"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-ba38f2cc73d40039",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/THETA-9-PWM-Compact-CPU-Cooler/2022/15192.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "THETA 9 PWM - DeepCool",
+        "description": "- DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/THETA-9-PWM-Compact-CPU-Cooler/2022/15192.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "theta",
+          "pwm",
+          "9"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-bd3f3477534cdd82",
       "sourceId": "patriot-official-index",
       "category": "ram",
@@ -4398,6 +4728,35 @@
           "signature",
           "premium",
           "line"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-bfa3b52b9d30b5da",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/THETA-31-PWM-Compact-CPU-Cooler-1851-1700/2022/16193.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "THETA 31 PWM 1700 - DeepCool",
+        "description": "The DeepCool Theta 31 PWM 1700 standard CPU cooler provides excellent cooling performance designed for Intel LGA 1851/1700 systems with a radial aluminum heatsink and a 100x25mm PWM fan. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/THETA-31-PWM-Compact-CPU-Cooler-1851-1700/2022/16193.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "theta",
+          "1700",
+          "pwm",
+          "31"
         ]
       },
       "review": {
@@ -4463,6 +4822,119 @@
       }
     },
     {
+      "candidateId": "candidate-c253bfbd1bb67c1a",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS720S-ZERO-DARK-PRO-360mm-Liquid-Cooler-1700-AM5/2024/19531.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LS720S ZERO DARK PRO - DeepCool",
+        "description": "The LS720S ZERO DARK PRO series by DeepCool offers top-tier performance with the latest 5th generation pump-powered AIOs, now featuring an all-black design with minimal lighting. This series is ideal for those seeking builds that are sleek, stealthy, or professional, without any ARGB lighting. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LS720S-ZERO-DARK-PRO-360mm-Liquid-Cooler-1700-AM5/2024/19531.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ls720s",
+          "dark",
+          "zero",
+          "pro"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-c2ac742b5b83b77b",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/MYSTIQUE-360-ARGB-IF-LCD-Liquid-Cooler-1700-AM5/2024/18935.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "MYSTIQUE 360 ARGB IF - DeepCool",
+        "description": "The MYSTIQUE 360 ARGB IF is DeepCool's latest addition to the flagship line of liquid coolers with highly sought-after customizable LCD screens. Bring your creative style to life with customized images and animated gifs on the brilliant 2.8",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/MYSTIQUE-360-ARGB-IF-LCD-Liquid-Cooler-1700-AM5/2024/18935.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "mystique",
+          "argb",
+          "360",
+          "if"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-c44d23e7b699a757",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-G2-ARGB-Superior-Performance-4-Heatpipe-Single-Tower-CPU-Cooler/2026/22744.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AG400 G2 ARGB - DeepCool",
+        "description": "The AG400 G2 ARGB raises the bar for single-tower air cooling with a second-generation upgrade that delivers enhanced performance and a bold new look. Featuring four heat pipes embedded in a dense single-tower heatsink and paired with a finely tuned 120mm ARGB PWM fan for seriously powerful airflow and thermal transfer. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AG400-G2-ARGB-Superior-Performance-4-Heatpipe-Single-Tower-CPU-Cooler/2026/22744.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ag400",
+          "argb",
+          "g2"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-c4d2ac55196cf19e",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-G2-Wood-Grain-Top-Cover-CPU-Cooler/2025/21986.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "AK500 G2 - DeepCool",
+        "description": "Further improved second generation of the iconic AK lineup with upgraded performance and a bold new aesthetic. The same premium quality materials featuring five advanced copper heat pipes, a single-tower heat sink, and newly designed silent fan produces a powerful winning formula for high performance cooling in a wood grain design. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/AK500-G2-Wood-Grain-Top-Cover-CPU-Cooler/2025/21986.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "ak500",
+          "g2"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
       "candidateId": "candidate-c8b3fe0bc8bad30a",
       "sourceId": "patriot-official-index",
       "category": "ram",
@@ -4483,6 +4955,89 @@
           "performance",
           "mpower",
           "ddr5"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-c8c34c8bc7bf10bc",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/SPARTACUS-360-Fully-Customizable-6th-Gen-Liquid-Cooler-with-Silent-Ring-Fans/2025/22347.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "SPARTACUS 360 - DeepCool",
+        "description": "SPARTACUS 360 is DeepCool’s latest generation of liquid coolers featuring an advanced customizable LCD screen. Personalize your build with modular layouts and dynamic visuals on the 3.4",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/SPARTACUS-360-Fully-Customizable-6th-Gen-Liquid-Cooler-with-Silent-Ring-Fans/2025/22347.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "spartacus",
+          "360"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-c8d289f34949e6b7",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE240-V2-Liquid-CPU-Cooler-1851-1700-AM5/2025/20136.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "LE240 V2 - DeepCool",
+        "description": "The LE240 V2 builds on DeepCool’s proven LE lineup with upgraded performance and a refreshed design. Its frosted pump head adds a modern touch, making it an excellent choice for entry-level cooling. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/LE240-V2-Liquid-CPU-Cooler-1851-1700-AM5/2025/20136.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "le240",
+          "v2"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-ca873ff7277b244b",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/THETA-20-PWM-1700-Compact-CPU-Cooler-1851-1700/2022/16191.shtml",
+      "checkedAt": "2026-10-18",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "THETA 20 PWM 1700 - DeepCool",
+        "description": "The DeepCool Theta 20 PWM 1700 standard CPU cooler provides highly effective cooling performance designed for Intel LGA 1851/1700 systems with a radial aluminum heatsink and a 100x25mm PWM fan. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts across the world.",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/THETA-20-PWM-1700-Compact-CPU-Cooler-1851-1700/2022/16191.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "theta",
+          "1700",
+          "pwm",
+          "20"
         ]
       },
       "review": {

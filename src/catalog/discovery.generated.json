@@ -10565,6 +10565,27 @@
       "promotionBlocker": "Le résultat représente une gamme, une génération ou une famille plutôt qu’un modèle précis."
     },
     {
+      "id": "candidate-6f494f8f1be7e894",
+      "sourceId": "patriot-official-index",
+      "externalId": "https://www.patriotmemory.com/products/signature-line-rdimm-ddr4",
+      "kind": "product-candidate",
+      "label": "Patriot signature line rdimm ddr4",
+      "description": "Référence repérée dans l’index officiel Patriot; caractéristiques à contrôler sur la fiche constructeur.",
+      "url": "https://www.patriotmemory.com/products/signature-line-rdimm-ddr4",
+      "brand": "Patriot",
+      "category": "ram",
+      "query": "patriot-memory",
+      "confidence": "Moyenne",
+      "score": 0.9,
+      "duplicate": false,
+      "status": "À vérifier",
+      "firstSeenAt": "2026-10-18",
+      "triage": "product-family",
+      "triageReason": "Le résultat représente une gamme, une génération ou une famille plutôt qu’un modèle précis.",
+      "promotable": false,
+      "promotionBlocker": "Le résultat représente une gamme, une génération ou une famille plutôt qu’un modèle précis."
+    },
+    {
       "id": "candidate-e18fcda32f59260e",
       "sourceId": "patriot-official-index",
       "externalId": "https://www.patriotmemory.com/products/signature-line-rdimm-ddr5",
