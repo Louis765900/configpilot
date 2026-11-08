@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-01",
+  "generatedAt": "2026-11-08",
   "policy": {
     "pageBudget": 20,
     "fieldLimit": 80,
@@ -14,19 +14,19 @@
     "publishAutomatically": false
   },
   "summary": {
-    "eligibleCandidates": 230,
-    "collected": 230,
+    "eligibleCandidates": 232,
+    "collected": 232,
     "remaining": 0,
     "failures": 0,
-    "rawValues": 4068,
-    "normalizedValues": 566,
+    "rawValues": 4093,
+    "normalizedValues": 568,
     "byCategory": {
       "motherboard": {
         "records": 5,
         "normalizedValues": 9
       },
       "ram": {
-        "records": 33,
+        "records": 34,
         "normalizedValues": 2
       },
       "psu": {
@@ -38,23 +38,23 @@
         "normalizedValues": 17
       },
       "cooling": {
-        "records": 153,
-        "normalizedValues": 439
+        "records": 154,
+        "normalizedValues": 441
       }
     },
     "byConfidence": {
       "high": 76,
-      "medium": 379,
-      "low": 111
+      "medium": 380,
+      "low": 112
     }
   },
   "lastRun": {
-    "attempted": 10,
-    "collected": 10,
+    "attempted": 2,
+    "collected": 2,
     "limit": 20,
     "mode": "network",
-    "rawValues": 222,
-    "normalizedValues": 33,
+    "rawValues": 25,
+    "normalizedValues": 2,
     "errors": []
   },
   "records": [
@@ -5530,6 +5530,177 @@
         "sockets",
         "radiatorSize",
         "fanCount"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-2a2573357ceafe17",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/SILENTNOX-PRO-360-6.67-Curved-AMOLED-Liquid-Cooler-with-7th-Gen-Pump/2026/23530.shtml",
+      "collectedAt": "2026-11-08",
+      "coverage": {
+        "rawFields": 24,
+        "normalized": 2
+      },
+      "rawFields": [
+        {
+          "field": "Net Weight",
+          "value": "1881 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Dimensions",
+          "value": "402×120×27 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Radiator Material",
+          "value": "Aluminum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Tube length",
+          "value": "410 mm",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Dimensions",
+          "value": "113×94×95 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Speed",
+          "value": "2500~3000 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Rated Current",
+          "value": "0.38 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Pump Power Consumption",
+          "value": "4.56 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×25 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "500~2700 RPM±10%, 0 RPM<5 % PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "80.37 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "4.98 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise",
+          "value": "≤38.71 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Fluid Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.41 A",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "4.92 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "Display Specifications",
+          "value": "6.67 inch 2400×1080 AMOLED",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412730392",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-SNP360-BKDSMP-G-1",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "SILENTNOX PRO 360 is DeepCool’s first curved-screen liquid cooler, featuring a slim 6.67-inch 2K AMOLED display. Through DeepCreative software, the display opens up a wide range of ways to monitor, customize, and interact with your build. A new 7th-gen pump and distinctive center-window fans deliver high-end cooling performance with carefully refined acoustics. - DeepCool was founded with the miss",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "SILENTNOX PRO 360 is DeepCool’s first curved-screen liquid cooler, featuring a slim 6.67-inch 2K AMOLED display. Through DeepCreative software, the display opens up a wide range of ways to monitor, customize, and interact with your build. A",
+          "value": "AIO",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/SILENTNOX-PRO-360-6.67-Curved-AMOLED-Liquid-Cooler-with-7th-Gen-Pump/2026/23530.shtml",
+          "collectedAt": "2026-11-08"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×25 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/SILENTNOX-PRO-360-6.67-Curved-AMOLED-Liquid-Cooler-with-7th-Gen-Pump/2026/23530.shtml",
+          "collectedAt": "2026-11-08"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "coolerHeight",
+        "fanCount",
+        "dimensions"
       ],
       "review": {
         "status": "pending",
@@ -24933,6 +25104,40 @@
         "coolerHeight",
         "fanCount",
         "dimensions"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-bd105790c2a8686a",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-ecc-ddr4",
+      "collectedAt": "2026-11-08",
+      "coverage": {
+        "rawFields": 1,
+        "normalized": 0
+      },
+      "rawFields": [
+        {
+          "field": "og:description",
+          "value": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+          "method": "meta"
+        }
+      ],
+      "specs": [],
+      "missingFields": [
+        "memoryType",
+        "capacity",
+        "moduleCount",
+        "speed",
+        "latency",
+        "xmp",
+        "expo",
+        "ecc"
       ],
       "review": {
         "status": "pending",

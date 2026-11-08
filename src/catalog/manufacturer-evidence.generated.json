@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-01",
+  "generatedAt": "2026-11-08",
   "summary": {
-    "officialCandidates": 230,
-    "collected": 230,
+    "officialCandidates": 232,
+    "collected": 232,
     "remaining": 0,
     "failures": 0,
     "byStatus": {
       "insufficient-metadata": 0,
-      "page-metadata": 220,
+      "page-metadata": 222,
       "structured-product": 10
     }
   },
   "lastRun": {
-    "attempted": 10,
-    "collected": 10,
+    "attempted": 2,
+    "collected": 2,
     "limit": 20,
     "errors": []
   },
@@ -1045,6 +1045,34 @@
           "ag500",
           "argb",
           "g2"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-2a2573357ceafe17",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/SILENTNOX-PRO-360-6.67-Curved-AMOLED-Liquid-Cooler-with-7th-Gen-Pump/2026/23530.shtml",
+      "checkedAt": "2026-11-08",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "SILENTNOX PRO 360 - DeepCool",
+        "description": "SILENTNOX PRO 360 is DeepCool’s first curved-screen liquid cooler, featuring a slim 6.67-inch 2K AMOLED display. Through DeepCreative software, the display opens up a wide range of ways to monitor, customize, and interact with your build. A new 7th-gen pump and distinctive center-window fans deliver high-end cooling performance with carefully refined acoustics. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal sol",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuliquidcoolers/SILENTNOX-PRO-360-6.67-Curved-AMOLED-Liquid-Cooler-with-7th-Gen-Pump/2026/23530.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "silentnox",
+          "360",
+          "pro"
         ]
       },
       "review": {
@@ -4700,6 +4728,35 @@
           "theta",
           "pwm",
           "9"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-bd105790c2a8686a",
+      "sourceId": "patriot-official-index",
+      "category": "ram",
+      "brand": "Patriot",
+      "officialUrl": "https://www.patriotmemory.com/products/signature-line-ecc-ddr4",
+      "checkedAt": "2026-11-08",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "Signature Line ECC DDR4",
+        "description": "Patriot Memory designs and manufactures high-performance memory, storage, and flash solutions.",
+        "canonicalUrl": "https://www.patriotmemory.com/products/signature-line-ecc-ddr4"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "signature",
+          "ddr4",
+          "line",
+          "ecc"
         ]
       },
       "review": {
