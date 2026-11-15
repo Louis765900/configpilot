@@ -1,20 +1,20 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-08",
+  "generatedAt": "2026-11-15",
   "summary": {
-    "officialCandidates": 232,
-    "collected": 232,
+    "officialCandidates": 233,
+    "collected": 233,
     "remaining": 0,
     "failures": 0,
     "byStatus": {
       "insufficient-metadata": 0,
-      "page-metadata": 222,
+      "page-metadata": 223,
       "structured-product": 10
     }
   },
   "lastRun": {
-    "attempted": 2,
-    "collected": 2,
+    "attempted": 1,
+    "collected": 1,
     "limit": 20,
     "errors": []
   },
@@ -5940,6 +5940,33 @@
           "viper",
           "ddr4",
           "rgb"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-ecb8dd3fab8c0408",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/STATIONX-622-Dual-Tower-6-Heatpipe-Workstation-CPU-Cooler/2026/23456.shtml",
+      "checkedAt": "2026-11-15",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "StationX 622 - DeepCool",
+        "description": "The StationX 622 is DeepCool’s first air cooler purpose-built for professional workstations and server-class systems. Featuring a dual-tower heatsink, six high-performance heat pipes, and an oversized copper base, it delivers up to 540W of cooling capacity to meet the thermal demands of today’s most powerful high-core-count processors. - DeepCool was founded with the mission of providing professional, innovative, high-performance PC hardware and high-quality thermal solutions for enthusiasts acr",
+        "canonicalUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/STATIONX-622-Dual-Tower-6-Heatpipe-Workstation-CPU-Cooler/2026/23456.shtml"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "stationx",
+          "622"
         ]
       },
       "review": {

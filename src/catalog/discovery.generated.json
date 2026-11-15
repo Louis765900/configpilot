@@ -3068,6 +3068,27 @@
       "promotionBlocker": "La nature commerciale du résultat ne peut pas être établie automatiquement."
     },
     {
+      "id": "candidate-ecb8dd3fab8c0408",
+      "sourceId": "deepcool-official-index",
+      "externalId": "https://global.deepcool.com/products/Cooling/cpuaircoolers/STATIONX-622-Dual-Tower-6-Heatpipe-Workstation-CPU-Cooler/2026/23456.shtml",
+      "kind": "product-candidate",
+      "label": "DeepCool STATIONX 622 Dual Tower 6 Heatpipe Workstation CPU Cooler",
+      "description": "Référence repérée dans l’index officiel DeepCool; caractéristiques à contrôler sur la fiche constructeur.",
+      "url": "https://global.deepcool.com/products/Cooling/cpuaircoolers/STATIONX-622-Dual-Tower-6-Heatpipe-Workstation-CPU-Cooler/2026/23456.shtml",
+      "brand": "DeepCool",
+      "category": "cooling",
+      "query": "deepcool-cooling",
+      "confidence": "Moyenne",
+      "score": 0.9,
+      "duplicate": false,
+      "status": "À vérifier",
+      "firstSeenAt": "2026-11-15",
+      "triage": "needs-review",
+      "triageReason": "La nature commerciale du résultat ne peut pas être établie automatiquement.",
+      "promotable": false,
+      "promotionBlocker": "La nature commerciale du résultat ne peut pas être établie automatiquement."
+    },
+    {
       "id": "candidate-60e469c33cc9c567",
       "sourceId": "deepcool-official-index",
       "externalId": "https://global.deepcool.com/products/Cooling/cpuaircoolers/THETA-15-PWM-Compact-CPU-Cooler/2022/14441.shtml",

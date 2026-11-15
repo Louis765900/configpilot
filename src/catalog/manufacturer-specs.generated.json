@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-08",
+  "generatedAt": "2026-11-15",
   "policy": {
     "pageBudget": 20,
     "fieldLimit": 80,
@@ -14,12 +14,12 @@
     "publishAutomatically": false
   },
   "summary": {
-    "eligibleCandidates": 232,
-    "collected": 232,
+    "eligibleCandidates": 233,
+    "collected": 233,
     "remaining": 0,
     "failures": 0,
-    "rawValues": 4093,
-    "normalizedValues": 568,
+    "rawValues": 4112,
+    "normalizedValues": 572,
     "byCategory": {
       "motherboard": {
         "records": 5,
@@ -38,23 +38,23 @@
         "normalizedValues": 17
       },
       "cooling": {
-        "records": 154,
-        "normalizedValues": 441
+        "records": 155,
+        "normalizedValues": 445
       }
     },
     "byConfidence": {
       "high": 76,
-      "medium": 380,
-      "low": 112
+      "medium": 383,
+      "low": 113
     }
   },
   "lastRun": {
-    "attempted": 2,
-    "collected": 2,
+    "attempted": 1,
+    "collected": 1,
     "limit": 20,
     "mode": "network",
-    "rawValues": 25,
-    "normalizedValues": 2,
+    "rawValues": 19,
+    "normalizedValues": 4,
     "errors": []
   },
   "records": [
@@ -30425,6 +30425,174 @@
         "xmp",
         "expo",
         "ecc"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-ecb8dd3fab8c0408",
+      "sourceId": "deepcool-official-index",
+      "category": "cooling",
+      "brand": "DeepCool",
+      "officialUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/STATIONX-622-Dual-Tower-6-Heatpipe-Workstation-CPU-Cooler/2026/23456.shtml",
+      "collectedAt": "2026-11-15",
+      "coverage": {
+        "rawFields": 19,
+        "normalized": 4
+      },
+      "rawFields": [
+        {
+          "field": "Product Dimensions",
+          "value": "127×148×158 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatsink Dimensions",
+          "value": "127×115×151 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Net Weight",
+          "value": "1431 g",
+          "method": "spec-table"
+        },
+        {
+          "field": "Heatpipe",
+          "value": "Ø6 mm×6 pcs",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Dimensions",
+          "value": "120×120×30 mm(L×W×H)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Speed",
+          "value": "0~2500 RPM±10%",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Motor",
+          "value": "3-phase，6-slot，4-pole",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Airflow",
+          "value": "90 CFM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Air Pressure",
+          "value": "4.34 mmAq",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Noise(50%/75%/100%RPM)",
+          "value": "≤37.33 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Overall Noise",
+          "value": "≤40 dB(A)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Connector",
+          "value": "4-pin PWM",
+          "method": "spec-table"
+        },
+        {
+          "field": "Bearing Type",
+          "value": "Dual Ball Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Voltage",
+          "value": "12 VDC",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Rated Current",
+          "value": "0.5 A(MAX)",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Power Consumption",
+          "value": "6 W",
+          "method": "spec-table"
+        },
+        {
+          "field": "EAN",
+          "value": "6933412730460",
+          "method": "spec-table"
+        },
+        {
+          "field": "P/N",
+          "value": "R-StationX622-BKWPMN-G",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "The StationX 622 is DeepCool’s first air cooler purpose-built for professional workstations and server-class systems. Featuring a dual-tower heatsink, six high-performance heat pipes, and an oversized copper base, it delivers up to 540W of cooling capacity to meet the thermal demands of today’s most powerful high-core-count processors. - DeepCool was founded with the mission of providing professio",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "coolerType",
+          "label": "Type",
+          "rawField": "og:description",
+          "rawValue": "The StationX 622 is DeepCool’s first air cooler purpose-built for professional workstations and server-class systems. Featuring a dual-tower heatsink, six high-performance heat pipes, and an oversized copper base, it delivers up to 540W of ",
+          "value": "Air",
+          "unit": null,
+          "method": "meta",
+          "confidence": "low",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/STATIONX-622-Dual-Tower-6-Heatpipe-Workstation-CPU-Cooler/2026/23456.shtml",
+          "collectedAt": "2026-11-15"
+        },
+        {
+          "field": "coolerHeight",
+          "label": "Hauteur",
+          "rawField": "Product Dimensions",
+          "rawValue": "127×148×158 mm(L×W×H)",
+          "value": 158,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/STATIONX-622-Dual-Tower-6-Heatpipe-Workstation-CPU-Cooler/2026/23456.shtml",
+          "collectedAt": "2026-11-15"
+        },
+        {
+          "field": "fanSize",
+          "label": "Taille des ventilateurs",
+          "rawField": "Fan Dimensions",
+          "rawValue": "120×120×30 mm(L×W×H)",
+          "value": 120,
+          "unit": "mm",
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/STATIONX-622-Dual-Tower-6-Heatpipe-Workstation-CPU-Cooler/2026/23456.shtml",
+          "collectedAt": "2026-11-15"
+        },
+        {
+          "field": "dimensions",
+          "label": "Dimensions",
+          "rawField": "Product Dimensions",
+          "rawValue": "127×148×158 mm(L×W×H)",
+          "value": "127 × 148 × 158 mm",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://global.deepcool.com/products/Cooling/cpuaircoolers/STATIONX-622-Dual-Tower-6-Heatpipe-Workstation-CPU-Cooler/2026/23456.shtml",
+          "collectedAt": "2026-11-15"
+        }
+      ],
+      "missingFields": [
+        "sockets",
+        "radiatorSize",
+        "fanCount"
       ],
       "review": {
         "status": "pending",
