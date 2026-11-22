@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-15",
+  "generatedAt": "2026-11-22",
   "summary": {
-    "officialCandidates": 233,
-    "collected": 233,
+    "officialCandidates": 234,
+    "collected": 234,
     "remaining": 0,
     "failures": 0,
     "byStatus": {
       "insufficient-metadata": 0,
-      "page-metadata": 223,
+      "page-metadata": 224,
       "structured-product": 10
     }
   },
@@ -6332,6 +6332,37 @@
           "signature",
           "ddr2",
           "line"
+        ]
+      },
+      "review": {
+        "status": "pending",
+        "reason": "Métadonnées collectées automatiquement ; identité, variante et caractéristiques à confirmer humainement."
+      }
+    },
+    {
+      "candidateId": "candidate-f900513a4d18d219",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/focus-px-1000-rosso/",
+      "checkedAt": "2026-11-22",
+      "status": "page-metadata",
+      "identity": {},
+      "page": {
+        "title": "FOCUS PX-1000 ROSSO Limited Edition",
+        "description": "Discover the Seasonic FOCUS PX-1000 ROSSO Limited Edition, a 1000 W Platinum PSU with ATX 3.1, premium modular cables with an automotive-inspired red finish",
+        "canonicalUrl": "https://seasonic.com/focus-px-1000-rosso/"
+      },
+      "properties": [],
+      "match": {
+        "score": 1.0,
+        "signals": [
+          "edition",
+          "limited",
+          "focus",
+          "rosso",
+          "1000",
+          "px"
         ]
       },
       "review": {

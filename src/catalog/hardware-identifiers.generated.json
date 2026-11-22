@@ -5294,6 +5294,27 @@
       "promotionBlocker": "Identifiant technique d’une puce ou d’un sous-système PCI, pas une référence commerciale garantie."
     },
     {
+      "id": "candidate-2407e05445cd0f4e",
+      "sourceId": "pci-ids",
+      "externalId": "8086:18f2",
+      "kind": "hardware-identifier",
+      "label": "Intel Ice Lake-D SATA Controller",
+      "description": "Identifiant matériel PCI 8086:18f2; modèle commercial à confirmer.",
+      "url": "https://pci-ids.ucw.cz/read/PC/8086/18f2",
+      "brand": "Intel",
+      "category": "storage",
+      "query": "pci.ids",
+      "confidence": "Faible",
+      "score": 0.45,
+      "duplicate": false,
+      "status": "À vérifier",
+      "firstSeenAt": "2026-11-22",
+      "triage": "hardware-identifier",
+      "triageReason": "Identifiant technique d’une puce ou d’un sous-système PCI, pas une référence commerciale garantie.",
+      "promotable": false,
+      "promotionBlocker": "Identifiant technique d’une puce ou d’un sous-système PCI, pas une référence commerciale garantie."
+    },
+    {
       "id": "candidate-e262f5afc82473a1",
       "sourceId": "pci-ids",
       "externalId": "8086:1457",

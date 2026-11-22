@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-11-15",
+  "generatedAt": "2026-11-22",
   "policy": {
     "pageBudget": 20,
     "fieldLimit": 80,
@@ -14,12 +14,12 @@
     "publishAutomatically": false
   },
   "summary": {
-    "eligibleCandidates": 233,
-    "collected": 233,
+    "eligibleCandidates": 234,
+    "collected": 234,
     "remaining": 0,
     "failures": 0,
-    "rawValues": 4112,
-    "normalizedValues": 572,
+    "rawValues": 4127,
+    "normalizedValues": 575,
     "byCategory": {
       "motherboard": {
         "records": 5,
@@ -30,8 +30,8 @@
         "normalizedValues": 2
       },
       "psu": {
-        "records": 34,
-        "normalizedValues": 99
+        "records": 35,
+        "normalizedValues": 102
       },
       "case": {
         "records": 5,
@@ -43,8 +43,8 @@
       }
     },
     "byConfidence": {
-      "high": 76,
-      "medium": 383,
+      "high": 78,
+      "medium": 384,
       "low": 113
     }
   },
@@ -53,8 +53,8 @@
     "collected": 1,
     "limit": 20,
     "mode": "network",
-    "rawValues": 19,
-    "normalizedValues": 4,
+    "rawValues": 15,
+    "normalizedValues": 3,
     "errors": []
   },
   "records": [
@@ -32522,6 +32522,143 @@
         "xmp",
         "expo",
         "ecc"
+      ],
+      "review": {
+        "status": "pending",
+        "reason": "Caractéristiques extraites automatiquement des pages officielles : valeurs brutes conservées, valeurs normalisées à relire. Une caractéristique absente reste inconnue et ne vaut pas une réponse négative."
+      }
+    },
+    {
+      "candidateId": "candidate-f900513a4d18d219",
+      "sourceId": "seasonic-official-index",
+      "category": "psu",
+      "brand": "Seasonic",
+      "officialUrl": "https://seasonic.com/focus-px-1000-rosso/",
+      "collectedAt": "2026-11-22",
+      "coverage": {
+        "rawFields": 15,
+        "normalized": 3
+      },
+      "rawFields": [
+        {
+          "field": "80PLUS®",
+          "value": "Platinum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Efficiency Level",
+          "value": "Platinum",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cybenetics Noise Level",
+          "value": "A+",
+          "method": "spec-table"
+        },
+        {
+          "field": "Form Factor",
+          "value": "ATX/EPS",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Control",
+          "value": "OptiSilent Smart Cooling",
+          "method": "spec-table"
+        },
+        {
+          "field": "Fan Bearing",
+          "value": "Fluid Dynamic Bearing",
+          "method": "spec-table"
+        },
+        {
+          "field": "MTBF",
+          "value": "50, 000 hours at 40 °C, 15 % - 65 % RH",
+          "method": "spec-table"
+        },
+        {
+          "field": "Cable type",
+          "value": "Individual Sleeved Red and Black Cables",
+          "method": "spec-table"
+        },
+        {
+          "field": "MTBF @ 25 °C, excl. fan",
+          "value": "100, 000 hours",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "Full Range",
+          "method": "spec-table"
+        },
+        {
+          "field": "Protection",
+          "value": "OCP, OPP, OTP, OVP, SCP, UVP",
+          "method": "spec-table"
+        },
+        {
+          "field": "Regulatory Compliance",
+          "value": "ErP Lot 6, REACH, RoHS, WEEE",
+          "method": "spec-table"
+        },
+        {
+          "field": "Warranty",
+          "value": "10 Years",
+          "method": "spec-table"
+        },
+        {
+          "field": "AC Input",
+          "value": "100 V - 240 V",
+          "method": "spec-table"
+        },
+        {
+          "field": "og:description",
+          "value": "Discover the Seasonic FOCUS PX-1000 ROSSO Limited Edition, a 1000 W Platinum PSU with ATX 3.1, premium modular cables with an automotive-inspired red finish",
+          "method": "meta"
+        }
+      ],
+      "specs": [
+        {
+          "field": "efficiency",
+          "label": "Certification",
+          "rawField": "80PLUS®",
+          "rawValue": "Platinum",
+          "value": "80 PLUS Platinum",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/focus-px-1000-rosso/",
+          "collectedAt": "2026-11-22"
+        },
+        {
+          "field": "atxStandard",
+          "label": "Norme ATX",
+          "rawField": "Form Factor",
+          "rawValue": "ATX/EPS",
+          "value": "ATX",
+          "unit": null,
+          "method": "spec-table",
+          "confidence": "medium",
+          "sourceUrl": "https://seasonic.com/focus-px-1000-rosso/",
+          "collectedAt": "2026-11-22"
+        },
+        {
+          "field": "warrantyYears",
+          "label": "Garantie",
+          "rawField": "Warranty",
+          "rawValue": "10 Years",
+          "value": 10,
+          "unit": "ans",
+          "method": "spec-table",
+          "confidence": "high",
+          "sourceUrl": "https://seasonic.com/focus-px-1000-rosso/",
+          "collectedAt": "2026-11-22"
+        }
+      ],
+      "missingFields": [
+        "wattage",
+        "modularity",
+        "pcieConnectors",
+        "highPowerConnector"
       ],
       "review": {
         "status": "pending",
